@@ -1,0 +1,18 @@
+.bttnWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 400px;
+    margin: 20px 24px;
+}
+
+.lbl {
+    color: lightslategray;
+    margin: 4px 0;
+}
+
+.bttn {
+    width: inherit;
+    margin: 0;
+    padding: 0;
+}

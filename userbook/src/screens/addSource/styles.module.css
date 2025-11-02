@@ -1,0 +1,59 @@
+.header {
+    padding-left: 1vw;
+    padding-right: 1vw;
+    margin-top: 24px;
+    margin-bottom: 12px;
+}
+
+.addWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    margin-top: 2vh;
+}
+
+.inputsWrapper {
+    padding-top: 36px;
+    padding-left: 36px;
+    padding-right: 36px;
+}
+
+.mrgTop {
+    margin-top: 16px;
+}
+
+.bttnWrapper {
+    display: flex;
+    flex: 1;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 36px 0px;
+}
+
+.bttn {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-width: 1px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.bttn:hover {
+    opacity: 0.85;
+    background-color: rgb(230, 230, 230);
+}
+
+.bttn:active {
+    opacity: 0.85;
+    background-color: rgb(225, 225, 225);
+}
+
+.addIcon {
+    margin-right: 12px;
+}
+
+.fakeBttn {
+    all: unset;
+    width: fit-content;
+}

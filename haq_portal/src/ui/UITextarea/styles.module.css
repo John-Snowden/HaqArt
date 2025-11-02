@@ -1,0 +1,17 @@
+.textArea {
+  all: unset;
+
+  flex-shrink: 0;
+  width: 100%;
+  box-sizing: border-box;
+  border: 0.5px solid rgb(189, 201, 208);
+  border-radius: 4px;
+  padding: 12px;
+
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.textArea::placeholder {
+  color: rgb(189, 201, 208);
+}

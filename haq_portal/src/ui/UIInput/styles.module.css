@@ -1,0 +1,31 @@
+.inputWrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  box-sizing: border-box;
+  margin-top: 12px;
+}
+
+.input {
+  all: unset;
+
+  display: flex;
+  height: 34px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 12px;
+  align-items: center;
+  border: none;
+  border-bottom: 0.5px solid rgb(189, 201, 208);
+  outline: none;
+  background: transparent;
+  margin-bottom: 4px;
+
+  font-size: 14px;
+  color: black;
+}
+
+input::placeholder {
+  color: rgb(189, 201, 208);
+}

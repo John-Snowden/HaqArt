@@ -1,0 +1,35 @@
+.main {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.label {
+  width: 100px;
+  margin-right: 24px;
+}
+
+.calendar {
+  all: unset;
+  display: flex;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 0.5px solid #ccc;
+}
+
+.calendar:hover {
+  border-bottom: 0.5px solid #a5a4a4;
+}
+
+.calendarIcon {
+  display: flex;
+  align-items: center;
+  margin-left: 18px;
+  margin-bottom: 2px;
+  cursor: pointer;
+}
+
+.dash {
+  margin-right: 36px;
+}

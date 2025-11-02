@@ -1,0 +1,46 @@
+.margLeft {
+  margin-left: 10px;
+}
+
+.itemWrapper {
+  display: flex;
+  height: 90px;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 0.5px solid #ccc;
+}
+
+.titleWrapper {
+  margin-right: 10px;
+}
+
+.bottomMenu {
+  display: flex;
+  position: absolute;
+  bottom: 40px;
+  right: 34px;
+  justify-content: center;
+  align-items: center;
+}
+
+.bttnWrapper {
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  margin-left: 30px;
+  cursor: pointer;
+}
+
+.bttnWrapper:hover {
+  opacity: 0.85;
+}
+
+.bttnWrapper:active {
+  transform: scale(0.98);
+}
+
+.themeToggleText {
+  margin-right: 8px;
+}
