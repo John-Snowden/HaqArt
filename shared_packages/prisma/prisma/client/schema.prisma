@@ -1,0 +1,193 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+enum LEAD_STATUS {
+  addedToDB
+  messageSent
+  messageRead
+  replied
+  contactShared
+}
+
+enum TASK_STATUS {
+  notAssigned
+
+  assignedNotStarted
+  workInProgress
+  blocked
+  checkMe
+
+  done
+  weRefused
+  leadRefused
+}
+
+enum TASK_URGENCY {
+  one
+  two
+  three
+  four
+  five
+}
+
+enum TASK_IMPORTANCE {
+  one
+  two
+  three
+}
+
+enum ROLES {
+  dev
+  owner
+  ceo
+  manager
+  bot
+}
+
+enum LEGAL_ACTION {
+  none
+  filing
+  courtParticipation
+  consultation
+  appointment
+  negotiations
+  claim
+  lawyerRequest
+}
+
+enum STATUS_IN_COURT {
+  postponed
+  paused
+  judgeOnVacation
+  reassigned
+  negotiations
+  returned
+}
+
+enum REFUSAL_REASON {
+  none
+  choseCompetitor
+  irrelevantServices
+  tooExpensive
+  noReasonGiven
+}
+
+enum SOURCE_CATEGORY {
+  none
+  realEstate
+  loans
+  other
+}
+
+generator client {
+  provider      = "prisma-client-js"
+  output        = "./prisma/client"
+  binaryTargets = ["native", "darwin-arm64", "debian-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Manager {
+  id        Int      @id @default(autoincrement())
+  username  String   @unique
+  password  String
+  role      ROLES
+  createdAt DateTime @default(now())
+
+  authoredUsers User[]    @relation("UserAuthor")
+  managedUsers  User[]    @relation("UserManager")
+  sources       Source[]
+  bloggers      Blogger[]
+}
+
+model User {
+  id          Int     @id @default(autoincrement())
+  username    String
+  userLink    String? @unique
+  phoneNumber String? @unique
+  email       String? @unique
+  homeAddress String
+
+  leadStatus     LEAD_STATUS     @default(addedToDB)
+  taskImportance TASK_IMPORTANCE @default(two)
+  taskUrgency    TASK_URGENCY    @default(three)
+  taskStatus     TASK_STATUS     @default(notAssigned)
+  legalAction    LEGAL_ACTION?
+
+  problemShort String
+  problemFull  String
+
+  nearestTask         String    @default("")
+  nearestTaskDeadline DateTime?
+  timeOfPerformance   DateTime?
+
+  priceSOM BigInt?
+  priceUSD BigInt?
+
+  courtInfo     String           @default("")
+  statusInCourt STATUS_IN_COURT?
+
+  refusalReason REFUSAL_REASON?
+
+  createdAt      DateTime  @default(now())
+  assignmentTime DateTime?
+
+  authorId Int
+  author   Manager @relation("UserAuthor", fields: [authorId], references: [id])
+
+  sourceId Int
+  source   Source @relation(fields: [sourceId], references: [id])
+
+  opponentId Int?
+  opponent   Opponent? @relation(fields: [opponentId], references: [id])
+
+  managerId Int?
+  manager   Manager? @relation("UserManager", fields: [managerId], references: [id])
+}
+
+model Source {
+  id         Int             @id @default(autoincrement())
+  title      String          @unique
+  sourceLink String?         @unique
+  category   SOURCE_CATEGORY
+
+  createdAt DateTime @default(now())
+
+  authorId Int
+  author   Manager @relation(fields: [authorId], references: [id])
+
+  users User[]
+}
+
+model Opponent {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  link      String?  @unique
+  info      String   @default("")
+  createdAt DateTime @default(now())
+
+  users User[]
+}
+
+model Blogger {
+  id               Int               @id @default(autoincrement())
+  name             String            @unique
+  link             String            @unique
+  subscribersCount Int
+  info             String            @default("")
+  priceSOM         Int?
+  priceUSD         Int?
+  phoneNumber      String?           @unique
+  email            String?           @unique
+  categories       SOURCE_CATEGORY[]
+  createdAt        DateTime          @default(now())
+
+  authorId Int
+  author   Manager @relation(fields: [authorId], references: [id])
+}

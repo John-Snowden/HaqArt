@@ -1,0 +1,24 @@
+{
+  "name": "legalart",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "pr_reset": "npx prisma migrate reset --schema ./shared-packages/prisma/schema.prisma",
+    "pr_dev": "prisma migrate dev --name init --schema ./shared-packages/prisma/schema.prisma",
+    "pr_prod": "prisma generate --schema ./shared-packages/prisma/schema.prisma && prisma migrate deploy --schema ./shared-packages/prisma/schema.prisma",
+    "pr_format": "prisma format --schema ./shared-packages/prisma/schema.prisma"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^24.9.2",
+    "prisma": "^6.18.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.18.0",
+    "date-fns": "^4.1.0"
+  }
+}
