@@ -8,6 +8,7 @@ import {
   TASK_STATUS,
   TASK_URGENCY,
   TASK_IMPORTANCE,
+  ROLES,
 } from "@shared/prisma/prisma/client";
 import RootStore from "@/stores/rootStore";
 import { ROUTES } from "@/constants/routes";
@@ -105,7 +106,7 @@ export default class DeskVM {
     const data = this.root.usersStore.users.map((user) => {
       const authorName =
         this.root.managersStore.managers.find(
-          (manager) => manager.id === user.authorId
+          (manager) => manager.id === user.authorId,
         )?.username || "-";
 
       const authorCapital = authorName
@@ -117,7 +118,7 @@ export default class DeskVM {
 
       const managerName =
         this.root.managersStore.managers.find(
-          (manager) => manager.id === user.managerId
+          (manager) => manager.id === user.managerId,
         )?.username || "-";
 
       const managerCapital = managerName
@@ -129,7 +130,7 @@ export default class DeskVM {
 
       const opponentName =
         this.root.opponentsStore.opponents.find(
-          (opponent) => opponent.id === user.opponentId
+          (opponent) => opponent.id === user.opponentId,
         )?.name || "-";
 
       return {
@@ -142,7 +143,7 @@ export default class DeskVM {
 
     const order = ["one", "two", "three", "four", "five"];
     const sorted = data.sort(
-      (a, b) => order.indexOf(a.taskUrgency) - order.indexOf(b.taskUrgency)
+      (a, b) => order.indexOf(a.taskUrgency) - order.indexOf(b.taskUrgency),
     );
 
     return sorted;
@@ -150,13 +151,16 @@ export default class DeskVM {
 
   get unassignedUsersCount(): number {
     const unassigned = this.root.usersStore.users.filter(
-      (user) => !user.managerId
+      (user) => !user.managerId,
     );
     return unassigned.length;
   }
 
   get managerFilterOptions() {
-    const options = this.root.managersStore.managers.map((manager) => {
+    const filtered = this.root.managersStore.managers.filter(
+      (manager) => manager.role !== ROLES.bot,
+    );
+    const options = filtered.map((manager) => {
       return {
         option: String(manager.id),
         label: manager.username,

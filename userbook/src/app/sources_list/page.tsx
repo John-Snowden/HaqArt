@@ -1,8 +1,7 @@
 "use client";
 
-import { createContext, useContext, useEffect, useMemo } from "react";
+import { createContext, useContext, useMemo } from "react";
 
-import { ROUTES } from "@/constants/routes";
 import SourcesListVM from "@/screens/sourcesList/sourcesList.vm";
 import { SourcesListScreen } from "@/screens/sourcesList/SourcesListScreen";
 

@@ -65,6 +65,7 @@ enum STATUS_IN_COURT {
   reassigned
   negotiations
   returned
+  none
 }
 
 enum REFUSAL_REASON {
@@ -118,7 +119,7 @@ model User {
   taskImportance TASK_IMPORTANCE @default(two)
   taskUrgency    TASK_URGENCY    @default(three)
   taskStatus     TASK_STATUS     @default(notAssigned)
-  legalAction    LEGAL_ACTION?
+  legalAction    LEGAL_ACTION
 
   problemShort String
   problemFull  String
@@ -130,8 +131,8 @@ model User {
   priceSOM BigInt?
   priceUSD BigInt?
 
-  courtInfo     String           @default("")
-  statusInCourt STATUS_IN_COURT?
+  courtInfo     String          @default("")
+  statusInCourt STATUS_IN_COURT
 
   refusalReason REFUSAL_REASON?
 

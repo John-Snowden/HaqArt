@@ -8,10 +8,10 @@ import { observer } from "mobx-react-lite";
 
 import { ROUTES } from "@/constants/routes";
 import { ListWrapper } from "@/ui/listWrapper/ListWrapper";
-import { useBloggersListVM } from "../hooks";
+import { categoryOptions } from "@/screens/editSource/constants/dropdownOptions";
 
 import styles from "../styles.module.css";
-import { categoryOptions } from "@/screens/addSource/constants/dropdownOptions";
+import { useBloggersListVM } from "../hooks";
 
 export const BloggersList = observer(() => {
   const {
@@ -48,7 +48,7 @@ export const BloggersList = observer(() => {
 
         const categories = blogger.categories.map((category) => {
           const option = categoryOptions.find(
-            (categoryOption) => categoryOption.option === category
+            (categoryOption) => categoryOption.option === category,
           );
           return option?.label || "-";
         });

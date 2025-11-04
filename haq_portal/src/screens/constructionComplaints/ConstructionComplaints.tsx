@@ -3,11 +3,12 @@
 import clsx from "clsx";
 import { observer } from "mobx-react-lite";
 
-import { UIButton, UIInput, UITextarea } from "@/ui";
 import { useConstructionComplaintsVM } from "@/context";
+import { UIButton, UIInput, UISep, UITextarea } from "@/ui";
 
 import styles from "./styles.module.css";
 import stylesGlobal from "../../stylesGlobal.module.css";
+import { toast } from "sonner";
 
 export const ConstructionComplaintsScreen = observer(() => {
   const {
@@ -27,17 +28,18 @@ export const ConstructionComplaintsScreen = observer(() => {
       <div className={stylesGlobal.center}>
         <h1>Подайте жалобу</h1>
         <h1>на Вашего застройщика</h1>
-        <h4 className={styles.halfSep}>Интерактивный портал города Ташкент.</h4>
+        <div className={styles.halfSep} />
+        <h4>Интерактивный портал города Ташкент.</h4>
 
-        <div className={stylesGlobal.sep} />
-        <div className={stylesGlobal.sep} />
+        <UISep />
+        <UISep />
         <h4>
           Пожалуйста, сообщите нам о нарушениях, допущенных Вашей строительной
           компанией.
         </h4>
       </div>
 
-      <div className={stylesGlobal.sep} />
+      <UISep />
       <div style={{ display: "flex", alignSelf: "center", width: "100%" }}>
         <div className={styles.inputWrapper}>
           <UIInput
@@ -75,7 +77,7 @@ export const ConstructionComplaintsScreen = observer(() => {
         />
       </div>
 
-      <div className={stylesGlobal.sep} />
+      <UISep />
       <div className={styles.inputWrapper}>
         <UIInput
           placeholder="Именование компании-застройщика"
@@ -95,8 +97,8 @@ export const ConstructionComplaintsScreen = observer(() => {
         />
       </div>
 
-      <div className={stylesGlobal.sep} />
-      <div className={stylesGlobal.sep} />
+      <UISep />
+      <UISep />
       <UITextarea
         value={problemFull}
         placeholder="Краткий текст обращения (300 символов). Например: отсутствие кадастровых документов, разрешений на строительство,
@@ -105,7 +107,7 @@ export const ConstructionComplaintsScreen = observer(() => {
       />
       <div className={styles.subtitle}>Тип обращения: жалоба*</div>
 
-      <div className={stylesGlobal.sep} />
+      <UISep />
       <div className={styles.buttonWrapper}>
         <UIButton
           title="Отправить"
@@ -114,7 +116,7 @@ export const ConstructionComplaintsScreen = observer(() => {
         />
       </div>
 
-      <div className={stylesGlobal.sep} />
+      <UISep />
       <div className={styles.subtitle}>
         Обращения рассматриваются в порядке очереди.
       </div>

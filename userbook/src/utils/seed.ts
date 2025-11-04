@@ -10,6 +10,11 @@ export const addManager = async () => {
     { username: "Roman", password: "Ceo", role: "ceo" },
     { username: "Sadiq", password: "SadiqSadiq", role: "manager" },
     { username: "Nurdona", password: "NurNur", role: "manager" },
+    {
+      username: "haq_bot",
+      password: "haq_bot_portal_password123",
+      role: "bot",
+    },
   ];
   // try {
   //   await prisma.manager.delete({ where: { username: "Sadiq" } });

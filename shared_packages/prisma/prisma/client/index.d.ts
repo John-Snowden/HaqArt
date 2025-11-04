@@ -119,7 +119,8 @@ export const STATUS_IN_COURT: {
   judgeOnVacation: 'judgeOnVacation',
   reassigned: 'reassigned',
   negotiations: 'negotiations',
-  returned: 'returned'
+  returned: 'returned',
+  none: 'none'
 };
 
 export type STATUS_IN_COURT = (typeof STATUS_IN_COURT)[keyof typeof STATUS_IN_COURT]
@@ -3008,7 +3009,7 @@ export namespace Prisma {
     taskImportance: $Enums.TASK_IMPORTANCE
     taskUrgency: $Enums.TASK_URGENCY
     taskStatus: $Enums.TASK_STATUS
-    legalAction: $Enums.LEGAL_ACTION | null
+    legalAction: $Enums.LEGAL_ACTION
     problemShort: string
     problemFull: string
     nearestTask: string
@@ -3017,7 +3018,7 @@ export namespace Prisma {
     priceSOM: bigint | null
     priceUSD: bigint | null
     courtInfo: string
-    statusInCourt: $Enums.STATUS_IN_COURT | null
+    statusInCourt: $Enums.STATUS_IN_COURT
     refusalReason: $Enums.REFUSAL_REASON | null
     createdAt: Date
     assignmentTime: Date | null
@@ -3217,7 +3218,7 @@ export namespace Prisma {
       taskImportance: $Enums.TASK_IMPORTANCE
       taskUrgency: $Enums.TASK_URGENCY
       taskStatus: $Enums.TASK_STATUS
-      legalAction: $Enums.LEGAL_ACTION | null
+      legalAction: $Enums.LEGAL_ACTION
       problemShort: string
       problemFull: string
       nearestTask: string
@@ -3226,7 +3227,7 @@ export namespace Prisma {
       priceSOM: bigint | null
       priceUSD: bigint | null
       courtInfo: string
-      statusInCourt: $Enums.STATUS_IN_COURT | null
+      statusInCourt: $Enums.STATUS_IN_COURT
       refusalReason: $Enums.REFUSAL_REASON | null
       createdAt: Date
       assignmentTime: Date | null
@@ -7985,7 +7986,7 @@ export namespace Prisma {
     taskImportance?: EnumTASK_IMPORTANCEFilter<"User"> | $Enums.TASK_IMPORTANCE
     taskUrgency?: EnumTASK_URGENCYFilter<"User"> | $Enums.TASK_URGENCY
     taskStatus?: EnumTASK_STATUSFilter<"User"> | $Enums.TASK_STATUS
-    legalAction?: EnumLEGAL_ACTIONNullableFilter<"User"> | $Enums.LEGAL_ACTION | null
+    legalAction?: EnumLEGAL_ACTIONFilter<"User"> | $Enums.LEGAL_ACTION
     problemShort?: StringFilter<"User"> | string
     problemFull?: StringFilter<"User"> | string
     nearestTask?: StringFilter<"User"> | string
@@ -7994,7 +7995,7 @@ export namespace Prisma {
     priceSOM?: BigIntNullableFilter<"User"> | bigint | number | null
     priceUSD?: BigIntNullableFilter<"User"> | bigint | number | null
     courtInfo?: StringFilter<"User"> | string
-    statusInCourt?: EnumSTATUS_IN_COURTNullableFilter<"User"> | $Enums.STATUS_IN_COURT | null
+    statusInCourt?: EnumSTATUS_IN_COURTFilter<"User"> | $Enums.STATUS_IN_COURT
     refusalReason?: EnumREFUSAL_REASONNullableFilter<"User"> | $Enums.REFUSAL_REASON | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     assignmentTime?: DateTimeNullableFilter<"User"> | Date | string | null
@@ -8019,7 +8020,7 @@ export namespace Prisma {
     taskImportance?: SortOrder
     taskUrgency?: SortOrder
     taskStatus?: SortOrder
-    legalAction?: SortOrderInput | SortOrder
+    legalAction?: SortOrder
     problemShort?: SortOrder
     problemFull?: SortOrder
     nearestTask?: SortOrder
@@ -8028,7 +8029,7 @@ export namespace Prisma {
     priceSOM?: SortOrderInput | SortOrder
     priceUSD?: SortOrderInput | SortOrder
     courtInfo?: SortOrder
-    statusInCourt?: SortOrderInput | SortOrder
+    statusInCourt?: SortOrder
     refusalReason?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     assignmentTime?: SortOrderInput | SortOrder
@@ -8056,7 +8057,7 @@ export namespace Prisma {
     taskImportance?: EnumTASK_IMPORTANCEFilter<"User"> | $Enums.TASK_IMPORTANCE
     taskUrgency?: EnumTASK_URGENCYFilter<"User"> | $Enums.TASK_URGENCY
     taskStatus?: EnumTASK_STATUSFilter<"User"> | $Enums.TASK_STATUS
-    legalAction?: EnumLEGAL_ACTIONNullableFilter<"User"> | $Enums.LEGAL_ACTION | null
+    legalAction?: EnumLEGAL_ACTIONFilter<"User"> | $Enums.LEGAL_ACTION
     problemShort?: StringFilter<"User"> | string
     problemFull?: StringFilter<"User"> | string
     nearestTask?: StringFilter<"User"> | string
@@ -8065,7 +8066,7 @@ export namespace Prisma {
     priceSOM?: BigIntNullableFilter<"User"> | bigint | number | null
     priceUSD?: BigIntNullableFilter<"User"> | bigint | number | null
     courtInfo?: StringFilter<"User"> | string
-    statusInCourt?: EnumSTATUS_IN_COURTNullableFilter<"User"> | $Enums.STATUS_IN_COURT | null
+    statusInCourt?: EnumSTATUS_IN_COURTFilter<"User"> | $Enums.STATUS_IN_COURT
     refusalReason?: EnumREFUSAL_REASONNullableFilter<"User"> | $Enums.REFUSAL_REASON | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     assignmentTime?: DateTimeNullableFilter<"User"> | Date | string | null
@@ -8090,7 +8091,7 @@ export namespace Prisma {
     taskImportance?: SortOrder
     taskUrgency?: SortOrder
     taskStatus?: SortOrder
-    legalAction?: SortOrderInput | SortOrder
+    legalAction?: SortOrder
     problemShort?: SortOrder
     problemFull?: SortOrder
     nearestTask?: SortOrder
@@ -8099,7 +8100,7 @@ export namespace Prisma {
     priceSOM?: SortOrderInput | SortOrder
     priceUSD?: SortOrderInput | SortOrder
     courtInfo?: SortOrder
-    statusInCourt?: SortOrderInput | SortOrder
+    statusInCourt?: SortOrder
     refusalReason?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     assignmentTime?: SortOrderInput | SortOrder
@@ -8128,7 +8129,7 @@ export namespace Prisma {
     taskImportance?: EnumTASK_IMPORTANCEWithAggregatesFilter<"User"> | $Enums.TASK_IMPORTANCE
     taskUrgency?: EnumTASK_URGENCYWithAggregatesFilter<"User"> | $Enums.TASK_URGENCY
     taskStatus?: EnumTASK_STATUSWithAggregatesFilter<"User"> | $Enums.TASK_STATUS
-    legalAction?: EnumLEGAL_ACTIONNullableWithAggregatesFilter<"User"> | $Enums.LEGAL_ACTION | null
+    legalAction?: EnumLEGAL_ACTIONWithAggregatesFilter<"User"> | $Enums.LEGAL_ACTION
     problemShort?: StringWithAggregatesFilter<"User"> | string
     problemFull?: StringWithAggregatesFilter<"User"> | string
     nearestTask?: StringWithAggregatesFilter<"User"> | string
@@ -8137,7 +8138,7 @@ export namespace Prisma {
     priceSOM?: BigIntNullableWithAggregatesFilter<"User"> | bigint | number | null
     priceUSD?: BigIntNullableWithAggregatesFilter<"User"> | bigint | number | null
     courtInfo?: StringWithAggregatesFilter<"User"> | string
-    statusInCourt?: EnumSTATUS_IN_COURTNullableWithAggregatesFilter<"User"> | $Enums.STATUS_IN_COURT | null
+    statusInCourt?: EnumSTATUS_IN_COURTWithAggregatesFilter<"User"> | $Enums.STATUS_IN_COURT
     refusalReason?: EnumREFUSAL_REASONNullableWithAggregatesFilter<"User"> | $Enums.REFUSAL_REASON | null
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     assignmentTime?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
@@ -8440,7 +8441,7 @@ export namespace Prisma {
     taskImportance?: $Enums.TASK_IMPORTANCE
     taskUrgency?: $Enums.TASK_URGENCY
     taskStatus?: $Enums.TASK_STATUS
-    legalAction?: $Enums.LEGAL_ACTION | null
+    legalAction: $Enums.LEGAL_ACTION
     problemShort: string
     problemFull: string
     nearestTask?: string
@@ -8449,7 +8450,7 @@ export namespace Prisma {
     priceSOM?: bigint | number | null
     priceUSD?: bigint | number | null
     courtInfo?: string
-    statusInCourt?: $Enums.STATUS_IN_COURT | null
+    statusInCourt: $Enums.STATUS_IN_COURT
     refusalReason?: $Enums.REFUSAL_REASON | null
     createdAt?: Date | string
     assignmentTime?: Date | string | null
@@ -8470,7 +8471,7 @@ export namespace Prisma {
     taskImportance?: $Enums.TASK_IMPORTANCE
     taskUrgency?: $Enums.TASK_URGENCY
     taskStatus?: $Enums.TASK_STATUS
-    legalAction?: $Enums.LEGAL_ACTION | null
+    legalAction: $Enums.LEGAL_ACTION
     problemShort: string
     problemFull: string
     nearestTask?: string
@@ -8479,7 +8480,7 @@ export namespace Prisma {
     priceSOM?: bigint | number | null
     priceUSD?: bigint | number | null
     courtInfo?: string
-    statusInCourt?: $Enums.STATUS_IN_COURT | null
+    statusInCourt: $Enums.STATUS_IN_COURT
     refusalReason?: $Enums.REFUSAL_REASON | null
     createdAt?: Date | string
     assignmentTime?: Date | string | null
@@ -8499,7 +8500,7 @@ export namespace Prisma {
     taskImportance?: EnumTASK_IMPORTANCEFieldUpdateOperationsInput | $Enums.TASK_IMPORTANCE
     taskUrgency?: EnumTASK_URGENCYFieldUpdateOperationsInput | $Enums.TASK_URGENCY
     taskStatus?: EnumTASK_STATUSFieldUpdateOperationsInput | $Enums.TASK_STATUS
-    legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
+    legalAction?: EnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION
     problemShort?: StringFieldUpdateOperationsInput | string
     problemFull?: StringFieldUpdateOperationsInput | string
     nearestTask?: StringFieldUpdateOperationsInput | string
@@ -8508,7 +8509,7 @@ export namespace Prisma {
     priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     courtInfo?: StringFieldUpdateOperationsInput | string
-    statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
+    statusInCourt?: EnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -8529,7 +8530,7 @@ export namespace Prisma {
     taskImportance?: EnumTASK_IMPORTANCEFieldUpdateOperationsInput | $Enums.TASK_IMPORTANCE
     taskUrgency?: EnumTASK_URGENCYFieldUpdateOperationsInput | $Enums.TASK_URGENCY
     taskStatus?: EnumTASK_STATUSFieldUpdateOperationsInput | $Enums.TASK_STATUS
-    legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
+    legalAction?: EnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION
     problemShort?: StringFieldUpdateOperationsInput | string
     problemFull?: StringFieldUpdateOperationsInput | string
     nearestTask?: StringFieldUpdateOperationsInput | string
@@ -8538,7 +8539,7 @@ export namespace Prisma {
     priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     courtInfo?: StringFieldUpdateOperationsInput | string
-    statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
+    statusInCourt?: EnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -8559,7 +8560,7 @@ export namespace Prisma {
     taskImportance?: $Enums.TASK_IMPORTANCE
     taskUrgency?: $Enums.TASK_URGENCY
     taskStatus?: $Enums.TASK_STATUS
-    legalAction?: $Enums.LEGAL_ACTION | null
+    legalAction: $Enums.LEGAL_ACTION
     problemShort: string
     problemFull: string
     nearestTask?: string
@@ -8568,7 +8569,7 @@ export namespace Prisma {
     priceSOM?: bigint | number | null
     priceUSD?: bigint | number | null
     courtInfo?: string
-    statusInCourt?: $Enums.STATUS_IN_COURT | null
+    statusInCourt: $Enums.STATUS_IN_COURT
     refusalReason?: $Enums.REFUSAL_REASON | null
     createdAt?: Date | string
     assignmentTime?: Date | string | null
@@ -8588,7 +8589,7 @@ export namespace Prisma {
     taskImportance?: EnumTASK_IMPORTANCEFieldUpdateOperationsInput | $Enums.TASK_IMPORTANCE
     taskUrgency?: EnumTASK_URGENCYFieldUpdateOperationsInput | $Enums.TASK_URGENCY
     taskStatus?: EnumTASK_STATUSFieldUpdateOperationsInput | $Enums.TASK_STATUS
-    legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
+    legalAction?: EnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION
     problemShort?: StringFieldUpdateOperationsInput | string
     problemFull?: StringFieldUpdateOperationsInput | string
     nearestTask?: StringFieldUpdateOperationsInput | string
@@ -8597,7 +8598,7 @@ export namespace Prisma {
     priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     courtInfo?: StringFieldUpdateOperationsInput | string
-    statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
+    statusInCourt?: EnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -8614,7 +8615,7 @@ export namespace Prisma {
     taskImportance?: EnumTASK_IMPORTANCEFieldUpdateOperationsInput | $Enums.TASK_IMPORTANCE
     taskUrgency?: EnumTASK_URGENCYFieldUpdateOperationsInput | $Enums.TASK_URGENCY
     taskStatus?: EnumTASK_STATUSFieldUpdateOperationsInput | $Enums.TASK_STATUS
-    legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
+    legalAction?: EnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION
     problemShort?: StringFieldUpdateOperationsInput | string
     problemFull?: StringFieldUpdateOperationsInput | string
     nearestTask?: StringFieldUpdateOperationsInput | string
@@ -8623,7 +8624,7 @@ export namespace Prisma {
     priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     courtInfo?: StringFieldUpdateOperationsInput | string
-    statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
+    statusInCourt?: EnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -9061,11 +9062,11 @@ export namespace Prisma {
     not?: NestedEnumTASK_STATUSFilter<$PrismaModel> | $Enums.TASK_STATUS
   }
 
-  export type EnumLEGAL_ACTIONNullableFilter<$PrismaModel = never> = {
-    equals?: $Enums.LEGAL_ACTION | EnumLEGAL_ACTIONFieldRefInput<$PrismaModel> | null
-    in?: $Enums.LEGAL_ACTION[] | ListEnumLEGAL_ACTIONFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.LEGAL_ACTION[] | ListEnumLEGAL_ACTIONFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumLEGAL_ACTIONNullableFilter<$PrismaModel> | $Enums.LEGAL_ACTION | null
+  export type EnumLEGAL_ACTIONFilter<$PrismaModel = never> = {
+    equals?: $Enums.LEGAL_ACTION | EnumLEGAL_ACTIONFieldRefInput<$PrismaModel>
+    in?: $Enums.LEGAL_ACTION[] | ListEnumLEGAL_ACTIONFieldRefInput<$PrismaModel>
+    notIn?: $Enums.LEGAL_ACTION[] | ListEnumLEGAL_ACTIONFieldRefInput<$PrismaModel>
+    not?: NestedEnumLEGAL_ACTIONFilter<$PrismaModel> | $Enums.LEGAL_ACTION
   }
 
   export type DateTimeNullableFilter<$PrismaModel = never> = {
@@ -9090,11 +9091,11 @@ export namespace Prisma {
     not?: NestedBigIntNullableFilter<$PrismaModel> | bigint | number | null
   }
 
-  export type EnumSTATUS_IN_COURTNullableFilter<$PrismaModel = never> = {
-    equals?: $Enums.STATUS_IN_COURT | EnumSTATUS_IN_COURTFieldRefInput<$PrismaModel> | null
-    in?: $Enums.STATUS_IN_COURT[] | ListEnumSTATUS_IN_COURTFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.STATUS_IN_COURT[] | ListEnumSTATUS_IN_COURTFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumSTATUS_IN_COURTNullableFilter<$PrismaModel> | $Enums.STATUS_IN_COURT | null
+  export type EnumSTATUS_IN_COURTFilter<$PrismaModel = never> = {
+    equals?: $Enums.STATUS_IN_COURT | EnumSTATUS_IN_COURTFieldRefInput<$PrismaModel>
+    in?: $Enums.STATUS_IN_COURT[] | ListEnumSTATUS_IN_COURTFieldRefInput<$PrismaModel>
+    notIn?: $Enums.STATUS_IN_COURT[] | ListEnumSTATUS_IN_COURTFieldRefInput<$PrismaModel>
+    not?: NestedEnumSTATUS_IN_COURTFilter<$PrismaModel> | $Enums.STATUS_IN_COURT
   }
 
   export type EnumREFUSAL_REASONNullableFilter<$PrismaModel = never> = {
@@ -9308,14 +9309,14 @@ export namespace Prisma {
     _max?: NestedEnumTASK_STATUSFilter<$PrismaModel>
   }
 
-  export type EnumLEGAL_ACTIONNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.LEGAL_ACTION | EnumLEGAL_ACTIONFieldRefInput<$PrismaModel> | null
-    in?: $Enums.LEGAL_ACTION[] | ListEnumLEGAL_ACTIONFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.LEGAL_ACTION[] | ListEnumLEGAL_ACTIONFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumLEGAL_ACTIONNullableWithAggregatesFilter<$PrismaModel> | $Enums.LEGAL_ACTION | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedEnumLEGAL_ACTIONNullableFilter<$PrismaModel>
-    _max?: NestedEnumLEGAL_ACTIONNullableFilter<$PrismaModel>
+  export type EnumLEGAL_ACTIONWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.LEGAL_ACTION | EnumLEGAL_ACTIONFieldRefInput<$PrismaModel>
+    in?: $Enums.LEGAL_ACTION[] | ListEnumLEGAL_ACTIONFieldRefInput<$PrismaModel>
+    notIn?: $Enums.LEGAL_ACTION[] | ListEnumLEGAL_ACTIONFieldRefInput<$PrismaModel>
+    not?: NestedEnumLEGAL_ACTIONWithAggregatesFilter<$PrismaModel> | $Enums.LEGAL_ACTION
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumLEGAL_ACTIONFilter<$PrismaModel>
+    _max?: NestedEnumLEGAL_ACTIONFilter<$PrismaModel>
   }
 
   export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -9348,14 +9349,14 @@ export namespace Prisma {
     _max?: NestedBigIntNullableFilter<$PrismaModel>
   }
 
-  export type EnumSTATUS_IN_COURTNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.STATUS_IN_COURT | EnumSTATUS_IN_COURTFieldRefInput<$PrismaModel> | null
-    in?: $Enums.STATUS_IN_COURT[] | ListEnumSTATUS_IN_COURTFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.STATUS_IN_COURT[] | ListEnumSTATUS_IN_COURTFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumSTATUS_IN_COURTNullableWithAggregatesFilter<$PrismaModel> | $Enums.STATUS_IN_COURT | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedEnumSTATUS_IN_COURTNullableFilter<$PrismaModel>
-    _max?: NestedEnumSTATUS_IN_COURTNullableFilter<$PrismaModel>
+  export type EnumSTATUS_IN_COURTWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.STATUS_IN_COURT | EnumSTATUS_IN_COURTFieldRefInput<$PrismaModel>
+    in?: $Enums.STATUS_IN_COURT[] | ListEnumSTATUS_IN_COURTFieldRefInput<$PrismaModel>
+    notIn?: $Enums.STATUS_IN_COURT[] | ListEnumSTATUS_IN_COURTFieldRefInput<$PrismaModel>
+    not?: NestedEnumSTATUS_IN_COURTWithAggregatesFilter<$PrismaModel> | $Enums.STATUS_IN_COURT
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumSTATUS_IN_COURTFilter<$PrismaModel>
+    _max?: NestedEnumSTATUS_IN_COURTFilter<$PrismaModel>
   }
 
   export type EnumREFUSAL_REASONNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -9769,8 +9770,8 @@ export namespace Prisma {
     set?: $Enums.TASK_STATUS
   }
 
-  export type NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput = {
-    set?: $Enums.LEGAL_ACTION | null
+  export type EnumLEGAL_ACTIONFieldUpdateOperationsInput = {
+    set?: $Enums.LEGAL_ACTION
   }
 
   export type NullableDateTimeFieldUpdateOperationsInput = {
@@ -9785,8 +9786,8 @@ export namespace Prisma {
     divide?: bigint | number
   }
 
-  export type NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput = {
-    set?: $Enums.STATUS_IN_COURT | null
+  export type EnumSTATUS_IN_COURTFieldUpdateOperationsInput = {
+    set?: $Enums.STATUS_IN_COURT
   }
 
   export type NullableEnumREFUSAL_REASONFieldUpdateOperationsInput = {
@@ -10115,11 +10116,11 @@ export namespace Prisma {
     not?: NestedEnumTASK_STATUSFilter<$PrismaModel> | $Enums.TASK_STATUS
   }
 
-  export type NestedEnumLEGAL_ACTIONNullableFilter<$PrismaModel = never> = {
-    equals?: $Enums.LEGAL_ACTION | EnumLEGAL_ACTIONFieldRefInput<$PrismaModel> | null
-    in?: $Enums.LEGAL_ACTION[] | ListEnumLEGAL_ACTIONFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.LEGAL_ACTION[] | ListEnumLEGAL_ACTIONFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumLEGAL_ACTIONNullableFilter<$PrismaModel> | $Enums.LEGAL_ACTION | null
+  export type NestedEnumLEGAL_ACTIONFilter<$PrismaModel = never> = {
+    equals?: $Enums.LEGAL_ACTION | EnumLEGAL_ACTIONFieldRefInput<$PrismaModel>
+    in?: $Enums.LEGAL_ACTION[] | ListEnumLEGAL_ACTIONFieldRefInput<$PrismaModel>
+    notIn?: $Enums.LEGAL_ACTION[] | ListEnumLEGAL_ACTIONFieldRefInput<$PrismaModel>
+    not?: NestedEnumLEGAL_ACTIONFilter<$PrismaModel> | $Enums.LEGAL_ACTION
   }
 
   export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
@@ -10144,11 +10145,11 @@ export namespace Prisma {
     not?: NestedBigIntNullableFilter<$PrismaModel> | bigint | number | null
   }
 
-  export type NestedEnumSTATUS_IN_COURTNullableFilter<$PrismaModel = never> = {
-    equals?: $Enums.STATUS_IN_COURT | EnumSTATUS_IN_COURTFieldRefInput<$PrismaModel> | null
-    in?: $Enums.STATUS_IN_COURT[] | ListEnumSTATUS_IN_COURTFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.STATUS_IN_COURT[] | ListEnumSTATUS_IN_COURTFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumSTATUS_IN_COURTNullableFilter<$PrismaModel> | $Enums.STATUS_IN_COURT | null
+  export type NestedEnumSTATUS_IN_COURTFilter<$PrismaModel = never> = {
+    equals?: $Enums.STATUS_IN_COURT | EnumSTATUS_IN_COURTFieldRefInput<$PrismaModel>
+    in?: $Enums.STATUS_IN_COURT[] | ListEnumSTATUS_IN_COURTFieldRefInput<$PrismaModel>
+    notIn?: $Enums.STATUS_IN_COURT[] | ListEnumSTATUS_IN_COURTFieldRefInput<$PrismaModel>
+    not?: NestedEnumSTATUS_IN_COURTFilter<$PrismaModel> | $Enums.STATUS_IN_COURT
   }
 
   export type NestedEnumREFUSAL_REASONNullableFilter<$PrismaModel = never> = {
@@ -10226,14 +10227,14 @@ export namespace Prisma {
     _max?: NestedEnumTASK_STATUSFilter<$PrismaModel>
   }
 
-  export type NestedEnumLEGAL_ACTIONNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.LEGAL_ACTION | EnumLEGAL_ACTIONFieldRefInput<$PrismaModel> | null
-    in?: $Enums.LEGAL_ACTION[] | ListEnumLEGAL_ACTIONFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.LEGAL_ACTION[] | ListEnumLEGAL_ACTIONFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumLEGAL_ACTIONNullableWithAggregatesFilter<$PrismaModel> | $Enums.LEGAL_ACTION | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedEnumLEGAL_ACTIONNullableFilter<$PrismaModel>
-    _max?: NestedEnumLEGAL_ACTIONNullableFilter<$PrismaModel>
+  export type NestedEnumLEGAL_ACTIONWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.LEGAL_ACTION | EnumLEGAL_ACTIONFieldRefInput<$PrismaModel>
+    in?: $Enums.LEGAL_ACTION[] | ListEnumLEGAL_ACTIONFieldRefInput<$PrismaModel>
+    notIn?: $Enums.LEGAL_ACTION[] | ListEnumLEGAL_ACTIONFieldRefInput<$PrismaModel>
+    not?: NestedEnumLEGAL_ACTIONWithAggregatesFilter<$PrismaModel> | $Enums.LEGAL_ACTION
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumLEGAL_ACTIONFilter<$PrismaModel>
+    _max?: NestedEnumLEGAL_ACTIONFilter<$PrismaModel>
   }
 
   export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -10277,14 +10278,14 @@ export namespace Prisma {
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
-  export type NestedEnumSTATUS_IN_COURTNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.STATUS_IN_COURT | EnumSTATUS_IN_COURTFieldRefInput<$PrismaModel> | null
-    in?: $Enums.STATUS_IN_COURT[] | ListEnumSTATUS_IN_COURTFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.STATUS_IN_COURT[] | ListEnumSTATUS_IN_COURTFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumSTATUS_IN_COURTNullableWithAggregatesFilter<$PrismaModel> | $Enums.STATUS_IN_COURT | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedEnumSTATUS_IN_COURTNullableFilter<$PrismaModel>
-    _max?: NestedEnumSTATUS_IN_COURTNullableFilter<$PrismaModel>
+  export type NestedEnumSTATUS_IN_COURTWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.STATUS_IN_COURT | EnumSTATUS_IN_COURTFieldRefInput<$PrismaModel>
+    in?: $Enums.STATUS_IN_COURT[] | ListEnumSTATUS_IN_COURTFieldRefInput<$PrismaModel>
+    notIn?: $Enums.STATUS_IN_COURT[] | ListEnumSTATUS_IN_COURTFieldRefInput<$PrismaModel>
+    not?: NestedEnumSTATUS_IN_COURTWithAggregatesFilter<$PrismaModel> | $Enums.STATUS_IN_COURT
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumSTATUS_IN_COURTFilter<$PrismaModel>
+    _max?: NestedEnumSTATUS_IN_COURTFilter<$PrismaModel>
   }
 
   export type NestedEnumREFUSAL_REASONNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -10340,7 +10341,7 @@ export namespace Prisma {
     taskImportance?: $Enums.TASK_IMPORTANCE
     taskUrgency?: $Enums.TASK_URGENCY
     taskStatus?: $Enums.TASK_STATUS
-    legalAction?: $Enums.LEGAL_ACTION | null
+    legalAction: $Enums.LEGAL_ACTION
     problemShort: string
     problemFull: string
     nearestTask?: string
@@ -10349,7 +10350,7 @@ export namespace Prisma {
     priceSOM?: bigint | number | null
     priceUSD?: bigint | number | null
     courtInfo?: string
-    statusInCourt?: $Enums.STATUS_IN_COURT | null
+    statusInCourt: $Enums.STATUS_IN_COURT
     refusalReason?: $Enums.REFUSAL_REASON | null
     createdAt?: Date | string
     assignmentTime?: Date | string | null
@@ -10369,7 +10370,7 @@ export namespace Prisma {
     taskImportance?: $Enums.TASK_IMPORTANCE
     taskUrgency?: $Enums.TASK_URGENCY
     taskStatus?: $Enums.TASK_STATUS
-    legalAction?: $Enums.LEGAL_ACTION | null
+    legalAction: $Enums.LEGAL_ACTION
     problemShort: string
     problemFull: string
     nearestTask?: string
@@ -10378,7 +10379,7 @@ export namespace Prisma {
     priceSOM?: bigint | number | null
     priceUSD?: bigint | number | null
     courtInfo?: string
-    statusInCourt?: $Enums.STATUS_IN_COURT | null
+    statusInCourt: $Enums.STATUS_IN_COURT
     refusalReason?: $Enums.REFUSAL_REASON | null
     createdAt?: Date | string
     assignmentTime?: Date | string | null
@@ -10407,7 +10408,7 @@ export namespace Prisma {
     taskImportance?: $Enums.TASK_IMPORTANCE
     taskUrgency?: $Enums.TASK_URGENCY
     taskStatus?: $Enums.TASK_STATUS
-    legalAction?: $Enums.LEGAL_ACTION | null
+    legalAction: $Enums.LEGAL_ACTION
     problemShort: string
     problemFull: string
     nearestTask?: string
@@ -10416,7 +10417,7 @@ export namespace Prisma {
     priceSOM?: bigint | number | null
     priceUSD?: bigint | number | null
     courtInfo?: string
-    statusInCourt?: $Enums.STATUS_IN_COURT | null
+    statusInCourt: $Enums.STATUS_IN_COURT
     refusalReason?: $Enums.REFUSAL_REASON | null
     createdAt?: Date | string
     assignmentTime?: Date | string | null
@@ -10436,7 +10437,7 @@ export namespace Prisma {
     taskImportance?: $Enums.TASK_IMPORTANCE
     taskUrgency?: $Enums.TASK_URGENCY
     taskStatus?: $Enums.TASK_STATUS
-    legalAction?: $Enums.LEGAL_ACTION | null
+    legalAction: $Enums.LEGAL_ACTION
     problemShort: string
     problemFull: string
     nearestTask?: string
@@ -10445,7 +10446,7 @@ export namespace Prisma {
     priceSOM?: bigint | number | null
     priceUSD?: bigint | number | null
     courtInfo?: string
-    statusInCourt?: $Enums.STATUS_IN_COURT | null
+    statusInCourt: $Enums.STATUS_IN_COURT
     refusalReason?: $Enums.REFUSAL_REASON | null
     createdAt?: Date | string
     assignmentTime?: Date | string | null
@@ -10558,7 +10559,7 @@ export namespace Prisma {
     taskImportance?: EnumTASK_IMPORTANCEFilter<"User"> | $Enums.TASK_IMPORTANCE
     taskUrgency?: EnumTASK_URGENCYFilter<"User"> | $Enums.TASK_URGENCY
     taskStatus?: EnumTASK_STATUSFilter<"User"> | $Enums.TASK_STATUS
-    legalAction?: EnumLEGAL_ACTIONNullableFilter<"User"> | $Enums.LEGAL_ACTION | null
+    legalAction?: EnumLEGAL_ACTIONFilter<"User"> | $Enums.LEGAL_ACTION
     problemShort?: StringFilter<"User"> | string
     problemFull?: StringFilter<"User"> | string
     nearestTask?: StringFilter<"User"> | string
@@ -10567,7 +10568,7 @@ export namespace Prisma {
     priceSOM?: BigIntNullableFilter<"User"> | bigint | number | null
     priceUSD?: BigIntNullableFilter<"User"> | bigint | number | null
     courtInfo?: StringFilter<"User"> | string
-    statusInCourt?: EnumSTATUS_IN_COURTNullableFilter<"User"> | $Enums.STATUS_IN_COURT | null
+    statusInCourt?: EnumSTATUS_IN_COURTFilter<"User"> | $Enums.STATUS_IN_COURT
     refusalReason?: EnumREFUSAL_REASONNullableFilter<"User"> | $Enums.REFUSAL_REASON | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     assignmentTime?: DateTimeNullableFilter<"User"> | Date | string | null
@@ -10903,7 +10904,7 @@ export namespace Prisma {
     taskImportance?: $Enums.TASK_IMPORTANCE
     taskUrgency?: $Enums.TASK_URGENCY
     taskStatus?: $Enums.TASK_STATUS
-    legalAction?: $Enums.LEGAL_ACTION | null
+    legalAction: $Enums.LEGAL_ACTION
     problemShort: string
     problemFull: string
     nearestTask?: string
@@ -10912,7 +10913,7 @@ export namespace Prisma {
     priceSOM?: bigint | number | null
     priceUSD?: bigint | number | null
     courtInfo?: string
-    statusInCourt?: $Enums.STATUS_IN_COURT | null
+    statusInCourt: $Enums.STATUS_IN_COURT
     refusalReason?: $Enums.REFUSAL_REASON | null
     createdAt?: Date | string
     assignmentTime?: Date | string | null
@@ -10932,7 +10933,7 @@ export namespace Prisma {
     taskImportance?: $Enums.TASK_IMPORTANCE
     taskUrgency?: $Enums.TASK_URGENCY
     taskStatus?: $Enums.TASK_STATUS
-    legalAction?: $Enums.LEGAL_ACTION | null
+    legalAction: $Enums.LEGAL_ACTION
     problemShort: string
     problemFull: string
     nearestTask?: string
@@ -10941,7 +10942,7 @@ export namespace Prisma {
     priceSOM?: bigint | number | null
     priceUSD?: bigint | number | null
     courtInfo?: string
-    statusInCourt?: $Enums.STATUS_IN_COURT | null
+    statusInCourt: $Enums.STATUS_IN_COURT
     refusalReason?: $Enums.REFUSAL_REASON | null
     createdAt?: Date | string
     assignmentTime?: Date | string | null
@@ -11018,7 +11019,7 @@ export namespace Prisma {
     taskImportance?: $Enums.TASK_IMPORTANCE
     taskUrgency?: $Enums.TASK_URGENCY
     taskStatus?: $Enums.TASK_STATUS
-    legalAction?: $Enums.LEGAL_ACTION | null
+    legalAction: $Enums.LEGAL_ACTION
     problemShort: string
     problemFull: string
     nearestTask?: string
@@ -11027,7 +11028,7 @@ export namespace Prisma {
     priceSOM?: bigint | number | null
     priceUSD?: bigint | number | null
     courtInfo?: string
-    statusInCourt?: $Enums.STATUS_IN_COURT | null
+    statusInCourt: $Enums.STATUS_IN_COURT
     refusalReason?: $Enums.REFUSAL_REASON | null
     createdAt?: Date | string
     assignmentTime?: Date | string | null
@@ -11047,7 +11048,7 @@ export namespace Prisma {
     taskImportance?: $Enums.TASK_IMPORTANCE
     taskUrgency?: $Enums.TASK_URGENCY
     taskStatus?: $Enums.TASK_STATUS
-    legalAction?: $Enums.LEGAL_ACTION | null
+    legalAction: $Enums.LEGAL_ACTION
     problemShort: string
     problemFull: string
     nearestTask?: string
@@ -11056,7 +11057,7 @@ export namespace Prisma {
     priceSOM?: bigint | number | null
     priceUSD?: bigint | number | null
     courtInfo?: string
-    statusInCourt?: $Enums.STATUS_IN_COURT | null
+    statusInCourt: $Enums.STATUS_IN_COURT
     refusalReason?: $Enums.REFUSAL_REASON | null
     createdAt?: Date | string
     assignmentTime?: Date | string | null
@@ -11160,7 +11161,7 @@ export namespace Prisma {
     taskImportance?: $Enums.TASK_IMPORTANCE
     taskUrgency?: $Enums.TASK_URGENCY
     taskStatus?: $Enums.TASK_STATUS
-    legalAction?: $Enums.LEGAL_ACTION | null
+    legalAction: $Enums.LEGAL_ACTION
     problemShort: string
     problemFull: string
     nearestTask?: string
@@ -11169,7 +11170,7 @@ export namespace Prisma {
     priceSOM?: bigint | number | null
     priceUSD?: bigint | number | null
     courtInfo?: string
-    statusInCourt?: $Enums.STATUS_IN_COURT | null
+    statusInCourt: $Enums.STATUS_IN_COURT
     refusalReason?: $Enums.REFUSAL_REASON | null
     createdAt?: Date | string
     assignmentTime?: Date | string | null
@@ -11189,7 +11190,7 @@ export namespace Prisma {
     taskImportance?: $Enums.TASK_IMPORTANCE
     taskUrgency?: $Enums.TASK_URGENCY
     taskStatus?: $Enums.TASK_STATUS
-    legalAction?: $Enums.LEGAL_ACTION | null
+    legalAction: $Enums.LEGAL_ACTION
     problemShort: string
     problemFull: string
     nearestTask?: string
@@ -11198,7 +11199,7 @@ export namespace Prisma {
     priceSOM?: bigint | number | null
     priceUSD?: bigint | number | null
     courtInfo?: string
-    statusInCourt?: $Enums.STATUS_IN_COURT | null
+    statusInCourt: $Enums.STATUS_IN_COURT
     refusalReason?: $Enums.REFUSAL_REASON | null
     createdAt?: Date | string
     assignmentTime?: Date | string | null
@@ -11239,7 +11240,7 @@ export namespace Prisma {
     taskImportance?: EnumTASK_IMPORTANCEFieldUpdateOperationsInput | $Enums.TASK_IMPORTANCE
     taskUrgency?: EnumTASK_URGENCYFieldUpdateOperationsInput | $Enums.TASK_URGENCY
     taskStatus?: EnumTASK_STATUSFieldUpdateOperationsInput | $Enums.TASK_STATUS
-    legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
+    legalAction?: EnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION
     problemShort?: StringFieldUpdateOperationsInput | string
     problemFull?: StringFieldUpdateOperationsInput | string
     nearestTask?: StringFieldUpdateOperationsInput | string
@@ -11248,7 +11249,7 @@ export namespace Prisma {
     priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     courtInfo?: StringFieldUpdateOperationsInput | string
-    statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
+    statusInCourt?: EnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -11268,7 +11269,7 @@ export namespace Prisma {
     taskImportance?: EnumTASK_IMPORTANCEFieldUpdateOperationsInput | $Enums.TASK_IMPORTANCE
     taskUrgency?: EnumTASK_URGENCYFieldUpdateOperationsInput | $Enums.TASK_URGENCY
     taskStatus?: EnumTASK_STATUSFieldUpdateOperationsInput | $Enums.TASK_STATUS
-    legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
+    legalAction?: EnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION
     problemShort?: StringFieldUpdateOperationsInput | string
     problemFull?: StringFieldUpdateOperationsInput | string
     nearestTask?: StringFieldUpdateOperationsInput | string
@@ -11277,7 +11278,7 @@ export namespace Prisma {
     priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     courtInfo?: StringFieldUpdateOperationsInput | string
-    statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
+    statusInCourt?: EnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -11297,7 +11298,7 @@ export namespace Prisma {
     taskImportance?: EnumTASK_IMPORTANCEFieldUpdateOperationsInput | $Enums.TASK_IMPORTANCE
     taskUrgency?: EnumTASK_URGENCYFieldUpdateOperationsInput | $Enums.TASK_URGENCY
     taskStatus?: EnumTASK_STATUSFieldUpdateOperationsInput | $Enums.TASK_STATUS
-    legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
+    legalAction?: EnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION
     problemShort?: StringFieldUpdateOperationsInput | string
     problemFull?: StringFieldUpdateOperationsInput | string
     nearestTask?: StringFieldUpdateOperationsInput | string
@@ -11306,7 +11307,7 @@ export namespace Prisma {
     priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     courtInfo?: StringFieldUpdateOperationsInput | string
-    statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
+    statusInCourt?: EnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -11325,7 +11326,7 @@ export namespace Prisma {
     taskImportance?: EnumTASK_IMPORTANCEFieldUpdateOperationsInput | $Enums.TASK_IMPORTANCE
     taskUrgency?: EnumTASK_URGENCYFieldUpdateOperationsInput | $Enums.TASK_URGENCY
     taskStatus?: EnumTASK_STATUSFieldUpdateOperationsInput | $Enums.TASK_STATUS
-    legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
+    legalAction?: EnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION
     problemShort?: StringFieldUpdateOperationsInput | string
     problemFull?: StringFieldUpdateOperationsInput | string
     nearestTask?: StringFieldUpdateOperationsInput | string
@@ -11334,7 +11335,7 @@ export namespace Prisma {
     priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     courtInfo?: StringFieldUpdateOperationsInput | string
-    statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
+    statusInCourt?: EnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -11354,7 +11355,7 @@ export namespace Prisma {
     taskImportance?: EnumTASK_IMPORTANCEFieldUpdateOperationsInput | $Enums.TASK_IMPORTANCE
     taskUrgency?: EnumTASK_URGENCYFieldUpdateOperationsInput | $Enums.TASK_URGENCY
     taskStatus?: EnumTASK_STATUSFieldUpdateOperationsInput | $Enums.TASK_STATUS
-    legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
+    legalAction?: EnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION
     problemShort?: StringFieldUpdateOperationsInput | string
     problemFull?: StringFieldUpdateOperationsInput | string
     nearestTask?: StringFieldUpdateOperationsInput | string
@@ -11363,7 +11364,7 @@ export namespace Prisma {
     priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     courtInfo?: StringFieldUpdateOperationsInput | string
-    statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
+    statusInCourt?: EnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -11383,7 +11384,7 @@ export namespace Prisma {
     taskImportance?: EnumTASK_IMPORTANCEFieldUpdateOperationsInput | $Enums.TASK_IMPORTANCE
     taskUrgency?: EnumTASK_URGENCYFieldUpdateOperationsInput | $Enums.TASK_URGENCY
     taskStatus?: EnumTASK_STATUSFieldUpdateOperationsInput | $Enums.TASK_STATUS
-    legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
+    legalAction?: EnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION
     problemShort?: StringFieldUpdateOperationsInput | string
     problemFull?: StringFieldUpdateOperationsInput | string
     nearestTask?: StringFieldUpdateOperationsInput | string
@@ -11392,7 +11393,7 @@ export namespace Prisma {
     priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     courtInfo?: StringFieldUpdateOperationsInput | string
-    statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
+    statusInCourt?: EnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -11478,7 +11479,7 @@ export namespace Prisma {
     taskImportance?: $Enums.TASK_IMPORTANCE
     taskUrgency?: $Enums.TASK_URGENCY
     taskStatus?: $Enums.TASK_STATUS
-    legalAction?: $Enums.LEGAL_ACTION | null
+    legalAction: $Enums.LEGAL_ACTION
     problemShort: string
     problemFull: string
     nearestTask?: string
@@ -11487,7 +11488,7 @@ export namespace Prisma {
     priceSOM?: bigint | number | null
     priceUSD?: bigint | number | null
     courtInfo?: string
-    statusInCourt?: $Enums.STATUS_IN_COURT | null
+    statusInCourt: $Enums.STATUS_IN_COURT
     refusalReason?: $Enums.REFUSAL_REASON | null
     createdAt?: Date | string
     assignmentTime?: Date | string | null
@@ -11506,7 +11507,7 @@ export namespace Prisma {
     taskImportance?: EnumTASK_IMPORTANCEFieldUpdateOperationsInput | $Enums.TASK_IMPORTANCE
     taskUrgency?: EnumTASK_URGENCYFieldUpdateOperationsInput | $Enums.TASK_URGENCY
     taskStatus?: EnumTASK_STATUSFieldUpdateOperationsInput | $Enums.TASK_STATUS
-    legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
+    legalAction?: EnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION
     problemShort?: StringFieldUpdateOperationsInput | string
     problemFull?: StringFieldUpdateOperationsInput | string
     nearestTask?: StringFieldUpdateOperationsInput | string
@@ -11515,7 +11516,7 @@ export namespace Prisma {
     priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     courtInfo?: StringFieldUpdateOperationsInput | string
-    statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
+    statusInCourt?: EnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -11535,7 +11536,7 @@ export namespace Prisma {
     taskImportance?: EnumTASK_IMPORTANCEFieldUpdateOperationsInput | $Enums.TASK_IMPORTANCE
     taskUrgency?: EnumTASK_URGENCYFieldUpdateOperationsInput | $Enums.TASK_URGENCY
     taskStatus?: EnumTASK_STATUSFieldUpdateOperationsInput | $Enums.TASK_STATUS
-    legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
+    legalAction?: EnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION
     problemShort?: StringFieldUpdateOperationsInput | string
     problemFull?: StringFieldUpdateOperationsInput | string
     nearestTask?: StringFieldUpdateOperationsInput | string
@@ -11544,7 +11545,7 @@ export namespace Prisma {
     priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     courtInfo?: StringFieldUpdateOperationsInput | string
-    statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
+    statusInCourt?: EnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -11564,7 +11565,7 @@ export namespace Prisma {
     taskImportance?: EnumTASK_IMPORTANCEFieldUpdateOperationsInput | $Enums.TASK_IMPORTANCE
     taskUrgency?: EnumTASK_URGENCYFieldUpdateOperationsInput | $Enums.TASK_URGENCY
     taskStatus?: EnumTASK_STATUSFieldUpdateOperationsInput | $Enums.TASK_STATUS
-    legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
+    legalAction?: EnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION
     problemShort?: StringFieldUpdateOperationsInput | string
     problemFull?: StringFieldUpdateOperationsInput | string
     nearestTask?: StringFieldUpdateOperationsInput | string
@@ -11573,7 +11574,7 @@ export namespace Prisma {
     priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     courtInfo?: StringFieldUpdateOperationsInput | string
-    statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
+    statusInCourt?: EnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -11593,7 +11594,7 @@ export namespace Prisma {
     taskImportance?: $Enums.TASK_IMPORTANCE
     taskUrgency?: $Enums.TASK_URGENCY
     taskStatus?: $Enums.TASK_STATUS
-    legalAction?: $Enums.LEGAL_ACTION | null
+    legalAction: $Enums.LEGAL_ACTION
     problemShort: string
     problemFull: string
     nearestTask?: string
@@ -11602,7 +11603,7 @@ export namespace Prisma {
     priceSOM?: bigint | number | null
     priceUSD?: bigint | number | null
     courtInfo?: string
-    statusInCourt?: $Enums.STATUS_IN_COURT | null
+    statusInCourt: $Enums.STATUS_IN_COURT
     refusalReason?: $Enums.REFUSAL_REASON | null
     createdAt?: Date | string
     assignmentTime?: Date | string | null
@@ -11621,7 +11622,7 @@ export namespace Prisma {
     taskImportance?: EnumTASK_IMPORTANCEFieldUpdateOperationsInput | $Enums.TASK_IMPORTANCE
     taskUrgency?: EnumTASK_URGENCYFieldUpdateOperationsInput | $Enums.TASK_URGENCY
     taskStatus?: EnumTASK_STATUSFieldUpdateOperationsInput | $Enums.TASK_STATUS
-    legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
+    legalAction?: EnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION
     problemShort?: StringFieldUpdateOperationsInput | string
     problemFull?: StringFieldUpdateOperationsInput | string
     nearestTask?: StringFieldUpdateOperationsInput | string
@@ -11630,7 +11631,7 @@ export namespace Prisma {
     priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     courtInfo?: StringFieldUpdateOperationsInput | string
-    statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
+    statusInCourt?: EnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -11650,7 +11651,7 @@ export namespace Prisma {
     taskImportance?: EnumTASK_IMPORTANCEFieldUpdateOperationsInput | $Enums.TASK_IMPORTANCE
     taskUrgency?: EnumTASK_URGENCYFieldUpdateOperationsInput | $Enums.TASK_URGENCY
     taskStatus?: EnumTASK_STATUSFieldUpdateOperationsInput | $Enums.TASK_STATUS
-    legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
+    legalAction?: EnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION
     problemShort?: StringFieldUpdateOperationsInput | string
     problemFull?: StringFieldUpdateOperationsInput | string
     nearestTask?: StringFieldUpdateOperationsInput | string
@@ -11659,7 +11660,7 @@ export namespace Prisma {
     priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     courtInfo?: StringFieldUpdateOperationsInput | string
-    statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
+    statusInCourt?: EnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -11679,7 +11680,7 @@ export namespace Prisma {
     taskImportance?: EnumTASK_IMPORTANCEFieldUpdateOperationsInput | $Enums.TASK_IMPORTANCE
     taskUrgency?: EnumTASK_URGENCYFieldUpdateOperationsInput | $Enums.TASK_URGENCY
     taskStatus?: EnumTASK_STATUSFieldUpdateOperationsInput | $Enums.TASK_STATUS
-    legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
+    legalAction?: EnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION
     problemShort?: StringFieldUpdateOperationsInput | string
     problemFull?: StringFieldUpdateOperationsInput | string
     nearestTask?: StringFieldUpdateOperationsInput | string
@@ -11688,7 +11689,7 @@ export namespace Prisma {
     priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     courtInfo?: StringFieldUpdateOperationsInput | string
-    statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
+    statusInCourt?: EnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null

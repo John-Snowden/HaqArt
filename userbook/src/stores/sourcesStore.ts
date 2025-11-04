@@ -6,9 +6,11 @@ import {
   prismaGetSources,
   prismaSaveSource,
   prismaDeleteSource,
+  prismaUpdateSource,
 } from "@shared/lib/actions/sources";
 import { STORAGE_KEYS } from "@/constants/storage";
-import { SOURCE_CATEGORY, Manager, Source } from "@shared/prisma/prisma/client";
+import { Manager, Source } from "@shared/prisma/prisma/client";
+import { WritableSourceInputs } from "@/screens/editSource/editSource.vm";
 
 import RootStore from "./rootStore";
 
@@ -36,16 +38,40 @@ export default class SourcesStore {
     }
   };
 
-  saveSource = async (
-    title: string,
-    sourceLink: string | null,
-    category: SOURCE_CATEGORY,
-    authorId: number,
-  ) => {
+  saveNewSource = async (source: WritableSourceInputs): Promise<boolean> => {
     await this.root.checkAuthSession();
-    const res = await prismaSaveSource(title, sourceLink, category, authorId);
-    if ("error" in res) this.root.alertStore.toggleAlert(res.error);
-    else await this.root.sourcesStore.getSources();
+
+    const newSource = {
+      ...source,
+      authorId: this.root.authStore.me?.id || Number.NaN,
+    };
+    if (!this.root.authStore.me?.id) {
+      this.root.alertStore.toggleAlert("Author id missing");
+      return false;
+    }
+
+    const res = await prismaSaveSource(JSON.parse(JSON.stringify(newSource)));
+    if ("error" in res) {
+      this.root.alertStore.toggleAlert(res.error);
+      return false;
+    }
+
+    return true;
+  };
+
+  updateSource = async (
+    source: Omit<Source, "id" | "authorId" | "createdAt">,
+  ) => {
+    try {
+      await this.root.checkAuthSession();
+      if (!this.selectedSource?.id) throw new Error("Source id missing");
+
+      const updated = { ...source, id: this.selectedSource.id };
+      const res = await prismaUpdateSource(JSON.parse(JSON.stringify(updated)));
+      if ("error" in res) throw new Error(res.error);
+    } catch (e) {
+      this.root.alertStore.toggleAlert(String(e));
+    }
   };
 
   deleteSource = async (id: number) => {
@@ -70,10 +96,8 @@ export default class SourcesStore {
   }
 
   get selectedSource(): Source | null {
-    const candidate = this.root.sourcesStore.sources.find(
-      (source) => source.id === this.root.sourcesStore.selectedSourceId,
+    return (
+      this.sources.find((source) => source.id === this.selectedSourceId) || null
     );
-
-    return candidate || null;
   }
 }

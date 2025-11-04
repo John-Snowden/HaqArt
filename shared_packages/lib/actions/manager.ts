@@ -4,6 +4,7 @@ import { format } from "date-fns";
 import { ru } from "date-fns/locale";
 
 import prisma from "@shared/prisma";
+import { prismaLogin } from "./auth";
 
 export const prismaGetManagers = async () => {
   try {
@@ -18,6 +19,17 @@ export const prismaGetManagers = async () => {
     else return res;
   } catch (e) {
     return { error: "Менеджеры не получены " + e };
+  }
+};
+
+export const prismaGetManagerById = async (managerId: number) => {
+  try {
+    return await prisma.manager.findUnique({
+      where: { id: managerId },
+      select: { id: true, username: true, role: true },
+    });
+  } catch (e) {
+    return { error: "Менеджер не получен " + e };
   }
 };
 
@@ -91,4 +103,16 @@ const getUsersCountByDate = async (
   // } catch (e) {
   //   throw new Error("Количество пользователей за дату не получено:\n" + e);
   // }
+};
+
+export const prismaGetHaqBotManager = async () => {
+  try {
+    const username = process.env.HAQ_BOT_NAME || "";
+    const password = process.env.HAQ_BOT_PASS || "";
+    const res = await prismaLogin(username, password);
+    if ("error" in res) throw new Error();
+    else return await prismaGetManagerById(res.id);
+  } catch (e) {
+    return { error: "Бот не получен\n" + e };
+  }
 };

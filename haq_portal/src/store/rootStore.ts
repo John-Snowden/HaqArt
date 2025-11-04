@@ -4,16 +4,27 @@ import { makeAutoObservable } from "mobx";
 
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
+import UserStore from "./userStore";
+import AuthStore from "./authStore";
 import RouterStore from "./routerStore";
-import ConstructionComplaintsStore from "./constructionComplaintsStore";
+import SourcesStore from "./sourcesStore";
 
 export default class RootStore {
   routerStore: RouterStore;
-  constructionComplaintsStore: ConstructionComplaintsStore;
+  authStore: AuthStore;
+  sourcesStore: SourcesStore;
+  userStore: UserStore;
 
   constructor(router: AppRouterInstance) {
     this.routerStore = new RouterStore(this, router);
-    this.constructionComplaintsStore = new ConstructionComplaintsStore(this);
+    this.authStore = new AuthStore(this);
+    this.sourcesStore = new SourcesStore(this);
+    this.userStore = new UserStore(this);
     makeAutoObservable(this);
   }
+
+  init = async () => {
+    await this.authStore.init();
+    await this.sourcesStore.init();
+  };
 }

@@ -1,0 +1,2 @@
+-- AlterEnum
+ALTER TYPE "STATUS_IN_COURT" ADD VALUE 'none';

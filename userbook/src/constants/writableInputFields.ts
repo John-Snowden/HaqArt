@@ -1,6 +1,6 @@
-import { WritableUserInputs } from "@/screens/editUser/editUser.vm";
-import { WritableSourceInputs } from "@/screens/addSource/addSource.vm";
 import { TASK_STATUS } from "@shared/prisma/prisma/client";
+import { WritableUserInputs } from "@/screens/editUser/editUser.vm";
+import { WritableSourceInputs } from "@/screens/editSource/editSource.vm";
 
 // ------------------------------------------------------------User inputs
 export const userStringInputs = {

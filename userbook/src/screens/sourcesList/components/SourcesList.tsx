@@ -9,7 +9,7 @@ import { observer } from "mobx-react-lite";
 import { ROUTES } from "@/constants/routes";
 import { ListWrapper } from "@/ui/listWrapper/ListWrapper";
 import { useSourcesListVM } from "@/app/sources_list/page";
-import { categoryOptions } from "@/screens/addSource/constants/dropdownOptions";
+import { categoryOptions } from "@/screens/editSource/constants/dropdownOptions";
 
 import styles from "../styles.module.css";
 
@@ -21,6 +21,7 @@ export const SourcesList = observer(() => {
     hasSources,
     getSources,
     selectSource,
+    resetSelectedSource,
   } = useSourcesListVM();
 
   useEffect(() => {
@@ -76,7 +77,7 @@ export const SourcesList = observer(() => {
     <ListWrapper
       isLoading={isLoading}
       hasItems={hasSources}
-      onAdd={() => routerStore.push(ROUTES.ADD_SOURCE)}
+      onAdd={() => routerStore.push(ROUTES.EDIT_SOURCE)}
     >
       {renderItems()}
 
@@ -84,7 +85,10 @@ export const SourcesList = observer(() => {
         <div
           className={styles.bttn}
           role="button"
-          onClick={() => routerStore.push(ROUTES.ADD_SOURCE)}
+          onClick={() => {
+            resetSelectedSource();
+            routerStore.push(ROUTES.EDIT_SOURCE);
+          }}
         >
           <div className={styles.addIcon}>
             <Image

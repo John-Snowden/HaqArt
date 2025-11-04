@@ -1,7 +1,7 @@
 "use server";
 
 import prisma from "@shared/prisma";
-import { SOURCE_CATEGORY } from "@shared/prisma/prisma/client";
+import { Source, SOURCE_CATEGORY } from "@shared/prisma/prisma/client";
 
 export const prismaGetSources = async () => {
   try {
@@ -12,17 +12,26 @@ export const prismaGetSources = async () => {
 };
 
 export const prismaSaveSource = async (
-  title: string,
-  sourceLink: string | null,
-  category: SOURCE_CATEGORY,
-  authorId: number,
+  source: Omit<Source, "id" | "createdAt">,
 ) => {
+  console.log("prismaSaveSource", source);
   try {
     return await prisma.source.create({
-      data: { title, sourceLink, category, authorId },
+      data: { ...source },
     });
   } catch (e) {
     return { error: "Источник не создан:\n" + e };
+  }
+};
+
+export const prismaUpdateSource = async (source: Source) => {
+  try {
+    return await prisma.source.update({
+      where: { id: source.id },
+      data: { ...source },
+    });
+  } catch (e) {
+    return { error: "Источник не обновлен " + e };
   }
 };
 
@@ -31,5 +40,13 @@ export const prismaDeleteSource = async (id: number) => {
     return await prisma.source.delete({ where: { id } });
   } catch (e) {
     return { error: "Источник не удален:\n" + e };
+  }
+};
+
+export const prismaGetSourcesByAuthorId = async (authorId: number) => {
+  try {
+    return await prisma.source.findMany({ where: { authorId } });
+  } catch (e) {
+    return { error: "Источники не найдены:\n" + e };
   }
 };

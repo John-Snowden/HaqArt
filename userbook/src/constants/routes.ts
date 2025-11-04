@@ -4,8 +4,7 @@ export enum ROUTES {
 
   // sources
   SOURCES_LIST = "/sources_list",
-  ADD_SOURCE = "/add_source",
-  SOURCE = "/source",
+  EDIT_SOURCE = "/edit_source",
 
   // opponents
   OPPONENTS_LIST = "/opponents_list",

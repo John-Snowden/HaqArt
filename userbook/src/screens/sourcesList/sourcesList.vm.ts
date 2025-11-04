@@ -26,7 +26,7 @@ export default class SourcesListVM {
   selectSource = (id: number) => {
     this.root.sourcesStore.selectedSourceId = id;
     localStorage.setItem(STORAGE_KEYS.SELECTED_SOURCE_ID, String(id));
-    this.root.routerStore.push(ROUTES.SOURCE);
+    this.root.routerStore.push(ROUTES.EDIT_SOURCE);
   };
 
   getSources = async () => {
@@ -38,6 +38,10 @@ export default class SourcesListVM {
     } finally {
       runInAction(() => (this.isLoading = false));
     }
+  };
+
+  resetSelectedSource = () => {
+    this.root.sourcesStore.selectedSourceId = undefined;
   };
 
   get sources(): (Source & { authorName: string })[] {

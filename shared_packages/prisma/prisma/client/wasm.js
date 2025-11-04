@@ -234,7 +234,8 @@ exports.STATUS_IN_COURT = exports.$Enums.STATUS_IN_COURT = {
   judgeOnVacation: 'judgeOnVacation',
   reassigned: 'reassigned',
   negotiations: 'negotiations',
-  returned: 'returned'
+  returned: 'returned',
+  none: 'none'
 };
 
 exports.REFUSAL_REASON = exports.$Enums.REFUSAL_REASON = {
@@ -270,7 +271,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/root/apps/HaqArt/shared_packages/prisma/prisma/client",
+      "value": "/Users/johnsnow/Desktop/Art/HaqArt/shared_packages/prisma/prisma/client",
       "fromEnvVar": null
     },
     "config": {
@@ -279,7 +280,7 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "debian-openssl-3.0.x",
+        "value": "darwin-arm64",
         "native": true
       },
       {
@@ -292,7 +293,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/root/apps/HaqArt/shared_packages/prisma/schema.prisma",
+    "sourceFilePath": "/Users/johnsnow/Desktop/Art/HaqArt/shared_packages/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
@@ -306,7 +307,6 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
-  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
@@ -315,8 +315,8 @@ const config = {
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\nenum LEAD_STATUS {\n  addedToDB\n  messageSent\n  messageRead\n  replied\n  contactShared\n}\n\nenum TASK_STATUS {\n  notAssigned\n\n  assignedNotStarted\n  workInProgress\n  blocked\n  checkMe\n\n  done\n  weRefused\n  leadRefused\n}\n\nenum TASK_URGENCY {\n  one\n  two\n  three\n  four\n  five\n}\n\nenum TASK_IMPORTANCE {\n  one\n  two\n  three\n}\n\nenum ROLES {\n  dev\n  owner\n  ceo\n  manager\n  bot\n}\n\nenum LEGAL_ACTION {\n  none\n  filing\n  courtParticipation\n  consultation\n  appointment\n  negotiations\n  claim\n  lawyerRequest\n}\n\nenum STATUS_IN_COURT {\n  postponed\n  paused\n  judgeOnVacation\n  reassigned\n  negotiations\n  returned\n}\n\nenum REFUSAL_REASON {\n  none\n  choseCompetitor\n  irrelevantServices\n  tooExpensive\n  noReasonGiven\n}\n\nenum SOURCE_CATEGORY {\n  none\n  realEstate\n  loans\n  other\n}\n\ngenerator client {\n  provider      = \"prisma-client-js\"\n  output        = \"./prisma/client\"\n  binaryTargets = [\"native\", \"darwin-arm64\", \"debian-openssl-3.0.x\"]\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Manager {\n  id        Int      @id @default(autoincrement())\n  username  String   @unique\n  password  String\n  role      ROLES\n  createdAt DateTime @default(now())\n\n  authoredUsers User[]    @relation(\"UserAuthor\")\n  managedUsers  User[]    @relation(\"UserManager\")\n  sources       Source[]\n  bloggers      Blogger[]\n}\n\nmodel User {\n  id          Int     @id @default(autoincrement())\n  username    String\n  userLink    String? @unique\n  phoneNumber String? @unique\n  email       String? @unique\n  homeAddress String\n\n  leadStatus     LEAD_STATUS     @default(addedToDB)\n  taskImportance TASK_IMPORTANCE @default(two)\n  taskUrgency    TASK_URGENCY    @default(three)\n  taskStatus     TASK_STATUS     @default(notAssigned)\n  legalAction    LEGAL_ACTION?\n\n  problemShort String\n  problemFull  String\n\n  nearestTask         String    @default(\"\")\n  nearestTaskDeadline DateTime?\n  timeOfPerformance   DateTime?\n\n  priceSOM BigInt?\n  priceUSD BigInt?\n\n  courtInfo     String           @default(\"\")\n  statusInCourt STATUS_IN_COURT?\n\n  refusalReason REFUSAL_REASON?\n\n  createdAt      DateTime  @default(now())\n  assignmentTime DateTime?\n\n  authorId Int\n  author   Manager @relation(\"UserAuthor\", fields: [authorId], references: [id])\n\n  sourceId Int\n  source   Source @relation(fields: [sourceId], references: [id])\n\n  opponentId Int?\n  opponent   Opponent? @relation(fields: [opponentId], references: [id])\n\n  managerId Int?\n  manager   Manager? @relation(\"UserManager\", fields: [managerId], references: [id])\n}\n\nmodel Source {\n  id         Int             @id @default(autoincrement())\n  title      String          @unique\n  sourceLink String?         @unique\n  category   SOURCE_CATEGORY\n\n  createdAt DateTime @default(now())\n\n  authorId Int\n  author   Manager @relation(fields: [authorId], references: [id])\n\n  users User[]\n}\n\nmodel Opponent {\n  id        Int      @id @default(autoincrement())\n  name      String   @unique\n  link      String?  @unique\n  info      String   @default(\"\")\n  createdAt DateTime @default(now())\n\n  users User[]\n}\n\nmodel Blogger {\n  id               Int               @id @default(autoincrement())\n  name             String            @unique\n  link             String            @unique\n  subscribersCount Int\n  info             String            @default(\"\")\n  priceSOM         Int?\n  priceUSD         Int?\n  phoneNumber      String?           @unique\n  email            String?           @unique\n  categories       SOURCE_CATEGORY[]\n  createdAt        DateTime          @default(now())\n\n  authorId Int\n  author   Manager @relation(fields: [authorId], references: [id])\n}\n",
-  "inlineSchemaHash": "5e71a1edb36d3e3f735d7feacc3352aa1268ea652c586c0b8b3d28472cbfcda2",
+  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\nenum LEAD_STATUS {\n  addedToDB\n  messageSent\n  messageRead\n  replied\n  contactShared\n}\n\nenum TASK_STATUS {\n  notAssigned\n\n  assignedNotStarted\n  workInProgress\n  blocked\n  checkMe\n\n  done\n  weRefused\n  leadRefused\n}\n\nenum TASK_URGENCY {\n  one\n  two\n  three\n  four\n  five\n}\n\nenum TASK_IMPORTANCE {\n  one\n  two\n  three\n}\n\nenum ROLES {\n  dev\n  owner\n  ceo\n  manager\n  bot\n}\n\nenum LEGAL_ACTION {\n  none\n  filing\n  courtParticipation\n  consultation\n  appointment\n  negotiations\n  claim\n  lawyerRequest\n}\n\nenum STATUS_IN_COURT {\n  postponed\n  paused\n  judgeOnVacation\n  reassigned\n  negotiations\n  returned\n  none\n}\n\nenum REFUSAL_REASON {\n  none\n  choseCompetitor\n  irrelevantServices\n  tooExpensive\n  noReasonGiven\n}\n\nenum SOURCE_CATEGORY {\n  none\n  realEstate\n  loans\n  other\n}\n\ngenerator client {\n  provider      = \"prisma-client-js\"\n  output        = \"./prisma/client\"\n  binaryTargets = [\"native\", \"darwin-arm64\", \"debian-openssl-3.0.x\"]\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Manager {\n  id        Int      @id @default(autoincrement())\n  username  String   @unique\n  password  String\n  role      ROLES\n  createdAt DateTime @default(now())\n\n  authoredUsers User[]    @relation(\"UserAuthor\")\n  managedUsers  User[]    @relation(\"UserManager\")\n  sources       Source[]\n  bloggers      Blogger[]\n}\n\nmodel User {\n  id          Int     @id @default(autoincrement())\n  username    String\n  userLink    String? @unique\n  phoneNumber String? @unique\n  email       String? @unique\n  homeAddress String\n\n  leadStatus     LEAD_STATUS     @default(addedToDB)\n  taskImportance TASK_IMPORTANCE @default(two)\n  taskUrgency    TASK_URGENCY    @default(three)\n  taskStatus     TASK_STATUS     @default(notAssigned)\n  legalAction    LEGAL_ACTION\n\n  problemShort String\n  problemFull  String\n\n  nearestTask         String    @default(\"\")\n  nearestTaskDeadline DateTime?\n  timeOfPerformance   DateTime?\n\n  priceSOM BigInt?\n  priceUSD BigInt?\n\n  courtInfo     String          @default(\"\")\n  statusInCourt STATUS_IN_COURT\n\n  refusalReason REFUSAL_REASON?\n\n  createdAt      DateTime  @default(now())\n  assignmentTime DateTime?\n\n  authorId Int\n  author   Manager @relation(\"UserAuthor\", fields: [authorId], references: [id])\n\n  sourceId Int\n  source   Source @relation(fields: [sourceId], references: [id])\n\n  opponentId Int?\n  opponent   Opponent? @relation(fields: [opponentId], references: [id])\n\n  managerId Int?\n  manager   Manager? @relation(\"UserManager\", fields: [managerId], references: [id])\n}\n\nmodel Source {\n  id         Int             @id @default(autoincrement())\n  title      String          @unique\n  sourceLink String?         @unique\n  category   SOURCE_CATEGORY\n\n  createdAt DateTime @default(now())\n\n  authorId Int\n  author   Manager @relation(fields: [authorId], references: [id])\n\n  users User[]\n}\n\nmodel Opponent {\n  id        Int      @id @default(autoincrement())\n  name      String   @unique\n  link      String?  @unique\n  info      String   @default(\"\")\n  createdAt DateTime @default(now())\n\n  users User[]\n}\n\nmodel Blogger {\n  id               Int               @id @default(autoincrement())\n  name             String            @unique\n  link             String            @unique\n  subscribersCount Int\n  info             String            @default(\"\")\n  priceSOM         Int?\n  priceUSD         Int?\n  phoneNumber      String?           @unique\n  email            String?           @unique\n  categories       SOURCE_CATEGORY[]\n  createdAt        DateTime          @default(now())\n\n  authorId Int\n  author   Manager @relation(fields: [authorId], references: [id])\n}\n",
+  "inlineSchemaHash": "af74285a7fd0d2e1d655b3271667af9b16bc49726f9aede550c805e45be8453a",
   "copyEngine": true
 }
 config.dirname = '/'

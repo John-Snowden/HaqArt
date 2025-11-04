@@ -12,6 +12,7 @@ import {
   REFUSAL_REASON,
   STATUS_IN_COURT,
   TASK_IMPORTANCE,
+  ROLES,
 } from "@shared/prisma/prisma/client";
 import RootStore from "@/stores/rootStore";
 import { ROUTES } from "@/constants/routes";
@@ -39,8 +40,8 @@ export default class EditUserVM implements WritableUserInputs {
   taskImportance: TASK_IMPORTANCE = TASK_IMPORTANCE.two;
   taskUrgency: TASK_URGENCY = TASK_URGENCY.three;
 
-  legalAction: LEGAL_ACTION | null = null;
-  statusInCourt: STATUS_IN_COURT | null = null;
+  legalAction: LEGAL_ACTION = LEGAL_ACTION.none;
+  statusInCourt: STATUS_IN_COURT = STATUS_IN_COURT.none;
   refusalReason: REFUSAL_REASON | null = null;
   timeOfPerformance: Date | null = null;
   priceSOM: bigint | null = null;
@@ -97,7 +98,7 @@ export default class EditUserVM implements WritableUserInputs {
 
       this.searchText =
         this.root.opponentsStore.opponents.find(
-          (opponent) => opponent.id === selectedUser.opponentId
+          (opponent) => opponent.id === selectedUser.opponentId,
         )?.name || "";
     }
 
@@ -187,15 +188,13 @@ export default class EditUserVM implements WritableUserInputs {
 
   updateUser = async () => {
     if (!this.validate()) return;
-    else await this.root.usersStore.updateUser(this.updatedUser);
+    await this.root.usersStore.updateUser(this.updatedUser);
   };
 
   saveNewUser = async () => {
     if (!this.validate()) return;
-    else {
-      await this.root.usersStore.saveNewUser(this.updatedUser);
-      this.root.routerStore.replace(ROUTES.USERS_LIST);
-    }
+    await this.root.usersStore.saveNewUser(this.updatedUser);
+    this.root.routerStore.replace(ROUTES.USERS_LIST);
   };
 
   validate = (): boolean => {
@@ -210,7 +209,7 @@ export default class EditUserVM implements WritableUserInputs {
       const digits = this.phoneNumber.replace(/\D/g, "");
       if (digits.length !== 9)
         this.root.alertStore.toggleAlert(
-          "Номер телефона должен быть из 9 цифр"
+          "Номер телефона должен быть из 9 цифр",
         );
       else isValid = true;
     } else isValid = true;
@@ -234,7 +233,10 @@ export default class EditUserVM implements WritableUserInputs {
   }
 
   get managerOptions(): { option: string; label: string }[] {
-    const options = this.managers.map((manager) => {
+    const filtered = this.managers.filter(
+      (manager) => manager.role !== ROLES.bot,
+    );
+    const options = filtered.map((manager) => {
       return {
         option: String(manager.id || ""),
         label: manager.username,
@@ -293,7 +295,7 @@ export default class EditUserVM implements WritableUserInputs {
 
     const entries = Object.entries(this.updatedUser) as [
       keyof WritableUserInputs,
-      WritableUserInputs[keyof WritableUserInputs]
+      WritableUserInputs[keyof WritableUserInputs],
     ][];
     const difference = entries.find(([key, value]) => selected[key] !== value);
 
@@ -302,7 +304,7 @@ export default class EditUserVM implements WritableUserInputs {
 
   get searchedOpponents(): Opponent[] {
     return this.root.opponentsStore.opponents.filter((opponent) =>
-      opponent.name.toLowerCase().includes(this.searchText)
+      opponent.name.toLowerCase().includes(this.searchText),
     );
   }
 
@@ -328,19 +330,19 @@ export default class EditUserVM implements WritableUserInputs {
     }[] = [];
 
     if (!this.managerId) {
-      const candidate = taskStatusOptions.find(
-        (status) => status.option === TASK_STATUS.notAssigned
+      const notAssigned = taskStatusOptions.find(
+        (status) => status.option === TASK_STATUS.notAssigned,
       );
-      result = candidate ? [candidate] : [];
+      result = notAssigned ? [notAssigned] : [];
     } else {
       result = this.isOwnerRole
         ? taskStatusOptions
         : taskStatusOptions.filter(
-            (status) => !ownerTaskStatuses.includes(status.option)
+            (status) => !ownerTaskStatuses.includes(status.option),
           );
 
       result = result.filter(
-        (status) => status.option !== TASK_STATUS.notAssigned
+        (status) => status.option !== TASK_STATUS.notAssigned,
       );
     }
 

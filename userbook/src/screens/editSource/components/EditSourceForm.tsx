@@ -3,36 +3,44 @@
 import Image from "next/image";
 import { observer } from "mobx-react-lite";
 
-import { UIInput } from "@/ui";
+import { ROUTES } from "@/constants/routes";
+import { UIButton, UIInput, UISep } from "@/ui";
 import { Dropdown } from "@/ui/dropdown/UIDropdown";
-import { useAddSourceVm } from "@/app/add_source/page";
+import { useEditSourceVM } from "@/app/edit_source/page";
 import { sourceFieldsLabels } from "@/constants/writableInputFields";
 
 import styles from "../styles.module.css";
 import { categoryOptions } from "../constants/dropdownOptions";
 
-export const AddSourceForm = observer(() => {
-  const addSourceVm = useAddSourceVm();
+export const EditSourceForm = observer(() => {
   const {
     title,
     category,
     sourceLink,
+    selectedSource,
+    root: { routerStore },
+    isDev,
     setTitle,
     saveSource,
+    updateSource,
     setCategory,
     setSourceLink,
-  } = addSourceVm;
+  } = useEditSourceVM();
+
+  const isUpdate = isDev && selectedSource;
 
   return (
     <form
       className={styles.addWrapper}
       onSubmit={async (e) => {
         e.preventDefault();
-        await saveSource();
+        if (isUpdate) await updateSource();
+        else await saveSource();
       }}
     >
       <div className={styles.inputsWrapper}>
         <UIInput
+          disabled={!isDev}
           type="text"
           label={"Название"}
           value={title || ""}
@@ -40,6 +48,7 @@ export const AddSourceForm = observer(() => {
           onChange={(value) => setTitle(value)}
         />
         <UIInput
+          disabled={!isDev}
           type="text"
           label={"Ссылка"}
           value={sourceLink || ""}
@@ -47,6 +56,7 @@ export const AddSourceForm = observer(() => {
           onChange={(value) => setSourceLink(value)}
         />
         <Dropdown
+          disabled={!isDev}
           label={sourceFieldsLabels.category}
           value={category}
           options={categoryOptions}
@@ -54,22 +64,30 @@ export const AddSourceForm = observer(() => {
         />
       </div>
 
-      <button type="submit" className={styles.fakeBttn}>
-        <div className={styles.bttnWrapper} role="button">
-          <div className={styles.bttn}>
-            <div className={styles.addIcon}>
-              <Image
-                src={"/svg/add.svg"}
-                alt="icon"
-                width={26}
-                height={26}
-                priority={false}
-              />
-            </div>
-            <div>Добавить источник</div>
-          </div>
-        </div>
-      </button>
+      <UISep />
+      {isUpdate && (
+        <UIButton
+          type="submit"
+          title="Обновить источник"
+          icon="/svg/add.svg"
+          iconSize={26}
+        />
+      )}
+      {selectedSource ? (
+        <UIButton
+          title="Показать пользователей"
+          icon="/svg/people.svg"
+          iconSize={26}
+          onClick={() => routerStore.push(ROUTES.USERS_LIST)}
+        />
+      ) : (
+        <UIButton
+          type="submit"
+          title="Добавить источник"
+          icon="/svg/add.svg"
+          iconSize={26}
+        />
+      )}
     </form>
   );
 });

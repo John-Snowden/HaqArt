@@ -1,3 +1,4 @@
+import { Toaster } from "sonner";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
@@ -28,7 +29,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <RootContext>{children}</RootContext>
+        <RootContext>
+          {children}
+          <Toaster position="top-center" richColors />
+        </RootContext>
       </body>
     </html>
   );

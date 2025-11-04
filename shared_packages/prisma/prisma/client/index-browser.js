@@ -262,7 +262,8 @@ exports.STATUS_IN_COURT = exports.$Enums.STATUS_IN_COURT = {
   judgeOnVacation: 'judgeOnVacation',
   reassigned: 'reassigned',
   negotiations: 'negotiations',
-  returned: 'returned'
+  returned: 'returned',
+  none: 'none'
 };
 
 exports.REFUSAL_REASON = exports.$Enums.REFUSAL_REASON = {

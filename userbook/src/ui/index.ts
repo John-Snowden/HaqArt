@@ -5,3 +5,6 @@ export * from "./screen/Screen";
 export * from "./loader/UILoader";
 export * from "./listWrapper/ListWrapper";
 export * from "./basicListItem/BasicListItem";
+export * from "./UIButton/UIButton";
+export * from "./UIIcon/UIIcon";
+export * from "./UISep/UISep";
