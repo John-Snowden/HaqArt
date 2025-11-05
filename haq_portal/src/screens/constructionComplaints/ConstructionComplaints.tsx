@@ -63,8 +63,8 @@ export const ConstructionComplaintsScreen = observer(() => {
 
       <UISep />
       <div className={stylesGlobal.center}>
-        <h2>{complaints.titleTop[lang]}</h2>
-        <h2>{complaints.titleBottom[lang]}</h2>
+        <h3>{complaints.titleTop[lang]}</h3>
+        <h3>{complaints.titleBottom[lang]}</h3>
         <div className={styles.halfSep} />
         <h4>{complaints.subtitle[lang]}</h4>
       </div>

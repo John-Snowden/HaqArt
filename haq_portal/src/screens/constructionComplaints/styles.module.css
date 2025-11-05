@@ -36,6 +36,7 @@
 }
 
 .toggleBttn {
+    height: 24px;
     color: slategray;
     border: 0.5px solid yellowgreen;
     background-color: transparent;

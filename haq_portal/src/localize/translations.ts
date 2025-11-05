@@ -41,8 +41,8 @@ export const translations = {
       uz: "Murojaat turi: shikoyat*",
     },
     fullProblemPlaceholder: {
-      ru: "Кратко опишите проблему (не более 300 символов). Например: отсутствие кадастровых документов, разрешений на строительство, несоблюдение сроков, приостановка строительства или др. нарушения.",
-      uz: "Muammoni qisqacha bayon qiling (300 belgidan oshmasin). Masalan: kadastr hujjatlari yo‘qligi, qurilish ruxsatnomasining mavjud emasligi, muddatsiz kechikishlar, qurilishning to‘xtatilishi yoki boshqa buzilishlar haqida yozing.",
+      ru: `Кратко опишите проблему (не более ${500} символов). Например: отсутствие кадастровых документов, разрешений на строительство, несоблюдение сроков, приостановка строительства или др. нарушения.`,
+      uz: `Muammoni qisqacha bayon qiling (${500} belgidan oshmasin). Masalan: kadastr hujjatlari yo‘qligi, qurilish ruxsatnomasining mavjud emasligi, muddatsiz kechikishlar, qurilishning to‘xtatilishi yoki boshqa buzilishlar haqida yozing.`,
     },
     send: {
       ru: "Отправить",
