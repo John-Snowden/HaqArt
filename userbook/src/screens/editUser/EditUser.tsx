@@ -24,8 +24,6 @@ export const EditUserScreen = observer(() => {
     updateUser,
   } = useEditUserVM();
 
-  console.log("current", currentEditStep);
-
   return (
     <div className={styles.main}>
       <div className={styles.headerWrapper}>

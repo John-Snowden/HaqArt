@@ -24,10 +24,12 @@ export const prismaGetManagers = async () => {
 
 export const prismaGetManagerById = async (managerId: number) => {
   try {
-    return await prisma.manager.findUnique({
+    const manager = await prisma.manager.findUnique({
       where: { id: managerId },
       select: { id: true, username: true, role: true },
     });
+    if (!manager) throw new Error();
+    return manager;
   } catch (e) {
     return { error: "Менеджер не получен " + e };
   }
@@ -106,13 +108,15 @@ const getUsersCountByDate = async (
 };
 
 export const prismaGetHaqBotManager = async () => {
+  let result;
   try {
     const username = process.env.HAQ_BOT_NAME || "";
     const password = process.env.HAQ_BOT_PASS || "";
     const res = await prismaLogin(username, password);
     if ("error" in res) throw new Error();
-    else return await prismaGetManagerById(res.id);
+    result = await prismaGetManagerById(res.id);
   } catch (e) {
-    return { error: "Бот не получен\n" + e };
+    result = { error: "Бот не получен\n" + e };
   }
+  return result;
 };
