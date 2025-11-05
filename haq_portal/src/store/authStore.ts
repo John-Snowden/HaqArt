@@ -6,11 +6,14 @@ import { Manager } from "@shared/prisma/prisma/client";
 import { prismaGetHaqBotManager } from "@shared/lib/actions/manager";
 
 import RootStore from "./rootStore";
+import { toast } from "sonner";
+
+export type SafeManagerData = Omit<Manager, "createdAt" | "password">;
 
 export default class AuthStore {
   root: RootStore;
 
-  me: Manager | null = null;
+  me: SafeManagerData | null = null;
 
   constructor(root: RootStore) {
     this.root = root;
@@ -25,8 +28,7 @@ export default class AuthStore {
     try {
       const res = await prismaGetHaqBotManager();
       if ("error" in res) {
-        console.log("haq_bot failed to login");
-        // TODO toaster
+        toast.error("Произошла ошибка, пожалуйста сообщите разработчику");
       } else runInAction(() => (this.me = res));
     } catch (e) {
       console.log(e);

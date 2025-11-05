@@ -18,3 +18,7 @@
 .bttn:hover {
     opacity: 0.85;
 }
+
+.bttn:active {
+    scale: 0.98;
+}

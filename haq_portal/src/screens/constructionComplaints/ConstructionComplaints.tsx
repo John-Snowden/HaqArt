@@ -1,49 +1,76 @@
 "use client";
 
 import clsx from "clsx";
+import Image from "next/image";
+import { formatDate } from "date-fns";
 import { observer } from "mobx-react-lite";
 
+import { translations } from "@/localize";
 import { useConstructionComplaintsVM } from "@/context";
 import { UIButton, UIInput, UISep, UITextarea } from "@/ui";
 
 import styles from "./styles.module.css";
 import stylesGlobal from "../../stylesGlobal.module.css";
-import { toast } from "sonner";
 
 export const ConstructionComplaintsScreen = observer(() => {
   const {
+    root: { lang, toggleLang },
     username,
     phoneNumber,
     homeAddress,
+    downPayment,
+    constructionCompanyName,
+    appartmentBlockName,
     problemFull,
     setUsername,
     setPhoneNumber,
     setHomeAddress,
     setProblemFull,
+    setDownPayment,
+    setConstructionCompanyName,
+    setappartmentBlockName,
     sendComplaint,
   } = useConstructionComplaintsVM();
 
+  const formatNumber = (v: bigint | null, separator = " ") =>
+    v ? v.toString().replace(/\B(?=(\d{3})+(?!\d))/g, separator) : "";
+
+  const { complaints } = translations;
+
   return (
     <div className={clsx(stylesGlobal.screen, stylesGlobal.center)}>
-      <div className={stylesGlobal.center}>
-        <h1>Подайте жалобу</h1>
-        <h1>на Вашего застройщика</h1>
-        <div className={styles.halfSep} />
-        <h4>Интерактивный портал города Ташкент.</h4>
+      <div className={styles.logoWrapper}>
+        <div style={{ position: "absolute", right: 0, top: -20 }}>
+          <UIButton
+            title="Рус/O`z"
+            icon="/svg/update.svg"
+            iconSize={22}
+            style={styles.toggleBttn}
+            onClick={toggleLang}
+          />
+        </div>
+        <Image
+          src={"/images/tashkent.png"}
+          alt="icon"
+          width={100}
+          height={100}
+          priority={false}
+        />
+      </div>
 
-        <UISep />
-        <UISep />
-        <h4>
-          Пожалуйста, сообщите нам о нарушениях, допущенных Вашей строительной
-          компанией.
-        </h4>
+      <UISep />
+      <div className={stylesGlobal.center}>
+        <h1>{complaints.titleTop[lang]}</h1>
+        <h1>{complaints.titleBottom[lang]}</h1>
+        <div className={styles.halfSep} />
+        <h4>{complaints.subtitle[lang]}</h4>
       </div>
 
       <UISep />
       <div style={{ display: "flex", alignSelf: "center", width: "100%" }}>
         <div className={styles.inputWrapper}>
           <UIInput
-            placeholder="Ваше имя"
+            placeholder={complaints.yourName[lang]}
             value={username}
             icon="/svg/user.svg"
             onChange={setUsername}
@@ -51,8 +78,9 @@ export const ConstructionComplaintsScreen = observer(() => {
         </div>
         <div className={styles.inputWrapper}>
           <UIInput
-            placeholder="Ваш телефон"
-            value={phoneNumber}
+            placeholder={complaints.yourPhoneNumber[lang]}
+            prefix="+(998)"
+            value={phoneNumber || ""}
             icon="/svg/phone.svg"
             onChange={setPhoneNumber}
           />
@@ -60,7 +88,7 @@ export const ConstructionComplaintsScreen = observer(() => {
       </div>
       <div className={styles.inputWrapper}>
         <UIInput
-          placeholder="Ваш фактический адрес проживания (город)"
+          placeholder={complaints.yourHomeAddress[lang]}
           value={homeAddress}
           icon="/svg/location.svg"
           iconSize={11}
@@ -69,63 +97,71 @@ export const ConstructionComplaintsScreen = observer(() => {
       </div>
       <div className={styles.inputWrapper}>
         <UIInput
-          placeholder="Сумма первоначального взноса (если вносили)"
-          value=""
+          placeholder={complaints.yourDownPayment[lang]}
+          value={formatNumber(downPayment, " ")}
           icon="/svg/dollar.svg"
           iconSize={15}
-          onChange={() => {}}
+          onChange={setDownPayment}
         />
       </div>
 
       <UISep />
       <div className={styles.inputWrapper}>
         <UIInput
-          placeholder="Именование компании-застройщика"
-          value=""
+          placeholder={complaints.yourConstructionCompanyName[lang]}
+          value={constructionCompanyName}
           icon="/svg/company.svg"
           iconSize={12}
-          onChange={() => {}}
+          onChange={setConstructionCompanyName}
         />
       </div>
       <div className={styles.inputWrapper}>
         <UIInput
-          placeholder="Именование жилого комплекса"
-          value=""
+          placeholder={complaints.yourAppartmentBlockName[lang]}
+          value={appartmentBlockName}
           icon="/svg/house.svg"
           iconSize={12}
-          onChange={() => {}}
+          onChange={setappartmentBlockName}
         />
       </div>
 
       <UISep />
       <UISep />
+      <div className={styles.subtitle}>
+        {complaints.requestTypeComplaint[lang]}
+      </div>
       <UITextarea
         value={problemFull}
-        placeholder="Краткий текст обращения (300 символов). Например: отсутствие кадастровых документов, разрешений на строительство,
-        несоблюдение сроков, приостановка строительства и др нарушения."
+        placeholder={complaints.fullProblemPlaceholder[lang]}
         onChange={setProblemFull}
       />
-      <div className={styles.subtitle}>Тип обращения: жалоба*</div>
 
       <UISep />
       <div className={styles.buttonWrapper}>
         <UIButton
-          title="Отправить"
+          title={complaints.send[lang]}
           icon="/svg/telegram.svg"
           onClick={sendComplaint}
+          isInverted
         />
+
+        <div>
+          <h5>
+            {complaints.registryNumber[lang]}: 791/
+            {Math.random().toFixed(4).split(".")[1]}
+          </h5>
+          <h5>
+            {complaints.registryDate[lang]}:{" "}
+            {formatDate(new Date(), "dd/MM/yyyy")}
+          </h5>
+        </div>
       </div>
 
       <UISep />
-      <div className={styles.subtitle}>
-        Обращения рассматриваются в порядке очереди.
-      </div>
-      <div className={styles.subtitle}>
-        Срок рассмотрения обращения - до 3 рабочих дней.
-      </div>
-      <div className={styles.subtitle}>
-        Пожалуйста, не дублируйте обращение - это не ускорит его обработку.
-      </div>
+      <div className={styles.line} />
+      <div className={styles.subtitle}>{complaints.footerLine1[lang]}</div>
+      <div className={styles.subtitle}>{complaints.footerLine2[lang]}</div>
+      <div className={styles.subtitle}>{complaints.footerLine3[lang]}</div>
     </div>
   );
 });

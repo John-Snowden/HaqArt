@@ -6,7 +6,7 @@ import { DraftUser } from "@/screens";
 import { prismaSaveUser } from "@shared/lib/actions/users";
 
 import RootStore from "./rootStore";
-import { Manager } from "@shared/prisma/prisma/client";
+import { SafeManagerData } from "./authStore";
 
 export default class UserStore {
   root: RootStore;
@@ -17,26 +17,30 @@ export default class UserStore {
   }
 
   saveNewUser = async (data: DraftUser) => {
-    if (!this.me) {
-      // TODO toast
-      alert("me is not defined");
-      return;
-    }
+    const haqBotConstructionSource =
+      this.root.sourcesStore.haq_bot_sources.find(
+        (source) => source.title === "Haq Portal застройка",
+      );
 
-    // validation
+    if (!this.me) throw { message: "Закройте приложение и откройте снова." };
+    else if (!haqBotConstructionSource)
+      throw { message: "Ошибка. Сообщите разработчику." };
 
     const res = await prismaSaveUser({
       ...data,
       authorId: this.me.id,
-      sourceId: 1,
+      sourceId: haqBotConstructionSource.id,
     });
-    // TODO toast
-    if ("error" in res) alert("fuck you");
-    // TODO toast
-    else alert("ok");
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    if ("error" in res)
+      throw {
+        message: "Закройте",
+        error: res.error,
+      };
   };
 
-  get me(): Manager | null {
+  get me(): SafeManagerData | null {
     return this.root.authStore.me;
   }
 }

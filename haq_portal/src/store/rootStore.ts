@@ -15,6 +15,8 @@ export default class RootStore {
   sourcesStore: SourcesStore;
   userStore: UserStore;
 
+  lang: "ru" | "uz" = "ru";
+
   constructor(router: AppRouterInstance) {
     this.routerStore = new RouterStore(this, router);
     this.authStore = new AuthStore(this);
@@ -27,4 +29,6 @@ export default class RootStore {
     await this.authStore.init();
     await this.sourcesStore.init();
   };
+
+  toggleLang = () => (this.lang = this.lang === "ru" ? "uz" : "ru");
 }

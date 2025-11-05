@@ -2,10 +2,12 @@
 
 import { makeAutoObservable, runInAction } from "mobx";
 
-import { Manager, Source } from "@shared/prisma/prisma/client";
+import { Source } from "@shared/prisma/prisma/client";
 import { prismaGetSourcesByAuthorId } from "@shared/lib/actions/sources";
 
+import { toast } from "sonner";
 import RootStore from "./rootStore";
+import { SafeManagerData } from "./authStore";
 
 export default class SourcesStore {
   root: RootStore;
@@ -24,20 +26,23 @@ export default class SourcesStore {
   getHaqBotSources = async () => {
     try {
       if (!this.me) {
-        // TODO toast
-        alert("me is not defined");
+        toast.error(
+          "Ошибка, не хватает данных. Сообщите, пожалуйста, разработчику.",
+        );
         return;
       }
       const res = await prismaGetSourcesByAuthorId(this.me.id);
-      // TODO toast
-      if ("error" in res) alert("fuck you");
+      if ("error" in res)
+        toast.error(
+          "Ошибка, необходимые данные не загружены. Сообщите, пожалуйста, разработчику.",
+        );
       else runInAction(() => (this.haq_bot_sources = res));
     } catch (e) {
       console.log(e);
     }
   };
 
-  get me(): Manager | null {
+  get me(): SafeManagerData | null {
     return this.root.authStore.me;
   }
 }

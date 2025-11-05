@@ -17,7 +17,7 @@ export const UIIcon: FC<Props> = ({ source, size, isInverted }) => {
       width={size || 14}
       height={size || 14}
       priority={false}
-      style={isInverted ? { filter: "invert(1)" } : undefined}
+      style={isInverted ? { filter: "invert(1)" } : { filter: "invert(0)" }}
     />
   );
 };
