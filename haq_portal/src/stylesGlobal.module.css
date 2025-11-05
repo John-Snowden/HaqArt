@@ -1,23 +1,23 @@
 .window {
-  display: block;
-  height: 100vh;
-  width: 100vw;
-  overflow-y: auto;
+    display: block;
+    height: 100vh;
+    width: 100vw;
+    overflow-y: auto;
 }
 
 .screen {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  padding: 40px 20px;
-  padding-bottom: 110px;
-  /*background: url("/images/haq_portal.png") center/cover no-repeat;*/
-  background-attachment: fixed;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 40px 20px;
+    padding-bottom: 30px;
+    /*background: url("/images/haq_portal.png") center/cover no-repeat;*/
+    background-attachment: fixed;
 }
 
 .center {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

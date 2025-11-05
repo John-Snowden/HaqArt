@@ -42,3 +42,25 @@
     justify-content: center;
     align-items: center;
 }
+
+.stampWrapper {
+    position: absolute;
+    width: fit-content;
+    height: 120px;
+    padding: 30px 30px;
+    top: -15px;
+    rotate: 5deg;
+    border: 2px solid lightgray;
+    border-radius: 4px;
+    opacity: 0.3;
+
+    font-size: 14px;
+}
+
+.stamp {
+    position: absolute;
+    top: 8px;
+    bottom: 0;
+    rotate: 25deg;
+    opacity: 0.15;
+}

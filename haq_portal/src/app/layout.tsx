@@ -31,9 +31,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <RootContext>
           {children}
-          <div
-            style={{ display: "block", backgroundColor: "red", padding: 40 }}
-          >
+          <div style={{ display: "block", padding: 40 }}>
             <Toaster
               position="top-center"
               richColors

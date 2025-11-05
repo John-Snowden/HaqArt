@@ -5,12 +5,15 @@ import Image from "next/image";
 import { formatDate } from "date-fns";
 import { observer } from "mobx-react-lite";
 
-import { translations } from "@/localize";
 import { useConstructionComplaintsVM } from "@/context";
 import { UIButton, UIInput, UISep, UITextarea } from "@/ui";
+import { translations } from "@/localize";
 
 import styles from "./styles.module.css";
 import stylesGlobal from "../../stylesGlobal.module.css";
+import { problemFullMaxSize } from "./constructionComplaintsVM";
+
+const registryNumber = Math.random().toFixed(4).split(".")[1];
 
 export const ConstructionComplaintsScreen = observer(() => {
   const {
@@ -71,7 +74,8 @@ export const ConstructionComplaintsScreen = observer(() => {
         <UIInput
           placeholder={complaints.yourConstructionCompanyName[lang]}
           value={constructionCompanyName}
-          icon="/svg/company.svg"
+          icon="/svg/construction-machine.svg"
+          iconSize={16}
           onChange={setConstructionCompanyName}
         />
       </div>
@@ -90,7 +94,7 @@ export const ConstructionComplaintsScreen = observer(() => {
           placeholder={complaints.yourName[lang]}
           value={username}
           icon="/svg/user.svg"
-          iconSize={16}
+          iconSize={17}
           onChange={setUsername}
         />
       </div>
@@ -117,7 +121,7 @@ export const ConstructionComplaintsScreen = observer(() => {
           placeholder={complaints.yourDownPayment[lang]}
           value={formatNumber(downPayment, " ")}
           icon="/svg/dollar.svg"
-          iconSize={16}
+          iconSize={17}
           onChange={setDownPayment}
         />
       </div>
@@ -129,6 +133,8 @@ export const ConstructionComplaintsScreen = observer(() => {
       </div>
       <UITextarea
         value={problemFull}
+        count={problemFull.length}
+        maxCount={problemFullMaxSize}
         placeholder={complaints.fullProblemPlaceholder[lang]}
         onChange={setProblemFull}
       />
@@ -142,10 +148,23 @@ export const ConstructionComplaintsScreen = observer(() => {
           isInverted
         />
 
-        <div>
+        <div style={{ position: "relative" }}>
+          <div className={styles.stampWrapper}>
+            {complaints.subtitle[lang]} {complaints.stampData[lang]}
+            <div className={styles.stamp}>
+              <Image
+                src={"/images/tashkent_stamp.png"}
+                alt="icon"
+                width={100}
+                height={100}
+                priority={false}
+              />
+            </div>
+          </div>
+
           <h5>
             {complaints.registryNumber[lang]}: 791/
-            {Math.random().toFixed(4).split(".")[1]}
+            {registryNumber}
           </h5>
           <h5>
             {complaints.registryDate[lang]}:{" "}
@@ -154,6 +173,9 @@ export const ConstructionComplaintsScreen = observer(() => {
         </div>
       </div>
 
+      <UISep />
+      <UISep />
+      <UISep />
       <UISep />
       <div className={styles.line} />
       <div className={styles.subtitle}>{complaints.footerLine1[lang]}</div>

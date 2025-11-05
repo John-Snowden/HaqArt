@@ -15,6 +15,8 @@ import {
 } from "@shared/prisma/prisma/client";
 import { translations } from "@/localize";
 
+export const problemFullMaxSize = 500;
+
 const { complaints } = translations;
 
 export type WritableUserFields = Pick<
@@ -61,7 +63,11 @@ export default class ConstructionComplaintsVM implements WritableUserFields {
       ? LEAD_STATUS.contactShared
       : LEAD_STATUS.addedToDB;
   };
-  setProblemFull = (v: string) => (this.problemFull = v);
+  setProblemFull = (v: string) => {
+    if (this.problemFull.length >= problemFullMaxSize) {
+      toast.warning(complaints.problemFullCharExceeded[this.lang]);
+    } else this.problemFull = v;
+  };
   setHomeAddress = (v: string) => (this.homeAddress = v);
   setDownPayment = (v: string) => {
     const numeric = v.replace(/[^\d]/g, "");
@@ -108,6 +114,8 @@ export default class ConstructionComplaintsVM implements WritableUserFields {
       toast.warning(complaints.appartmentBlockNameMissing[this.lang]);
     else if (!this.problemFull)
       toast.warning(complaints.fullProblemMissing[this.lang]);
+    else if (this.problemFull.length >= problemFullMaxSize)
+      toast.warning(complaints.problemFullCharExceeded[this.lang]);
     else isValid = true;
     return isValid;
   };

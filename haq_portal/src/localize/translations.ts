@@ -2,15 +2,15 @@ export const translations = {
   complaints: {
     titleTop: {
       ru: "Подайте жалобу",
-      uz: "Shikoyat yuboring",
+      uz: "Shikoyatingizni yuboring",
     },
     titleBottom: {
       ru: "на Вашего застройщика",
-      uz: "sizning qurilish kompaniyangizga",
+      uz: "sizning quruvchi kompaniyangizga",
     },
     subtitle: {
       ru: "Интерактивный портал города Ташкент",
-      uz: "Toshkent shahri interaktiv portali",
+      uz: "Toshkent shahrining interaktiv portali",
     },
     yourName: {
       ru: "Ваше имя",
@@ -22,19 +22,19 @@ export const translations = {
     },
     yourHomeAddress: {
       ru: "Ваш фактический адрес проживания (город)",
-      uz: "Yashash manzilingiz (shahar)",
+      uz: "Yashash manzilingiz (shahar nomi)",
     },
     yourDownPayment: {
       ru: "Первоначальный взнос (если вносили)",
-      uz: "Boshlang‘ich to‘lov miqdori (agar amalga oshirilgan bo‘lsa)",
+      uz: "Boshlang‘ich to‘lov miqdori (agar to‘langan bo‘lsa)",
     },
     yourConstructionCompanyName: {
       ru: "Именование компании-застройщика",
-      uz: "Qurilish kompaniyasi nomi",
+      uz: "Qurilish kompaniyasining nomi",
     },
     yourAppartmentBlockName: {
       ru: "Именование жилого комплекса",
-      uz: "Turar joy majmuasi nomi",
+      uz: "Turar joy majmuasining nomi",
     },
     requestTypeComplaint: {
       ru: "Тип обращения: жалоба*",
@@ -42,11 +42,11 @@ export const translations = {
     },
     fullProblemPlaceholder: {
       ru: "Кратко опишите проблему (не более 300 символов). Например: отсутствие кадастровых документов, разрешений на строительство, несоблюдение сроков, приостановка строительства или др. нарушения.",
-      uz: "Muammoni qisqacha bayon qiling (300 belgidan oshmasin). Masalan: kadastr hujjatlari yo‘qligi, qurilish ruxsati mavjud emasligi, muddatlarga rioya qilinmasligi, qurilishning to‘xtatilishi yoki boshqa buzilishlar.",
+      uz: "Muammoni qisqacha bayon qiling (300 belgidan oshmasin). Masalan: kadastr hujjatlari yo‘qligi, qurilish ruxsatnomasining mavjud emasligi, muddatsiz kechikishlar, qurilishning to‘xtatilishi yoki boshqa buzilishlar haqida yozing.",
     },
     send: {
       ru: "Отправить",
-      uz: "Jo‘natish",
+      uz: "Yuborish",
     },
     registryNumber: {
       ru: "Рег. номер",
@@ -58,7 +58,7 @@ export const translations = {
     },
     footerLine1: {
       ru: "*Обращения рассматриваются в порядке очереди.",
-      uz: "*Murojaatlar navbat tartibida ko‘rib chiqiladi.",
+      uz: "*Murojaatlar navbat asosida ko‘rib chiqiladi.",
     },
     footerLine2: {
       ru: "Срок рассмотрения может занять до 3-х рабочих дней.",
@@ -68,34 +68,34 @@ export const translations = {
       ru: "Пожалуйста, не дублируйте Ваше обращение - это может замедлить его обработку.",
       uz: "Iltimos, murojaatingizni takror yubormang — bu uni ko‘rib chiqish jarayonini sekinlashtirishi mumkin.",
     },
-    sending: { ru: "Отправка..", uz: "Jo‘natilmoqda..." },
+    sending: { ru: "Отправка..", uz: "Yuborilmoqda..." },
     successMessage: {
       ru: "Зарегистрировано. С Вами свяжутся - пожалуйста, ожидайте",
-      uz: "Ro‘yxatga olindi. Siz bilan bog‘laniladi — iltimos, kuting.",
+      uz: "Ro‘yxatga olindi. Siz bilan bog‘lanishadi — iltimos, kuting.",
     },
     complaintAlreadyRegistered: {
       ru: "Ваше обращение уже зарегистрировано",
-      uz: "Sizning murojaatingiz allaqachon ro‘yxatga olingan",
+      uz: "Sizning murojaatingiz allaqachon ro‘yxatga olingan.",
     },
     errorContactDev: {
       ru: "Ошибка. Пожалуйста, сообщите разработчику",
-      uz: "Xatolik yuz berdi. Iltimos, dasturchiga xabar bering.",
+      uz: "Xatolik yuz berdi. Iltimos, bu haqda dasturchiga xabar bering.",
     },
     nameMissing: {
       ru: "Имя не заполнено",
-      uz: "Ism kiritilmagan",
+      uz: "Ism kiritilmagan.",
     },
     phoneNumberMissing: {
       ru: "Укажите Ваш контактный номер",
-      uz: "Telefon raqamingizni kiriting",
+      uz: "Telefon raqamingizni kiriting.",
     },
     phoneNumberWrongFormat: {
       ru: "Номер телефона должен состоять из 9 цифр",
-      uz: "Telefon raqami 9 ta raqamdan iborat bo‘lishi lozim.",
+      uz: "Telefon raqami 9 ta raqamdan iborat bo‘lishi kerak.",
     },
     homeAddressMissing: {
       ru: "Укажите ваш город проживания",
-      uz: "Yashash shahringizni kiriting.",
+      uz: "Yashayotgan shahringizni kiriting.",
     },
     constructionCompanyNameMissing: {
       ru: "Укажите Вашего застройщика",
@@ -108,6 +108,14 @@ export const translations = {
     fullProblemMissing: {
       ru: "Добавьте краткое описание Вашей проблемы",
       uz: "Muammoning qisqacha tavsifini kiriting.",
+    },
+    problemFullCharExceeded: {
+      ru: "Слишком длинный текст обращения",
+      uz: "Murojaat matni juda uzun.",
+    },
+    stampData: {
+      ru: "Ключ ЭЦП: 1719-21-13/29",
+      uz: "E-imzo kaliti: 1719-21-13/29",
     },
   },
 };
