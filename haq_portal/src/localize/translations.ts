@@ -6,11 +6,11 @@ export const translations = {
     },
     titleBottom: {
       ru: "на Вашего застройщика",
-      uz: "sizning quruvchi kompaniyangizga",
+      uz: "sizning qurilish kompaniyangizga",
     },
     subtitle: {
-      ru: "Интерактивный портал города Ташкент.",
-      uz: "Toshkent shahri interaktiv portali.",
+      ru: "Интерактивный портал города Ташкент",
+      uz: "Toshkent shahri interaktiv portali",
     },
     yourName: {
       ru: "Ваше имя",
@@ -25,8 +25,8 @@ export const translations = {
       uz: "Yashash manzilingiz (shahar)",
     },
     yourDownPayment: {
-      ru: "Сумма первоначального взноса (если вносили)",
-      uz: "Boshlang‘ich to‘lov miqdori (agar to‘langan bo‘lsa)",
+      ru: "Первоначальный взнос (если вносили)",
+      uz: "Boshlang‘ich to‘lov miqdori (agar amalga oshirilgan bo‘lsa)",
     },
     yourConstructionCompanyName: {
       ru: "Именование компании-застройщика",
@@ -42,19 +42,19 @@ export const translations = {
     },
     fullProblemPlaceholder: {
       ru: "Кратко опишите проблему (не более 300 символов). Например: отсутствие кадастровых документов, разрешений на строительство, несоблюдение сроков, приостановка строительства или др. нарушения.",
-      uz: "Muammoni qisqacha bayon qiling (300 belgidan oshmasin). Masalan: kadastr hujjatlari yo‘qligi, qurilish ruxsati yo‘qligi, muddatsizlik, qurilish to‘xtashi yoki boshqa buzilishlar.",
+      uz: "Muammoni qisqacha bayon qiling (300 belgidan oshmasin). Masalan: kadastr hujjatlari yo‘qligi, qurilish ruxsati mavjud emasligi, muddatlarga rioya qilinmasligi, qurilishning to‘xtatilishi yoki boshqa buzilishlar.",
     },
     send: {
       ru: "Отправить",
-      uz: "Yuborish",
+      uz: "Jo‘natish",
     },
     registryNumber: {
-      ru: "Регистрационный номер",
-      uz: "Ro‘yxatga olish raqami",
+      ru: "Рег. номер",
+      uz: "Ro‘yxat raqami",
     },
     registryDate: {
-      ru: "Дата регистрации",
-      uz: "Ro‘yxatga olingan sana",
+      ru: "Дата рег.",
+      uz: "Ro‘yxatdan o‘tgan sana",
     },
     footerLine1: {
       ru: "*Обращения рассматриваются в порядке очереди.",
@@ -62,16 +62,16 @@ export const translations = {
     },
     footerLine2: {
       ru: "Срок рассмотрения может занять до 3-х рабочих дней.",
-      uz: "Ko‘rib chiqish muddati 3 ish kunigacha davom etishi mumkin.",
+      uz: "Ko‘rib chiqish jarayoni 3 ish kunigacha davom etishi mumkin.",
     },
     footerLine3: {
       ru: "Пожалуйста, не дублируйте Ваше обращение - это может замедлить его обработку.",
-      uz: "Iltimos, murojaatingizni takror yubormang — bu uni ko‘rib chiqishni sekinlashtiradi.",
+      uz: "Iltimos, murojaatingizni takror yubormang — bu uni ko‘rib chiqish jarayonini sekinlashtirishi mumkin.",
     },
-    sending: { ru: "Отправка..", uz: "Yuborilmoqda..." },
+    sending: { ru: "Отправка..", uz: "Jo‘natilmoqda..." },
     successMessage: {
       ru: "Зарегистрировано. С Вами свяжутся - пожалуйста, ожидайте",
-      uz: "Ro‘yxatga olindi. Siz bilan bog‘lanishadi — iltimos, kuting.",
+      uz: "Ro‘yxatga olindi. Siz bilan bog‘laniladi — iltimos, kuting.",
     },
     complaintAlreadyRegistered: {
       ru: "Ваше обращение уже зарегистрировано",
@@ -79,32 +79,35 @@ export const translations = {
     },
     errorContactDev: {
       ru: "Ошибка. Пожалуйста, сообщите разработчику",
-      uz: "Xato yuz berdi. Iltimos, dasturchiga xabar bering",
+      uz: "Xatolik yuz berdi. Iltimos, dasturchiga xabar bering.",
     },
-    nameMissing: { ru: "Имя не заполнено", uz: "Ism kiritilmagan" },
+    nameMissing: {
+      ru: "Имя не заполнено",
+      uz: "Ism kiritilmagan",
+    },
     phoneNumberMissing: {
       ru: "Укажите Ваш контактный номер",
       uz: "Telefon raqamingizni kiriting",
     },
     phoneNumberWrongFormat: {
       ru: "Номер телефона должен состоять из 9 цифр",
-      uz: "Telefon raqami 9 ta raqamdan iborat bo‘lishi kerak",
+      uz: "Telefon raqami 9 ta raqamdan iborat bo‘lishi lozim.",
     },
     homeAddressMissing: {
       ru: "Укажите ваш город проживания",
-      uz: "Yashash shahringizni kiriting",
+      uz: "Yashash shahringizni kiriting.",
     },
     constructionCompanyNameMissing: {
       ru: "Укажите Вашего застройщика",
-      uz: "Quruvchi kompaniyangizni kiriting",
+      uz: "Quruvchi kompaniyangiz nomini kiriting.",
     },
     appartmentBlockNameMissing: {
       ru: "Укажите название Вашего жилого комплекса",
-      uz: "Turar joy majmuangiz nomini kiriting",
+      uz: "Turar joy majmuangiz nomini kiriting.",
     },
     fullProblemMissing: {
       ru: "Добавьте краткое описание Вашей проблемы",
-      uz: "Muammoning qisqacha tavsifini kiriting",
+      uz: "Muammoning qisqacha tavsifini kiriting.",
     },
   },
 };

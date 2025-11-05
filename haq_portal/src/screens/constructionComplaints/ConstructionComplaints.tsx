@@ -43,8 +43,8 @@ export const ConstructionComplaintsScreen = observer(() => {
         <div style={{ position: "absolute", right: 0, top: -20 }}>
           <UIButton
             title="Рус/O`z"
-            icon="/svg/update.svg"
-            iconSize={22}
+            // icon="/svg/update.svg"
+            // iconSize={22}
             style={styles.toggleBttn}
             onClick={toggleLang}
           />
@@ -60,49 +60,10 @@ export const ConstructionComplaintsScreen = observer(() => {
 
       <UISep />
       <div className={stylesGlobal.center}>
-        <h1>{complaints.titleTop[lang]}</h1>
-        <h1>{complaints.titleBottom[lang]}</h1>
+        <h2>{complaints.titleTop[lang]}</h2>
+        <h2>{complaints.titleBottom[lang]}</h2>
         <div className={styles.halfSep} />
         <h4>{complaints.subtitle[lang]}</h4>
-      </div>
-
-      <UISep />
-      <div style={{ display: "flex", alignSelf: "center", width: "100%" }}>
-        <div className={styles.inputWrapper}>
-          <UIInput
-            placeholder={complaints.yourName[lang]}
-            value={username}
-            icon="/svg/user.svg"
-            onChange={setUsername}
-          />
-        </div>
-        <div className={styles.inputWrapper}>
-          <UIInput
-            placeholder={complaints.yourPhoneNumber[lang]}
-            prefix="+(998)"
-            value={phoneNumber || ""}
-            icon="/svg/phone.svg"
-            onChange={setPhoneNumber}
-          />
-        </div>
-      </div>
-      <div className={styles.inputWrapper}>
-        <UIInput
-          placeholder={complaints.yourHomeAddress[lang]}
-          value={homeAddress}
-          icon="/svg/location.svg"
-          iconSize={11}
-          onChange={setHomeAddress}
-        />
-      </div>
-      <div className={styles.inputWrapper}>
-        <UIInput
-          placeholder={complaints.yourDownPayment[lang]}
-          value={formatNumber(downPayment, " ")}
-          icon="/svg/dollar.svg"
-          iconSize={15}
-          onChange={setDownPayment}
-        />
       </div>
 
       <UISep />
@@ -111,7 +72,6 @@ export const ConstructionComplaintsScreen = observer(() => {
           placeholder={complaints.yourConstructionCompanyName[lang]}
           value={constructionCompanyName}
           icon="/svg/company.svg"
-          iconSize={12}
           onChange={setConstructionCompanyName}
         />
       </div>
@@ -120,8 +80,45 @@ export const ConstructionComplaintsScreen = observer(() => {
           placeholder={complaints.yourAppartmentBlockName[lang]}
           value={appartmentBlockName}
           icon="/svg/house.svg"
-          iconSize={12}
           onChange={setappartmentBlockName}
+        />
+      </div>
+
+      <UISep />
+      <div className={styles.inputWrapper}>
+        <UIInput
+          placeholder={complaints.yourName[lang]}
+          value={username}
+          icon="/svg/user.svg"
+          iconSize={16}
+          onChange={setUsername}
+        />
+      </div>
+      <div className={styles.inputWrapper}>
+        <UIInput
+          placeholder={complaints.yourPhoneNumber[lang]}
+          prefix="+(998)"
+          value={phoneNumber || ""}
+          icon="/svg/phone.svg"
+          iconSize={16}
+          onChange={setPhoneNumber}
+        />
+      </div>
+      <div className={styles.inputWrapper}>
+        <UIInput
+          placeholder={complaints.yourHomeAddress[lang]}
+          value={homeAddress}
+          icon="/svg/location.svg"
+          onChange={setHomeAddress}
+        />
+      </div>
+      <div className={styles.inputWrapper}>
+        <UIInput
+          placeholder={complaints.yourDownPayment[lang]}
+          value={formatNumber(downPayment, " ")}
+          icon="/svg/dollar.svg"
+          iconSize={16}
+          onChange={setDownPayment}
         />
       </div>
 

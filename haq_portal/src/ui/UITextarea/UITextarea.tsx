@@ -13,7 +13,7 @@ interface Props {
 export const UITextarea: FC<Props> = ({ placeholder, value, onChange }) => {
   return (
     <textarea
-      rows={4}
+      rows={6}
       placeholder={placeholder}
       value={value}
       className={styles.textArea}
