@@ -8450,7 +8450,7 @@ export namespace Prisma {
     priceSOM?: bigint | number | null
     priceUSD?: bigint | number | null
     courtInfo?: string
-    statusInCourt: $Enums.STATUS_IN_COURT
+    statusInCourt?: $Enums.STATUS_IN_COURT
     refusalReason?: $Enums.REFUSAL_REASON | null
     createdAt?: Date | string
     assignmentTime?: Date | string | null
@@ -8480,7 +8480,7 @@ export namespace Prisma {
     priceSOM?: bigint | number | null
     priceUSD?: bigint | number | null
     courtInfo?: string
-    statusInCourt: $Enums.STATUS_IN_COURT
+    statusInCourt?: $Enums.STATUS_IN_COURT
     refusalReason?: $Enums.REFUSAL_REASON | null
     createdAt?: Date | string
     assignmentTime?: Date | string | null
@@ -8569,7 +8569,7 @@ export namespace Prisma {
     priceSOM?: bigint | number | null
     priceUSD?: bigint | number | null
     courtInfo?: string
-    statusInCourt: $Enums.STATUS_IN_COURT
+    statusInCourt?: $Enums.STATUS_IN_COURT
     refusalReason?: $Enums.REFUSAL_REASON | null
     createdAt?: Date | string
     assignmentTime?: Date | string | null
@@ -10350,7 +10350,7 @@ export namespace Prisma {
     priceSOM?: bigint | number | null
     priceUSD?: bigint | number | null
     courtInfo?: string
-    statusInCourt: $Enums.STATUS_IN_COURT
+    statusInCourt?: $Enums.STATUS_IN_COURT
     refusalReason?: $Enums.REFUSAL_REASON | null
     createdAt?: Date | string
     assignmentTime?: Date | string | null
@@ -10379,7 +10379,7 @@ export namespace Prisma {
     priceSOM?: bigint | number | null
     priceUSD?: bigint | number | null
     courtInfo?: string
-    statusInCourt: $Enums.STATUS_IN_COURT
+    statusInCourt?: $Enums.STATUS_IN_COURT
     refusalReason?: $Enums.REFUSAL_REASON | null
     createdAt?: Date | string
     assignmentTime?: Date | string | null
@@ -10417,7 +10417,7 @@ export namespace Prisma {
     priceSOM?: bigint | number | null
     priceUSD?: bigint | number | null
     courtInfo?: string
-    statusInCourt: $Enums.STATUS_IN_COURT
+    statusInCourt?: $Enums.STATUS_IN_COURT
     refusalReason?: $Enums.REFUSAL_REASON | null
     createdAt?: Date | string
     assignmentTime?: Date | string | null
@@ -10446,7 +10446,7 @@ export namespace Prisma {
     priceSOM?: bigint | number | null
     priceUSD?: bigint | number | null
     courtInfo?: string
-    statusInCourt: $Enums.STATUS_IN_COURT
+    statusInCourt?: $Enums.STATUS_IN_COURT
     refusalReason?: $Enums.REFUSAL_REASON | null
     createdAt?: Date | string
     assignmentTime?: Date | string | null
@@ -10913,7 +10913,7 @@ export namespace Prisma {
     priceSOM?: bigint | number | null
     priceUSD?: bigint | number | null
     courtInfo?: string
-    statusInCourt: $Enums.STATUS_IN_COURT
+    statusInCourt?: $Enums.STATUS_IN_COURT
     refusalReason?: $Enums.REFUSAL_REASON | null
     createdAt?: Date | string
     assignmentTime?: Date | string | null
@@ -10942,7 +10942,7 @@ export namespace Prisma {
     priceSOM?: bigint | number | null
     priceUSD?: bigint | number | null
     courtInfo?: string
-    statusInCourt: $Enums.STATUS_IN_COURT
+    statusInCourt?: $Enums.STATUS_IN_COURT
     refusalReason?: $Enums.REFUSAL_REASON | null
     createdAt?: Date | string
     assignmentTime?: Date | string | null
@@ -11028,7 +11028,7 @@ export namespace Prisma {
     priceSOM?: bigint | number | null
     priceUSD?: bigint | number | null
     courtInfo?: string
-    statusInCourt: $Enums.STATUS_IN_COURT
+    statusInCourt?: $Enums.STATUS_IN_COURT
     refusalReason?: $Enums.REFUSAL_REASON | null
     createdAt?: Date | string
     assignmentTime?: Date | string | null
@@ -11057,7 +11057,7 @@ export namespace Prisma {
     priceSOM?: bigint | number | null
     priceUSD?: bigint | number | null
     courtInfo?: string
-    statusInCourt: $Enums.STATUS_IN_COURT
+    statusInCourt?: $Enums.STATUS_IN_COURT
     refusalReason?: $Enums.REFUSAL_REASON | null
     createdAt?: Date | string
     assignmentTime?: Date | string | null
@@ -11170,7 +11170,7 @@ export namespace Prisma {
     priceSOM?: bigint | number | null
     priceUSD?: bigint | number | null
     courtInfo?: string
-    statusInCourt: $Enums.STATUS_IN_COURT
+    statusInCourt?: $Enums.STATUS_IN_COURT
     refusalReason?: $Enums.REFUSAL_REASON | null
     createdAt?: Date | string
     assignmentTime?: Date | string | null
@@ -11199,7 +11199,7 @@ export namespace Prisma {
     priceSOM?: bigint | number | null
     priceUSD?: bigint | number | null
     courtInfo?: string
-    statusInCourt: $Enums.STATUS_IN_COURT
+    statusInCourt?: $Enums.STATUS_IN_COURT
     refusalReason?: $Enums.REFUSAL_REASON | null
     createdAt?: Date | string
     assignmentTime?: Date | string | null
@@ -11488,7 +11488,7 @@ export namespace Prisma {
     priceSOM?: bigint | number | null
     priceUSD?: bigint | number | null
     courtInfo?: string
-    statusInCourt: $Enums.STATUS_IN_COURT
+    statusInCourt?: $Enums.STATUS_IN_COURT
     refusalReason?: $Enums.REFUSAL_REASON | null
     createdAt?: Date | string
     assignmentTime?: Date | string | null
@@ -11603,7 +11603,7 @@ export namespace Prisma {
     priceSOM?: bigint | number | null
     priceUSD?: bigint | number | null
     courtInfo?: string
-    statusInCourt: $Enums.STATUS_IN_COURT
+    statusInCourt?: $Enums.STATUS_IN_COURT
     refusalReason?: $Enums.REFUSAL_REASON | null
     createdAt?: Date | string
     assignmentTime?: Date | string | null
