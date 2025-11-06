@@ -9,6 +9,7 @@
     "start:all": "yarn start:userbook && yarn start:haq_portal",
     "pm2:save": "pm2 save",
     "pm2:startup": "pm2 startup",
+    "pm2:reset": "pm2 stop all && pm2 delete all && pm2 save --force && pm2 unstartup",
     "pr_reset": "npx prisma migrate reset --schema ./shared_packages/prisma/schema.prisma",
     "pr_dev": "prisma migrate dev --name init --schema ./shared_packages/prisma/schema.prisma",
     "pr_prod": "prisma generate --schema ./shared_packages/prisma/schema.prisma && prisma migrate deploy --schema ./shared_packages/prisma/schema.prisma",
