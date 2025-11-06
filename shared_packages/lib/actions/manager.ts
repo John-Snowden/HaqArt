@@ -111,8 +111,8 @@ const getUsersCountByDate = async (
 export const prismaGetHaqBotManager = async () => {
   let result;
   try {
-    console.log("HAQ_BOT_NAME:", HAQ_BOT_NAME);
-    console.log("HAQ_BOT_PASS:", HAQ_BOT_PASS);
+    console.log("_NAME:", HAQ_BOT_NAME);
+    console.log("_PASS:", HAQ_BOT_PASS);
 
     const res = await prismaLogin(HAQ_BOT_NAME || "", HAQ_BOT_PASS || "");
     if ("error" in res) throw new Error();
