@@ -15,7 +15,7 @@ export default class RootStore {
   sourcesStore: SourcesStore;
   userStore: UserStore;
 
-  lang: "ru" | "uz" = "ru";
+  lang: "ru" | "uz" = "uz";
 
   constructor(router: AppRouterInstance) {
     this.routerStore = new RouterStore(this, router);

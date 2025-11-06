@@ -16,6 +16,11 @@
 
     font-size: 14px;
     line-height: 18px;
+
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    resize: none;
 }
 
 .textArea::placeholder {

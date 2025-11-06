@@ -15,7 +15,7 @@ import {
 } from "@shared/prisma/prisma/client";
 import { translations } from "@/localize";
 
-export const problemFullMaxSize = 500;
+export const problemFullMaxSize = 250;
 
 const { complaints } = translations;
 
