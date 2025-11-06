@@ -64,7 +64,7 @@ export default class ConstructionComplaintsVM implements WritableUserFields {
       : LEAD_STATUS.addedToDB;
   };
   setProblemFull = (v: string) => {
-    if (this.problemFull.length >= problemFullMaxSize) {
+    if (v.length > problemFullMaxSize) {
       toast.warning(complaints.problemFullCharExceeded[this.lang]);
     } else this.problemFull = v;
   };
