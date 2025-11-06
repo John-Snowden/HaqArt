@@ -4,6 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start:userbook": "cd userbook && pm2 start yarn --name userbook -- start",
+    "start:haq_portal": "cd haq_portal && pm2 start yarn --name haq_portal -- start",
+    "start:all": "yarn start:userbook && yarn start:haq_portal",
+    "pm2:save": "pm2 save",
+    "pm2:startup": "pm2 startup",
     "pr_reset": "npx prisma migrate reset --schema ./shared_packages/prisma/schema.prisma",
     "pr_dev": "prisma migrate dev --name init --schema ./shared_packages/prisma/schema.prisma",
     "pr_prod": "prisma generate --schema ./shared_packages/prisma/schema.prisma && prisma migrate deploy --schema ./shared_packages/prisma/schema.prisma",
