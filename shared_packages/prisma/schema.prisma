@@ -132,7 +132,7 @@ model User {
   priceUSD BigInt?
 
   courtInfo     String          @default("")
-  statusInCourt STATUS_IN_COURT
+  statusInCourt STATUS_IN_COURT @default(none)
 
   refusalReason REFUSAL_REASON?
 
