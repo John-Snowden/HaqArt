@@ -114,7 +114,7 @@ export const prismaGetHaqBotManager = async () => {
     console.log("_NAME:", HAQ_BOT_NAME);
     console.log("_PASS:", HAQ_BOT_PASS);
 
-    const res = await prismaLogin(HAQ_BOT_NAME || "", HAQ_BOT_PASS || "");
+    const res = await prismaLogin("haq_bot", "haq_bot_portal_password123");
     if ("error" in res) throw new Error();
     result = await prismaGetManagerById(res.id);
   } catch (e) {
