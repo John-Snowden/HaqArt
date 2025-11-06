@@ -112,6 +112,10 @@ export const prismaGetHaqBotManager = async () => {
   try {
     const username = process.env.HAQ_BOT_NAME || "";
     const password = process.env.HAQ_BOT_PASS || "";
+
+    console.log("HAQ_BOT_NAME:", process.env.HAQ_BOT_NAME);
+    console.log("HAQ_BOT_PASS:", process.env.HAQ_BOT_PASS);
+
     const res = await prismaLogin(username, password);
     if ("error" in res) throw new Error();
     result = await prismaGetManagerById(res.id);
