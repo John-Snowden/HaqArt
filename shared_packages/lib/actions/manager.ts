@@ -5,6 +5,7 @@ import { ru } from "date-fns/locale";
 
 import prisma from "@shared/prisma";
 import { prismaLogin } from "./auth";
+import { HAQ_BOT_NAME, HAQ_BOT_PASS } from "../loadEnv";
 
 export const prismaGetManagers = async () => {
   try {
@@ -110,13 +111,10 @@ const getUsersCountByDate = async (
 export const prismaGetHaqBotManager = async () => {
   let result;
   try {
-    const username = process.env.HAQ_BOT_NAME || "";
-    const password = process.env.HAQ_BOT_PASS || "";
+    console.log("HAQ_BOT_NAME:", HAQ_BOT_NAME);
+    console.log("HAQ_BOT_PASS:", HAQ_BOT_PASS);
 
-    console.log("HAQ_BOT_NAME:", process.env.HAQ_BOT_NAME);
-    console.log("HAQ_BOT_PASS:", process.env.HAQ_BOT_PASS);
-
-    const res = await prismaLogin(username, password);
+    const res = await prismaLogin(HAQ_BOT_NAME || "", HAQ_BOT_PASS || "");
     if ("error" in res) throw new Error();
     result = await prismaGetManagerById(res.id);
   } catch (e) {
