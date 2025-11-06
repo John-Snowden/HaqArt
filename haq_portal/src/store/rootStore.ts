@@ -27,6 +27,7 @@ export default class RootStore {
 
   init = async () => {
     await this.authStore.init();
+    console.log("init");
     await this.sourcesStore.init();
   };
 
