@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:userbook": "cd userbook && pm2 start yarn --name userbook -- start",
+    "start:userbook": "cd userbook && pm2 start $(which yarn) --name userbook -- start",
     "start:haq_portal": "cd haq_portal && pm2 start yarn --name haq_portal -- start",
     "start:all": "yarn start:userbook && yarn start:haq_portal",
     "pm2:save": "pm2 save",
