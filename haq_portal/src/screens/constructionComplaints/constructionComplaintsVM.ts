@@ -87,7 +87,7 @@ export default class ConstructionComplaintsVM implements WritableUserFields {
       loading: complaints.sending[this.lang],
       success: () => complaints.successMessage[this.lang],
       error: (e) => {
-        const isPhoneNumberAlreadyRegistered = e.error.includes(
+        const isPhoneNumberAlreadyRegistered = e.error?.includes(
           "Unique constraint failed on the fields: (`phoneNumber`)",
         );
         if (isPhoneNumberAlreadyRegistered) {
@@ -101,17 +101,17 @@ export default class ConstructionComplaintsVM implements WritableUserFields {
 
   validate = (): boolean => {
     let isValid = false;
-    if (!this.username) toast.warning(complaints.nameMissing[this.lang]);
+    if (!this.constructionCompanyName)
+      toast.warning(complaints.constructionCompanyNameMissing[this.lang]);
+    else if (!this.appartmentBlockName)
+      toast.warning(complaints.appartmentBlockNameMissing[this.lang]);
+    else if (!this.username) toast.warning(complaints.nameMissing[this.lang]);
     else if (!this.phoneNumber)
       toast.warning(complaints.phoneNumberMissing[this.lang]);
     else if (this.phoneNumber.replace(/\D/g, "").length !== 9)
       toast.warning(complaints.phoneNumberWrongFormat[this.lang]);
     else if (!this.homeAddress)
       toast.warning(complaints.homeAddressMissing[this.lang]);
-    else if (!this.constructionCompanyName)
-      toast.warning(complaints.constructionCompanyNameMissing[this.lang]);
-    else if (!this.appartmentBlockName)
-      toast.warning(complaints.appartmentBlockNameMissing[this.lang]);
     else if (!this.problemFull)
       toast.warning(complaints.fullProblemMissing[this.lang]);
     else if (this.problemFull.length >= problemFullMaxSize)
