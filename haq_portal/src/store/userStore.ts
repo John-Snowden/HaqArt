@@ -19,7 +19,7 @@ export default class UserStore {
   saveNewUser = async (data: DraftUser) => {
     const haqBotConstructionSource =
       this.root.sourcesStore.haq_bot_sources.find(
-        (source) => source.title === "Haq Portal застройка",
+        (source) => source.title === "Hakim Portali / застройщики",
       );
 
     if (!this.me) throw { message: "Закройте приложение и откройте снова." };
