@@ -35,15 +35,6 @@
     background-color: rgb(189, 201, 208);
 }
 
-.toggleBttn {
-    height: 24px;
-    color: slategray;
-    border: 0.5px solid yellowgreen;
-    background-color: transparent;
-    justify-content: center;
-    align-items: center;
-}
-
 .stampWrapper {
     position: absolute;
     width: fit-content;
@@ -64,4 +55,17 @@
     bottom: 0;
     rotate: 25deg;
     opacity: 0.15;
+}
+
+.langBttn {
+    display: flex;
+    flex-direction: row;
+    width: 44px;
+    height: 24px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.active {
+    border-bottom: 0.5px solid lightgray;
 }

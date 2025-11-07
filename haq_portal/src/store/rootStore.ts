@@ -30,5 +30,5 @@ export default class RootStore {
     await this.sourcesStore.init();
   };
 
-  toggleLang = () => (this.lang = this.lang === "ru" ? "uz" : "ru");
+  setLang = (lang: "ru" | "uz") => (this.lang = lang);
 }

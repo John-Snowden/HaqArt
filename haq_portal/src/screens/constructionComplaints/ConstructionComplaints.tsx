@@ -17,7 +17,7 @@ const registryNumber = Math.random().toFixed(4).split(".")[1];
 
 export const ConstructionComplaintsScreen = observer(() => {
   const {
-    root: { lang, toggleLang },
+    root: { lang, setLang },
     username,
     phoneNumber,
     homeAddress,
@@ -43,15 +43,47 @@ export const ConstructionComplaintsScreen = observer(() => {
   return (
     <div className={clsx(stylesGlobal.screen, stylesGlobal.center)}>
       <div className={styles.logoWrapper}>
-        <div style={{ position: "absolute", right: 0, top: -20 }}>
-          <UIButton
-            title="Рус/O`z"
-            // icon="/svg/update.svg"
-            // iconSize={22}
-            style={styles.toggleBttn}
-            onClick={toggleLang}
-          />
+        <div
+          style={{
+            display: "flex",
+            position: "absolute",
+            flexDirection: "row",
+            width: 116,
+            justifyContent: "space-between",
+            alignItems: "center",
+            right: 0,
+            top: -20,
+          }}
+        >
+          <div
+            className={clsx(styles.langBttn, lang === "uz" && styles.active)}
+            onClick={() => setLang("uz")}
+          >
+            <Image
+              src={"/images/uz_flag.png"}
+              alt="icon"
+              width={20}
+              height={13}
+              priority={false}
+            />
+            <div className={stylesGlobal.text}>O`z</div>
+          </div>
+          <div style={{ color: "lightgray" }}>/</div>
+          <div
+            className={clsx(styles.langBttn, lang === "ru" && styles.active)}
+            onClick={() => setLang("ru")}
+          >
+            <Image
+              src={"/images/ru_flag.png"}
+              alt="icon"
+              width={20}
+              height={13}
+              priority={false}
+            />
+            <div className={stylesGlobal.text}>Рус</div>
+          </div>
         </div>
+
         <Image
           src={"/images/tashkent_500.png"}
           alt="icon"
