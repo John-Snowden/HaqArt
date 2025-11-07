@@ -53,7 +53,7 @@ export const ConstructionComplaintsScreen = observer(() => {
           />
         </div>
         <Image
-          src={"/images/tashkent.png"}
+          src={"/images/tashkent_500.png"}
           alt="icon"
           width={100}
           height={100}
