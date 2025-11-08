@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:userbook": "pm2 start yarn --name userbook --cwd ./userbook -- start",
-    "start:haq_portal": "pm2 start yarn --name haq_portal --cwd ./haq_portal -- start",
+    "start:userbook": "pm2 start yarn --name userbook --cwd ./apps/userbook -- start",
+    "start:haq_portal": "pm2 start yarn --name haq_portal --cwd ./apps/haq_portal -- start",
     "start:all": "yarn start:userbook && yarn start:haq_portal",
     "stop:all": "pm2 stop all && pm2 delete all && pm2 save --force && pm2 unstartup",
     "pm2:save": "pm2 save",
