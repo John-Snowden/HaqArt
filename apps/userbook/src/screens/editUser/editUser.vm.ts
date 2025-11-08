@@ -197,6 +197,12 @@ export default class EditUserVM implements WritableUserInputs {
     this.root.routerStore.replace(ROUTES.USERS_LIST);
   };
 
+  deleteUser = async () => {
+    if (!this.selectedUser?.id) return;
+    await this.root.usersStore.deleteUser(this.selectedUser.id);
+    this.root.routerStore.back();
+  };
+
   validate = (): boolean => {
     let isValid = false;
     const alert = this.root.alertStore.toggleAlert;
@@ -356,5 +362,9 @@ export default class EditUserVM implements WritableUserInputs {
     if (this.problemFull || this.problemShort) step = 4;
     if (this.managerId) step = 5;
     return step;
+  }
+
+  get isDev(): boolean {
+    return this.root.authStore.me?.role == ROLES.dev;
   }
 }

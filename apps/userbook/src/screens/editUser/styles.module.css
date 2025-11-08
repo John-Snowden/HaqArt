@@ -133,3 +133,7 @@
     color: rgb(174, 174, 174);
     margin-bottom: 4px;
 }
+
+.deleteBttn {
+    height: 26px;
+}

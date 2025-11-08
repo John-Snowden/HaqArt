@@ -1,8 +1,10 @@
 "use client";
 
+import clsx from "clsx";
 import Image from "next/image";
 import { observer } from "mobx-react-lite";
 
+import { UIButton } from "@/ui";
 import { useEditUserVM } from "@/app/edit_user/page";
 
 import styles from "./styles.module.css";
@@ -16,12 +18,14 @@ import { NearestTaskSection } from "./components/NearestTaskSection";
 
 export const EditUserScreen = observer(() => {
   const {
+    isDev,
     isUpdated,
     selectedUser,
     isUpdateMode,
     currentEditStep,
     saveNewUser,
     updateUser,
+    deleteUser,
   } = useEditUserVM();
 
   return (
@@ -35,6 +39,15 @@ export const EditUserScreen = observer(() => {
             isUpdateMode={isUpdateMode}
             updateUser={updateUser}
             saveNewUser={saveNewUser}
+          />
+        )}
+        {isDev && (
+          <UIButton
+            title="Удалить"
+            icon="/svg/delete.svg"
+            iconSize={26}
+            style={clsx(styles.bttnWrapper, styles.deleteBttn)}
+            onClick={deleteUser}
           />
         )}
       </div>
