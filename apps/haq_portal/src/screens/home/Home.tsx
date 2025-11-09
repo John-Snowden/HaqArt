@@ -4,6 +4,7 @@ import clsx from "clsx";
 import Image from "next/image";
 import { observer } from "mobx-react-lite";
 
+import { UISep } from "@/ui";
 import { useHomeVM } from "@/context/HomeContext";
 
 import styles from "./styles.module.css";

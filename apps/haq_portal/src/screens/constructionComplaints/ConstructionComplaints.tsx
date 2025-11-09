@@ -6,8 +6,8 @@ import { formatDate } from "date-fns";
 import { observer } from "mobx-react-lite";
 
 import { translations } from "@/localize";
-import { UIButton, UIInput, UITextarea } from "@/ui";
 import { useConstructionComplaintsVM } from "@/context";
+import { UIButton, UIInput, UISep, UITextarea } from "@/ui";
 
 import styles from "./styles.module.css";
 import stylesGlobal from "../../stylesGlobal.module.css";
