@@ -8,6 +8,7 @@ import UserStore from "./userStore";
 import AuthStore from "./authStore";
 import RouterStore from "./routerStore";
 import SourcesStore from "./sourcesStore";
+import { ROUTES } from "@/routes/routes";
 
 export default class RootStore {
   routerStore: RouterStore;
@@ -28,6 +29,9 @@ export default class RootStore {
   init = async () => {
     await this.authStore.init();
     await this.sourcesStore.init();
+
+    // TODO remove
+    this.routerStore.replace(ROUTES.DENIAL_OF_ENTRY);
   };
 
   setLang = (lang: "ru" | "uz") => (this.lang = lang);

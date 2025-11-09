@@ -118,7 +118,9 @@ export const translations = {
       uz: "E-imzo kaliti: 1719-21-13/29",
     },
   },
-  redirects: {
+  denialOfEntry: {
+    redirectMessageTop: { ru: "Проблемы", uz: "Muammolar" },
+    redirectMessageBottom: { ru: "с застройщиком?", uz: "quruvchi bilanmi?" },
     title: {
       ru: "Обращаем Ваше внимание:",
       uz: "E’tiboringizni qarating:",
@@ -130,6 +132,34 @@ export const translations = {
     content: {
       ru: "Вы можете оставить жалобу по кнопке ниже.",
       uz: "Quyidagi tugma orqali shikoyat qoldirishingiz mumkin.",
+    },
+    check: { ru: "Проверить", uz: "Tekshir" },
+    resultTitleGood: { ru: "Запрет не обнаружен", uz: "Taqiq topilmadi" },
+    resultTitleBad: { ru: "ЗАПРЕТ!", uz: "TAQIQ!" },
+
+    resultContactUs1: {
+      ru: "Обратите внимание,",
+      uz: "E’tibor bering,",
+    },
+    resultContactUs2: {
+      ru: "что публичные сведения МВД РФ бывают ошибочны.",
+      uz: "Rossiya IIVning ochiq ma’lumotlari ba’zan xatolarga ega bo‘lishi mumkin.",
+    },
+    resultContactUs3: {
+      ru: "Вы также можете заказать индивидуальную проверку.",
+      uz: "Shuningdek, siz individual tekshiruv buyurtma qilishingiz mumkin.",
+    },
+    resultContactUs4: {
+      ru: "Ниже пример подробного ответа, который Вы получите.",
+      uz: "Quyida siz oladigan batafsil javob namunasi keltirilgan.",
+    },
+    enterYourPhoneNumber: {
+      ru: "Ваш номер телефона",
+      uz: "Telefon raqamingiz",
+    },
+    paidService: {
+      ru: "Услуга платная.",
+      uz: "Xizmat pullik.",
     },
   },
 };

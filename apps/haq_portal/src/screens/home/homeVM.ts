@@ -1,3 +1,5 @@
+"use client";
+
 import { makeAutoObservable } from "mobx";
 
 import RootStore from "@/store/rootStore";

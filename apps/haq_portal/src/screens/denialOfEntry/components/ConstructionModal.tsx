@@ -18,22 +18,25 @@ export const ConstructionModal = observer(() => {
 
   const [isVisible, setVisible] = useState(false);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setVisible(true);
-    }, 2000);
-  }, [setVisible]);
+  // TODO restore
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setVisible(true);
+  //   }, 2000);
+  // }, [setVisible]);
 
   return (
     <Modal isOpen={isVisible} onClose={() => setVisible(false)}>
       <div style={{ display: "flex", flexDirection: "row" }}>
         <UIIcon source="/svg/message.svg" size={20} />
-        <h3 style={{ marginLeft: 12 }}>{translations.redirects.title[lang]}</h3>
+        <h3 style={{ marginLeft: 12 }}>
+          {translations.denialOfEntry.title[lang]}
+        </h3>
       </div>
       <UISep />
-      <div>{translations.redirects.subtitle[lang]}</div>
+      <div>{translations.denialOfEntry.subtitle[lang]}</div>
       <UISep />
-      <div>{translations.redirects.content[lang]}</div>
+      <div>{translations.denialOfEntry.content[lang]}</div>
       <UISep />
       <ConstructionRdirectBttn />
     </Modal>
