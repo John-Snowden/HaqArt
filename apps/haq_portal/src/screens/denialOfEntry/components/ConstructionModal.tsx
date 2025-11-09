@@ -18,12 +18,11 @@ export const ConstructionModal = observer(() => {
 
   const [isVisible, setVisible] = useState(false);
 
-  // TODO restore
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setVisible(true);
-  //   }, 2000);
-  // }, [setVisible]);
+  useEffect(() => {
+    setTimeout(() => {
+      setVisible(true);
+    }, 2000);
+  }, [setVisible]);
 
   return (
     <Modal isOpen={isVisible} onClose={() => setVisible(false)}>
