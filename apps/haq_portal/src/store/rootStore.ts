@@ -29,9 +29,6 @@ export default class RootStore {
   init = async () => {
     await this.authStore.init();
     await this.sourcesStore.init();
-
-    // TODO remove
-    this.routerStore.replace(ROUTES.DENIAL_OF_ENTRY);
   };
 
   setLang = (lang: "ru" | "uz") => (this.lang = lang);
