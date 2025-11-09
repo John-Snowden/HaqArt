@@ -5,9 +5,9 @@ import Image from "next/image";
 import { formatDate } from "date-fns";
 import { observer } from "mobx-react-lite";
 
-import { useConstructionComplaintsVM } from "@/context";
-import { UIButton, UIInput, UISep, UITextarea } from "@/ui";
 import { translations } from "@/localize";
+import { UIButton, UIInput, UITextarea } from "@/ui";
+import { useConstructionComplaintsVM } from "@/context";
 
 import styles from "./styles.module.css";
 import stylesGlobal from "../../stylesGlobal.module.css";
@@ -43,18 +43,7 @@ export const ConstructionComplaintsScreen = observer(() => {
   return (
     <div className={clsx(stylesGlobal.screen, stylesGlobal.center)}>
       <div className={styles.logoWrapper}>
-        <div
-          style={{
-            display: "flex",
-            position: "absolute",
-            flexDirection: "row",
-            width: 116,
-            justifyContent: "space-between",
-            alignItems: "center",
-            right: 0,
-            top: -20,
-          }}
-        >
+        <div className={styles.langSwitchWrapper}>
           <div
             className={clsx(styles.langBttn, lang === "uz" && styles.active)}
             onClick={() => setLang("uz")}

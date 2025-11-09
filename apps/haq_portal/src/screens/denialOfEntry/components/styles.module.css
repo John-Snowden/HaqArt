@@ -1,0 +1,48 @@
+.redirectBttn {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    border-radius: 4px;
+    padding: 8px 12px;
+    color: ghostwhite;
+    background-color: yellowgreen;
+}
+
+.redirectBttn:hover {
+    opacity: 0.85;
+}
+
+/*modal*/
+.overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+    padding: 40px;
+}
+
+.modal {
+    background-color: ghostwhite;
+    border-radius: 4px;
+    padding: 24px;
+    transform: scale(0.9);
+    transition: all 0.25s ease;
+    box-sizing: border-box;
+    z-index: 9999; /* ensure above overlay */
+
+    font-size: 12px;
+}
+
+.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.visible.modal {
+    transform: scale(1);
+    opacity: 1;
+}

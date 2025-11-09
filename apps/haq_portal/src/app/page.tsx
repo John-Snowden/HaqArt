@@ -2,12 +2,16 @@
 
 import { HomeScreen } from "@/screens";
 
+import { HomeContext } from "@/context/HomeContext";
+
 import stylesGlobal from "../stylesGlobal.module.css";
 
 export default function Home() {
   return (
-    <div className={stylesGlobal.window}>
-      <HomeScreen />
-    </div>
+    <HomeContext>
+      <div className={stylesGlobal.window}>
+        <HomeScreen />
+      </div>
+    </HomeContext>
   );
 }

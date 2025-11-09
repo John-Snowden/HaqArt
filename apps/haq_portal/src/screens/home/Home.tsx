@@ -1,53 +1,69 @@
 "use client";
 
 import clsx from "clsx";
+import Image from "next/image";
+import { observer } from "mobx-react-lite";
 
-import { UIButton } from "@/ui";
-import { ROUTES } from "@/routes/routes";
-import { useRootStore } from "@/context/RootContext";
+import { useHomeVM } from "@/context/HomeContext";
 
 import styles from "./styles.module.css";
 import stylesGlobal from "../../stylesGlobal.module.css";
 
-export const HomeScreen = () => {
+export const HomeScreen = observer(() => {
   const {
-    routerStore: { router },
-  } = useRootStore();
+    root: { lang, setLang },
+  } = useHomeVM();
 
   return (
     <div className={clsx(stylesGlobal.screen, stylesGlobal.center)}>
-      <div className={styles.bttnWrapper}>
-        <label className={styles.lbl}>
-          Проверьте, имеется ли у Вас запрет на въезд
-        </label>
-        <UIButton
-          style={styles.bttn}
-          title="Запреты на въезд"
-          onClick={() => router.push(ROUTES.DENIAL_OF_ENTRY)}
+      <div className={styles.logoWrapper}>
+        <div className={styles.langSwitchWrapper}>
+          <div
+            className={clsx(styles.langBttn, lang === "uz" && styles.active)}
+            onClick={() => setLang("uz")}
+          >
+            <Image
+              src={"/images/uz_flag.png"}
+              alt="icon"
+              width={20}
+              height={13}
+              priority={false}
+            />
+            <div className={stylesGlobal.text}>O`z</div>
+          </div>
+          <div style={{ color: "lightgray" }}>/</div>
+          <div
+            className={clsx(styles.langBttn, lang === "ru" && styles.active)}
+            onClick={() => setLang("ru")}
+          >
+            <Image
+              src={"/images/ru_flag.png"}
+              alt="icon"
+              width={20}
+              height={13}
+              priority={false}
+            />
+            <div className={stylesGlobal.text}>Рус</div>
+          </div>
+        </div>
+
+        <Image
+          src={"/images/tashkent_500.png"}
+          alt="icon"
+          width={100}
+          height={100}
+          priority={false}
         />
       </div>
 
-      <div className={styles.bttnWrapper}>
-        <label className={styles.lbl}>
-          Подайте жалобу на Вашего застройщика
-        </label>
-        <UIButton
-          style={styles.bttn}
-          title="Жалоба на застройщика"
-          onClick={() => router.push(ROUTES.CONSTRUCTION_COMPLAINTS)}
-        />
+      <UISep />
+      <div className={styles.section}>
+        <h3>Сообщите о проблеме</h3>
       </div>
-
-      <div className={styles.bttnWrapper}>
-        <label className={styles.lbl}>
-          Прием обращений по кредитным договорам
-        </label>
-        <UIButton
-          style={styles.bttn}
-          title="Кредиты"
-          onClick={() => router.push(ROUTES.LOANS_ISSUES)}
-        />
+      <UISep />
+      <div className={styles.section}>
+        <h3>Полезные сервисы</h3>
       </div>
     </div>
   );
-};
+});

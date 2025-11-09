@@ -1,5 +1,14 @@
+import { DenialOfEntryScreen } from "@/screens/denialOfEntry";
+import { DenialOfEntryContext } from "@/context/DenialOfEntry";
+
 import stylesGlobal from "../../stylesGlobal.module.css";
 
 export default function DenialOfEntry() {
-  return <div className={stylesGlobal.window}>{null}</div>;
+  return (
+    <DenialOfEntryContext>
+      <div className={stylesGlobal.window}>
+        <DenialOfEntryScreen />
+      </div>
+    </DenialOfEntryContext>
+  );
 }

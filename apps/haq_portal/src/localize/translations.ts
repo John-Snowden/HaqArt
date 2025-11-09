@@ -118,4 +118,18 @@ export const translations = {
       uz: "E-imzo kaliti: 1719-21-13/29",
     },
   },
+  redirects: {
+    title: {
+      ru: "Обращаем Ваше внимание:",
+      uz: "E’tiboringizni qarating:",
+    },
+    subtitle: {
+      ru: "Начал работу портал для помощи гражданам, пострадавшим от недобросовестных застройщиков.",
+      uz: "Noqonuniy quruvchilar qurboniga aylangan fuqarolarga yordam berish uchun portal ishga tushdi.",
+    },
+    content: {
+      ru: "Вы можете оставить жалобу по кнопке ниже.",
+      uz: "Quyidagi tugma orqali shikoyat qoldirishingiz mumkin.",
+    },
+  },
 };

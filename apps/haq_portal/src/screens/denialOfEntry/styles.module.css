@@ -1,3 +1,13 @@
+.redirectBttnWrapper {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    left: 0;
+    top: -20px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
 .logoWrapper {
     display: flex;
     position: relative;

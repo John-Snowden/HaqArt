@@ -6,6 +6,17 @@
     justify-content: center;
 }
 
+.langSwitchWrapper {
+    display: flex;
+    position: absolute;
+    flex-direction: row;
+    width: 116px;
+    justify-content: space-between;
+    align-items: center;
+    right: 0;
+    top: -20px;
+}
+
 .inputWrapper {
     width: 100%;
     box-sizing: border-box;
