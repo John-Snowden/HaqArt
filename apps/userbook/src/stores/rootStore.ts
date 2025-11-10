@@ -7,7 +7,7 @@ import {
   deleteCookieSession,
   checkAuthSessionExpired,
 } from "@/cookies/cookies";
-import { addManager } from "@/utils/seed";
+// import { addManager } from "@/utils/seed";
 import { ROUTES } from "@/constants/routes";
 
 import AuthStore from "./authStore";
@@ -48,12 +48,13 @@ export default class RootStore {
     if (!this.authStore.me) this.logout();
     else this.routerStore.replace(this.routerStore.currentRoute || ROUTES.ROOT);
 
-    const res = await addManager({
-      username: "Iroda",
-      password: "!Iroda!",
-      role: "manager",
-    });
-    if ("error" in res) this.alertStore.toggleAlert(res.error);
+    // TOD remove
+    // const res = await addManager({
+    //   username: "Iroda",
+    //   password: "!Iroda!",
+    //   role: "manager",
+    // });
+    // if ("error" in res) this.alertStore.toggleAlert(res.error);
   };
 
   checkAuthSession = async () => {
