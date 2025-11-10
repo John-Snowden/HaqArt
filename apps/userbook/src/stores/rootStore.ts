@@ -48,7 +48,11 @@ export default class RootStore {
     if (!this.authStore.me) this.logout();
     else this.routerStore.replace(this.routerStore.currentRoute || ROUTES.ROOT);
 
-    const res = await addManager();
+    const res = await addManager({
+      username: "Iroda",
+      password: "!Iroda!",
+      role: "manager",
+    });
     if ("error" in res) this.alertStore.toggleAlert(res.error);
   };
 

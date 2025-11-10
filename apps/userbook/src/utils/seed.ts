@@ -3,7 +3,23 @@
 import prisma from "@shared/prisma/index";
 import { ROLES } from "@shared/prisma/prisma/client";
 
-export const addManager = async () => {
+type ManagerCreds = {
+  username: string;
+  password: string;
+  role: ROLES;
+};
+
+export const addManager = async (manager: ManagerCreds) => {
+  try {
+    const res = await createManager(manager);
+    return res;
+  } catch (e) {
+    console.log(e);
+    return { error: "Не создан: " + e };
+  }
+};
+
+export const addManagers = async () => {
   const managers: { username: string; password: string; role: ROLES }[] = [
     { username: "Oris", password: "Oris123!", role: "dev" },
     { username: "Artyom", password: "Pirate", role: "owner" },
@@ -25,18 +41,19 @@ export const addManager = async () => {
   // }
 
   try {
-    const res = managers.map(async (manager) => {
-      await prisma.manager.create({
-        data: {
-          username: manager.username.toLowerCase(),
-          password: manager.password,
-          role: manager.role,
-        },
-      });
-    });
-
+    const res = managers.map(async (manager) => createManager(manager));
     return res;
   } catch (e) {
     return { error: "Аккаунт не создан: " + e };
   }
+};
+
+const createManager = async (manager: ManagerCreds) => {
+  return await prisma.manager.create({
+    data: {
+      username: manager.username.toLowerCase(),
+      password: manager.password,
+      role: manager.role,
+    },
+  });
 };
