@@ -10,6 +10,7 @@ export const addManager = async () => {
     { username: "Roman", password: "Ceo", role: "ceo" },
     { username: "Sadiq", password: "SadiqSadiq", role: "manager" },
     { username: "Nurdona", password: "NurNur", role: "manager" },
+    { username: "Iroda", password: "!Iroda!", role: "manager" },
     {
       username: "haq_bot",
       password: "haq_bot_portal_password123",
