@@ -31,8 +31,7 @@ export default class PersonsStore {
   };
 
   upsertPerson = async (person: EditablePersonFields) => {
-    const toJS = JSON.parse(JSON.stringify(person));
-    await prismaUpsertPerson(toJS, this.selectedPersonId);
+    await prismaUpsertPerson(person, this.selectedPersonId);
   };
 
   deletePerson = async () => {

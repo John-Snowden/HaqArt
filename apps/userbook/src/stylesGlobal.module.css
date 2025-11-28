@@ -4,6 +4,7 @@
     position: fixed;
     height: 100vh;
     width: 100vw;
+    box-sizing: border-box;
     padding: 0 30px;
     overflow-y: auto;
     background: url("/images/userbook_bg.png") center/cover no-repeat;
@@ -11,7 +12,9 @@
 
 .header {
     display: flex;
+    box-sizing: border-box;
     flex-direction: row;
+    align-items: start;
     margin: 16px 0;
 }
 

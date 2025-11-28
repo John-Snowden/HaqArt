@@ -20,7 +20,7 @@ export const EditOpponentScreen = () => {
         <UIButton
           iconSize={14}
           icon={"/svg/add.svg"}
-          title={translations.bttns.add}
+          title={translations.bttns.save}
           onClick={upsertOpponent}
         />
       </div>

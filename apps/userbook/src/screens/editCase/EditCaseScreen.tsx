@@ -2,7 +2,6 @@
 
 import clsx from "clsx";
 import { format } from "date-fns";
-import { useEffect } from "react";
 import { ru } from "date-fns/locale";
 import { observer } from "mobx-react-lite";
 
@@ -31,25 +30,27 @@ export const EditCaseScreen = observer(() => {
     setCategories,
     root: {
       casesStore: { selectedCase },
-      personsStore: { selectedPerson },
     },
   } = useEditCaseVM();
 
-  let headerTitle = "";
-  if (selectedPerson?.name) headerTitle += selectedPerson.name + ", ";
-  if (selectedCase) headerTitle += translations.misc.case + " ";
-  else headerTitle += translations.misc.newCase + " ";
-  headerTitle += translations.misc.asOf + " ";
+  const headerTitle = `${selectedCase?.person.name} ${
+    selectedCase?.person.phoneNumber
+      ? ", +(998) " + selectedCase?.person.phoneNumber
+      : ""
+  }`;
+
   const date = selectedCase?.createdAt || new Date();
-  headerTitle += format(date, "dd MMM yyyy", { locale: ru });
+  const subheaderTitle = `${translations.misc.case} ${translations.misc.asOf} ${format(date, "dd MMM yyyy", { locale: ru })}`;
 
   return (
     <>
       <div className={clsx(stylesGlobal.header, stylesGlobal.row)}>
-        <h1>{headerTitle}</h1>
-        <UISep isHorizontal />
-        {/*TODO true*/}
-        {true && (
+        <div>
+          <h1>{headerTitle}</h1>
+          <h4 style={{ marginTop: "6px" }}>{subheaderTitle}</h4>
+        </div>
+        <UISep />
+        <div style={{ marginBottom: "6px" }}>
           <UIButton
             iconSize={14}
             icon="/svg/add.svg"
@@ -58,7 +59,7 @@ export const EditCaseScreen = observer(() => {
               if (canWrite) upsertCase();
             }}
           />
-        )}
+        </div>
       </div>
 
       <UISep />

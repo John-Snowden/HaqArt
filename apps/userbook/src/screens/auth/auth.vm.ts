@@ -5,7 +5,7 @@ import { makeAutoObservable } from "mobx";
 
 import { translations } from "@/localize";
 import RootStore from "@/stores/rootStore";
-import { ROUTES } from "@/constants/routes";
+import { MAIN_ROUTE_BY_ROLE } from "@/stores/constants/router";
 
 export default class AuthVM {
   root;
@@ -22,14 +22,19 @@ export default class AuthVM {
   setPassword = (password: string) => (this.password = password.trim());
 
   login = async () => {
-    if (!this.validate()) return;
+    try {
+      if (!this.validate()) return;
 
-    await this.root.authStore.login({
-      username: this.username,
-      password: this.password,
-    });
-    if (this.root.authStore.me) {
-      this.root.routerStore.replace(ROUTES.CASES_LIST);
+      await this.root.authStore.login({
+        username: this.username,
+        password: this.password,
+      });
+      if (this.root.authStore.me) {
+        const myRole = this.root.authStore.me.roles[0];
+        this.root.routerStore.replace(MAIN_ROUTE_BY_ROLE[myRole]);
+      }
+    } catch (e) {
+      this.root.alertStore.toggleAlert(translations.alertMessages.error + e);
     }
   };
 

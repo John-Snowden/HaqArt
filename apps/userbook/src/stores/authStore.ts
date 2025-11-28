@@ -4,12 +4,13 @@ import { makeAutoObservable, runInAction } from "mobx";
 
 import { ROUTES } from "@/constants";
 import { STORAGE_KEYS } from "@/constants/storage";
+import { deleteCookieSession } from "@/cookies/cookies";
 import { Employee, ROLE } from "@shared/prisma/prisma/client";
 import { EmployeeCreds, prismaLogin } from "@shared/lib/actions/auth";
-import { setCookieSession, deleteCookieSession } from "@/cookies/cookies";
 
 import RootStore from "./rootStore";
 import { SUPER_ROLES } from "./constants";
+import { translations } from "@/localize";
 
 export default class AuthStore {
   root: RootStore;
@@ -22,30 +23,27 @@ export default class AuthStore {
   }
 
   silentLogin = async () => {
-    const persistedMe = localStorage.getItem(STORAGE_KEYS.ME);
-    if (persistedMe) {
-      const persisted = JSON.parse(persistedMe) as Employee;
-      // TODO encrypt pass
-      await this.login({
-        username: persisted.username,
-        password: persisted.password,
-      });
+    try {
+      const persistedMe = localStorage.getItem(STORAGE_KEYS.ME);
+      if (persistedMe) {
+        const persisted = JSON.parse(persistedMe) as Employee;
+        // TODO encrypt pass
+        await this.login({
+          username: persisted.username,
+          password: persisted.password,
+        });
+      }
+    } catch (e) {
+      this.root.alertStore.toggleAlert(translations.alertMessages.error + e);
     }
   };
 
   login = async (creds: EmployeeCreds) => {
-    try {
-      const res = await prismaLogin(creds);
-      if ("error" in res) this.root.alertStore.toggleAlert(res.error);
-      else {
-        await setCookieSession(res.id);
-        localStorage.setItem(STORAGE_KEYS.ME, JSON.stringify(res));
-        runInAction(() => (this.me = res));
-        this.root.initApp();
-      }
-    } catch (e) {
-      console.log(e);
-    }
+    const res = await prismaLogin(creds);
+    if (!res) throw new Error("login failed");
+
+    localStorage.setItem(STORAGE_KEYS.ME, JSON.stringify(res));
+    runInAction(() => (this.me = res));
   };
 
   logout = async () => {

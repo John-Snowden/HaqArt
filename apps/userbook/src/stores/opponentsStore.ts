@@ -29,8 +29,7 @@ export default class OpponentsStore {
   };
 
   upsertOpponent = async (opponent: EditableOpponentFields) => {
-    const toJS = JSON.parse(JSON.stringify(opponent));
-    await prismaUpsertOpponent(toJS, this.selectedOpponentId);
+    await prismaUpsertOpponent(opponent, this.selectedOpponentId);
   };
 
   deleteOpponent = async () => {

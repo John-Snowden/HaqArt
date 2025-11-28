@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 
 import { DropdownOption } from "@/stores/constants";
 
@@ -27,12 +27,16 @@ export const Dropdown: FC<IProps> = ({
   onClick,
 }) => {
   const [isOpen, setOpen] = useState(false);
+  const [viewport, setViewport] = useState(0);
   const [isBelowViewport, setBelowViewport] = useState(false);
 
-  const viewport = window.innerHeight;
   const ITEM_HEIGHT = 50;
   const OFFSET = 50;
   const dropdownListHeight = options?.length * ITEM_HEIGHT;
+
+  useEffect(() => {
+    setViewport(window.innerHeight);
+  }, []);
 
   const renderItems = () => {
     return options?.map((option) => {

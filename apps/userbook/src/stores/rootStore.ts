@@ -16,6 +16,7 @@ import PersonsStore from "./personsStore";
 import BloggersStore from "./bloggersStore";
 import OpponentsStore from "./opponentsStore";
 import EmployeesStore from "./employeesStore";
+import { MAIN_ROUTE_BY_ROLE } from "./constants/router";
 
 export default class RootStore {
   authStore: AuthStore;
@@ -56,8 +57,10 @@ export default class RootStore {
         this.employeesStore.getEmployees(),
         this.opponentsStore.getOpponents(),
       ]);
-      this.routerStore.hydrate();
-      this.routerStore.replace(this.routerStore.currentRoute);
+      // TODO delete?
+      // this.routerStore.hydrate();
+      // this.routerStore.replace(this.routerStore.currentRoute);
+      this.routerStore.replace(MAIN_ROUTE_BY_ROLE[this.authStore.me.roles[0]]);
     }
   };
 

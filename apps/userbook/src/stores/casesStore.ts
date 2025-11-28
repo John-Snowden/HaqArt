@@ -29,8 +29,7 @@ export default class CasesStore {
   };
 
   upsertCase = async (data: EditableCaseFields) => {
-    const toJS = JSON.parse(JSON.stringify(data));
-    await prismaUpsertCase(toJS, this.selectedCaseId);
+    await prismaUpsertCase(data, this.selectedCaseId);
   };
 
   clear = () => {

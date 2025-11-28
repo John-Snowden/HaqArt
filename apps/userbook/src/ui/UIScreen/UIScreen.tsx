@@ -8,6 +8,6 @@ interface IProps {
   children: ReactNode;
 }
 
-export const Screen: FC<IProps> = ({ children }) => {
+export const UIScreen: FC<IProps> = ({ children }) => {
   return <div className={stylesGlobal.screen}>{children}</div>;
 };

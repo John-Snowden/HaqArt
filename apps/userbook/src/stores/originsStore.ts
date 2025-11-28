@@ -28,8 +28,7 @@ export default class OriginsStore {
   };
 
   upsertOrigin = async (origin: EditableOriginFields) => {
-    const toJS = JSON.parse(JSON.stringify(origin));
-    await prismaUpsertOrigin(toJS, this.selectedOriginId);
+    await prismaUpsertOrigin(origin, this.selectedOriginId);
   };
 
   clear = () => {

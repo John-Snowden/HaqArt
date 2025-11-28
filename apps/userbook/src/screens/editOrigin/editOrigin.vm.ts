@@ -1,7 +1,7 @@
 "use client";
 
 import { toast } from "sonner";
-import { makeAutoObservable } from "mobx";
+import { makeAutoObservable, toJS } from "mobx";
 
 import { ROUTES } from "@/constants";
 import { translations } from "@/localize";
@@ -43,7 +43,7 @@ export default class EditOriginVM {
       await this.root.originsStore.upsertOrigin({
         title: this.title.trim(),
         link: this.link?.trim() ?? null,
-        categories: this.categories,
+        categories: toJS(this.categories),
         authorId: this.authorId,
       });
 

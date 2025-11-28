@@ -3,6 +3,7 @@ import { observer } from "mobx-react-lite";
 
 import { Dropdown } from "@/ui";
 import { useEditCaseVM } from "@/context";
+import { capitalizeName } from "@shared/utils";
 import { translations } from "@/localize/translations";
 import { IMPORTANCE, URGENCY } from "@shared/prisma/prisma/client";
 import { IMPORTANCE_OPTIONS, URGENCY_OPTIONS } from "@/stores/constants";
@@ -34,7 +35,7 @@ export const SupervisorDropdowns: FC = observer(() => {
       <Dropdown
         disabled={!isSuperRole}
         options={managerOptions}
-        value={managerName}
+        value={capitalizeName(managerName)}
         label={translations.legalCase.managerId}
         onClick={(value) => {
           setManagerId(value);

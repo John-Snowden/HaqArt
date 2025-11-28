@@ -9,16 +9,25 @@ import { format, formatDistanceToNowStrict } from "date-fns";
 import { translations } from "@/localize";
 import { useCasesListVM } from "@/context";
 import { UIListWrapper, UIIcon } from "@/ui";
+import { capitalizeName } from "@shared/utils";
 import { URGENCY } from "@shared/prisma/prisma/client";
 
 import stylesGlobal from "../../../stylesGlobal.module.css";
 
 export const CasesList = observer(() => {
-  const { isLoading, selectCase, getCases, filteredCases } = useCasesListVM();
+  const {
+    isLoading,
+    selectCase,
+    getCases,
+    filteredCases,
+    root: {
+      authStore: { me },
+    },
+  } = useCasesListVM();
 
   useEffect(() => {
-    getCases();
-  }, [getCases]);
+    if (me) getCases();
+  }, [me, getCases]);
 
   const renderItems = () => {
     return filteredCases
@@ -40,13 +49,7 @@ export const CasesList = observer(() => {
             onClick={() => selectCase(filteredCase.id)}
           >
             <div className={stylesGlobal.iconWrapper}>
-              <Image
-                src={"/svg/case.svg"}
-                alt="icon"
-                width={20}
-                height={20}
-                priority={false}
-              />
+              <UIIcon source={"/svg/case.svg"} size={20} />
             </div>
             <div className={`${stylesGlobal.tableColumn}`}>
               {filteredCase.person.name}
@@ -79,7 +82,9 @@ export const CasesList = observer(() => {
               )}
             </div>
             <div className={`${stylesGlobal.tableColumn}`}>
-              {filteredCase.manager?.username || "-"}
+              {filteredCase.manager?.username
+                ? capitalizeName(filteredCase.manager?.username)
+                : "-"}
             </div>
             <div className={`${stylesGlobal.tableColumn}`}>
               {filteredCase.opponent?.name || "-"}

@@ -11,7 +11,12 @@ import stylesGlobal from "../../stylesGlobal.module.css";
 import { Search, Filters, CasesList } from "./components";
 
 export const CasesListScreen = observer(() => {
-  const { unassignedCasesCount } = useCasesListVM();
+  const {
+    unassignedCasesCount,
+    root: {
+      authStore: { isSuperRole },
+    },
+  } = useCasesListVM();
 
   return (
     <>
@@ -20,9 +25,11 @@ export const CasesListScreen = observer(() => {
           <h1 className={stylesGlobal.headerTitle}>
             {translations.headers.myCases}
           </h1>
-          <h4 className={stylesGlobal.headerSubTitle}>
-            {`${translations.misc.noManager} ${unassignedCasesCount}`}
-          </h4>
+          {isSuperRole && (
+            <h4 className={stylesGlobal.headerSubTitle}>
+              {`${translations.misc.noManager} ${unassignedCasesCount}`}
+            </h4>
+          )}
         </div>
         <div className={styles.filtersWrapper}>
           <Filters />

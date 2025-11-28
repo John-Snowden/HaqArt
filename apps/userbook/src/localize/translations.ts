@@ -99,7 +99,7 @@ export const translations: {
     categories: "Категории",
   },
   headers: {
-    allOrigins: "Все источники",
+    allLeads: "Все лиды",
     allOpponents: "Все оппоненты",
     allBloggers: "Все блогеры",
     myCases: "Мои суды",
@@ -118,6 +118,8 @@ export const translations: {
     open: "Открыть",
     add: "Добавить",
     save: "Сохранить",
+    back: "Назад",
+    logout: "Выход",
     delete: "Удалить",
     addCase: "Добавить дело",
     viewPersons: "Список лидов",

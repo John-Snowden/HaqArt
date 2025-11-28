@@ -2,14 +2,15 @@
 
 import { observer } from "mobx-react-lite";
 
-import { Dropdown, UIIcon } from "@/ui";
-import { translations } from "@/localize";
-import { useCasesListVM } from "@/context";
 import {
   URGENCY_OPTIONS,
   IMPORTANCE_OPTIONS,
   ALL_CASE_STATUS_OPTIONS,
 } from "@/stores/constants";
+import { Dropdown, UIIcon } from "@/ui";
+import { translations } from "@/localize";
+import { useCasesListVM } from "@/context";
+import { capitalizeName } from "@shared/utils";
 
 import styles from "../styles.module.css";
 
@@ -54,7 +55,11 @@ export const Filters = observer(() => {
           <Dropdown
             options={managerOptions}
             emptyValue={translations.misc.all}
-            value={filterManager?.username || translations.misc.all}
+            value={
+              filterManager?.username
+                ? capitalizeName(filterManager.username)
+                : translations.misc.all
+            }
             onClick={setFilterManagerId}
           />
         </div>

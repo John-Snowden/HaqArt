@@ -1,6 +1,6 @@
 "use client";
 
-import { makeAutoObservable, reaction } from "mobx";
+import { makeAutoObservable, reaction, toJS } from "mobx";
 
 import {
   ROLE,
@@ -191,7 +191,7 @@ export default class EditCaseVM {
         caseStatus: this.caseStatus,
 
         legalAction: this.legalAction ?? null,
-        categories: this.categories,
+        categories: toJS(this.categories),
         statusInCourt: this.statusInCourt ?? null,
         refusalReason: this.refusalReason ?? null,
 
@@ -229,10 +229,6 @@ export default class EditCaseVM {
     );
   }
 
-  get isOwnerRole(): boolean {
-    return Boolean(this.root.authStore.me?.roles.includes(ROLE.OWNER));
-  }
-
   get permittedCaseStatuses(): StatusOption[] {
     let result: StatusOption[] = [];
 
@@ -244,9 +240,8 @@ export default class EditCaseVM {
         },
       ];
     } else {
-      const isIamManager = this.managerId === this.root.authStore.me?.id;
-      if (isIamManager) result = [...MANAGER_CASE_OPTIONS];
-      if (this.isOwnerRole) {
+      result = [...MANAGER_CASE_OPTIONS];
+      if (this.root.authStore.isSuperRole) {
         result = [...MANAGER_CASE_OPTIONS, ...SUPERVISOR_CASE_OPTIONS];
       }
     }
