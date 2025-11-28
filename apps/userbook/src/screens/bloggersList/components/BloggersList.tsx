@@ -1,142 +1,98 @@
 "use client";
 
-import Image from "next/image";
 import { format } from "date-fns";
 import { useEffect } from "react";
 import { ru } from "date-fns/locale";
 import { observer } from "mobx-react-lite";
 
-import { ROUTES } from "@/constants/routes";
-import { ListWrapper } from "@/ui/listWrapper/ListWrapper";
-import { categoryOptions } from "@/screens/editSource/constants/dropdownOptions";
+import { ROUTES } from "@/constants";
+import { translations } from "@/localize";
+import { UIIcon, UIListWrapper } from "@/ui";
+import { useBloggersListVM } from "@/context";
+import { formatSubscribers } from "@shared/utils";
 
-import styles from "../styles.module.css";
-import { useBloggersListVM } from "../hooks";
+import stylesGlobal from "../../../stylesGlobal.module.css";
 
 export const BloggersList = observer(() => {
   const {
-    root: { routerStore },
-    bloggers,
+    canWrite,
     isLoading,
     hasBloggers,
-    managers,
     getBloggers,
     selectBloggerId,
     resetSelectedBloggerId,
+    root: {
+      routerStore,
+      bloggersStore: { bloggers },
+    },
   } = useBloggersListVM();
 
   useEffect(() => {
     getBloggers();
   }, [getBloggers]);
 
-  const formatSubscribers = (count: number) => {
-    if (count >= 1000000) {
-      return `${(count / 1000000).toFixed(1)}M`;
-    } else if (count >= 1000) {
-      return `${(count / 1000).toFixed(1)}K`;
-    }
-    return count.toString();
-  };
-
   const renderItems = () => {
     return bloggers.map((blogger) => {
-      if (!blogger.id) return <div key={blogger.id}>n/a</div>;
-      else {
-        const priceSOM = blogger.priceSOM ? blogger.priceSOM + " SOM" : "-";
-        const priceUSD = blogger.priceUSD ? blogger.priceUSD + " USD" : "-";
-        const price = priceSOM + " / " + priceUSD;
+      const priceSOM = blogger.priceSOM ? blogger.priceSOM + " SOM" : "-";
+      const priceUSD = blogger.priceUSD ? blogger.priceUSD + " USD" : "-";
+      const price = priceSOM + " / " + priceUSD;
 
-        const categories = blogger.categories.map((category) => {
-          const option = categoryOptions.find(
-            (categoryOption) => categoryOption.option === category,
-          );
-          return option?.label || "-";
-        });
+      const bloggerCategories = blogger.categories
+        .map((c) => translations.categories[c])
+        .join(", ");
 
-        const authorName =
-          managers.find((manager) => manager.id === blogger.authorId)
-            ?.username || "-";
-
-        return (
-          <div
-            key={blogger.id}
-            className={styles.itemWrapper}
-            role="button"
-            onClick={() => selectBloggerId(blogger.id!)}
-          >
-            <div className={styles.iconWrapper}>
-              <Image
-                src={"/svg/blogger.svg"}
-                alt="icon"
-                width={18}
-                height={18}
-                priority={false}
-              />
-            </div>
-            <div className={`${styles.sourceItem}`}>{blogger.name}</div>
-            <div className={`${styles.sourceItem}`}>
-              {formatSubscribers(blogger.subscribersCount)}
-            </div>
-            <div className={`${styles.sourceItem}`}>{price} </div>
-            <div className={`${styles.sourceItem}`}>
-              {blogger.phoneNumber || "-"}
-            </div>
-            <div className={`${styles.sourceItem}`}>{blogger.email || "-"}</div>
-            <div className={`${styles.sourceItem}`}>
-              {categories.join(", ")}
-            </div>
-            <div className={`${styles.sourceItem}`}>{authorName} </div>
-
-            {blogger.createdAt && (
-              <div className={`${styles.sourceItem} `}>
-                {format(blogger.createdAt, "d MMMM HH:mm", { locale: ru })}
-              </div>
-            )}
-
-            <div className={styles.forwardWrapper}>
-              <Image
-                src={"/svg/chevronRight.svg"}
-                alt="icon"
-                width={12}
-                height={12}
-                priority={false}
-              />
-            </div>
+      return (
+        <div
+          role="button"
+          key={blogger.id}
+          className={stylesGlobal.itemWrapper}
+          onClick={() => selectBloggerId(blogger.id)}
+        >
+          <div className={stylesGlobal.iconWrapper}>
+            <UIIcon size={18} source={"/svg/blogger.svg"} />
           </div>
-        );
-      }
+          <div className={`${stylesGlobal.tableColumn}`}>{blogger.name}</div>
+          <div className={`${stylesGlobal.tableColumn}`}>
+            {formatSubscribers(blogger.subscribersCount)}
+          </div>
+          <div className={`${stylesGlobal.tableColumn}`}>{price} </div>
+          <div className={`${stylesGlobal.tableColumn}`}>
+            {blogger.phoneNumber || "-"}
+          </div>
+          <div className={`${stylesGlobal.tableColumn}`}>
+            {blogger.email || "-"}
+          </div>
+          <div className={`${stylesGlobal.tableColumn}`}>
+            {bloggerCategories}
+          </div>
+          <div className={`${stylesGlobal.tableColumn}`}>
+            {blogger.author.username}
+          </div>
+
+          <div className={`${stylesGlobal.tableColumn} `}>
+            {format(blogger.createdAt, "d MMMM HH:mm", { locale: ru })}
+          </div>
+
+          <div className={stylesGlobal.iconWrapper}>
+            <UIIcon size={12} source={"/svg/chevronRight.svg"} />
+          </div>
+        </div>
+      );
     });
   };
 
   return (
-    <ListWrapper
+    <UIListWrapper
       isLoading={isLoading}
       hasItems={hasBloggers}
-      onAdd={() => routerStore.push(ROUTES.EDIT_BLOGGER)}
+      bttnTitle={translations.bttns.addBlogger}
+      canWrite={canWrite}
+      onAdd={() => {
+        resetSelectedBloggerId();
+        routerStore.push(ROUTES.EDIT_BLOGGER);
+      }}
     >
       {renderItems()}
-
-      <div className={styles.bttnWrapper}>
-        <div
-          className={styles.bttn}
-          role="button"
-          onClick={() => {
-            resetSelectedBloggerId();
-            routerStore.push(ROUTES.EDIT_BLOGGER);
-          }}
-        >
-          <div className={styles.addIcon}>
-            <Image
-              src={"/svg/add.svg"}
-              alt="icon"
-              width={26}
-              height={26}
-              priority={false}
-            />
-          </div>
-          <div>Добавить нового блогера</div>
-        </div>
-      </div>
-    </ListWrapper>
+    </UIListWrapper>
   );
 });

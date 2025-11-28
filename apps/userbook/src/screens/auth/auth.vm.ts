@@ -1,13 +1,15 @@
 "use client";
 
+import { toast } from "sonner";
 import { makeAutoObservable } from "mobx";
 
+import { translations } from "@/localize";
 import RootStore from "@/stores/rootStore";
 import { ROUTES } from "@/constants/routes";
-import { Manager } from "@shared/prisma/prisma/client";
 
 export default class AuthVM {
   root;
+
   username = "";
   password = "";
 
@@ -16,30 +18,29 @@ export default class AuthVM {
     makeAutoObservable(this);
   }
 
-  setUsername = (username: string) => (this.username = username);
-  setPassword = (password: string) => (this.password = password);
+  setUsername = (username: string) => (this.username = username.trim());
+  setPassword = (password: string) => (this.password = password.trim());
 
   login = async () => {
-    if (!this.isCredsValid) {
-      this.root.alertStore.toggleAlert("Проверьте введенные данные");
-      return;
-    }
+    if (!this.validate()) return;
 
-    await this.root.authStore.login(this.username, this.password);
+    await this.root.authStore.login({
+      username: this.username,
+      password: this.password,
+    });
     if (this.root.authStore.me) {
-      this.root.routerStore.replace(ROUTES.SOURCES_LIST);
+      this.root.routerStore.replace(ROUTES.CASES_LIST);
     }
   };
 
-  get isCredsValid(): boolean {
-    return Boolean(this.username && this.password);
-  }
+  validate = (): boolean => {
+    let isValid = false;
 
-  get me(): Manager | null {
-    return this.root.authStore.me;
-  }
+    if (!this.username) toast.warning(translations.toastMessages.loginMissing);
+    else if (!this.password) {
+      toast.warning(translations.toastMessages.passwordMissing);
+    } else isValid = true;
 
-  get isLogged(): boolean {
-    return Boolean(this.me);
-  }
+    return isValid;
+  };
 }

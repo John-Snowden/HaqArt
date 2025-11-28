@@ -1,0 +1,108 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+}
+
+.input {
+    margin-top: 4px;
+    margin-right: 60px;
+    padding: 0 12px;
+}
+
+.caseCard {
+    display: flex;
+    flex-direction: column;
+    width: 180px;
+    height: 180px;
+    padding: 12px 12px;
+    margin-right: 24px;
+    border-radius: 4px;
+    border: 1px solid white;
+    background-color: rgba(166, 255, 0, 0.119);
+    cursor: pointer;
+}
+
+.caseCard:hover {
+    background-color: lightgray;
+}
+
+.caseCard:active {
+    scale: 0.98;
+}
+
+.cardElementTop {
+    align-self: flex-start;
+}
+
+.cardElementCenter {
+    display: flex;
+    flex: 1;
+    width: "100%";
+    justify-content: center;
+    align-items: center;
+}
+
+.cardElementFooter {
+    align-self: flex-end;
+}
+
+.phoneWrapper {
+    width: 35vw;
+}
+
+.searchWrapper {
+    width: 35vw;
+}
+
+.fullProblemWrapper {
+    flex: 1;
+    outline: none;
+    border: none;
+    font-size: 16px;
+    padding: 4px 10px;
+    border-radius: 4px;
+}
+
+.bttnsWrapper {
+    display: flex;
+    flex-direction: row;
+    width: 130px;
+    justify-content: space-between;
+}
+
+.checkBoxLeft {
+    margin-left: 12px;
+}
+
+.checkBoxRight {
+    margin-right: 12px;
+}
+
+.sep {
+    height: 1px;
+    margin: 28px 0;
+}
+
+.suggestionsWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.addTitle {
+    margin: 0 12px;
+}
+
+.dullGray {
+    color: rgb(174, 174, 174);
+    margin-bottom: 4px;
+}
+
+.addBttn {
+    height: 26px;
+}
+
+.halfSep {
+    height: 1;
+    margin: 24px 0;
+}

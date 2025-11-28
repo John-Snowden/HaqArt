@@ -2,24 +2,25 @@ export enum ROUTES {
   ROOT = "/",
   AUTH = "/auth",
 
-  // sources
-  SOURCES_LIST = "/sources_list",
-  EDIT_SOURCE = "/edit_source",
+  // origins
+  ORIGINS_LIST = "/origins_list",
+  EDIT_ORIGIN = "/edit_origin",
 
   // opponents
   OPPONENTS_LIST = "/opponents_list",
-  ADD_OPPONENT = "/add_opponent",
+  EDIT_OPPONENT = "/edit_opponent",
 
   // bloggers
   BLOGGERS_LIST = "/bloggers_list",
   EDIT_BLOGGER = "/edit_blogger",
 
-  // users
-  USERS_LIST = "/users_list",
-  EDIT_USER = "/edit_user",
+  // persons
+  PERSONS_LIST = "/persons_list",
+  EDIT_PERSON = "/edit_person",
 
   PROFILE = "/profile",
 
   // task manager
-  DESK = "/desk",
+  CASES_LIST = "/cases_list",
+  EDIT_CASE = "/edit_case",
 }

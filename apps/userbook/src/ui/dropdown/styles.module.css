@@ -1,55 +1,68 @@
 .main {
-  display: flex;
-  flex: 1;
-  align-items: center;
-  height: 50px;
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    height: 50px;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
 }
 
 .label {
-  margin-right: 22px;
+    margin-right: 22px;
 }
 
 .inputWrapper {
-  display: flex;
-  flex: 1;
-  position: relative;
-  align-self: stretch;
-  padding: 0 24px;
-  align-items: center;
-  border-bottom: 0.5px solid #ccc;
-  cursor: pointer;
+    display: flex;
+    flex: 1;
+    box-sizing: border-box;
+    position: relative;
+    align-self: stretch;
+    padding: 0 24px;
+    align-items: center;
+    border-bottom: 0.5px solid #ccc;
+    cursor: pointer;
 }
 
 .inputWrapper:hover {
-  border-bottom: 0.5px solid #a5a4a4;
+    border-bottom: 0.5px solid #a5a4a4;
 }
 
 .dropdownLeft {
-  flex: 1;
+    flex: 1;
 }
 
 .dropdownWrapper {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  padding-bottom: 100px;
-  z-index: 99;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+}
+
+.dropdownWrapperUp {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 99;
 }
 
 .itemWrapper {
-  display: flex;
-  flex: 1;
-  height: 50px;
-  width: 100%;
-  padding: 0 24px;
-  align-items: center;
-  border-radius: 4px;
-  color: white;
-  border-bottom: 0.5px solid #ccc;
-  background-color: #a5a4a4;
+    display: flex;
+    flex: 1;
+    height: 50px;
+    width: 100%;
+    padding: 0 24px;
+    align-items: center;
+    border-radius: 4px;
+    color: white;
+    border-bottom: 0.5px solid #ccc;
+    background-color: #a5a4a4;
 }
 
 .itemWrapper:hover {
-  background-color: #b4b3b3;
+    background-color: #b4b3b3;
 }

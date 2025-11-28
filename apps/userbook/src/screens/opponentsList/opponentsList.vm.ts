@@ -2,14 +2,13 @@
 
 import { makeAutoObservable, runInAction } from "mobx";
 
+import { translations } from "@/localize";
 import RootStore from "@/stores/rootStore";
 import { ROUTES } from "@/constants/routes";
-import { Opponent } from "@shared/prisma/prisma/client";
-import { STORAGE_KEYS } from "@/constants/storage";
+import { CAN_EDIT_OPPONENT_ROLES } from "@/stores/constants";
 
 export default class OpponentsListVM {
   root;
-
   isLoading: boolean = true;
 
   constructor(root: RootStore) {
@@ -17,37 +16,32 @@ export default class OpponentsListVM {
     makeAutoObservable(this);
   }
 
-  deleteOpponent = async (id: number) => {
-    runInAction(() => (this.isLoading = true));
-    await this.root.opponentsStore.deleteOpponent(id);
-    runInAction(() => (this.isLoading = false));
-  };
-
-  selectOpponentId = (id: number) => {
-    this.root.opponentsStore.selectedOpponentId = id;
-    localStorage.setItem(STORAGE_KEYS.SELECTED_OPPONENT_ID, String(id));
-    this.root.routerStore.push(ROUTES.ADD_OPPONENT);
-  };
-
-  resetSelectedOpponentId = () =>
-    this.root.opponentsStore.resetSelectedOpponentId();
-
   getOpponents = async () => {
-    runInAction(() => (this.isLoading = true));
     try {
+      runInAction(() => (this.isLoading = true));
       await this.root.opponentsStore.getOpponents();
     } catch (e) {
-      console.log(e);
+      this.root.alertStore.toggleAlert(translations.alertMessages.error + e);
     } finally {
       runInAction(() => (this.isLoading = false));
     }
   };
 
-  get opponents(): Opponent[] {
-    return this.root.opponentsStore.opponents;
-  }
+  selectOpponentId = (id: number) => {
+    this.root.opponentsStore.selectedOpponentId = id;
+    this.root.routerStore.push(ROUTES.EDIT_OPPONENT);
+  };
+
+  resetSelectedOpponentId = () =>
+    (this.root.opponentsStore.selectedOpponentId = undefined);
 
   get hasOpponents(): boolean {
-    return this.opponents.length !== 0;
+    return this.root.opponentsStore.opponents.length !== 0;
+  }
+
+  get canWrite(): boolean {
+    const myRoles = this.root.authStore.me?.roles;
+    const role = CAN_EDIT_OPPONENT_ROLES.find((r) => myRoles?.includes(r));
+    return Boolean(role);
   }
 }

@@ -1,0 +1,32 @@
+.addWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputGroupColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+    margin-top: 4px;
+    margin-right: 60px;
+    padding: 0 12px;
+}
+
+.label {
+    margin-top: 18px;
+    margin-right: 24px;
+}
+
+.phoneWrapper {
+    width: 35vw;
+}
+
+.checkBoxLeft {
+    margin-left: 12px;
+}
+
+.checkBoxRight {
+    margin-right: 12px;
+}

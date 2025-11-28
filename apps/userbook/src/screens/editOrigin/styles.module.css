@@ -1,0 +1,9 @@
+.addWrapper {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+}
+
+.mrgTop {
+    margin-top: 16px;
+}

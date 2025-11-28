@@ -8,7 +8,7 @@ import { UIIcon } from "../UIIcon/UIIcon";
 
 interface Props {
   type?: "button" | "submit" | "reset";
-  title: string;
+  title?: string;
   icon?: string;
   iconSize?: number;
   style?: string;
@@ -26,7 +26,7 @@ export const UIButton: FC<Props> = ({
   return (
     <button type={type} className={clsx(styles.bttn, style)} onClick={onClick}>
       {icon && (
-        <div style={{ marginRight: 12 }}>
+        <div style={{ marginRight: title ? 12 : 0 }}>
           <UIIcon source={icon} size={iconSize || 14} />
         </div>
       )}

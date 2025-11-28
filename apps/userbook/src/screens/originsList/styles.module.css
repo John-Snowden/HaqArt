@@ -1,0 +1,41 @@
+.itemWrapper:hover {
+    opacity: 0.85;
+    background-color: rgb(230, 230, 230);
+}
+
+.itemWrapper:active {
+    opacity: 0.85;
+    background-color: rgb(225, 225, 225);
+}
+
+.bttnWrapper {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    margin: 50px 0px;
+}
+
+.bttn {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-width: 1px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.bttn:hover {
+    opacity: 0.85;
+    background-color: rgb(230, 230, 230);
+}
+
+.bttn:active {
+    opacity: 0.85;
+    background-color: rgb(225, 225, 225);
+}
+
+.forwardWrapper {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+}

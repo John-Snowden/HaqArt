@@ -1,26 +1,42 @@
 "use client";
 
-import styles from "./styles.module.css";
+import { translations } from "@/localize";
+
+import stylesGlobal from "../../stylesGlobal.module.css";
 import { BloggersList } from "./components/BloggersList";
 
 export const BloggersListScreen = () => {
   return (
     <>
-      <div className={styles.header}>
-        <div>
-          <h1 className={styles.headerTitle}>Все блогеры</h1>
-        </div>
+      <div className={stylesGlobal.header}>
+        <h1>{translations.headers.allBloggers}</h1>
       </div>
 
-      <div className={styles.subheader}>
-        <h4 className={styles.subheaderTitle}>Имя</h4>
-        <h4 className={styles.subheaderTitle}>Подписчики</h4>
-        <h4 className={styles.subheaderTitle}>Цена SOM/USD</h4>
-        <h4 className={styles.subheaderTitle}>Контактный тел</h4>
-        <h4 className={styles.subheaderTitle}>Email</h4>
-        <h4 className={styles.subheaderTitle}>Категории</h4>
-        <h4 className={styles.subheaderTitle}>Автор</h4>
-        <h4 className={styles.subheaderTitle}>Дата добавления</h4>
+      <div className={stylesGlobal.tableHeader}>
+        <h4 className={stylesGlobal.tableColumn}>
+          {translations.blogger.name}
+        </h4>
+        <h4 className={stylesGlobal.tableColumn}>
+          {translations.blogger.subscribersCount}
+        </h4>
+        <h4 className={stylesGlobal.tableColumn}>
+          {`${translations.misc.price} ${translations.blogger.priceSOM}/${translations.blogger.priceUSD}`}
+        </h4>
+        <h4 className={stylesGlobal.tableColumn}>
+          {translations.blogger.phoneNumber}
+        </h4>
+        <h4 className={stylesGlobal.tableColumn}>
+          {translations.blogger.email}
+        </h4>
+        <h4 className={stylesGlobal.tableColumn}>
+          {translations.blogger.categories}
+        </h4>
+        <h4 className={stylesGlobal.tableColumn}>
+          {translations.blogger.authorId}
+        </h4>
+        <h4 className={stylesGlobal.tableColumn}>
+          {translations.misc.createdAt}
+        </h4>
       </div>
       <BloggersList />
     </>

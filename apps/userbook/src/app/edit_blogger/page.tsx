@@ -1,23 +1,14 @@
 "use client";
 
-import { useMemo } from "react";
+import { EditBloggerScreen } from "@/screens";
+import { EditBloggerContext } from "@/context";
 
-import { EditBloggerContext } from "@/screens/editBlogger/hooks";
-import EditBloggerVM from "@/screens/editBlogger/editBlogger.vm";
-import { EditBloggerScreen } from "@/screens/editBlogger/EditBloggerScreen";
-
-import { useRootStore } from "../RootClientContext";
-
-export default function EditBlogger() {
-  const rootStore = useRootStore();
-  const editBloggerVM = useMemo(
-    () => new EditBloggerVM(rootStore),
-    [rootStore],
-  );
-
+const EditBlogger = () => {
   return (
-    <EditBloggerContext.Provider value={editBloggerVM}>
+    <EditBloggerContext>
       <EditBloggerScreen />
-    </EditBloggerContext.Provider>
+    </EditBloggerContext>
   );
-}
+};
+
+export default EditBlogger;

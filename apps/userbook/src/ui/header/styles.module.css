@@ -1,45 +1,54 @@
 .main {
-  display: flex;
-  height: 68px;
-  flex-direction: row;
-  justify-content: space-between;
-  border-bottom: 0.5px solid #ccc;
+    display: flex;
+    height: 68px;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 0.5px solid #ccc;
 }
 
 .headerLeft {
-  display: flex;
-  flex: 1;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: -20px;
+}
+
+.headerRight {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: -20px;
 }
 
 .buttonWrapper {
-  display: flex;
-  flex-direction: row;
-  margin: 4px 10px;
-  height: 60px;
-  padding: 0 10px;
-  cursor: pointer;
-  border-radius: 6px;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    flex-direction: row;
+    margin: 4px 0px;
+    height: 60px;
+    padding: 0 20px;
+    cursor: pointer;
+    border-radius: 6px;
+    justify-content: center;
+    align-items: center;
 }
 
 .buttonWrapper:hover {
-  opacity: 0.85;
-  background-color: rgb(230, 230, 230);
+    opacity: 0.85;
+    background-color: rgb(230, 230, 230);
 }
 
 .buttonWrapper:active {
-  opacity: 0.85;
-  background-color: rgb(230, 230, 230);
+    opacity: 0.85;
+    background-color: rgb(230, 230, 230);
 }
 
 .margLeft {
-  margin-left: 16px;
+    margin-left: 16px;
 }
 
 .margRight {
-  margin-right: 16px;
+    margin-right: 16px;
 }

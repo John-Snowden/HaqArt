@@ -11,7 +11,7 @@ export default class RouterStore {
   root: RootStore;
 
   router: AppRouterInstance;
-  currentRoute: ROUTES | null = null;
+  currentRoute: ROUTES = ROUTES.ROOT;
   prevRoute: ROUTES | null = null;
 
   constructor(root: RootStore, router: AppRouterInstance) {
@@ -21,7 +21,7 @@ export default class RouterStore {
 
   hydrate = () => {
     const prevRoute = localStorage.getItem(STORAGE_KEYS.CURRENT_ROUTE);
-    this.currentRoute = prevRoute ? (prevRoute as ROUTES) : ROUTES.ROOT;
+    if (prevRoute) this.currentRoute = prevRoute as ROUTES;
   };
 
   persistCurrentRoute = (lastRoute: ROUTES) => {
@@ -36,7 +36,7 @@ export default class RouterStore {
   };
 
   back = () => {
-    this.currentRoute = this.prevRoute;
+    if (this.prevRoute) this.currentRoute = this.prevRoute;
     this.prevRoute = null;
     this.router.back();
   };
@@ -48,7 +48,5 @@ export default class RouterStore {
     this.router.replace(newRoute);
   };
 
-  clear = () => {
-    localStorage.removeItem(STORAGE_KEYS.CURRENT_ROUTE);
-  };
+  clear = () => localStorage.removeItem(STORAGE_KEYS.CURRENT_ROUTE);
 }

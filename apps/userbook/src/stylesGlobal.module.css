@@ -1,0 +1,86 @@
+.screen {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    padding: 0 30px;
+    overflow-y: auto;
+    background: url("/images/userbook_bg.png") center/cover no-repeat;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    margin: 16px 0;
+}
+
+.tableHeader {
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    height: 50px;
+    padding: 0 40px;
+    align-items: center;
+    margin-top: 60px;
+    border-bottom: 0.5px solid #ccc;
+}
+
+.tableColumn {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    height: 16px;
+    padding-left: 16px;
+    border-left: 1px solid #ccc;
+    margin: 0px 16px;
+}
+
+.scrollable {
+    overflow-y: auto;
+}
+
+.itemWrapper {
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    box-sizing: border-box;
+    align-items: center;
+    border-bottom: 0.5px solid #ccc;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.itemWrapper:hover {
+    opacity: 0.85;
+    background-color: rgb(230, 230, 230);
+}
+
+.itemWrapper:active {
+    opacity: 0.85;
+    background-color: rgb(225, 225, 225);
+}
+
+.iconWrapper {
+    display: flex;
+    width: 40px;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer {
+    display: flex;
+    flex-shrink: 0;
+    padding-bottom: 40px;
+}
+
+.row {
+    display: flex;
+    width: "100%";
+    flex-direction: row;
+    align-items: center;
+}
+
+.text {
+    font-size: 12px;
+}

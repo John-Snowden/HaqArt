@@ -3,9 +3,10 @@
 import Image from "next/image";
 import { observer } from "mobx-react-lite";
 
-import { useRootStore } from "@/app/RootClientContext";
+import { useRootStore } from "@/context";
 
 import styles from "./styles.module.css";
+import stylesGlobal from "../../stylesGlobal.module.css";
 
 export const Alert = observer(() => {
   const {
@@ -15,7 +16,7 @@ export const Alert = observer(() => {
   if (!isVisible) return null;
   else
     return (
-      <div className={styles.screen}>
+      <div className={stylesGlobal.screen}>
         <div className={styles.bg} onClick={() => toggleAlert()} />
         <div className={styles.alertWrapper}>
           <div className={styles.titleWrapper}>

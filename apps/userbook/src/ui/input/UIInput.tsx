@@ -1,13 +1,13 @@
 import { FC } from "react";
-import Image from "next/image";
 
 import styles from "./styles.module.css";
+import { UIIcon } from "../UIIcon/UIIcon";
 
 interface IProps {
-  type: string;
+  type?: string;
   label?: string;
-  value: string;
-  placeholder: string;
+  value?: string;
+  placeholder?: string;
   style?: string;
   disabled?: boolean;
   withLinkParser?: boolean;
@@ -27,35 +27,30 @@ export const UIInput: FC<IProps> = ({
   onChange,
   onBlur,
 }: IProps) => {
-  const isLink = withLinkParser ? value.includes("https://") : false;
+  const isLink = withLinkParser ? value?.includes("https://") : false;
 
   return (
     <div key={label} className={styles.inputWrapper}>
       {label && <h4 className={styles.label}>{label}</h4>}
       {isLink ? (
-        <a href={value} target="_blank" className={styles.link}>
+        <a href={value ?? ""} target="_blank" className={styles.link}>
           {value}
         </a>
       ) : (
         <input
-          type={type}
-          value={value}
+          type={type || "text"}
+          value={value ?? ""}
           className={`${styles.input} ${style ? style : ""}`}
-          placeholder={placeholder}
+          placeholder={placeholder || "..."}
           onChange={(e) => (onChange ? onChange(e.target.value) : {})}
           onBlur={onBlur}
           disabled={disabled}
         />
       )}
       {disabled && (
+        // TODO ugly style
         <div style={{ marginRight: "92px" }}>
-          <Image
-            src={"/svg/lock.svg"}
-            alt="icon"
-            width={14}
-            height={14}
-            priority={false}
-          />
+          <UIIcon size={14} source={"/svg/lock.svg"} />
         </div>
       )}
     </div>

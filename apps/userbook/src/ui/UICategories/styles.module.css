@@ -1,0 +1,20 @@
+.categoryItem {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    padding: 8px 16px;
+    border-radius: 4px;
+    margin: 0 4px;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.categoryItem:hover {
+    border: 1px solid white;
+    background-color: #e8e8e8;
+}
+
+.categoryItem.selected {
+    background-color: #e8e8e8;
+    border: 1px solid white;
+}

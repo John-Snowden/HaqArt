@@ -1,16 +1,26 @@
 "use client";
 
-import styles from "./styles.module.css";
+import { translations } from "@/localize";
+
+import stylesGlobal from "../../stylesGlobal.module.css";
 import { OpponentsList } from "./components/OpponentsList";
 
 export const OpponentsListScreen = () => {
   return (
     <>
-      <h1 className={styles.header}>Все оппоненты</h1>
-      <div className={styles.subheader}>
-        <h4 className={styles.subheaderTitle}>Название</h4>
-        <h4 className={styles.subheaderTitle}>Дата добавления</h4>
-        <h4 className={styles.subheaderTitle}>Информация</h4>
+      <h1 className={stylesGlobal.header}>
+        {translations.headers.allOpponents}
+      </h1>
+      <div className={stylesGlobal.tableHeader}>
+        <h4 className={stylesGlobal.tableColumn}>
+          {translations.opponent.name}
+        </h4>
+        <h4 className={stylesGlobal.tableColumn}>
+          {translations.misc.createdAt}
+        </h4>
+        <h4 className={stylesGlobal.tableColumn}>
+          {translations.opponent.authorId}
+        </h4>
       </div>
       <OpponentsList />
     </>

@@ -2,12 +2,12 @@
 
 import { FC, ReactNode } from "react";
 
-import styles from "./styles.module.css";
+import stylesGlobal from "../../stylesGlobal.module.css";
 
 interface IProps {
   children: ReactNode;
 }
 
 export const Screen: FC<IProps> = ({ children }) => {
-  return <div className={styles.screen}>{children}</div>;
+  return <div className={stylesGlobal.screen}>{children}</div>;
 };

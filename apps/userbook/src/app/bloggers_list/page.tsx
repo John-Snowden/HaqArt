@@ -1,20 +1,14 @@
 "use client";
 
-import { useMemo } from "react";
+import { BloggersListScreen } from "@/screens";
+import { BloggersListContext } from "@/context";
 
-import { BloggersListContext } from "@/screens/bloggersList/hooks";
-import BloggersListVM from "@/screens/bloggersList/bloggersList.vm";
-import { BloggersListScreen } from "@/screens/bloggersList/BloggersListScreen";
-
-import { useRootStore } from "../RootClientContext";
-
-export default function BloggersList() {
-  const rootStore = useRootStore();
-  const bloggersVM = useMemo(() => new BloggersListVM(rootStore), [rootStore]);
-
+const BloggersList = () => {
   return (
-    <BloggersListContext.Provider value={bloggersVM}>
+    <BloggersListContext>
       <BloggersListScreen />
-    </BloggersListContext.Provider>
+    </BloggersListContext>
   );
-}
+};
+
+export default BloggersList;

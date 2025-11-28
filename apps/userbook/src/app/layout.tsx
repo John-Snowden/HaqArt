@@ -1,7 +1,7 @@
-import { Alert, Header, Screen } from "@/ui";
+import { RootClientContext } from "@/context";
+import { Alert, Header, Screen, UIToast } from "@/ui";
 
 import "./globals.css";
-import { RootClientContext } from "./RootClientContext";
 
 export default function RootLayout({
   children,
@@ -16,6 +16,7 @@ export default function RootLayout({
             <Header />
             {children}
             <Alert />
+            <UIToast />
           </Screen>
         </RootClientContext>
       </body>

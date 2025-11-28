@@ -2,15 +2,13 @@
 
 import { makeAutoObservable, runInAction } from "mobx";
 
+import { ROUTES } from "@/constants";
+import { translations } from "@/localize";
 import RootStore from "@/stores/rootStore";
-import { ROUTES } from "@/constants/routes";
-import { Blogger } from "@shared/prisma/prisma/client";
-import { STORAGE_KEYS } from "@/constants/storage";
-import { PublicManagerData } from "@/stores/managersStore";
+import { CAN_EDIT_BLOGGER_ROLES } from "@/stores/constants/blogger";
 
 export default class BloggersListVM {
   root;
-
   isLoading: boolean = true;
 
   constructor(root: RootStore) {
@@ -18,41 +16,33 @@ export default class BloggersListVM {
     makeAutoObservable(this);
   }
 
-  deleteBlogger = async (id: number) => {
-    runInAction(() => (this.isLoading = true));
-    await this.root.bloggersStore.deleteBlogger(id);
-    runInAction(() => (this.isLoading = false));
-  };
-
-  selectBloggerId = (id: number) => {
-    this.root.bloggersStore.selectedBloggerId = id;
-    localStorage.setItem(STORAGE_KEYS.SELECTED_BLOGGER_ID, String(id));
-    this.root.routerStore.push(ROUTES.EDIT_BLOGGER);
-  };
-
-  resetSelectedBloggerId = () =>
-    this.root.bloggersStore.resetSelectedBloggerId();
-
   getBloggers = async () => {
-    runInAction(() => (this.isLoading = true));
     try {
+      runInAction(() => (this.isLoading = true));
       await this.root.bloggersStore.getBloggers();
     } catch (e) {
-      console.log(e);
+      this.root.alertStore.toggleAlert(translations.alertMessages.error + e);
     } finally {
       runInAction(() => (this.isLoading = false));
     }
   };
 
-  get bloggers(): Blogger[] {
-    return this.root.bloggersStore.bloggers;
-  }
+  selectBloggerId = (id: number) => {
+    this.root.bloggersStore.selectedBloggerId = id;
+    this.root.routerStore.push(ROUTES.EDIT_BLOGGER);
+  };
+
+  resetSelectedBloggerId = () => {
+    this.root.bloggersStore.selectedBloggerId = undefined;
+  };
 
   get hasBloggers(): boolean {
-    return this.bloggers.length !== 0;
+    return this.root.bloggersStore.bloggers.length !== 0;
   }
 
-  get managers(): PublicManagerData[] {
-    return this.root.managersStore.managers;
+  get canWrite(): boolean {
+    const myRoles = this.root.authStore.me?.roles;
+    const role = CAN_EDIT_BLOGGER_ROLES.find((r) => myRoles?.includes(r));
+    return Boolean(role);
   }
 }

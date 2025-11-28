@@ -2,11 +2,16 @@
 
 import { makeAutoObservable } from "mobx";
 
+import RootStore from "./rootStore";
+
 export default class AlertStore {
+  root: RootStore;
+
   isVisible = false;
   message: string | undefined = undefined;
 
-  constructor() {
+  constructor(root: RootStore) {
+    this.root = root;
     makeAutoObservable(this);
   }
 

@@ -1,0 +1,156 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    margin: 0 24px;
+    padding-bottom: 100px;
+}
+
+.headerWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.flexStart {
+    display: flex;
+    align-items: flex-start !important;
+}
+
+.sepVertical {
+    display: flex;
+    height: 74vh;
+    width: 1px;
+    margin: 0 40px;
+    background-color: lightgray;
+}
+
+.inputsWrapper {
+    padding-top: 36px;
+    padding-left: 44px;
+    padding-right: 44px;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.inputGroupColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+    margin-top: 4px;
+    margin-right: 60px;
+    padding: 0 12px;
+}
+
+.caseCard {
+    display: flex;
+    width: 200px;
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    border: 0.5px solid lightgray;
+    cursor: pointer;
+}
+
+.caseCard:hover {
+    background-color: lightgray;
+}
+
+.caseCard:active {
+    scale: 0.98;
+}
+
+.bttnWrapper {
+    display: flex;
+    align-items: center;
+    margin-top: 12px;
+    padding: 12px 20px;
+    border-width: 1px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.bttnWrapper:hover {
+    opacity: 0.85;
+    background-color: rgb(230, 230, 230);
+}
+
+.bttnWrapper:active {
+    opacity: 0.85;
+    background-color: rgb(225, 225, 225);
+}
+
+.phoneWrapper {
+    width: 35vw;
+}
+
+.searchWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 35vw;
+}
+
+.opponentBttn {
+    display: flex;
+    height: 50px;
+    box-sizing: border-box;
+    padding: 24px 14px;
+    align-items: center;
+    border-radius: 4px;
+    color: white;
+    border-bottom: 0.5px solid #ccc;
+    background-color: #a5a4a4;
+    cursor: pointer;
+}
+
+.opponentBttn:hover {
+    opacity: 0.85;
+    background-color: #b4b3b3;
+}
+
+.opponentBttn:active {
+    opacity: 0.85;
+    background-color: rgb(225, 225, 225);
+}
+
+.checkBoxLeft {
+    margin-left: 12px;
+}
+
+.checkBoxRight {
+    margin-right: 12px;
+}
+
+.suggestionsWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.addTitle {
+    margin: 0 12px;
+}
+
+.dullGray {
+    color: rgb(174, 174, 174);
+    margin-bottom: 4px;
+}
+
+.deleteBttn {
+    height: 26px;
+}
+
+.iconBttn {
+    height: 40px;
+    width: 40px;
+}
+
+.halfSep {
+    height: 1;
+    margin: 24px 0;
+}
