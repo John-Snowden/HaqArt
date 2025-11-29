@@ -34,7 +34,9 @@ export const CaseCardsList = observer(() => {
         }}
       >
         <h2 className={styles.cardElementTop}>{c.opponent?.name}</h2>
-        <div className={styles.cardElementCenter}> {""}</div>
+        <div className={styles.cardElementCenter}>
+          {c.categories.map((k) => translations.categories[k]).join(", ")}
+        </div>
         <h4 className={styles.cardElementFooter}>
           {format(c.createdAt, "d MMMM HH:mm", { locale: ru })}
         </h4>

@@ -32,6 +32,7 @@ pnpm-debug.log*
 # --- Generated code ---
 src/generated/prisma/
 shared_packages/prisma/prisma/client/
+shared_packages/prisma/db_backup_*.sql
 
 # --- IDE & OS noise ---
 .idea/

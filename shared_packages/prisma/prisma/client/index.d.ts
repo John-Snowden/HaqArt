@@ -14,20 +14,25 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
 
 
 /**
- * Model Manager
+ * Model Employee
  * 
  */
-export type Manager = $Result.DefaultSelection<Prisma.$ManagerPayload>
+export type Employee = $Result.DefaultSelection<Prisma.$EmployeePayload>
 /**
- * Model User
+ * Model Person
  * 
  */
-export type User = $Result.DefaultSelection<Prisma.$UserPayload>
+export type Person = $Result.DefaultSelection<Prisma.$PersonPayload>
 /**
- * Model Source
+ * Model Case
  * 
  */
-export type Source = $Result.DefaultSelection<Prisma.$SourcePayload>
+export type Case = $Result.DefaultSelection<Prisma.$CasePayload>
+/**
+ * Model Origin
+ * 
+ */
+export type Origin = $Result.DefaultSelection<Prisma.$OriginPayload>
 /**
  * Model Opponent
  * 
@@ -44,107 +49,106 @@ export type Blogger = $Result.DefaultSelection<Prisma.$BloggerPayload>
  */
 export namespace $Enums {
   export const LEAD_STATUS: {
-  addedToDB: 'addedToDB',
-  messageSent: 'messageSent',
-  messageRead: 'messageRead',
-  replied: 'replied',
-  contactShared: 'contactShared'
+  ADDED_TO_DB: 'ADDED_TO_DB',
+  CONTACT_SHARED: 'CONTACT_SHARED',
+  CLIENT: 'CLIENT',
+  RETURNING_CLIENT: 'RETURNING_CLIENT'
 };
 
 export type LEAD_STATUS = (typeof LEAD_STATUS)[keyof typeof LEAD_STATUS]
 
 
-export const TASK_STATUS: {
-  notAssigned: 'notAssigned',
-  assignedNotStarted: 'assignedNotStarted',
-  workInProgress: 'workInProgress',
-  blocked: 'blocked',
-  checkMe: 'checkMe',
-  done: 'done',
-  weRefused: 'weRefused',
-  leadRefused: 'leadRefused'
+export const CASE_STATUS: {
+  UNASSIGNED: 'UNASSIGNED',
+  PENDING_START: 'PENDING_START',
+  IN_PROGRESS: 'IN_PROGRESS',
+  BLOCKED: 'BLOCKED',
+  PENDING_CHECK: 'PENDING_CHECK',
+  DONE: 'DONE',
+  WE_REFUSED: 'WE_REFUSED',
+  PERSON_REFUSED: 'PERSON_REFUSED'
 };
 
-export type TASK_STATUS = (typeof TASK_STATUS)[keyof typeof TASK_STATUS]
+export type CASE_STATUS = (typeof CASE_STATUS)[keyof typeof CASE_STATUS]
 
 
-export const TASK_URGENCY: {
-  one: 'one',
-  two: 'two',
-  three: 'three',
-  four: 'four',
-  five: 'five'
+export const URGENCY: {
+  ONE: 'ONE',
+  TWO: 'TWO',
+  THREE: 'THREE',
+  FOUR: 'FOUR',
+  FIVE: 'FIVE'
 };
 
-export type TASK_URGENCY = (typeof TASK_URGENCY)[keyof typeof TASK_URGENCY]
+export type URGENCY = (typeof URGENCY)[keyof typeof URGENCY]
 
 
-export const TASK_IMPORTANCE: {
-  one: 'one',
-  two: 'two',
-  three: 'three'
+export const IMPORTANCE: {
+  ONE: 'ONE',
+  TWO: 'TWO',
+  THREE: 'THREE'
 };
 
-export type TASK_IMPORTANCE = (typeof TASK_IMPORTANCE)[keyof typeof TASK_IMPORTANCE]
+export type IMPORTANCE = (typeof IMPORTANCE)[keyof typeof IMPORTANCE]
 
 
-export const ROLES: {
-  dev: 'dev',
-  owner: 'owner',
-  ceo: 'ceo',
-  manager: 'manager',
-  bot: 'bot'
+export const ROLE: {
+  DEV: 'DEV',
+  OWNER: 'OWNER',
+  CEO: 'CEO',
+  SMM_MANAGER: 'SMM_MANAGER',
+  SALES_MANAGER: 'SALES_MANAGER',
+  ACCOUNT_MANAGER: 'ACCOUNT_MANAGER',
+  LAWYER: 'LAWYER',
+  BOT: 'BOT'
 };
 
-export type ROLES = (typeof ROLES)[keyof typeof ROLES]
+export type ROLE = (typeof ROLE)[keyof typeof ROLE]
 
 
 export const LEGAL_ACTION: {
-  none: 'none',
-  filing: 'filing',
-  courtParticipation: 'courtParticipation',
-  consultation: 'consultation',
-  appointment: 'appointment',
-  negotiations: 'negotiations',
-  claim: 'claim',
-  lawyerRequest: 'lawyerRequest'
+  CONSULTATION: 'CONSULTATION',
+  FILING: 'FILING',
+  COURT_PARTICIPATION: 'COURT_PARTICIPATION',
+  APPOINTMENT: 'APPOINTMENT',
+  NEGOTIATIONS: 'NEGOTIATIONS',
+  CLAIM: 'CLAIM',
+  LAWYER_REQUEST: 'LAWYER_REQUEST'
 };
 
 export type LEGAL_ACTION = (typeof LEGAL_ACTION)[keyof typeof LEGAL_ACTION]
 
 
 export const STATUS_IN_COURT: {
-  postponed: 'postponed',
-  paused: 'paused',
-  judgeOnVacation: 'judgeOnVacation',
-  reassigned: 'reassigned',
-  negotiations: 'negotiations',
-  returned: 'returned',
-  none: 'none'
+  POSTPONED: 'POSTPONED',
+  PAUSED: 'PAUSED',
+  JUDGE_ON_VACATION: 'JUDGE_ON_VACATION',
+  REASSIGNED: 'REASSIGNED',
+  NEGOTIATIONS: 'NEGOTIATIONS',
+  RETURNED: 'RETURNED'
 };
 
 export type STATUS_IN_COURT = (typeof STATUS_IN_COURT)[keyof typeof STATUS_IN_COURT]
 
 
 export const REFUSAL_REASON: {
-  none: 'none',
-  choseCompetitor: 'choseCompetitor',
-  irrelevantServices: 'irrelevantServices',
-  tooExpensive: 'tooExpensive',
-  noReasonGiven: 'noReasonGiven'
+  CHOSE_COMPETITOR: 'CHOSE_COMPETITOR',
+  IRRELEVANT_SERVICES: 'IRRELEVANT_SERVICES',
+  TOO_EXPENSIVE: 'TOO_EXPENSIVE'
 };
 
 export type REFUSAL_REASON = (typeof REFUSAL_REASON)[keyof typeof REFUSAL_REASON]
 
 
-export const SOURCE_CATEGORY: {
-  none: 'none',
-  realEstate: 'realEstate',
-  loans: 'loans',
-  other: 'other'
+export const CASE_CATEGORY: {
+  REAL_ESTATE: 'REAL_ESTATE',
+  FOREIGNERS: 'FOREIGNERS',
+  CARS: 'CARS',
+  LOANS: 'LOANS',
+  OTHER: 'OTHER'
 };
 
-export type SOURCE_CATEGORY = (typeof SOURCE_CATEGORY)[keyof typeof SOURCE_CATEGORY]
+export type CASE_CATEGORY = (typeof CASE_CATEGORY)[keyof typeof CASE_CATEGORY]
 
 }
 
@@ -152,21 +156,21 @@ export type LEAD_STATUS = $Enums.LEAD_STATUS
 
 export const LEAD_STATUS: typeof $Enums.LEAD_STATUS
 
-export type TASK_STATUS = $Enums.TASK_STATUS
+export type CASE_STATUS = $Enums.CASE_STATUS
 
-export const TASK_STATUS: typeof $Enums.TASK_STATUS
+export const CASE_STATUS: typeof $Enums.CASE_STATUS
 
-export type TASK_URGENCY = $Enums.TASK_URGENCY
+export type URGENCY = $Enums.URGENCY
 
-export const TASK_URGENCY: typeof $Enums.TASK_URGENCY
+export const URGENCY: typeof $Enums.URGENCY
 
-export type TASK_IMPORTANCE = $Enums.TASK_IMPORTANCE
+export type IMPORTANCE = $Enums.IMPORTANCE
 
-export const TASK_IMPORTANCE: typeof $Enums.TASK_IMPORTANCE
+export const IMPORTANCE: typeof $Enums.IMPORTANCE
 
-export type ROLES = $Enums.ROLES
+export type ROLE = $Enums.ROLE
 
-export const ROLES: typeof $Enums.ROLES
+export const ROLE: typeof $Enums.ROLE
 
 export type LEGAL_ACTION = $Enums.LEGAL_ACTION
 
@@ -180,9 +184,9 @@ export type REFUSAL_REASON = $Enums.REFUSAL_REASON
 
 export const REFUSAL_REASON: typeof $Enums.REFUSAL_REASON
 
-export type SOURCE_CATEGORY = $Enums.SOURCE_CATEGORY
+export type CASE_CATEGORY = $Enums.CASE_CATEGORY
 
-export const SOURCE_CATEGORY: typeof $Enums.SOURCE_CATEGORY
+export const CASE_CATEGORY: typeof $Enums.CASE_CATEGORY
 
 /**
  * ##  Prisma Client ʲˢ
@@ -191,8 +195,8 @@ export const SOURCE_CATEGORY: typeof $Enums.SOURCE_CATEGORY
  * @example
  * ```
  * const prisma = new PrismaClient()
- * // Fetch zero or more Managers
- * const managers = await prisma.manager.findMany()
+ * // Fetch zero or more Employees
+ * const employees = await prisma.employee.findMany()
  * ```
  *
  *
@@ -212,8 +216,8 @@ export class PrismaClient<
    * @example
    * ```
    * const prisma = new PrismaClient()
-   * // Fetch zero or more Managers
-   * const managers = await prisma.manager.findMany()
+   * // Fetch zero or more Employees
+   * const employees = await prisma.employee.findMany()
    * ```
    *
    *
@@ -303,34 +307,44 @@ export class PrismaClient<
   }>>
 
       /**
-   * `prisma.manager`: Exposes CRUD operations for the **Manager** model.
+   * `prisma.employee`: Exposes CRUD operations for the **Employee** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Managers
-    * const managers = await prisma.manager.findMany()
+    * // Fetch zero or more Employees
+    * const employees = await prisma.employee.findMany()
     * ```
     */
-  get manager(): Prisma.ManagerDelegate<ExtArgs, ClientOptions>;
+  get employee(): Prisma.EmployeeDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.user`: Exposes CRUD operations for the **User** model.
+   * `prisma.person`: Exposes CRUD operations for the **Person** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Users
-    * const users = await prisma.user.findMany()
+    * // Fetch zero or more People
+    * const people = await prisma.person.findMany()
     * ```
     */
-  get user(): Prisma.UserDelegate<ExtArgs, ClientOptions>;
+  get person(): Prisma.PersonDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.source`: Exposes CRUD operations for the **Source** model.
+   * `prisma.case`: Exposes CRUD operations for the **Case** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Sources
-    * const sources = await prisma.source.findMany()
+    * // Fetch zero or more Cases
+    * const cases = await prisma.case.findMany()
     * ```
     */
-  get source(): Prisma.SourceDelegate<ExtArgs, ClientOptions>;
+  get case(): Prisma.CaseDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.origin`: Exposes CRUD operations for the **Origin** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Origins
+    * const origins = await prisma.origin.findMany()
+    * ```
+    */
+  get origin(): Prisma.OriginDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.opponent`: Exposes CRUD operations for the **Opponent** model.
@@ -792,9 +806,10 @@ export namespace Prisma {
 
 
   export const ModelName: {
-    Manager: 'Manager',
-    User: 'User',
-    Source: 'Source',
+    Employee: 'Employee',
+    Person: 'Person',
+    Case: 'Case',
+    Origin: 'Origin',
     Opponent: 'Opponent',
     Blogger: 'Blogger'
   };
@@ -815,229 +830,303 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "manager" | "user" | "source" | "opponent" | "blogger"
+      modelProps: "employee" | "person" | "case" | "origin" | "opponent" | "blogger"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
-      Manager: {
-        payload: Prisma.$ManagerPayload<ExtArgs>
-        fields: Prisma.ManagerFieldRefs
+      Employee: {
+        payload: Prisma.$EmployeePayload<ExtArgs>
+        fields: Prisma.EmployeeFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.ManagerFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ManagerPayload> | null
+            args: Prisma.EmployeeFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeePayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.ManagerFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ManagerPayload>
+            args: Prisma.EmployeeFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>
           }
           findFirst: {
-            args: Prisma.ManagerFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ManagerPayload> | null
+            args: Prisma.EmployeeFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeePayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.ManagerFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ManagerPayload>
+            args: Prisma.EmployeeFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>
           }
           findMany: {
-            args: Prisma.ManagerFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ManagerPayload>[]
+            args: Prisma.EmployeeFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>[]
           }
           create: {
-            args: Prisma.ManagerCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ManagerPayload>
+            args: Prisma.EmployeeCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>
           }
           createMany: {
-            args: Prisma.ManagerCreateManyArgs<ExtArgs>
+            args: Prisma.EmployeeCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.ManagerCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ManagerPayload>[]
+            args: Prisma.EmployeeCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>[]
           }
           delete: {
-            args: Prisma.ManagerDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ManagerPayload>
+            args: Prisma.EmployeeDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>
           }
           update: {
-            args: Prisma.ManagerUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ManagerPayload>
+            args: Prisma.EmployeeUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>
           }
           deleteMany: {
-            args: Prisma.ManagerDeleteManyArgs<ExtArgs>
+            args: Prisma.EmployeeDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.ManagerUpdateManyArgs<ExtArgs>
+            args: Prisma.EmployeeUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.ManagerUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ManagerPayload>[]
+            args: Prisma.EmployeeUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>[]
           }
           upsert: {
-            args: Prisma.ManagerUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ManagerPayload>
+            args: Prisma.EmployeeUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>
           }
           aggregate: {
-            args: Prisma.ManagerAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateManager>
+            args: Prisma.EmployeeAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateEmployee>
           }
           groupBy: {
-            args: Prisma.ManagerGroupByArgs<ExtArgs>
-            result: $Utils.Optional<ManagerGroupByOutputType>[]
+            args: Prisma.EmployeeGroupByArgs<ExtArgs>
+            result: $Utils.Optional<EmployeeGroupByOutputType>[]
           }
           count: {
-            args: Prisma.ManagerCountArgs<ExtArgs>
-            result: $Utils.Optional<ManagerCountAggregateOutputType> | number
+            args: Prisma.EmployeeCountArgs<ExtArgs>
+            result: $Utils.Optional<EmployeeCountAggregateOutputType> | number
           }
         }
       }
-      User: {
-        payload: Prisma.$UserPayload<ExtArgs>
-        fields: Prisma.UserFieldRefs
+      Person: {
+        payload: Prisma.$PersonPayload<ExtArgs>
+        fields: Prisma.PersonFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.UserFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UserPayload> | null
+            args: Prisma.PersonFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PersonPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.UserFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+            args: Prisma.PersonFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PersonPayload>
           }
           findFirst: {
-            args: Prisma.UserFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UserPayload> | null
+            args: Prisma.PersonFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PersonPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.UserFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+            args: Prisma.PersonFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PersonPayload>
           }
           findMany: {
-            args: Prisma.UserFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UserPayload>[]
+            args: Prisma.PersonFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PersonPayload>[]
           }
           create: {
-            args: Prisma.UserCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+            args: Prisma.PersonCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PersonPayload>
           }
           createMany: {
-            args: Prisma.UserCreateManyArgs<ExtArgs>
+            args: Prisma.PersonCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.UserCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UserPayload>[]
+            args: Prisma.PersonCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PersonPayload>[]
           }
           delete: {
-            args: Prisma.UserDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+            args: Prisma.PersonDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PersonPayload>
           }
           update: {
-            args: Prisma.UserUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+            args: Prisma.PersonUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PersonPayload>
           }
           deleteMany: {
-            args: Prisma.UserDeleteManyArgs<ExtArgs>
+            args: Prisma.PersonDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.UserUpdateManyArgs<ExtArgs>
+            args: Prisma.PersonUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.UserUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UserPayload>[]
+            args: Prisma.PersonUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PersonPayload>[]
           }
           upsert: {
-            args: Prisma.UserUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+            args: Prisma.PersonUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PersonPayload>
           }
           aggregate: {
-            args: Prisma.UserAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateUser>
+            args: Prisma.PersonAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePerson>
           }
           groupBy: {
-            args: Prisma.UserGroupByArgs<ExtArgs>
-            result: $Utils.Optional<UserGroupByOutputType>[]
+            args: Prisma.PersonGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PersonGroupByOutputType>[]
           }
           count: {
-            args: Prisma.UserCountArgs<ExtArgs>
-            result: $Utils.Optional<UserCountAggregateOutputType> | number
+            args: Prisma.PersonCountArgs<ExtArgs>
+            result: $Utils.Optional<PersonCountAggregateOutputType> | number
           }
         }
       }
-      Source: {
-        payload: Prisma.$SourcePayload<ExtArgs>
-        fields: Prisma.SourceFieldRefs
+      Case: {
+        payload: Prisma.$CasePayload<ExtArgs>
+        fields: Prisma.CaseFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.SourceFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SourcePayload> | null
+            args: Prisma.CaseFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CasePayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.SourceFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SourcePayload>
+            args: Prisma.CaseFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CasePayload>
           }
           findFirst: {
-            args: Prisma.SourceFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SourcePayload> | null
+            args: Prisma.CaseFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CasePayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.SourceFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SourcePayload>
+            args: Prisma.CaseFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CasePayload>
           }
           findMany: {
-            args: Prisma.SourceFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SourcePayload>[]
+            args: Prisma.CaseFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CasePayload>[]
           }
           create: {
-            args: Prisma.SourceCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SourcePayload>
+            args: Prisma.CaseCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CasePayload>
           }
           createMany: {
-            args: Prisma.SourceCreateManyArgs<ExtArgs>
+            args: Prisma.CaseCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.SourceCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SourcePayload>[]
+            args: Prisma.CaseCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CasePayload>[]
           }
           delete: {
-            args: Prisma.SourceDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SourcePayload>
+            args: Prisma.CaseDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CasePayload>
           }
           update: {
-            args: Prisma.SourceUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SourcePayload>
+            args: Prisma.CaseUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CasePayload>
           }
           deleteMany: {
-            args: Prisma.SourceDeleteManyArgs<ExtArgs>
+            args: Prisma.CaseDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.SourceUpdateManyArgs<ExtArgs>
+            args: Prisma.CaseUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.SourceUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SourcePayload>[]
+            args: Prisma.CaseUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CasePayload>[]
           }
           upsert: {
-            args: Prisma.SourceUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SourcePayload>
+            args: Prisma.CaseUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CasePayload>
           }
           aggregate: {
-            args: Prisma.SourceAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateSource>
+            args: Prisma.CaseAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCase>
           }
           groupBy: {
-            args: Prisma.SourceGroupByArgs<ExtArgs>
-            result: $Utils.Optional<SourceGroupByOutputType>[]
+            args: Prisma.CaseGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CaseGroupByOutputType>[]
           }
           count: {
-            args: Prisma.SourceCountArgs<ExtArgs>
-            result: $Utils.Optional<SourceCountAggregateOutputType> | number
+            args: Prisma.CaseCountArgs<ExtArgs>
+            result: $Utils.Optional<CaseCountAggregateOutputType> | number
+          }
+        }
+      }
+      Origin: {
+        payload: Prisma.$OriginPayload<ExtArgs>
+        fields: Prisma.OriginFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.OriginFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OriginPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.OriginFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OriginPayload>
+          }
+          findFirst: {
+            args: Prisma.OriginFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OriginPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.OriginFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OriginPayload>
+          }
+          findMany: {
+            args: Prisma.OriginFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OriginPayload>[]
+          }
+          create: {
+            args: Prisma.OriginCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OriginPayload>
+          }
+          createMany: {
+            args: Prisma.OriginCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.OriginCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OriginPayload>[]
+          }
+          delete: {
+            args: Prisma.OriginDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OriginPayload>
+          }
+          update: {
+            args: Prisma.OriginUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OriginPayload>
+          }
+          deleteMany: {
+            args: Prisma.OriginDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.OriginUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.OriginUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OriginPayload>[]
+          }
+          upsert: {
+            args: Prisma.OriginUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OriginPayload>
+          }
+          aggregate: {
+            args: Prisma.OriginAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateOrigin>
+          }
+          groupBy: {
+            args: Prisma.OriginGroupByArgs<ExtArgs>
+            result: $Utils.Optional<OriginGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.OriginCountArgs<ExtArgs>
+            result: $Utils.Optional<OriginCountAggregateOutputType> | number
           }
         }
       }
@@ -1285,9 +1374,10 @@ export namespace Prisma {
     omit?: Prisma.GlobalOmitConfig
   }
   export type GlobalOmitConfig = {
-    manager?: ManagerOmit
-    user?: UserOmit
-    source?: SourceOmit
+    employee?: EmployeeOmit
+    person?: PersonOmit
+    case?: CaseOmit
+    origin?: OriginOmit
     opponent?: OpponentOmit
     blogger?: BloggerOmit
   }
@@ -1366,91 +1456,140 @@ export namespace Prisma {
 
 
   /**
-   * Count Type ManagerCountOutputType
+   * Count Type EmployeeCountOutputType
    */
 
-  export type ManagerCountOutputType = {
-    authoredUsers: number
-    managedUsers: number
-    sources: number
-    bloggers: number
+  export type EmployeeCountOutputType = {
+    authoredBloggers: number
+    authoredOrigins: number
+    authoredPersons: number
+    authoredCases: number
+    managedCases: number
+    Opponent: number
   }
 
-  export type ManagerCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    authoredUsers?: boolean | ManagerCountOutputTypeCountAuthoredUsersArgs
-    managedUsers?: boolean | ManagerCountOutputTypeCountManagedUsersArgs
-    sources?: boolean | ManagerCountOutputTypeCountSourcesArgs
-    bloggers?: boolean | ManagerCountOutputTypeCountBloggersArgs
+  export type EmployeeCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    authoredBloggers?: boolean | EmployeeCountOutputTypeCountAuthoredBloggersArgs
+    authoredOrigins?: boolean | EmployeeCountOutputTypeCountAuthoredOriginsArgs
+    authoredPersons?: boolean | EmployeeCountOutputTypeCountAuthoredPersonsArgs
+    authoredCases?: boolean | EmployeeCountOutputTypeCountAuthoredCasesArgs
+    managedCases?: boolean | EmployeeCountOutputTypeCountManagedCasesArgs
+    Opponent?: boolean | EmployeeCountOutputTypeCountOpponentArgs
   }
 
   // Custom InputTypes
   /**
-   * ManagerCountOutputType without action
+   * EmployeeCountOutputType without action
    */
-  export type ManagerCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EmployeeCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ManagerCountOutputType
+     * Select specific fields to fetch from the EmployeeCountOutputType
      */
-    select?: ManagerCountOutputTypeSelect<ExtArgs> | null
+    select?: EmployeeCountOutputTypeSelect<ExtArgs> | null
   }
 
   /**
-   * ManagerCountOutputType without action
+   * EmployeeCountOutputType without action
    */
-  export type ManagerCountOutputTypeCountAuthoredUsersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: UserWhereInput
-  }
-
-  /**
-   * ManagerCountOutputType without action
-   */
-  export type ManagerCountOutputTypeCountManagedUsersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: UserWhereInput
-  }
-
-  /**
-   * ManagerCountOutputType without action
-   */
-  export type ManagerCountOutputTypeCountSourcesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: SourceWhereInput
-  }
-
-  /**
-   * ManagerCountOutputType without action
-   */
-  export type ManagerCountOutputTypeCountBloggersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EmployeeCountOutputTypeCountAuthoredBloggersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: BloggerWhereInput
   }
 
-
   /**
-   * Count Type SourceCountOutputType
+   * EmployeeCountOutputType without action
    */
-
-  export type SourceCountOutputType = {
-    users: number
+  export type EmployeeCountOutputTypeCountAuthoredOriginsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: OriginWhereInput
   }
 
-  export type SourceCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    users?: boolean | SourceCountOutputTypeCountUsersArgs
+  /**
+   * EmployeeCountOutputType without action
+   */
+  export type EmployeeCountOutputTypeCountAuthoredPersonsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PersonWhereInput
+  }
+
+  /**
+   * EmployeeCountOutputType without action
+   */
+  export type EmployeeCountOutputTypeCountAuthoredCasesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CaseWhereInput
+  }
+
+  /**
+   * EmployeeCountOutputType without action
+   */
+  export type EmployeeCountOutputTypeCountManagedCasesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CaseWhereInput
+  }
+
+  /**
+   * EmployeeCountOutputType without action
+   */
+  export type EmployeeCountOutputTypeCountOpponentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: OpponentWhereInput
+  }
+
+
+  /**
+   * Count Type PersonCountOutputType
+   */
+
+  export type PersonCountOutputType = {
+    cases: number
+  }
+
+  export type PersonCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    cases?: boolean | PersonCountOutputTypeCountCasesArgs
   }
 
   // Custom InputTypes
   /**
-   * SourceCountOutputType without action
+   * PersonCountOutputType without action
    */
-  export type SourceCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PersonCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the SourceCountOutputType
+     * Select specific fields to fetch from the PersonCountOutputType
      */
-    select?: SourceCountOutputTypeSelect<ExtArgs> | null
+    select?: PersonCountOutputTypeSelect<ExtArgs> | null
   }
 
   /**
-   * SourceCountOutputType without action
+   * PersonCountOutputType without action
    */
-  export type SourceCountOutputTypeCountUsersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: UserWhereInput
+  export type PersonCountOutputTypeCountCasesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CaseWhereInput
+  }
+
+
+  /**
+   * Count Type OriginCountOutputType
+   */
+
+  export type OriginCountOutputType = {
+    persons: number
+  }
+
+  export type OriginCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    persons?: boolean | OriginCountOutputTypeCountPersonsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * OriginCountOutputType without action
+   */
+  export type OriginCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OriginCountOutputType
+     */
+    select?: OriginCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * OriginCountOutputType without action
+   */
+  export type OriginCountOutputTypeCountPersonsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PersonWhereInput
   }
 
 
@@ -1459,11 +1598,11 @@ export namespace Prisma {
    */
 
   export type OpponentCountOutputType = {
-    users: number
+    cases: number
   }
 
   export type OpponentCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    users?: boolean | OpponentCountOutputTypeCountUsersArgs
+    cases?: boolean | OpponentCountOutputTypeCountCasesArgs
   }
 
   // Custom InputTypes
@@ -1480,8 +1619,8 @@ export namespace Prisma {
   /**
    * OpponentCountOutputType without action
    */
-  export type OpponentCountOutputTypeCountUsersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: UserWhereInput
+  export type OpponentCountOutputTypeCountCasesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CaseWhereInput
   }
 
 
@@ -1490,389 +1629,391 @@ export namespace Prisma {
    */
 
   /**
-   * Model Manager
+   * Model Employee
    */
 
-  export type AggregateManager = {
-    _count: ManagerCountAggregateOutputType | null
-    _avg: ManagerAvgAggregateOutputType | null
-    _sum: ManagerSumAggregateOutputType | null
-    _min: ManagerMinAggregateOutputType | null
-    _max: ManagerMaxAggregateOutputType | null
+  export type AggregateEmployee = {
+    _count: EmployeeCountAggregateOutputType | null
+    _avg: EmployeeAvgAggregateOutputType | null
+    _sum: EmployeeSumAggregateOutputType | null
+    _min: EmployeeMinAggregateOutputType | null
+    _max: EmployeeMaxAggregateOutputType | null
   }
 
-  export type ManagerAvgAggregateOutputType = {
+  export type EmployeeAvgAggregateOutputType = {
     id: number | null
   }
 
-  export type ManagerSumAggregateOutputType = {
+  export type EmployeeSumAggregateOutputType = {
     id: number | null
   }
 
-  export type ManagerMinAggregateOutputType = {
+  export type EmployeeMinAggregateOutputType = {
     id: number | null
+    createdAt: Date | null
     username: string | null
     password: string | null
-    role: $Enums.ROLES | null
-    createdAt: Date | null
   }
 
-  export type ManagerMaxAggregateOutputType = {
+  export type EmployeeMaxAggregateOutputType = {
     id: number | null
+    createdAt: Date | null
     username: string | null
     password: string | null
-    role: $Enums.ROLES | null
-    createdAt: Date | null
   }
 
-  export type ManagerCountAggregateOutputType = {
+  export type EmployeeCountAggregateOutputType = {
     id: number
+    createdAt: number
     username: number
     password: number
-    role: number
-    createdAt: number
+    roles: number
     _all: number
   }
 
 
-  export type ManagerAvgAggregateInputType = {
+  export type EmployeeAvgAggregateInputType = {
     id?: true
   }
 
-  export type ManagerSumAggregateInputType = {
+  export type EmployeeSumAggregateInputType = {
     id?: true
   }
 
-  export type ManagerMinAggregateInputType = {
+  export type EmployeeMinAggregateInputType = {
     id?: true
+    createdAt?: true
     username?: true
     password?: true
-    role?: true
-    createdAt?: true
   }
 
-  export type ManagerMaxAggregateInputType = {
+  export type EmployeeMaxAggregateInputType = {
     id?: true
+    createdAt?: true
     username?: true
     password?: true
-    role?: true
-    createdAt?: true
   }
 
-  export type ManagerCountAggregateInputType = {
+  export type EmployeeCountAggregateInputType = {
     id?: true
+    createdAt?: true
     username?: true
     password?: true
-    role?: true
-    createdAt?: true
+    roles?: true
     _all?: true
   }
 
-  export type ManagerAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EmployeeAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Manager to aggregate.
+     * Filter which Employee to aggregate.
      */
-    where?: ManagerWhereInput
+    where?: EmployeeWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Managers to fetch.
+     * Determine the order of Employees to fetch.
      */
-    orderBy?: ManagerOrderByWithRelationInput | ManagerOrderByWithRelationInput[]
+    orderBy?: EmployeeOrderByWithRelationInput | EmployeeOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: ManagerWhereUniqueInput
+    cursor?: EmployeeWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Managers from the position of the cursor.
+     * Take `±n` Employees from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Managers.
+     * Skip the first `n` Employees.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Managers
+     * Count returned Employees
     **/
-    _count?: true | ManagerCountAggregateInputType
+    _count?: true | EmployeeCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: ManagerAvgAggregateInputType
+    _avg?: EmployeeAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: ManagerSumAggregateInputType
+    _sum?: EmployeeSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: ManagerMinAggregateInputType
+    _min?: EmployeeMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: ManagerMaxAggregateInputType
+    _max?: EmployeeMaxAggregateInputType
   }
 
-  export type GetManagerAggregateType<T extends ManagerAggregateArgs> = {
-        [P in keyof T & keyof AggregateManager]: P extends '_count' | 'count'
+  export type GetEmployeeAggregateType<T extends EmployeeAggregateArgs> = {
+        [P in keyof T & keyof AggregateEmployee]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateManager[P]>
-      : GetScalarType<T[P], AggregateManager[P]>
+        : GetScalarType<T[P], AggregateEmployee[P]>
+      : GetScalarType<T[P], AggregateEmployee[P]>
   }
 
 
 
 
-  export type ManagerGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ManagerWhereInput
-    orderBy?: ManagerOrderByWithAggregationInput | ManagerOrderByWithAggregationInput[]
-    by: ManagerScalarFieldEnum[] | ManagerScalarFieldEnum
-    having?: ManagerScalarWhereWithAggregatesInput
+  export type EmployeeGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EmployeeWhereInput
+    orderBy?: EmployeeOrderByWithAggregationInput | EmployeeOrderByWithAggregationInput[]
+    by: EmployeeScalarFieldEnum[] | EmployeeScalarFieldEnum
+    having?: EmployeeScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: ManagerCountAggregateInputType | true
-    _avg?: ManagerAvgAggregateInputType
-    _sum?: ManagerSumAggregateInputType
-    _min?: ManagerMinAggregateInputType
-    _max?: ManagerMaxAggregateInputType
+    _count?: EmployeeCountAggregateInputType | true
+    _avg?: EmployeeAvgAggregateInputType
+    _sum?: EmployeeSumAggregateInputType
+    _min?: EmployeeMinAggregateInputType
+    _max?: EmployeeMaxAggregateInputType
   }
 
-  export type ManagerGroupByOutputType = {
+  export type EmployeeGroupByOutputType = {
     id: number
+    createdAt: Date
     username: string
     password: string
-    role: $Enums.ROLES
-    createdAt: Date
-    _count: ManagerCountAggregateOutputType | null
-    _avg: ManagerAvgAggregateOutputType | null
-    _sum: ManagerSumAggregateOutputType | null
-    _min: ManagerMinAggregateOutputType | null
-    _max: ManagerMaxAggregateOutputType | null
+    roles: $Enums.ROLE[]
+    _count: EmployeeCountAggregateOutputType | null
+    _avg: EmployeeAvgAggregateOutputType | null
+    _sum: EmployeeSumAggregateOutputType | null
+    _min: EmployeeMinAggregateOutputType | null
+    _max: EmployeeMaxAggregateOutputType | null
   }
 
-  type GetManagerGroupByPayload<T extends ManagerGroupByArgs> = Prisma.PrismaPromise<
+  type GetEmployeeGroupByPayload<T extends EmployeeGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<ManagerGroupByOutputType, T['by']> &
+      PickEnumerable<EmployeeGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof ManagerGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof EmployeeGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], ManagerGroupByOutputType[P]>
-            : GetScalarType<T[P], ManagerGroupByOutputType[P]>
+              : GetScalarType<T[P], EmployeeGroupByOutputType[P]>
+            : GetScalarType<T[P], EmployeeGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type ManagerSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type EmployeeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    createdAt?: boolean
     username?: boolean
     password?: boolean
-    role?: boolean
-    createdAt?: boolean
-    authoredUsers?: boolean | Manager$authoredUsersArgs<ExtArgs>
-    managedUsers?: boolean | Manager$managedUsersArgs<ExtArgs>
-    sources?: boolean | Manager$sourcesArgs<ExtArgs>
-    bloggers?: boolean | Manager$bloggersArgs<ExtArgs>
-    _count?: boolean | ManagerCountOutputTypeDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["manager"]>
+    roles?: boolean
+    authoredBloggers?: boolean | Employee$authoredBloggersArgs<ExtArgs>
+    authoredOrigins?: boolean | Employee$authoredOriginsArgs<ExtArgs>
+    authoredPersons?: boolean | Employee$authoredPersonsArgs<ExtArgs>
+    authoredCases?: boolean | Employee$authoredCasesArgs<ExtArgs>
+    managedCases?: boolean | Employee$managedCasesArgs<ExtArgs>
+    Opponent?: boolean | Employee$OpponentArgs<ExtArgs>
+    _count?: boolean | EmployeeCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["employee"]>
 
-  export type ManagerSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type EmployeeSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    createdAt?: boolean
     username?: boolean
     password?: boolean
-    role?: boolean
-    createdAt?: boolean
-  }, ExtArgs["result"]["manager"]>
+    roles?: boolean
+  }, ExtArgs["result"]["employee"]>
 
-  export type ManagerSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type EmployeeSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    createdAt?: boolean
     username?: boolean
     password?: boolean
-    role?: boolean
-    createdAt?: boolean
-  }, ExtArgs["result"]["manager"]>
+    roles?: boolean
+  }, ExtArgs["result"]["employee"]>
 
-  export type ManagerSelectScalar = {
+  export type EmployeeSelectScalar = {
     id?: boolean
+    createdAt?: boolean
     username?: boolean
     password?: boolean
-    role?: boolean
-    createdAt?: boolean
+    roles?: boolean
   }
 
-  export type ManagerOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "username" | "password" | "role" | "createdAt", ExtArgs["result"]["manager"]>
-  export type ManagerInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    authoredUsers?: boolean | Manager$authoredUsersArgs<ExtArgs>
-    managedUsers?: boolean | Manager$managedUsersArgs<ExtArgs>
-    sources?: boolean | Manager$sourcesArgs<ExtArgs>
-    bloggers?: boolean | Manager$bloggersArgs<ExtArgs>
-    _count?: boolean | ManagerCountOutputTypeDefaultArgs<ExtArgs>
+  export type EmployeeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "username" | "password" | "roles", ExtArgs["result"]["employee"]>
+  export type EmployeeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    authoredBloggers?: boolean | Employee$authoredBloggersArgs<ExtArgs>
+    authoredOrigins?: boolean | Employee$authoredOriginsArgs<ExtArgs>
+    authoredPersons?: boolean | Employee$authoredPersonsArgs<ExtArgs>
+    authoredCases?: boolean | Employee$authoredCasesArgs<ExtArgs>
+    managedCases?: boolean | Employee$managedCasesArgs<ExtArgs>
+    Opponent?: boolean | Employee$OpponentArgs<ExtArgs>
+    _count?: boolean | EmployeeCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type ManagerIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
-  export type ManagerIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type EmployeeIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type EmployeeIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
-  export type $ManagerPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Manager"
+  export type $EmployeePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Employee"
     objects: {
-      authoredUsers: Prisma.$UserPayload<ExtArgs>[]
-      managedUsers: Prisma.$UserPayload<ExtArgs>[]
-      sources: Prisma.$SourcePayload<ExtArgs>[]
-      bloggers: Prisma.$BloggerPayload<ExtArgs>[]
+      authoredBloggers: Prisma.$BloggerPayload<ExtArgs>[]
+      authoredOrigins: Prisma.$OriginPayload<ExtArgs>[]
+      authoredPersons: Prisma.$PersonPayload<ExtArgs>[]
+      authoredCases: Prisma.$CasePayload<ExtArgs>[]
+      managedCases: Prisma.$CasePayload<ExtArgs>[]
+      Opponent: Prisma.$OpponentPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
+      createdAt: Date
       username: string
       password: string
-      role: $Enums.ROLES
-      createdAt: Date
-    }, ExtArgs["result"]["manager"]>
+      roles: $Enums.ROLE[]
+    }, ExtArgs["result"]["employee"]>
     composites: {}
   }
 
-  type ManagerGetPayload<S extends boolean | null | undefined | ManagerDefaultArgs> = $Result.GetResult<Prisma.$ManagerPayload, S>
+  type EmployeeGetPayload<S extends boolean | null | undefined | EmployeeDefaultArgs> = $Result.GetResult<Prisma.$EmployeePayload, S>
 
-  type ManagerCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<ManagerFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: ManagerCountAggregateInputType | true
+  type EmployeeCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<EmployeeFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: EmployeeCountAggregateInputType | true
     }
 
-  export interface ManagerDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Manager'], meta: { name: 'Manager' } }
+  export interface EmployeeDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Employee'], meta: { name: 'Employee' } }
     /**
-     * Find zero or one Manager that matches the filter.
-     * @param {ManagerFindUniqueArgs} args - Arguments to find a Manager
+     * Find zero or one Employee that matches the filter.
+     * @param {EmployeeFindUniqueArgs} args - Arguments to find a Employee
      * @example
-     * // Get one Manager
-     * const manager = await prisma.manager.findUnique({
+     * // Get one Employee
+     * const employee = await prisma.employee.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends ManagerFindUniqueArgs>(args: SelectSubset<T, ManagerFindUniqueArgs<ExtArgs>>): Prisma__ManagerClient<$Result.GetResult<Prisma.$ManagerPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends EmployeeFindUniqueArgs>(args: SelectSubset<T, EmployeeFindUniqueArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Manager that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Employee that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {ManagerFindUniqueOrThrowArgs} args - Arguments to find a Manager
+     * @param {EmployeeFindUniqueOrThrowArgs} args - Arguments to find a Employee
      * @example
-     * // Get one Manager
-     * const manager = await prisma.manager.findUniqueOrThrow({
+     * // Get one Employee
+     * const employee = await prisma.employee.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends ManagerFindUniqueOrThrowArgs>(args: SelectSubset<T, ManagerFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ManagerClient<$Result.GetResult<Prisma.$ManagerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends EmployeeFindUniqueOrThrowArgs>(args: SelectSubset<T, EmployeeFindUniqueOrThrowArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Manager that matches the filter.
+     * Find the first Employee that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ManagerFindFirstArgs} args - Arguments to find a Manager
+     * @param {EmployeeFindFirstArgs} args - Arguments to find a Employee
      * @example
-     * // Get one Manager
-     * const manager = await prisma.manager.findFirst({
+     * // Get one Employee
+     * const employee = await prisma.employee.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends ManagerFindFirstArgs>(args?: SelectSubset<T, ManagerFindFirstArgs<ExtArgs>>): Prisma__ManagerClient<$Result.GetResult<Prisma.$ManagerPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends EmployeeFindFirstArgs>(args?: SelectSubset<T, EmployeeFindFirstArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Manager that matches the filter or
+     * Find the first Employee that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ManagerFindFirstOrThrowArgs} args - Arguments to find a Manager
+     * @param {EmployeeFindFirstOrThrowArgs} args - Arguments to find a Employee
      * @example
-     * // Get one Manager
-     * const manager = await prisma.manager.findFirstOrThrow({
+     * // Get one Employee
+     * const employee = await prisma.employee.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends ManagerFindFirstOrThrowArgs>(args?: SelectSubset<T, ManagerFindFirstOrThrowArgs<ExtArgs>>): Prisma__ManagerClient<$Result.GetResult<Prisma.$ManagerPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends EmployeeFindFirstOrThrowArgs>(args?: SelectSubset<T, EmployeeFindFirstOrThrowArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Managers that matches the filter.
+     * Find zero or more Employees that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ManagerFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {EmployeeFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Managers
-     * const managers = await prisma.manager.findMany()
+     * // Get all Employees
+     * const employees = await prisma.employee.findMany()
      * 
-     * // Get first 10 Managers
-     * const managers = await prisma.manager.findMany({ take: 10 })
+     * // Get first 10 Employees
+     * const employees = await prisma.employee.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const managerWithIdOnly = await prisma.manager.findMany({ select: { id: true } })
+     * const employeeWithIdOnly = await prisma.employee.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends ManagerFindManyArgs>(args?: SelectSubset<T, ManagerFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ManagerPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends EmployeeFindManyArgs>(args?: SelectSubset<T, EmployeeFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Manager.
-     * @param {ManagerCreateArgs} args - Arguments to create a Manager.
+     * Create a Employee.
+     * @param {EmployeeCreateArgs} args - Arguments to create a Employee.
      * @example
-     * // Create one Manager
-     * const Manager = await prisma.manager.create({
+     * // Create one Employee
+     * const Employee = await prisma.employee.create({
      *   data: {
-     *     // ... data to create a Manager
+     *     // ... data to create a Employee
      *   }
      * })
      * 
      */
-    create<T extends ManagerCreateArgs>(args: SelectSubset<T, ManagerCreateArgs<ExtArgs>>): Prisma__ManagerClient<$Result.GetResult<Prisma.$ManagerPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends EmployeeCreateArgs>(args: SelectSubset<T, EmployeeCreateArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Managers.
-     * @param {ManagerCreateManyArgs} args - Arguments to create many Managers.
+     * Create many Employees.
+     * @param {EmployeeCreateManyArgs} args - Arguments to create many Employees.
      * @example
-     * // Create many Managers
-     * const manager = await prisma.manager.createMany({
+     * // Create many Employees
+     * const employee = await prisma.employee.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends ManagerCreateManyArgs>(args?: SelectSubset<T, ManagerCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends EmployeeCreateManyArgs>(args?: SelectSubset<T, EmployeeCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many Managers and returns the data saved in the database.
-     * @param {ManagerCreateManyAndReturnArgs} args - Arguments to create many Managers.
+     * Create many Employees and returns the data saved in the database.
+     * @param {EmployeeCreateManyAndReturnArgs} args - Arguments to create many Employees.
      * @example
-     * // Create many Managers
-     * const manager = await prisma.manager.createManyAndReturn({
+     * // Create many Employees
+     * const employee = await prisma.employee.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many Managers and only return the `id`
-     * const managerWithIdOnly = await prisma.manager.createManyAndReturn({
+     * // Create many Employees and only return the `id`
+     * const employeeWithIdOnly = await prisma.employee.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -1882,28 +2023,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends ManagerCreateManyAndReturnArgs>(args?: SelectSubset<T, ManagerCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ManagerPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends EmployeeCreateManyAndReturnArgs>(args?: SelectSubset<T, EmployeeCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a Manager.
-     * @param {ManagerDeleteArgs} args - Arguments to delete one Manager.
+     * Delete a Employee.
+     * @param {EmployeeDeleteArgs} args - Arguments to delete one Employee.
      * @example
-     * // Delete one Manager
-     * const Manager = await prisma.manager.delete({
+     * // Delete one Employee
+     * const Employee = await prisma.employee.delete({
      *   where: {
-     *     // ... filter to delete one Manager
+     *     // ... filter to delete one Employee
      *   }
      * })
      * 
      */
-    delete<T extends ManagerDeleteArgs>(args: SelectSubset<T, ManagerDeleteArgs<ExtArgs>>): Prisma__ManagerClient<$Result.GetResult<Prisma.$ManagerPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends EmployeeDeleteArgs>(args: SelectSubset<T, EmployeeDeleteArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Manager.
-     * @param {ManagerUpdateArgs} args - Arguments to update one Manager.
+     * Update one Employee.
+     * @param {EmployeeUpdateArgs} args - Arguments to update one Employee.
      * @example
-     * // Update one Manager
-     * const manager = await prisma.manager.update({
+     * // Update one Employee
+     * const employee = await prisma.employee.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1913,30 +2054,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends ManagerUpdateArgs>(args: SelectSubset<T, ManagerUpdateArgs<ExtArgs>>): Prisma__ManagerClient<$Result.GetResult<Prisma.$ManagerPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends EmployeeUpdateArgs>(args: SelectSubset<T, EmployeeUpdateArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Managers.
-     * @param {ManagerDeleteManyArgs} args - Arguments to filter Managers to delete.
+     * Delete zero or more Employees.
+     * @param {EmployeeDeleteManyArgs} args - Arguments to filter Employees to delete.
      * @example
-     * // Delete a few Managers
-     * const { count } = await prisma.manager.deleteMany({
+     * // Delete a few Employees
+     * const { count } = await prisma.employee.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends ManagerDeleteManyArgs>(args?: SelectSubset<T, ManagerDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends EmployeeDeleteManyArgs>(args?: SelectSubset<T, EmployeeDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Managers.
+     * Update zero or more Employees.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ManagerUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {EmployeeUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Managers
-     * const manager = await prisma.manager.updateMany({
+     * // Update many Employees
+     * const employee = await prisma.employee.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1946,14 +2087,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends ManagerUpdateManyArgs>(args: SelectSubset<T, ManagerUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends EmployeeUpdateManyArgs>(args: SelectSubset<T, EmployeeUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Managers and returns the data updated in the database.
-     * @param {ManagerUpdateManyAndReturnArgs} args - Arguments to update many Managers.
+     * Update zero or more Employees and returns the data updated in the database.
+     * @param {EmployeeUpdateManyAndReturnArgs} args - Arguments to update many Employees.
      * @example
-     * // Update many Managers
-     * const manager = await prisma.manager.updateManyAndReturn({
+     * // Update many Employees
+     * const employee = await prisma.employee.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1962,8 +2103,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more Managers and only return the `id`
-     * const managerWithIdOnly = await prisma.manager.updateManyAndReturn({
+     * // Update zero or more Employees and only return the `id`
+     * const employeeWithIdOnly = await prisma.employee.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -1976,56 +2117,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends ManagerUpdateManyAndReturnArgs>(args: SelectSubset<T, ManagerUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ManagerPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends EmployeeUpdateManyAndReturnArgs>(args: SelectSubset<T, EmployeeUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one Manager.
-     * @param {ManagerUpsertArgs} args - Arguments to update or create a Manager.
+     * Create or update one Employee.
+     * @param {EmployeeUpsertArgs} args - Arguments to update or create a Employee.
      * @example
-     * // Update or create a Manager
-     * const manager = await prisma.manager.upsert({
+     * // Update or create a Employee
+     * const employee = await prisma.employee.upsert({
      *   create: {
-     *     // ... data to create a Manager
+     *     // ... data to create a Employee
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Manager we want to update
+     *     // ... the filter for the Employee we want to update
      *   }
      * })
      */
-    upsert<T extends ManagerUpsertArgs>(args: SelectSubset<T, ManagerUpsertArgs<ExtArgs>>): Prisma__ManagerClient<$Result.GetResult<Prisma.$ManagerPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends EmployeeUpsertArgs>(args: SelectSubset<T, EmployeeUpsertArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Managers.
+     * Count the number of Employees.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ManagerCountArgs} args - Arguments to filter Managers to count.
+     * @param {EmployeeCountArgs} args - Arguments to filter Employees to count.
      * @example
-     * // Count the number of Managers
-     * const count = await prisma.manager.count({
+     * // Count the number of Employees
+     * const count = await prisma.employee.count({
      *   where: {
-     *     // ... the filter for the Managers we want to count
+     *     // ... the filter for the Employees we want to count
      *   }
      * })
     **/
-    count<T extends ManagerCountArgs>(
-      args?: Subset<T, ManagerCountArgs>,
+    count<T extends EmployeeCountArgs>(
+      args?: Subset<T, EmployeeCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], ManagerCountAggregateOutputType>
+          : GetScalarType<T['select'], EmployeeCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Manager.
+     * Allows you to perform aggregations operations on a Employee.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ManagerAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {EmployeeAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -2045,13 +2186,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends ManagerAggregateArgs>(args: Subset<T, ManagerAggregateArgs>): Prisma.PrismaPromise<GetManagerAggregateType<T>>
+    aggregate<T extends EmployeeAggregateArgs>(args: Subset<T, EmployeeAggregateArgs>): Prisma.PrismaPromise<GetEmployeeAggregateType<T>>
 
     /**
-     * Group by Manager.
+     * Group by Employee.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ManagerGroupByArgs} args - Group by arguments.
+     * @param {EmployeeGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -2066,14 +2207,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends ManagerGroupByArgs,
+      T extends EmployeeGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: ManagerGroupByArgs['orderBy'] }
-        : { orderBy?: ManagerGroupByArgs['orderBy'] },
+        ? { orderBy: EmployeeGroupByArgs['orderBy'] }
+        : { orderBy?: EmployeeGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -2122,25 +2263,27 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, ManagerGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetManagerGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, EmployeeGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetEmployeeGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Manager model
+   * Fields of the Employee model
    */
-  readonly fields: ManagerFieldRefs;
+  readonly fields: EmployeeFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Manager.
+   * The delegate class that acts as a "Promise-like" for Employee.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__ManagerClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__EmployeeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    authoredUsers<T extends Manager$authoredUsersArgs<ExtArgs> = {}>(args?: Subset<T, Manager$authoredUsersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    managedUsers<T extends Manager$managedUsersArgs<ExtArgs> = {}>(args?: Subset<T, Manager$managedUsersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    sources<T extends Manager$sourcesArgs<ExtArgs> = {}>(args?: Subset<T, Manager$sourcesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SourcePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    bloggers<T extends Manager$bloggersArgs<ExtArgs> = {}>(args?: Subset<T, Manager$bloggersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BloggerPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    authoredBloggers<T extends Employee$authoredBloggersArgs<ExtArgs> = {}>(args?: Subset<T, Employee$authoredBloggersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BloggerPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    authoredOrigins<T extends Employee$authoredOriginsArgs<ExtArgs> = {}>(args?: Subset<T, Employee$authoredOriginsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OriginPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    authoredPersons<T extends Employee$authoredPersonsArgs<ExtArgs> = {}>(args?: Subset<T, Employee$authoredPersonsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PersonPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    authoredCases<T extends Employee$authoredCasesArgs<ExtArgs> = {}>(args?: Subset<T, Employee$authoredCasesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CasePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    managedCases<T extends Employee$managedCasesArgs<ExtArgs> = {}>(args?: Subset<T, Employee$managedCasesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CasePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    Opponent<T extends Employee$OpponentArgs<ExtArgs> = {}>(args?: Subset<T, Employee$OpponentArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OpponentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2167,477 +2310,405 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Manager model
+   * Fields of the Employee model
    */
-  interface ManagerFieldRefs {
-    readonly id: FieldRef<"Manager", 'Int'>
-    readonly username: FieldRef<"Manager", 'String'>
-    readonly password: FieldRef<"Manager", 'String'>
-    readonly role: FieldRef<"Manager", 'ROLES'>
-    readonly createdAt: FieldRef<"Manager", 'DateTime'>
+  interface EmployeeFieldRefs {
+    readonly id: FieldRef<"Employee", 'Int'>
+    readonly createdAt: FieldRef<"Employee", 'DateTime'>
+    readonly username: FieldRef<"Employee", 'String'>
+    readonly password: FieldRef<"Employee", 'String'>
+    readonly roles: FieldRef<"Employee", 'ROLE[]'>
   }
     
 
   // Custom InputTypes
   /**
-   * Manager findUnique
+   * Employee findUnique
    */
-  export type ManagerFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EmployeeFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Manager
+     * Select specific fields to fetch from the Employee
      */
-    select?: ManagerSelect<ExtArgs> | null
+    select?: EmployeeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Manager
+     * Omit specific fields from the Employee
      */
-    omit?: ManagerOmit<ExtArgs> | null
+    omit?: EmployeeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ManagerInclude<ExtArgs> | null
+    include?: EmployeeInclude<ExtArgs> | null
     /**
-     * Filter, which Manager to fetch.
+     * Filter, which Employee to fetch.
      */
-    where: ManagerWhereUniqueInput
+    where: EmployeeWhereUniqueInput
   }
 
   /**
-   * Manager findUniqueOrThrow
+   * Employee findUniqueOrThrow
    */
-  export type ManagerFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EmployeeFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Manager
+     * Select specific fields to fetch from the Employee
      */
-    select?: ManagerSelect<ExtArgs> | null
+    select?: EmployeeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Manager
+     * Omit specific fields from the Employee
      */
-    omit?: ManagerOmit<ExtArgs> | null
+    omit?: EmployeeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ManagerInclude<ExtArgs> | null
+    include?: EmployeeInclude<ExtArgs> | null
     /**
-     * Filter, which Manager to fetch.
+     * Filter, which Employee to fetch.
      */
-    where: ManagerWhereUniqueInput
+    where: EmployeeWhereUniqueInput
   }
 
   /**
-   * Manager findFirst
+   * Employee findFirst
    */
-  export type ManagerFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EmployeeFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Manager
+     * Select specific fields to fetch from the Employee
      */
-    select?: ManagerSelect<ExtArgs> | null
+    select?: EmployeeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Manager
+     * Omit specific fields from the Employee
      */
-    omit?: ManagerOmit<ExtArgs> | null
+    omit?: EmployeeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ManagerInclude<ExtArgs> | null
+    include?: EmployeeInclude<ExtArgs> | null
     /**
-     * Filter, which Manager to fetch.
+     * Filter, which Employee to fetch.
      */
-    where?: ManagerWhereInput
+    where?: EmployeeWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Managers to fetch.
+     * Determine the order of Employees to fetch.
      */
-    orderBy?: ManagerOrderByWithRelationInput | ManagerOrderByWithRelationInput[]
+    orderBy?: EmployeeOrderByWithRelationInput | EmployeeOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Managers.
+     * Sets the position for searching for Employees.
      */
-    cursor?: ManagerWhereUniqueInput
+    cursor?: EmployeeWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Managers from the position of the cursor.
+     * Take `±n` Employees from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Managers.
+     * Skip the first `n` Employees.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Managers.
+     * Filter by unique combinations of Employees.
      */
-    distinct?: ManagerScalarFieldEnum | ManagerScalarFieldEnum[]
+    distinct?: EmployeeScalarFieldEnum | EmployeeScalarFieldEnum[]
   }
 
   /**
-   * Manager findFirstOrThrow
+   * Employee findFirstOrThrow
    */
-  export type ManagerFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EmployeeFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Manager
+     * Select specific fields to fetch from the Employee
      */
-    select?: ManagerSelect<ExtArgs> | null
+    select?: EmployeeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Manager
+     * Omit specific fields from the Employee
      */
-    omit?: ManagerOmit<ExtArgs> | null
+    omit?: EmployeeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ManagerInclude<ExtArgs> | null
+    include?: EmployeeInclude<ExtArgs> | null
     /**
-     * Filter, which Manager to fetch.
+     * Filter, which Employee to fetch.
      */
-    where?: ManagerWhereInput
+    where?: EmployeeWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Managers to fetch.
+     * Determine the order of Employees to fetch.
      */
-    orderBy?: ManagerOrderByWithRelationInput | ManagerOrderByWithRelationInput[]
+    orderBy?: EmployeeOrderByWithRelationInput | EmployeeOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Managers.
+     * Sets the position for searching for Employees.
      */
-    cursor?: ManagerWhereUniqueInput
+    cursor?: EmployeeWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Managers from the position of the cursor.
+     * Take `±n` Employees from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Managers.
+     * Skip the first `n` Employees.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Managers.
+     * Filter by unique combinations of Employees.
      */
-    distinct?: ManagerScalarFieldEnum | ManagerScalarFieldEnum[]
+    distinct?: EmployeeScalarFieldEnum | EmployeeScalarFieldEnum[]
   }
 
   /**
-   * Manager findMany
+   * Employee findMany
    */
-  export type ManagerFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EmployeeFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Manager
+     * Select specific fields to fetch from the Employee
      */
-    select?: ManagerSelect<ExtArgs> | null
+    select?: EmployeeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Manager
+     * Omit specific fields from the Employee
      */
-    omit?: ManagerOmit<ExtArgs> | null
+    omit?: EmployeeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ManagerInclude<ExtArgs> | null
+    include?: EmployeeInclude<ExtArgs> | null
     /**
-     * Filter, which Managers to fetch.
+     * Filter, which Employees to fetch.
      */
-    where?: ManagerWhereInput
+    where?: EmployeeWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Managers to fetch.
+     * Determine the order of Employees to fetch.
      */
-    orderBy?: ManagerOrderByWithRelationInput | ManagerOrderByWithRelationInput[]
+    orderBy?: EmployeeOrderByWithRelationInput | EmployeeOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Managers.
+     * Sets the position for listing Employees.
      */
-    cursor?: ManagerWhereUniqueInput
+    cursor?: EmployeeWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Managers from the position of the cursor.
+     * Take `±n` Employees from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Managers.
+     * Skip the first `n` Employees.
      */
     skip?: number
-    distinct?: ManagerScalarFieldEnum | ManagerScalarFieldEnum[]
+    distinct?: EmployeeScalarFieldEnum | EmployeeScalarFieldEnum[]
   }
 
   /**
-   * Manager create
+   * Employee create
    */
-  export type ManagerCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EmployeeCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Manager
+     * Select specific fields to fetch from the Employee
      */
-    select?: ManagerSelect<ExtArgs> | null
+    select?: EmployeeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Manager
+     * Omit specific fields from the Employee
      */
-    omit?: ManagerOmit<ExtArgs> | null
+    omit?: EmployeeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ManagerInclude<ExtArgs> | null
+    include?: EmployeeInclude<ExtArgs> | null
     /**
-     * The data needed to create a Manager.
+     * The data needed to create a Employee.
      */
-    data: XOR<ManagerCreateInput, ManagerUncheckedCreateInput>
+    data: XOR<EmployeeCreateInput, EmployeeUncheckedCreateInput>
   }
 
   /**
-   * Manager createMany
+   * Employee createMany
    */
-  export type ManagerCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EmployeeCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Managers.
+     * The data used to create many Employees.
      */
-    data: ManagerCreateManyInput | ManagerCreateManyInput[]
+    data: EmployeeCreateManyInput | EmployeeCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * Manager createManyAndReturn
+   * Employee createManyAndReturn
    */
-  export type ManagerCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EmployeeCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Manager
+     * Select specific fields to fetch from the Employee
      */
-    select?: ManagerSelectCreateManyAndReturn<ExtArgs> | null
+    select?: EmployeeSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Manager
+     * Omit specific fields from the Employee
      */
-    omit?: ManagerOmit<ExtArgs> | null
+    omit?: EmployeeOmit<ExtArgs> | null
     /**
-     * The data used to create many Managers.
+     * The data used to create many Employees.
      */
-    data: ManagerCreateManyInput | ManagerCreateManyInput[]
+    data: EmployeeCreateManyInput | EmployeeCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * Manager update
+   * Employee update
    */
-  export type ManagerUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EmployeeUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Manager
+     * Select specific fields to fetch from the Employee
      */
-    select?: ManagerSelect<ExtArgs> | null
+    select?: EmployeeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Manager
+     * Omit specific fields from the Employee
      */
-    omit?: ManagerOmit<ExtArgs> | null
+    omit?: EmployeeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ManagerInclude<ExtArgs> | null
+    include?: EmployeeInclude<ExtArgs> | null
     /**
-     * The data needed to update a Manager.
+     * The data needed to update a Employee.
      */
-    data: XOR<ManagerUpdateInput, ManagerUncheckedUpdateInput>
+    data: XOR<EmployeeUpdateInput, EmployeeUncheckedUpdateInput>
     /**
-     * Choose, which Manager to update.
+     * Choose, which Employee to update.
      */
-    where: ManagerWhereUniqueInput
+    where: EmployeeWhereUniqueInput
   }
 
   /**
-   * Manager updateMany
+   * Employee updateMany
    */
-  export type ManagerUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EmployeeUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Managers.
+     * The data used to update Employees.
      */
-    data: XOR<ManagerUpdateManyMutationInput, ManagerUncheckedUpdateManyInput>
+    data: XOR<EmployeeUpdateManyMutationInput, EmployeeUncheckedUpdateManyInput>
     /**
-     * Filter which Managers to update
+     * Filter which Employees to update
      */
-    where?: ManagerWhereInput
+    where?: EmployeeWhereInput
     /**
-     * Limit how many Managers to update.
+     * Limit how many Employees to update.
      */
     limit?: number
   }
 
   /**
-   * Manager updateManyAndReturn
+   * Employee updateManyAndReturn
    */
-  export type ManagerUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EmployeeUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Manager
+     * Select specific fields to fetch from the Employee
      */
-    select?: ManagerSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: EmployeeSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Manager
+     * Omit specific fields from the Employee
      */
-    omit?: ManagerOmit<ExtArgs> | null
+    omit?: EmployeeOmit<ExtArgs> | null
     /**
-     * The data used to update Managers.
+     * The data used to update Employees.
      */
-    data: XOR<ManagerUpdateManyMutationInput, ManagerUncheckedUpdateManyInput>
+    data: XOR<EmployeeUpdateManyMutationInput, EmployeeUncheckedUpdateManyInput>
     /**
-     * Filter which Managers to update
+     * Filter which Employees to update
      */
-    where?: ManagerWhereInput
+    where?: EmployeeWhereInput
     /**
-     * Limit how many Managers to update.
+     * Limit how many Employees to update.
      */
     limit?: number
   }
 
   /**
-   * Manager upsert
+   * Employee upsert
    */
-  export type ManagerUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EmployeeUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Manager
+     * Select specific fields to fetch from the Employee
      */
-    select?: ManagerSelect<ExtArgs> | null
+    select?: EmployeeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Manager
+     * Omit specific fields from the Employee
      */
-    omit?: ManagerOmit<ExtArgs> | null
+    omit?: EmployeeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ManagerInclude<ExtArgs> | null
+    include?: EmployeeInclude<ExtArgs> | null
     /**
-     * The filter to search for the Manager to update in case it exists.
+     * The filter to search for the Employee to update in case it exists.
      */
-    where: ManagerWhereUniqueInput
+    where: EmployeeWhereUniqueInput
     /**
-     * In case the Manager found by the `where` argument doesn't exist, create a new Manager with this data.
+     * In case the Employee found by the `where` argument doesn't exist, create a new Employee with this data.
      */
-    create: XOR<ManagerCreateInput, ManagerUncheckedCreateInput>
+    create: XOR<EmployeeCreateInput, EmployeeUncheckedCreateInput>
     /**
-     * In case the Manager was found with the provided `where` argument, update it with this data.
+     * In case the Employee was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<ManagerUpdateInput, ManagerUncheckedUpdateInput>
+    update: XOR<EmployeeUpdateInput, EmployeeUncheckedUpdateInput>
   }
 
   /**
-   * Manager delete
+   * Employee delete
    */
-  export type ManagerDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EmployeeDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Manager
+     * Select specific fields to fetch from the Employee
      */
-    select?: ManagerSelect<ExtArgs> | null
+    select?: EmployeeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Manager
+     * Omit specific fields from the Employee
      */
-    omit?: ManagerOmit<ExtArgs> | null
+    omit?: EmployeeOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ManagerInclude<ExtArgs> | null
+    include?: EmployeeInclude<ExtArgs> | null
     /**
-     * Filter which Manager to delete.
+     * Filter which Employee to delete.
      */
-    where: ManagerWhereUniqueInput
+    where: EmployeeWhereUniqueInput
   }
 
   /**
-   * Manager deleteMany
+   * Employee deleteMany
    */
-  export type ManagerDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EmployeeDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Managers to delete
+     * Filter which Employees to delete
      */
-    where?: ManagerWhereInput
+    where?: EmployeeWhereInput
     /**
-     * Limit how many Managers to delete.
+     * Limit how many Employees to delete.
      */
     limit?: number
   }
 
   /**
-   * Manager.authoredUsers
+   * Employee.authoredBloggers
    */
-  export type Manager$authoredUsersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the User
-     */
-    select?: UserSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the User
-     */
-    omit?: UserOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: UserInclude<ExtArgs> | null
-    where?: UserWhereInput
-    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
-    cursor?: UserWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
-  }
-
-  /**
-   * Manager.managedUsers
-   */
-  export type Manager$managedUsersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the User
-     */
-    select?: UserSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the User
-     */
-    omit?: UserOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: UserInclude<ExtArgs> | null
-    where?: UserWhereInput
-    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
-    cursor?: UserWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
-  }
-
-  /**
-   * Manager.sources
-   */
-  export type Manager$sourcesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Source
-     */
-    select?: SourceSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Source
-     */
-    omit?: SourceOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: SourceInclude<ExtArgs> | null
-    where?: SourceWhereInput
-    orderBy?: SourceOrderByWithRelationInput | SourceOrderByWithRelationInput[]
-    cursor?: SourceWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: SourceScalarFieldEnum | SourceScalarFieldEnum[]
-  }
-
-  /**
-   * Manager.bloggers
-   */
-  export type Manager$bloggersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Employee$authoredBloggersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Blogger
      */
@@ -2659,712 +2730,603 @@ export namespace Prisma {
   }
 
   /**
-   * Manager without action
+   * Employee.authoredOrigins
    */
-  export type ManagerDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Employee$authoredOriginsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Manager
+     * Select specific fields to fetch from the Origin
      */
-    select?: ManagerSelect<ExtArgs> | null
+    select?: OriginSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Manager
+     * Omit specific fields from the Origin
      */
-    omit?: ManagerOmit<ExtArgs> | null
+    omit?: OriginOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ManagerInclude<ExtArgs> | null
+    include?: OriginInclude<ExtArgs> | null
+    where?: OriginWhereInput
+    orderBy?: OriginOrderByWithRelationInput | OriginOrderByWithRelationInput[]
+    cursor?: OriginWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: OriginScalarFieldEnum | OriginScalarFieldEnum[]
+  }
+
+  /**
+   * Employee.authoredPersons
+   */
+  export type Employee$authoredPersonsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Person
+     */
+    select?: PersonSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Person
+     */
+    omit?: PersonOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PersonInclude<ExtArgs> | null
+    where?: PersonWhereInput
+    orderBy?: PersonOrderByWithRelationInput | PersonOrderByWithRelationInput[]
+    cursor?: PersonWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PersonScalarFieldEnum | PersonScalarFieldEnum[]
+  }
+
+  /**
+   * Employee.authoredCases
+   */
+  export type Employee$authoredCasesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Case
+     */
+    select?: CaseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Case
+     */
+    omit?: CaseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseInclude<ExtArgs> | null
+    where?: CaseWhereInput
+    orderBy?: CaseOrderByWithRelationInput | CaseOrderByWithRelationInput[]
+    cursor?: CaseWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CaseScalarFieldEnum | CaseScalarFieldEnum[]
+  }
+
+  /**
+   * Employee.managedCases
+   */
+  export type Employee$managedCasesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Case
+     */
+    select?: CaseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Case
+     */
+    omit?: CaseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseInclude<ExtArgs> | null
+    where?: CaseWhereInput
+    orderBy?: CaseOrderByWithRelationInput | CaseOrderByWithRelationInput[]
+    cursor?: CaseWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CaseScalarFieldEnum | CaseScalarFieldEnum[]
+  }
+
+  /**
+   * Employee.Opponent
+   */
+  export type Employee$OpponentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Opponent
+     */
+    select?: OpponentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Opponent
+     */
+    omit?: OpponentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OpponentInclude<ExtArgs> | null
+    where?: OpponentWhereInput
+    orderBy?: OpponentOrderByWithRelationInput | OpponentOrderByWithRelationInput[]
+    cursor?: OpponentWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: OpponentScalarFieldEnum | OpponentScalarFieldEnum[]
+  }
+
+  /**
+   * Employee without action
+   */
+  export type EmployeeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Employee
+     */
+    select?: EmployeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Employee
+     */
+    omit?: EmployeeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeInclude<ExtArgs> | null
   }
 
 
   /**
-   * Model User
+   * Model Person
    */
 
-  export type AggregateUser = {
-    _count: UserCountAggregateOutputType | null
-    _avg: UserAvgAggregateOutputType | null
-    _sum: UserSumAggregateOutputType | null
-    _min: UserMinAggregateOutputType | null
-    _max: UserMaxAggregateOutputType | null
+  export type AggregatePerson = {
+    _count: PersonCountAggregateOutputType | null
+    _avg: PersonAvgAggregateOutputType | null
+    _sum: PersonSumAggregateOutputType | null
+    _min: PersonMinAggregateOutputType | null
+    _max: PersonMaxAggregateOutputType | null
   }
 
-  export type UserAvgAggregateOutputType = {
+  export type PersonAvgAggregateOutputType = {
     id: number | null
-    priceSOM: number | null
-    priceUSD: number | null
     authorId: number | null
-    sourceId: number | null
-    opponentId: number | null
-    managerId: number | null
+    originId: number | null
   }
 
-  export type UserSumAggregateOutputType = {
+  export type PersonSumAggregateOutputType = {
     id: number | null
-    priceSOM: bigint | null
-    priceUSD: bigint | null
     authorId: number | null
-    sourceId: number | null
-    opponentId: number | null
-    managerId: number | null
+    originId: number | null
   }
 
-  export type UserMinAggregateOutputType = {
+  export type PersonMinAggregateOutputType = {
     id: number | null
-    username: string | null
-    userLink: string | null
+    createdAt: Date | null
+    name: string | null
     phoneNumber: string | null
+    link: string | null
     email: string | null
     homeAddress: string | null
-    leadStatus: $Enums.LEAD_STATUS | null
-    taskImportance: $Enums.TASK_IMPORTANCE | null
-    taskUrgency: $Enums.TASK_URGENCY | null
-    taskStatus: $Enums.TASK_STATUS | null
-    legalAction: $Enums.LEGAL_ACTION | null
-    problemShort: string | null
-    problemFull: string | null
-    nearestTask: string | null
-    nearestTaskDeadline: Date | null
-    timeOfPerformance: Date | null
-    priceSOM: bigint | null
-    priceUSD: bigint | null
-    courtInfo: string | null
-    statusInCourt: $Enums.STATUS_IN_COURT | null
-    refusalReason: $Enums.REFUSAL_REASON | null
-    createdAt: Date | null
-    assignmentTime: Date | null
     authorId: number | null
-    sourceId: number | null
-    opponentId: number | null
-    managerId: number | null
+    originId: number | null
+    leadStatus: $Enums.LEAD_STATUS | null
   }
 
-  export type UserMaxAggregateOutputType = {
+  export type PersonMaxAggregateOutputType = {
     id: number | null
-    username: string | null
-    userLink: string | null
+    createdAt: Date | null
+    name: string | null
     phoneNumber: string | null
+    link: string | null
     email: string | null
     homeAddress: string | null
-    leadStatus: $Enums.LEAD_STATUS | null
-    taskImportance: $Enums.TASK_IMPORTANCE | null
-    taskUrgency: $Enums.TASK_URGENCY | null
-    taskStatus: $Enums.TASK_STATUS | null
-    legalAction: $Enums.LEGAL_ACTION | null
-    problemShort: string | null
-    problemFull: string | null
-    nearestTask: string | null
-    nearestTaskDeadline: Date | null
-    timeOfPerformance: Date | null
-    priceSOM: bigint | null
-    priceUSD: bigint | null
-    courtInfo: string | null
-    statusInCourt: $Enums.STATUS_IN_COURT | null
-    refusalReason: $Enums.REFUSAL_REASON | null
-    createdAt: Date | null
-    assignmentTime: Date | null
     authorId: number | null
-    sourceId: number | null
-    opponentId: number | null
-    managerId: number | null
+    originId: number | null
+    leadStatus: $Enums.LEAD_STATUS | null
   }
 
-  export type UserCountAggregateOutputType = {
+  export type PersonCountAggregateOutputType = {
     id: number
-    username: number
-    userLink: number
+    createdAt: number
+    name: number
     phoneNumber: number
+    link: number
     email: number
     homeAddress: number
-    leadStatus: number
-    taskImportance: number
-    taskUrgency: number
-    taskStatus: number
-    legalAction: number
-    problemShort: number
-    problemFull: number
-    nearestTask: number
-    nearestTaskDeadline: number
-    timeOfPerformance: number
-    priceSOM: number
-    priceUSD: number
-    courtInfo: number
-    statusInCourt: number
-    refusalReason: number
-    createdAt: number
-    assignmentTime: number
     authorId: number
-    sourceId: number
-    opponentId: number
-    managerId: number
+    originId: number
+    leadStatus: number
     _all: number
   }
 
 
-  export type UserAvgAggregateInputType = {
+  export type PersonAvgAggregateInputType = {
     id?: true
-    priceSOM?: true
-    priceUSD?: true
     authorId?: true
-    sourceId?: true
-    opponentId?: true
-    managerId?: true
+    originId?: true
   }
 
-  export type UserSumAggregateInputType = {
+  export type PersonSumAggregateInputType = {
     id?: true
-    priceSOM?: true
-    priceUSD?: true
     authorId?: true
-    sourceId?: true
-    opponentId?: true
-    managerId?: true
+    originId?: true
   }
 
-  export type UserMinAggregateInputType = {
+  export type PersonMinAggregateInputType = {
     id?: true
-    username?: true
-    userLink?: true
+    createdAt?: true
+    name?: true
     phoneNumber?: true
+    link?: true
     email?: true
     homeAddress?: true
-    leadStatus?: true
-    taskImportance?: true
-    taskUrgency?: true
-    taskStatus?: true
-    legalAction?: true
-    problemShort?: true
-    problemFull?: true
-    nearestTask?: true
-    nearestTaskDeadline?: true
-    timeOfPerformance?: true
-    priceSOM?: true
-    priceUSD?: true
-    courtInfo?: true
-    statusInCourt?: true
-    refusalReason?: true
-    createdAt?: true
-    assignmentTime?: true
     authorId?: true
-    sourceId?: true
-    opponentId?: true
-    managerId?: true
+    originId?: true
+    leadStatus?: true
   }
 
-  export type UserMaxAggregateInputType = {
+  export type PersonMaxAggregateInputType = {
     id?: true
-    username?: true
-    userLink?: true
+    createdAt?: true
+    name?: true
     phoneNumber?: true
+    link?: true
     email?: true
     homeAddress?: true
-    leadStatus?: true
-    taskImportance?: true
-    taskUrgency?: true
-    taskStatus?: true
-    legalAction?: true
-    problemShort?: true
-    problemFull?: true
-    nearestTask?: true
-    nearestTaskDeadline?: true
-    timeOfPerformance?: true
-    priceSOM?: true
-    priceUSD?: true
-    courtInfo?: true
-    statusInCourt?: true
-    refusalReason?: true
-    createdAt?: true
-    assignmentTime?: true
     authorId?: true
-    sourceId?: true
-    opponentId?: true
-    managerId?: true
+    originId?: true
+    leadStatus?: true
   }
 
-  export type UserCountAggregateInputType = {
+  export type PersonCountAggregateInputType = {
     id?: true
-    username?: true
-    userLink?: true
+    createdAt?: true
+    name?: true
     phoneNumber?: true
+    link?: true
     email?: true
     homeAddress?: true
-    leadStatus?: true
-    taskImportance?: true
-    taskUrgency?: true
-    taskStatus?: true
-    legalAction?: true
-    problemShort?: true
-    problemFull?: true
-    nearestTask?: true
-    nearestTaskDeadline?: true
-    timeOfPerformance?: true
-    priceSOM?: true
-    priceUSD?: true
-    courtInfo?: true
-    statusInCourt?: true
-    refusalReason?: true
-    createdAt?: true
-    assignmentTime?: true
     authorId?: true
-    sourceId?: true
-    opponentId?: true
-    managerId?: true
+    originId?: true
+    leadStatus?: true
     _all?: true
   }
 
-  export type UserAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PersonAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which User to aggregate.
+     * Filter which Person to aggregate.
      */
-    where?: UserWhereInput
+    where?: PersonWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Users to fetch.
+     * Determine the order of People to fetch.
      */
-    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
+    orderBy?: PersonOrderByWithRelationInput | PersonOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: UserWhereUniqueInput
+    cursor?: PersonWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Users from the position of the cursor.
+     * Take `±n` People from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Users.
+     * Skip the first `n` People.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Users
+     * Count returned People
     **/
-    _count?: true | UserCountAggregateInputType
+    _count?: true | PersonCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: UserAvgAggregateInputType
+    _avg?: PersonAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: UserSumAggregateInputType
+    _sum?: PersonSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: UserMinAggregateInputType
+    _min?: PersonMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: UserMaxAggregateInputType
+    _max?: PersonMaxAggregateInputType
   }
 
-  export type GetUserAggregateType<T extends UserAggregateArgs> = {
-        [P in keyof T & keyof AggregateUser]: P extends '_count' | 'count'
+  export type GetPersonAggregateType<T extends PersonAggregateArgs> = {
+        [P in keyof T & keyof AggregatePerson]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateUser[P]>
-      : GetScalarType<T[P], AggregateUser[P]>
+        : GetScalarType<T[P], AggregatePerson[P]>
+      : GetScalarType<T[P], AggregatePerson[P]>
   }
 
 
 
 
-  export type UserGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: UserWhereInput
-    orderBy?: UserOrderByWithAggregationInput | UserOrderByWithAggregationInput[]
-    by: UserScalarFieldEnum[] | UserScalarFieldEnum
-    having?: UserScalarWhereWithAggregatesInput
+  export type PersonGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PersonWhereInput
+    orderBy?: PersonOrderByWithAggregationInput | PersonOrderByWithAggregationInput[]
+    by: PersonScalarFieldEnum[] | PersonScalarFieldEnum
+    having?: PersonScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: UserCountAggregateInputType | true
-    _avg?: UserAvgAggregateInputType
-    _sum?: UserSumAggregateInputType
-    _min?: UserMinAggregateInputType
-    _max?: UserMaxAggregateInputType
+    _count?: PersonCountAggregateInputType | true
+    _avg?: PersonAvgAggregateInputType
+    _sum?: PersonSumAggregateInputType
+    _min?: PersonMinAggregateInputType
+    _max?: PersonMaxAggregateInputType
   }
 
-  export type UserGroupByOutputType = {
+  export type PersonGroupByOutputType = {
     id: number
-    username: string
-    userLink: string | null
-    phoneNumber: string | null
-    email: string | null
-    homeAddress: string
-    leadStatus: $Enums.LEAD_STATUS
-    taskImportance: $Enums.TASK_IMPORTANCE
-    taskUrgency: $Enums.TASK_URGENCY
-    taskStatus: $Enums.TASK_STATUS
-    legalAction: $Enums.LEGAL_ACTION
-    problemShort: string
-    problemFull: string
-    nearestTask: string
-    nearestTaskDeadline: Date | null
-    timeOfPerformance: Date | null
-    priceSOM: bigint | null
-    priceUSD: bigint | null
-    courtInfo: string
-    statusInCourt: $Enums.STATUS_IN_COURT
-    refusalReason: $Enums.REFUSAL_REASON | null
     createdAt: Date
-    assignmentTime: Date | null
+    name: string
+    phoneNumber: string | null
+    link: string | null
+    email: string | null
+    homeAddress: string | null
     authorId: number
-    sourceId: number
-    opponentId: number | null
-    managerId: number | null
-    _count: UserCountAggregateOutputType | null
-    _avg: UserAvgAggregateOutputType | null
-    _sum: UserSumAggregateOutputType | null
-    _min: UserMinAggregateOutputType | null
-    _max: UserMaxAggregateOutputType | null
+    originId: number
+    leadStatus: $Enums.LEAD_STATUS
+    _count: PersonCountAggregateOutputType | null
+    _avg: PersonAvgAggregateOutputType | null
+    _sum: PersonSumAggregateOutputType | null
+    _min: PersonMinAggregateOutputType | null
+    _max: PersonMaxAggregateOutputType | null
   }
 
-  type GetUserGroupByPayload<T extends UserGroupByArgs> = Prisma.PrismaPromise<
+  type GetPersonGroupByPayload<T extends PersonGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<UserGroupByOutputType, T['by']> &
+      PickEnumerable<PersonGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof UserGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof PersonGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], UserGroupByOutputType[P]>
-            : GetScalarType<T[P], UserGroupByOutputType[P]>
+              : GetScalarType<T[P], PersonGroupByOutputType[P]>
+            : GetScalarType<T[P], PersonGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type UserSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type PersonSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    username?: boolean
-    userLink?: boolean
+    createdAt?: boolean
+    name?: boolean
     phoneNumber?: boolean
+    link?: boolean
     email?: boolean
     homeAddress?: boolean
-    leadStatus?: boolean
-    taskImportance?: boolean
-    taskUrgency?: boolean
-    taskStatus?: boolean
-    legalAction?: boolean
-    problemShort?: boolean
-    problemFull?: boolean
-    nearestTask?: boolean
-    nearestTaskDeadline?: boolean
-    timeOfPerformance?: boolean
-    priceSOM?: boolean
-    priceUSD?: boolean
-    courtInfo?: boolean
-    statusInCourt?: boolean
-    refusalReason?: boolean
-    createdAt?: boolean
-    assignmentTime?: boolean
     authorId?: boolean
-    sourceId?: boolean
-    opponentId?: boolean
-    managerId?: boolean
-    author?: boolean | ManagerDefaultArgs<ExtArgs>
-    source?: boolean | SourceDefaultArgs<ExtArgs>
-    opponent?: boolean | User$opponentArgs<ExtArgs>
-    manager?: boolean | User$managerArgs<ExtArgs>
-  }, ExtArgs["result"]["user"]>
+    originId?: boolean
+    leadStatus?: boolean
+    cases?: boolean | Person$casesArgs<ExtArgs>
+    author?: boolean | EmployeeDefaultArgs<ExtArgs>
+    origin?: boolean | OriginDefaultArgs<ExtArgs>
+    _count?: boolean | PersonCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["person"]>
 
-  export type UserSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type PersonSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    username?: boolean
-    userLink?: boolean
+    createdAt?: boolean
+    name?: boolean
     phoneNumber?: boolean
+    link?: boolean
     email?: boolean
     homeAddress?: boolean
-    leadStatus?: boolean
-    taskImportance?: boolean
-    taskUrgency?: boolean
-    taskStatus?: boolean
-    legalAction?: boolean
-    problemShort?: boolean
-    problemFull?: boolean
-    nearestTask?: boolean
-    nearestTaskDeadline?: boolean
-    timeOfPerformance?: boolean
-    priceSOM?: boolean
-    priceUSD?: boolean
-    courtInfo?: boolean
-    statusInCourt?: boolean
-    refusalReason?: boolean
-    createdAt?: boolean
-    assignmentTime?: boolean
     authorId?: boolean
-    sourceId?: boolean
-    opponentId?: boolean
-    managerId?: boolean
-    author?: boolean | ManagerDefaultArgs<ExtArgs>
-    source?: boolean | SourceDefaultArgs<ExtArgs>
-    opponent?: boolean | User$opponentArgs<ExtArgs>
-    manager?: boolean | User$managerArgs<ExtArgs>
-  }, ExtArgs["result"]["user"]>
+    originId?: boolean
+    leadStatus?: boolean
+    author?: boolean | EmployeeDefaultArgs<ExtArgs>
+    origin?: boolean | OriginDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["person"]>
 
-  export type UserSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type PersonSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    username?: boolean
-    userLink?: boolean
+    createdAt?: boolean
+    name?: boolean
     phoneNumber?: boolean
+    link?: boolean
     email?: boolean
     homeAddress?: boolean
-    leadStatus?: boolean
-    taskImportance?: boolean
-    taskUrgency?: boolean
-    taskStatus?: boolean
-    legalAction?: boolean
-    problemShort?: boolean
-    problemFull?: boolean
-    nearestTask?: boolean
-    nearestTaskDeadline?: boolean
-    timeOfPerformance?: boolean
-    priceSOM?: boolean
-    priceUSD?: boolean
-    courtInfo?: boolean
-    statusInCourt?: boolean
-    refusalReason?: boolean
-    createdAt?: boolean
-    assignmentTime?: boolean
     authorId?: boolean
-    sourceId?: boolean
-    opponentId?: boolean
-    managerId?: boolean
-    author?: boolean | ManagerDefaultArgs<ExtArgs>
-    source?: boolean | SourceDefaultArgs<ExtArgs>
-    opponent?: boolean | User$opponentArgs<ExtArgs>
-    manager?: boolean | User$managerArgs<ExtArgs>
-  }, ExtArgs["result"]["user"]>
+    originId?: boolean
+    leadStatus?: boolean
+    author?: boolean | EmployeeDefaultArgs<ExtArgs>
+    origin?: boolean | OriginDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["person"]>
 
-  export type UserSelectScalar = {
+  export type PersonSelectScalar = {
     id?: boolean
-    username?: boolean
-    userLink?: boolean
+    createdAt?: boolean
+    name?: boolean
     phoneNumber?: boolean
+    link?: boolean
     email?: boolean
     homeAddress?: boolean
-    leadStatus?: boolean
-    taskImportance?: boolean
-    taskUrgency?: boolean
-    taskStatus?: boolean
-    legalAction?: boolean
-    problemShort?: boolean
-    problemFull?: boolean
-    nearestTask?: boolean
-    nearestTaskDeadline?: boolean
-    timeOfPerformance?: boolean
-    priceSOM?: boolean
-    priceUSD?: boolean
-    courtInfo?: boolean
-    statusInCourt?: boolean
-    refusalReason?: boolean
-    createdAt?: boolean
-    assignmentTime?: boolean
     authorId?: boolean
-    sourceId?: boolean
-    opponentId?: boolean
-    managerId?: boolean
+    originId?: boolean
+    leadStatus?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "username" | "userLink" | "phoneNumber" | "email" | "homeAddress" | "leadStatus" | "taskImportance" | "taskUrgency" | "taskStatus" | "legalAction" | "problemShort" | "problemFull" | "nearestTask" | "nearestTaskDeadline" | "timeOfPerformance" | "priceSOM" | "priceUSD" | "courtInfo" | "statusInCourt" | "refusalReason" | "createdAt" | "assignmentTime" | "authorId" | "sourceId" | "opponentId" | "managerId", ExtArgs["result"]["user"]>
-  export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    author?: boolean | ManagerDefaultArgs<ExtArgs>
-    source?: boolean | SourceDefaultArgs<ExtArgs>
-    opponent?: boolean | User$opponentArgs<ExtArgs>
-    manager?: boolean | User$managerArgs<ExtArgs>
+  export type PersonOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "name" | "phoneNumber" | "link" | "email" | "homeAddress" | "authorId" | "originId" | "leadStatus", ExtArgs["result"]["person"]>
+  export type PersonInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    cases?: boolean | Person$casesArgs<ExtArgs>
+    author?: boolean | EmployeeDefaultArgs<ExtArgs>
+    origin?: boolean | OriginDefaultArgs<ExtArgs>
+    _count?: boolean | PersonCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    author?: boolean | ManagerDefaultArgs<ExtArgs>
-    source?: boolean | SourceDefaultArgs<ExtArgs>
-    opponent?: boolean | User$opponentArgs<ExtArgs>
-    manager?: boolean | User$managerArgs<ExtArgs>
+  export type PersonIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    author?: boolean | EmployeeDefaultArgs<ExtArgs>
+    origin?: boolean | OriginDefaultArgs<ExtArgs>
   }
-  export type UserIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    author?: boolean | ManagerDefaultArgs<ExtArgs>
-    source?: boolean | SourceDefaultArgs<ExtArgs>
-    opponent?: boolean | User$opponentArgs<ExtArgs>
-    manager?: boolean | User$managerArgs<ExtArgs>
+  export type PersonIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    author?: boolean | EmployeeDefaultArgs<ExtArgs>
+    origin?: boolean | OriginDefaultArgs<ExtArgs>
   }
 
-  export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "User"
+  export type $PersonPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Person"
     objects: {
-      author: Prisma.$ManagerPayload<ExtArgs>
-      source: Prisma.$SourcePayload<ExtArgs>
-      opponent: Prisma.$OpponentPayload<ExtArgs> | null
-      manager: Prisma.$ManagerPayload<ExtArgs> | null
+      cases: Prisma.$CasePayload<ExtArgs>[]
+      author: Prisma.$EmployeePayload<ExtArgs>
+      origin: Prisma.$OriginPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      username: string
-      userLink: string | null
-      phoneNumber: string | null
-      email: string | null
-      homeAddress: string
-      leadStatus: $Enums.LEAD_STATUS
-      taskImportance: $Enums.TASK_IMPORTANCE
-      taskUrgency: $Enums.TASK_URGENCY
-      taskStatus: $Enums.TASK_STATUS
-      legalAction: $Enums.LEGAL_ACTION
-      problemShort: string
-      problemFull: string
-      nearestTask: string
-      nearestTaskDeadline: Date | null
-      timeOfPerformance: Date | null
-      priceSOM: bigint | null
-      priceUSD: bigint | null
-      courtInfo: string
-      statusInCourt: $Enums.STATUS_IN_COURT
-      refusalReason: $Enums.REFUSAL_REASON | null
       createdAt: Date
-      assignmentTime: Date | null
+      name: string
+      phoneNumber: string | null
+      link: string | null
+      email: string | null
+      homeAddress: string | null
       authorId: number
-      sourceId: number
-      opponentId: number | null
-      managerId: number | null
-    }, ExtArgs["result"]["user"]>
+      originId: number
+      leadStatus: $Enums.LEAD_STATUS
+    }, ExtArgs["result"]["person"]>
     composites: {}
   }
 
-  type UserGetPayload<S extends boolean | null | undefined | UserDefaultArgs> = $Result.GetResult<Prisma.$UserPayload, S>
+  type PersonGetPayload<S extends boolean | null | undefined | PersonDefaultArgs> = $Result.GetResult<Prisma.$PersonPayload, S>
 
-  type UserCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<UserFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: UserCountAggregateInputType | true
+  type PersonCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<PersonFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: PersonCountAggregateInputType | true
     }
 
-  export interface UserDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['User'], meta: { name: 'User' } }
+  export interface PersonDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Person'], meta: { name: 'Person' } }
     /**
-     * Find zero or one User that matches the filter.
-     * @param {UserFindUniqueArgs} args - Arguments to find a User
+     * Find zero or one Person that matches the filter.
+     * @param {PersonFindUniqueArgs} args - Arguments to find a Person
      * @example
-     * // Get one User
-     * const user = await prisma.user.findUnique({
+     * // Get one Person
+     * const person = await prisma.person.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends UserFindUniqueArgs>(args: SelectSubset<T, UserFindUniqueArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends PersonFindUniqueArgs>(args: SelectSubset<T, PersonFindUniqueArgs<ExtArgs>>): Prisma__PersonClient<$Result.GetResult<Prisma.$PersonPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one User that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Person that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {UserFindUniqueOrThrowArgs} args - Arguments to find a User
+     * @param {PersonFindUniqueOrThrowArgs} args - Arguments to find a Person
      * @example
-     * // Get one User
-     * const user = await prisma.user.findUniqueOrThrow({
+     * // Get one Person
+     * const person = await prisma.person.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends UserFindUniqueOrThrowArgs>(args: SelectSubset<T, UserFindUniqueOrThrowArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends PersonFindUniqueOrThrowArgs>(args: SelectSubset<T, PersonFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PersonClient<$Result.GetResult<Prisma.$PersonPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first User that matches the filter.
+     * Find the first Person that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {UserFindFirstArgs} args - Arguments to find a User
+     * @param {PersonFindFirstArgs} args - Arguments to find a Person
      * @example
-     * // Get one User
-     * const user = await prisma.user.findFirst({
+     * // Get one Person
+     * const person = await prisma.person.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends UserFindFirstArgs>(args?: SelectSubset<T, UserFindFirstArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends PersonFindFirstArgs>(args?: SelectSubset<T, PersonFindFirstArgs<ExtArgs>>): Prisma__PersonClient<$Result.GetResult<Prisma.$PersonPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first User that matches the filter or
+     * Find the first Person that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {UserFindFirstOrThrowArgs} args - Arguments to find a User
+     * @param {PersonFindFirstOrThrowArgs} args - Arguments to find a Person
      * @example
-     * // Get one User
-     * const user = await prisma.user.findFirstOrThrow({
+     * // Get one Person
+     * const person = await prisma.person.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends UserFindFirstOrThrowArgs>(args?: SelectSubset<T, UserFindFirstOrThrowArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends PersonFindFirstOrThrowArgs>(args?: SelectSubset<T, PersonFindFirstOrThrowArgs<ExtArgs>>): Prisma__PersonClient<$Result.GetResult<Prisma.$PersonPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Users that matches the filter.
+     * Find zero or more People that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {UserFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {PersonFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Users
-     * const users = await prisma.user.findMany()
+     * // Get all People
+     * const people = await prisma.person.findMany()
      * 
-     * // Get first 10 Users
-     * const users = await prisma.user.findMany({ take: 10 })
+     * // Get first 10 People
+     * const people = await prisma.person.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const userWithIdOnly = await prisma.user.findMany({ select: { id: true } })
+     * const personWithIdOnly = await prisma.person.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends UserFindManyArgs>(args?: SelectSubset<T, UserFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends PersonFindManyArgs>(args?: SelectSubset<T, PersonFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PersonPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a User.
-     * @param {UserCreateArgs} args - Arguments to create a User.
+     * Create a Person.
+     * @param {PersonCreateArgs} args - Arguments to create a Person.
      * @example
-     * // Create one User
-     * const User = await prisma.user.create({
+     * // Create one Person
+     * const Person = await prisma.person.create({
      *   data: {
-     *     // ... data to create a User
+     *     // ... data to create a Person
      *   }
      * })
      * 
      */
-    create<T extends UserCreateArgs>(args: SelectSubset<T, UserCreateArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends PersonCreateArgs>(args: SelectSubset<T, PersonCreateArgs<ExtArgs>>): Prisma__PersonClient<$Result.GetResult<Prisma.$PersonPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Users.
-     * @param {UserCreateManyArgs} args - Arguments to create many Users.
+     * Create many People.
+     * @param {PersonCreateManyArgs} args - Arguments to create many People.
      * @example
-     * // Create many Users
-     * const user = await prisma.user.createMany({
+     * // Create many People
+     * const person = await prisma.person.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends UserCreateManyArgs>(args?: SelectSubset<T, UserCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends PersonCreateManyArgs>(args?: SelectSubset<T, PersonCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many Users and returns the data saved in the database.
-     * @param {UserCreateManyAndReturnArgs} args - Arguments to create many Users.
+     * Create many People and returns the data saved in the database.
+     * @param {PersonCreateManyAndReturnArgs} args - Arguments to create many People.
      * @example
-     * // Create many Users
-     * const user = await prisma.user.createManyAndReturn({
+     * // Create many People
+     * const person = await prisma.person.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many Users and only return the `id`
-     * const userWithIdOnly = await prisma.user.createManyAndReturn({
+     * // Create many People and only return the `id`
+     * const personWithIdOnly = await prisma.person.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -3374,28 +3336,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends UserCreateManyAndReturnArgs>(args?: SelectSubset<T, UserCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends PersonCreateManyAndReturnArgs>(args?: SelectSubset<T, PersonCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PersonPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a User.
-     * @param {UserDeleteArgs} args - Arguments to delete one User.
+     * Delete a Person.
+     * @param {PersonDeleteArgs} args - Arguments to delete one Person.
      * @example
-     * // Delete one User
-     * const User = await prisma.user.delete({
+     * // Delete one Person
+     * const Person = await prisma.person.delete({
      *   where: {
-     *     // ... filter to delete one User
+     *     // ... filter to delete one Person
      *   }
      * })
      * 
      */
-    delete<T extends UserDeleteArgs>(args: SelectSubset<T, UserDeleteArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends PersonDeleteArgs>(args: SelectSubset<T, PersonDeleteArgs<ExtArgs>>): Prisma__PersonClient<$Result.GetResult<Prisma.$PersonPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one User.
-     * @param {UserUpdateArgs} args - Arguments to update one User.
+     * Update one Person.
+     * @param {PersonUpdateArgs} args - Arguments to update one Person.
      * @example
-     * // Update one User
-     * const user = await prisma.user.update({
+     * // Update one Person
+     * const person = await prisma.person.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -3405,30 +3367,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends UserUpdateArgs>(args: SelectSubset<T, UserUpdateArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends PersonUpdateArgs>(args: SelectSubset<T, PersonUpdateArgs<ExtArgs>>): Prisma__PersonClient<$Result.GetResult<Prisma.$PersonPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Users.
-     * @param {UserDeleteManyArgs} args - Arguments to filter Users to delete.
+     * Delete zero or more People.
+     * @param {PersonDeleteManyArgs} args - Arguments to filter People to delete.
      * @example
-     * // Delete a few Users
-     * const { count } = await prisma.user.deleteMany({
+     * // Delete a few People
+     * const { count } = await prisma.person.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends UserDeleteManyArgs>(args?: SelectSubset<T, UserDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends PersonDeleteManyArgs>(args?: SelectSubset<T, PersonDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Users.
+     * Update zero or more People.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {UserUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {PersonUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Users
-     * const user = await prisma.user.updateMany({
+     * // Update many People
+     * const person = await prisma.person.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -3438,14 +3400,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends UserUpdateManyArgs>(args: SelectSubset<T, UserUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends PersonUpdateManyArgs>(args: SelectSubset<T, PersonUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Users and returns the data updated in the database.
-     * @param {UserUpdateManyAndReturnArgs} args - Arguments to update many Users.
+     * Update zero or more People and returns the data updated in the database.
+     * @param {PersonUpdateManyAndReturnArgs} args - Arguments to update many People.
      * @example
-     * // Update many Users
-     * const user = await prisma.user.updateManyAndReturn({
+     * // Update many People
+     * const person = await prisma.person.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -3454,8 +3416,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more Users and only return the `id`
-     * const userWithIdOnly = await prisma.user.updateManyAndReturn({
+     * // Update zero or more People and only return the `id`
+     * const personWithIdOnly = await prisma.person.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -3468,56 +3430,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends UserUpdateManyAndReturnArgs>(args: SelectSubset<T, UserUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends PersonUpdateManyAndReturnArgs>(args: SelectSubset<T, PersonUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PersonPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one User.
-     * @param {UserUpsertArgs} args - Arguments to update or create a User.
+     * Create or update one Person.
+     * @param {PersonUpsertArgs} args - Arguments to update or create a Person.
      * @example
-     * // Update or create a User
-     * const user = await prisma.user.upsert({
+     * // Update or create a Person
+     * const person = await prisma.person.upsert({
      *   create: {
-     *     // ... data to create a User
+     *     // ... data to create a Person
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the User we want to update
+     *     // ... the filter for the Person we want to update
      *   }
      * })
      */
-    upsert<T extends UserUpsertArgs>(args: SelectSubset<T, UserUpsertArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends PersonUpsertArgs>(args: SelectSubset<T, PersonUpsertArgs<ExtArgs>>): Prisma__PersonClient<$Result.GetResult<Prisma.$PersonPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Users.
+     * Count the number of People.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {UserCountArgs} args - Arguments to filter Users to count.
+     * @param {PersonCountArgs} args - Arguments to filter People to count.
      * @example
-     * // Count the number of Users
-     * const count = await prisma.user.count({
+     * // Count the number of People
+     * const count = await prisma.person.count({
      *   where: {
-     *     // ... the filter for the Users we want to count
+     *     // ... the filter for the People we want to count
      *   }
      * })
     **/
-    count<T extends UserCountArgs>(
-      args?: Subset<T, UserCountArgs>,
+    count<T extends PersonCountArgs>(
+      args?: Subset<T, PersonCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], UserCountAggregateOutputType>
+          : GetScalarType<T['select'], PersonCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a User.
+     * Allows you to perform aggregations operations on a Person.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {UserAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {PersonAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -3537,13 +3499,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends UserAggregateArgs>(args: Subset<T, UserAggregateArgs>): Prisma.PrismaPromise<GetUserAggregateType<T>>
+    aggregate<T extends PersonAggregateArgs>(args: Subset<T, PersonAggregateArgs>): Prisma.PrismaPromise<GetPersonAggregateType<T>>
 
     /**
-     * Group by User.
+     * Group by Person.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {UserGroupByArgs} args - Group by arguments.
+     * @param {PersonGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -3558,14 +3520,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends UserGroupByArgs,
+      T extends PersonGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: UserGroupByArgs['orderBy'] }
-        : { orderBy?: UserGroupByArgs['orderBy'] },
+        ? { orderBy: PersonGroupByArgs['orderBy'] }
+        : { orderBy?: PersonGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -3614,25 +3576,24 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, UserGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUserGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, PersonGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPersonGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the User model
+   * Fields of the Person model
    */
-  readonly fields: UserFieldRefs;
+  readonly fields: PersonFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for User.
+   * The delegate class that acts as a "Promise-like" for Person.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__PersonClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    author<T extends ManagerDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ManagerDefaultArgs<ExtArgs>>): Prisma__ManagerClient<$Result.GetResult<Prisma.$ManagerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    source<T extends SourceDefaultArgs<ExtArgs> = {}>(args?: Subset<T, SourceDefaultArgs<ExtArgs>>): Prisma__SourceClient<$Result.GetResult<Prisma.$SourcePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    opponent<T extends User$opponentArgs<ExtArgs> = {}>(args?: Subset<T, User$opponentArgs<ExtArgs>>): Prisma__OpponentClient<$Result.GetResult<Prisma.$OpponentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    manager<T extends User$managerArgs<ExtArgs> = {}>(args?: Subset<T, User$managerArgs<ExtArgs>>): Prisma__ManagerClient<$Result.GetResult<Prisma.$ManagerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    cases<T extends Person$casesArgs<ExtArgs> = {}>(args?: Subset<T, Person$casesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CasePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    author<T extends EmployeeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, EmployeeDefaultArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    origin<T extends OriginDefaultArgs<ExtArgs> = {}>(args?: Subset<T, OriginDefaultArgs<ExtArgs>>): Prisma__OriginClient<$Result.GetResult<Prisma.$OriginPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3659,435 +3620,1818 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the User model
+   * Fields of the Person model
    */
-  interface UserFieldRefs {
-    readonly id: FieldRef<"User", 'Int'>
-    readonly username: FieldRef<"User", 'String'>
-    readonly userLink: FieldRef<"User", 'String'>
-    readonly phoneNumber: FieldRef<"User", 'String'>
-    readonly email: FieldRef<"User", 'String'>
-    readonly homeAddress: FieldRef<"User", 'String'>
-    readonly leadStatus: FieldRef<"User", 'LEAD_STATUS'>
-    readonly taskImportance: FieldRef<"User", 'TASK_IMPORTANCE'>
-    readonly taskUrgency: FieldRef<"User", 'TASK_URGENCY'>
-    readonly taskStatus: FieldRef<"User", 'TASK_STATUS'>
-    readonly legalAction: FieldRef<"User", 'LEGAL_ACTION'>
-    readonly problemShort: FieldRef<"User", 'String'>
-    readonly problemFull: FieldRef<"User", 'String'>
-    readonly nearestTask: FieldRef<"User", 'String'>
-    readonly nearestTaskDeadline: FieldRef<"User", 'DateTime'>
-    readonly timeOfPerformance: FieldRef<"User", 'DateTime'>
-    readonly priceSOM: FieldRef<"User", 'BigInt'>
-    readonly priceUSD: FieldRef<"User", 'BigInt'>
-    readonly courtInfo: FieldRef<"User", 'String'>
-    readonly statusInCourt: FieldRef<"User", 'STATUS_IN_COURT'>
-    readonly refusalReason: FieldRef<"User", 'REFUSAL_REASON'>
-    readonly createdAt: FieldRef<"User", 'DateTime'>
-    readonly assignmentTime: FieldRef<"User", 'DateTime'>
-    readonly authorId: FieldRef<"User", 'Int'>
-    readonly sourceId: FieldRef<"User", 'Int'>
-    readonly opponentId: FieldRef<"User", 'Int'>
-    readonly managerId: FieldRef<"User", 'Int'>
+  interface PersonFieldRefs {
+    readonly id: FieldRef<"Person", 'Int'>
+    readonly createdAt: FieldRef<"Person", 'DateTime'>
+    readonly name: FieldRef<"Person", 'String'>
+    readonly phoneNumber: FieldRef<"Person", 'String'>
+    readonly link: FieldRef<"Person", 'String'>
+    readonly email: FieldRef<"Person", 'String'>
+    readonly homeAddress: FieldRef<"Person", 'String'>
+    readonly authorId: FieldRef<"Person", 'Int'>
+    readonly originId: FieldRef<"Person", 'Int'>
+    readonly leadStatus: FieldRef<"Person", 'LEAD_STATUS'>
   }
     
 
   // Custom InputTypes
   /**
-   * User findUnique
+   * Person findUnique
    */
-  export type UserFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PersonFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the Person
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: PersonSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the User
+     * Omit specific fields from the Person
      */
-    omit?: UserOmit<ExtArgs> | null
+    omit?: PersonOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: UserInclude<ExtArgs> | null
+    include?: PersonInclude<ExtArgs> | null
     /**
-     * Filter, which User to fetch.
+     * Filter, which Person to fetch.
      */
-    where: UserWhereUniqueInput
+    where: PersonWhereUniqueInput
   }
 
   /**
-   * User findUniqueOrThrow
+   * Person findUniqueOrThrow
    */
-  export type UserFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PersonFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the Person
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: PersonSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the User
+     * Omit specific fields from the Person
      */
-    omit?: UserOmit<ExtArgs> | null
+    omit?: PersonOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: UserInclude<ExtArgs> | null
+    include?: PersonInclude<ExtArgs> | null
     /**
-     * Filter, which User to fetch.
+     * Filter, which Person to fetch.
      */
-    where: UserWhereUniqueInput
+    where: PersonWhereUniqueInput
   }
 
   /**
-   * User findFirst
+   * Person findFirst
    */
-  export type UserFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PersonFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the Person
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: PersonSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the User
+     * Omit specific fields from the Person
      */
-    omit?: UserOmit<ExtArgs> | null
+    omit?: PersonOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: UserInclude<ExtArgs> | null
+    include?: PersonInclude<ExtArgs> | null
     /**
-     * Filter, which User to fetch.
+     * Filter, which Person to fetch.
      */
-    where?: UserWhereInput
+    where?: PersonWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Users to fetch.
+     * Determine the order of People to fetch.
      */
-    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
+    orderBy?: PersonOrderByWithRelationInput | PersonOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Users.
+     * Sets the position for searching for People.
      */
-    cursor?: UserWhereUniqueInput
+    cursor?: PersonWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Users from the position of the cursor.
+     * Take `±n` People from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Users.
+     * Skip the first `n` People.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Users.
+     * Filter by unique combinations of People.
      */
-    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+    distinct?: PersonScalarFieldEnum | PersonScalarFieldEnum[]
   }
 
   /**
-   * User findFirstOrThrow
+   * Person findFirstOrThrow
    */
-  export type UserFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PersonFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the Person
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: PersonSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the User
+     * Omit specific fields from the Person
      */
-    omit?: UserOmit<ExtArgs> | null
+    omit?: PersonOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: UserInclude<ExtArgs> | null
+    include?: PersonInclude<ExtArgs> | null
     /**
-     * Filter, which User to fetch.
+     * Filter, which Person to fetch.
      */
-    where?: UserWhereInput
+    where?: PersonWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Users to fetch.
+     * Determine the order of People to fetch.
      */
-    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
+    orderBy?: PersonOrderByWithRelationInput | PersonOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Users.
+     * Sets the position for searching for People.
      */
-    cursor?: UserWhereUniqueInput
+    cursor?: PersonWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Users from the position of the cursor.
+     * Take `±n` People from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Users.
+     * Skip the first `n` People.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Users.
+     * Filter by unique combinations of People.
      */
-    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+    distinct?: PersonScalarFieldEnum | PersonScalarFieldEnum[]
   }
 
   /**
-   * User findMany
+   * Person findMany
    */
-  export type UserFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PersonFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the Person
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: PersonSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the User
+     * Omit specific fields from the Person
      */
-    omit?: UserOmit<ExtArgs> | null
+    omit?: PersonOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: UserInclude<ExtArgs> | null
+    include?: PersonInclude<ExtArgs> | null
     /**
-     * Filter, which Users to fetch.
+     * Filter, which People to fetch.
      */
-    where?: UserWhereInput
+    where?: PersonWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Users to fetch.
+     * Determine the order of People to fetch.
      */
-    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
+    orderBy?: PersonOrderByWithRelationInput | PersonOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Users.
+     * Sets the position for listing People.
      */
-    cursor?: UserWhereUniqueInput
+    cursor?: PersonWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Users from the position of the cursor.
+     * Take `±n` People from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Users.
+     * Skip the first `n` People.
      */
     skip?: number
-    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+    distinct?: PersonScalarFieldEnum | PersonScalarFieldEnum[]
   }
 
   /**
-   * User create
+   * Person create
    */
-  export type UserCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PersonCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the Person
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: PersonSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the User
+     * Omit specific fields from the Person
      */
-    omit?: UserOmit<ExtArgs> | null
+    omit?: PersonOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: UserInclude<ExtArgs> | null
+    include?: PersonInclude<ExtArgs> | null
     /**
-     * The data needed to create a User.
+     * The data needed to create a Person.
      */
-    data: XOR<UserCreateInput, UserUncheckedCreateInput>
+    data: XOR<PersonCreateInput, PersonUncheckedCreateInput>
   }
 
   /**
-   * User createMany
+   * Person createMany
    */
-  export type UserCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PersonCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Users.
+     * The data used to create many People.
      */
-    data: UserCreateManyInput | UserCreateManyInput[]
+    data: PersonCreateManyInput | PersonCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * User createManyAndReturn
+   * Person createManyAndReturn
    */
-  export type UserCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PersonCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the Person
      */
-    select?: UserSelectCreateManyAndReturn<ExtArgs> | null
+    select?: PersonSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the User
+     * Omit specific fields from the Person
      */
-    omit?: UserOmit<ExtArgs> | null
+    omit?: PersonOmit<ExtArgs> | null
     /**
-     * The data used to create many Users.
+     * The data used to create many People.
      */
-    data: UserCreateManyInput | UserCreateManyInput[]
+    data: PersonCreateManyInput | PersonCreateManyInput[]
     skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: UserIncludeCreateManyAndReturn<ExtArgs> | null
+    include?: PersonIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * User update
+   * Person update
    */
-  export type UserUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PersonUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the Person
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: PersonSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the User
+     * Omit specific fields from the Person
      */
-    omit?: UserOmit<ExtArgs> | null
+    omit?: PersonOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: UserInclude<ExtArgs> | null
+    include?: PersonInclude<ExtArgs> | null
     /**
-     * The data needed to update a User.
+     * The data needed to update a Person.
      */
-    data: XOR<UserUpdateInput, UserUncheckedUpdateInput>
+    data: XOR<PersonUpdateInput, PersonUncheckedUpdateInput>
     /**
-     * Choose, which User to update.
+     * Choose, which Person to update.
      */
-    where: UserWhereUniqueInput
+    where: PersonWhereUniqueInput
   }
 
   /**
-   * User updateMany
+   * Person updateMany
    */
-  export type UserUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PersonUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Users.
+     * The data used to update People.
      */
-    data: XOR<UserUpdateManyMutationInput, UserUncheckedUpdateManyInput>
+    data: XOR<PersonUpdateManyMutationInput, PersonUncheckedUpdateManyInput>
     /**
-     * Filter which Users to update
+     * Filter which People to update
      */
-    where?: UserWhereInput
+    where?: PersonWhereInput
     /**
-     * Limit how many Users to update.
+     * Limit how many People to update.
      */
     limit?: number
   }
 
   /**
-   * User updateManyAndReturn
+   * Person updateManyAndReturn
    */
-  export type UserUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PersonUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the Person
      */
-    select?: UserSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: PersonSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the User
+     * Omit specific fields from the Person
      */
-    omit?: UserOmit<ExtArgs> | null
+    omit?: PersonOmit<ExtArgs> | null
     /**
-     * The data used to update Users.
+     * The data used to update People.
      */
-    data: XOR<UserUpdateManyMutationInput, UserUncheckedUpdateManyInput>
+    data: XOR<PersonUpdateManyMutationInput, PersonUncheckedUpdateManyInput>
     /**
-     * Filter which Users to update
+     * Filter which People to update
      */
-    where?: UserWhereInput
+    where?: PersonWhereInput
     /**
-     * Limit how many Users to update.
+     * Limit how many People to update.
      */
     limit?: number
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: UserIncludeUpdateManyAndReturn<ExtArgs> | null
+    include?: PersonIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * User upsert
+   * Person upsert
    */
-  export type UserUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PersonUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the Person
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: PersonSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the User
+     * Omit specific fields from the Person
      */
-    omit?: UserOmit<ExtArgs> | null
+    omit?: PersonOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: UserInclude<ExtArgs> | null
+    include?: PersonInclude<ExtArgs> | null
     /**
-     * The filter to search for the User to update in case it exists.
+     * The filter to search for the Person to update in case it exists.
      */
-    where: UserWhereUniqueInput
+    where: PersonWhereUniqueInput
     /**
-     * In case the User found by the `where` argument doesn't exist, create a new User with this data.
+     * In case the Person found by the `where` argument doesn't exist, create a new Person with this data.
      */
-    create: XOR<UserCreateInput, UserUncheckedCreateInput>
+    create: XOR<PersonCreateInput, PersonUncheckedCreateInput>
     /**
-     * In case the User was found with the provided `where` argument, update it with this data.
+     * In case the Person was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<UserUpdateInput, UserUncheckedUpdateInput>
+    update: XOR<PersonUpdateInput, PersonUncheckedUpdateInput>
   }
 
   /**
-   * User delete
+   * Person delete
    */
-  export type UserDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PersonDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the Person
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: PersonSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the User
+     * Omit specific fields from the Person
      */
-    omit?: UserOmit<ExtArgs> | null
+    omit?: PersonOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: UserInclude<ExtArgs> | null
+    include?: PersonInclude<ExtArgs> | null
     /**
-     * Filter which User to delete.
+     * Filter which Person to delete.
      */
-    where: UserWhereUniqueInput
+    where: PersonWhereUniqueInput
   }
 
   /**
-   * User deleteMany
+   * Person deleteMany
    */
-  export type UserDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PersonDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Users to delete
+     * Filter which People to delete
      */
-    where?: UserWhereInput
+    where?: PersonWhereInput
     /**
-     * Limit how many Users to delete.
+     * Limit how many People to delete.
      */
     limit?: number
   }
 
   /**
-   * User.opponent
+   * Person.cases
    */
-  export type User$opponentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Person$casesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Case
+     */
+    select?: CaseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Case
+     */
+    omit?: CaseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseInclude<ExtArgs> | null
+    where?: CaseWhereInput
+    orderBy?: CaseOrderByWithRelationInput | CaseOrderByWithRelationInput[]
+    cursor?: CaseWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CaseScalarFieldEnum | CaseScalarFieldEnum[]
+  }
+
+  /**
+   * Person without action
+   */
+  export type PersonDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Person
+     */
+    select?: PersonSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Person
+     */
+    omit?: PersonOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PersonInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Case
+   */
+
+  export type AggregateCase = {
+    _count: CaseCountAggregateOutputType | null
+    _avg: CaseAvgAggregateOutputType | null
+    _sum: CaseSumAggregateOutputType | null
+    _min: CaseMinAggregateOutputType | null
+    _max: CaseMaxAggregateOutputType | null
+  }
+
+  export type CaseAvgAggregateOutputType = {
+    id: number | null
+    priceSOM: number | null
+    priceUSD: number | null
+    personId: number | null
+    authorId: number | null
+    opponentId: number | null
+    managerId: number | null
+  }
+
+  export type CaseSumAggregateOutputType = {
+    id: number | null
+    priceSOM: bigint | null
+    priceUSD: bigint | null
+    personId: number | null
+    authorId: number | null
+    opponentId: number | null
+    managerId: number | null
+  }
+
+  export type CaseMinAggregateOutputType = {
+    id: number | null
+    createdAt: Date | null
+    caseImportance: $Enums.IMPORTANCE | null
+    caseUrgency: $Enums.URGENCY | null
+    caseStatus: $Enums.CASE_STATUS | null
+    problemShort: string | null
+    problemFull: string | null
+    nearestTask: string | null
+    courtInfo: string | null
+    nearestTaskDeadline: Date | null
+    timeOfPerformance: Date | null
+    assignmentTime: Date | null
+    refusalReason: $Enums.REFUSAL_REASON | null
+    legalAction: $Enums.LEGAL_ACTION | null
+    statusInCourt: $Enums.STATUS_IN_COURT | null
+    priceSOM: bigint | null
+    priceUSD: bigint | null
+    personId: number | null
+    authorId: number | null
+    opponentId: number | null
+    managerId: number | null
+  }
+
+  export type CaseMaxAggregateOutputType = {
+    id: number | null
+    createdAt: Date | null
+    caseImportance: $Enums.IMPORTANCE | null
+    caseUrgency: $Enums.URGENCY | null
+    caseStatus: $Enums.CASE_STATUS | null
+    problemShort: string | null
+    problemFull: string | null
+    nearestTask: string | null
+    courtInfo: string | null
+    nearestTaskDeadline: Date | null
+    timeOfPerformance: Date | null
+    assignmentTime: Date | null
+    refusalReason: $Enums.REFUSAL_REASON | null
+    legalAction: $Enums.LEGAL_ACTION | null
+    statusInCourt: $Enums.STATUS_IN_COURT | null
+    priceSOM: bigint | null
+    priceUSD: bigint | null
+    personId: number | null
+    authorId: number | null
+    opponentId: number | null
+    managerId: number | null
+  }
+
+  export type CaseCountAggregateOutputType = {
+    id: number
+    createdAt: number
+    caseImportance: number
+    caseUrgency: number
+    caseStatus: number
+    categories: number
+    problemShort: number
+    problemFull: number
+    nearestTask: number
+    courtInfo: number
+    nearestTaskDeadline: number
+    timeOfPerformance: number
+    assignmentTime: number
+    refusalReason: number
+    legalAction: number
+    statusInCourt: number
+    priceSOM: number
+    priceUSD: number
+    personId: number
+    authorId: number
+    opponentId: number
+    managerId: number
+    _all: number
+  }
+
+
+  export type CaseAvgAggregateInputType = {
+    id?: true
+    priceSOM?: true
+    priceUSD?: true
+    personId?: true
+    authorId?: true
+    opponentId?: true
+    managerId?: true
+  }
+
+  export type CaseSumAggregateInputType = {
+    id?: true
+    priceSOM?: true
+    priceUSD?: true
+    personId?: true
+    authorId?: true
+    opponentId?: true
+    managerId?: true
+  }
+
+  export type CaseMinAggregateInputType = {
+    id?: true
+    createdAt?: true
+    caseImportance?: true
+    caseUrgency?: true
+    caseStatus?: true
+    problemShort?: true
+    problemFull?: true
+    nearestTask?: true
+    courtInfo?: true
+    nearestTaskDeadline?: true
+    timeOfPerformance?: true
+    assignmentTime?: true
+    refusalReason?: true
+    legalAction?: true
+    statusInCourt?: true
+    priceSOM?: true
+    priceUSD?: true
+    personId?: true
+    authorId?: true
+    opponentId?: true
+    managerId?: true
+  }
+
+  export type CaseMaxAggregateInputType = {
+    id?: true
+    createdAt?: true
+    caseImportance?: true
+    caseUrgency?: true
+    caseStatus?: true
+    problemShort?: true
+    problemFull?: true
+    nearestTask?: true
+    courtInfo?: true
+    nearestTaskDeadline?: true
+    timeOfPerformance?: true
+    assignmentTime?: true
+    refusalReason?: true
+    legalAction?: true
+    statusInCourt?: true
+    priceSOM?: true
+    priceUSD?: true
+    personId?: true
+    authorId?: true
+    opponentId?: true
+    managerId?: true
+  }
+
+  export type CaseCountAggregateInputType = {
+    id?: true
+    createdAt?: true
+    caseImportance?: true
+    caseUrgency?: true
+    caseStatus?: true
+    categories?: true
+    problemShort?: true
+    problemFull?: true
+    nearestTask?: true
+    courtInfo?: true
+    nearestTaskDeadline?: true
+    timeOfPerformance?: true
+    assignmentTime?: true
+    refusalReason?: true
+    legalAction?: true
+    statusInCourt?: true
+    priceSOM?: true
+    priceUSD?: true
+    personId?: true
+    authorId?: true
+    opponentId?: true
+    managerId?: true
+    _all?: true
+  }
+
+  export type CaseAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Case to aggregate.
+     */
+    where?: CaseWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Cases to fetch.
+     */
+    orderBy?: CaseOrderByWithRelationInput | CaseOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CaseWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Cases from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Cases.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Cases
+    **/
+    _count?: true | CaseCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: CaseAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: CaseSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CaseMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CaseMaxAggregateInputType
+  }
+
+  export type GetCaseAggregateType<T extends CaseAggregateArgs> = {
+        [P in keyof T & keyof AggregateCase]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCase[P]>
+      : GetScalarType<T[P], AggregateCase[P]>
+  }
+
+
+
+
+  export type CaseGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CaseWhereInput
+    orderBy?: CaseOrderByWithAggregationInput | CaseOrderByWithAggregationInput[]
+    by: CaseScalarFieldEnum[] | CaseScalarFieldEnum
+    having?: CaseScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CaseCountAggregateInputType | true
+    _avg?: CaseAvgAggregateInputType
+    _sum?: CaseSumAggregateInputType
+    _min?: CaseMinAggregateInputType
+    _max?: CaseMaxAggregateInputType
+  }
+
+  export type CaseGroupByOutputType = {
+    id: number
+    createdAt: Date
+    caseImportance: $Enums.IMPORTANCE
+    caseUrgency: $Enums.URGENCY
+    caseStatus: $Enums.CASE_STATUS
+    categories: $Enums.CASE_CATEGORY[]
+    problemShort: string | null
+    problemFull: string | null
+    nearestTask: string | null
+    courtInfo: string | null
+    nearestTaskDeadline: Date | null
+    timeOfPerformance: Date | null
+    assignmentTime: Date | null
+    refusalReason: $Enums.REFUSAL_REASON | null
+    legalAction: $Enums.LEGAL_ACTION | null
+    statusInCourt: $Enums.STATUS_IN_COURT | null
+    priceSOM: bigint | null
+    priceUSD: bigint | null
+    personId: number
+    authorId: number
+    opponentId: number | null
+    managerId: number | null
+    _count: CaseCountAggregateOutputType | null
+    _avg: CaseAvgAggregateOutputType | null
+    _sum: CaseSumAggregateOutputType | null
+    _min: CaseMinAggregateOutputType | null
+    _max: CaseMaxAggregateOutputType | null
+  }
+
+  type GetCaseGroupByPayload<T extends CaseGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CaseGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CaseGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CaseGroupByOutputType[P]>
+            : GetScalarType<T[P], CaseGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CaseSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    createdAt?: boolean
+    caseImportance?: boolean
+    caseUrgency?: boolean
+    caseStatus?: boolean
+    categories?: boolean
+    problemShort?: boolean
+    problemFull?: boolean
+    nearestTask?: boolean
+    courtInfo?: boolean
+    nearestTaskDeadline?: boolean
+    timeOfPerformance?: boolean
+    assignmentTime?: boolean
+    refusalReason?: boolean
+    legalAction?: boolean
+    statusInCourt?: boolean
+    priceSOM?: boolean
+    priceUSD?: boolean
+    personId?: boolean
+    authorId?: boolean
+    opponentId?: boolean
+    managerId?: boolean
+    author?: boolean | EmployeeDefaultArgs<ExtArgs>
+    manager?: boolean | Case$managerArgs<ExtArgs>
+    opponent?: boolean | Case$opponentArgs<ExtArgs>
+    person?: boolean | PersonDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["case"]>
+
+  export type CaseSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    createdAt?: boolean
+    caseImportance?: boolean
+    caseUrgency?: boolean
+    caseStatus?: boolean
+    categories?: boolean
+    problemShort?: boolean
+    problemFull?: boolean
+    nearestTask?: boolean
+    courtInfo?: boolean
+    nearestTaskDeadline?: boolean
+    timeOfPerformance?: boolean
+    assignmentTime?: boolean
+    refusalReason?: boolean
+    legalAction?: boolean
+    statusInCourt?: boolean
+    priceSOM?: boolean
+    priceUSD?: boolean
+    personId?: boolean
+    authorId?: boolean
+    opponentId?: boolean
+    managerId?: boolean
+    author?: boolean | EmployeeDefaultArgs<ExtArgs>
+    manager?: boolean | Case$managerArgs<ExtArgs>
+    opponent?: boolean | Case$opponentArgs<ExtArgs>
+    person?: boolean | PersonDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["case"]>
+
+  export type CaseSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    createdAt?: boolean
+    caseImportance?: boolean
+    caseUrgency?: boolean
+    caseStatus?: boolean
+    categories?: boolean
+    problemShort?: boolean
+    problemFull?: boolean
+    nearestTask?: boolean
+    courtInfo?: boolean
+    nearestTaskDeadline?: boolean
+    timeOfPerformance?: boolean
+    assignmentTime?: boolean
+    refusalReason?: boolean
+    legalAction?: boolean
+    statusInCourt?: boolean
+    priceSOM?: boolean
+    priceUSD?: boolean
+    personId?: boolean
+    authorId?: boolean
+    opponentId?: boolean
+    managerId?: boolean
+    author?: boolean | EmployeeDefaultArgs<ExtArgs>
+    manager?: boolean | Case$managerArgs<ExtArgs>
+    opponent?: boolean | Case$opponentArgs<ExtArgs>
+    person?: boolean | PersonDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["case"]>
+
+  export type CaseSelectScalar = {
+    id?: boolean
+    createdAt?: boolean
+    caseImportance?: boolean
+    caseUrgency?: boolean
+    caseStatus?: boolean
+    categories?: boolean
+    problemShort?: boolean
+    problemFull?: boolean
+    nearestTask?: boolean
+    courtInfo?: boolean
+    nearestTaskDeadline?: boolean
+    timeOfPerformance?: boolean
+    assignmentTime?: boolean
+    refusalReason?: boolean
+    legalAction?: boolean
+    statusInCourt?: boolean
+    priceSOM?: boolean
+    priceUSD?: boolean
+    personId?: boolean
+    authorId?: boolean
+    opponentId?: boolean
+    managerId?: boolean
+  }
+
+  export type CaseOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "caseImportance" | "caseUrgency" | "caseStatus" | "categories" | "problemShort" | "problemFull" | "nearestTask" | "courtInfo" | "nearestTaskDeadline" | "timeOfPerformance" | "assignmentTime" | "refusalReason" | "legalAction" | "statusInCourt" | "priceSOM" | "priceUSD" | "personId" | "authorId" | "opponentId" | "managerId", ExtArgs["result"]["case"]>
+  export type CaseInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    author?: boolean | EmployeeDefaultArgs<ExtArgs>
+    manager?: boolean | Case$managerArgs<ExtArgs>
+    opponent?: boolean | Case$opponentArgs<ExtArgs>
+    person?: boolean | PersonDefaultArgs<ExtArgs>
+  }
+  export type CaseIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    author?: boolean | EmployeeDefaultArgs<ExtArgs>
+    manager?: boolean | Case$managerArgs<ExtArgs>
+    opponent?: boolean | Case$opponentArgs<ExtArgs>
+    person?: boolean | PersonDefaultArgs<ExtArgs>
+  }
+  export type CaseIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    author?: boolean | EmployeeDefaultArgs<ExtArgs>
+    manager?: boolean | Case$managerArgs<ExtArgs>
+    opponent?: boolean | Case$opponentArgs<ExtArgs>
+    person?: boolean | PersonDefaultArgs<ExtArgs>
+  }
+
+  export type $CasePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Case"
+    objects: {
+      author: Prisma.$EmployeePayload<ExtArgs>
+      manager: Prisma.$EmployeePayload<ExtArgs> | null
+      opponent: Prisma.$OpponentPayload<ExtArgs> | null
+      person: Prisma.$PersonPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      createdAt: Date
+      caseImportance: $Enums.IMPORTANCE
+      caseUrgency: $Enums.URGENCY
+      caseStatus: $Enums.CASE_STATUS
+      categories: $Enums.CASE_CATEGORY[]
+      problemShort: string | null
+      problemFull: string | null
+      nearestTask: string | null
+      courtInfo: string | null
+      nearestTaskDeadline: Date | null
+      timeOfPerformance: Date | null
+      assignmentTime: Date | null
+      refusalReason: $Enums.REFUSAL_REASON | null
+      legalAction: $Enums.LEGAL_ACTION | null
+      statusInCourt: $Enums.STATUS_IN_COURT | null
+      priceSOM: bigint | null
+      priceUSD: bigint | null
+      personId: number
+      authorId: number
+      opponentId: number | null
+      managerId: number | null
+    }, ExtArgs["result"]["case"]>
+    composites: {}
+  }
+
+  type CaseGetPayload<S extends boolean | null | undefined | CaseDefaultArgs> = $Result.GetResult<Prisma.$CasePayload, S>
+
+  type CaseCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CaseFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CaseCountAggregateInputType | true
+    }
+
+  export interface CaseDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Case'], meta: { name: 'Case' } }
+    /**
+     * Find zero or one Case that matches the filter.
+     * @param {CaseFindUniqueArgs} args - Arguments to find a Case
+     * @example
+     * // Get one Case
+     * const case = await prisma.case.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CaseFindUniqueArgs>(args: SelectSubset<T, CaseFindUniqueArgs<ExtArgs>>): Prisma__CaseClient<$Result.GetResult<Prisma.$CasePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Case that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {CaseFindUniqueOrThrowArgs} args - Arguments to find a Case
+     * @example
+     * // Get one Case
+     * const case = await prisma.case.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CaseFindUniqueOrThrowArgs>(args: SelectSubset<T, CaseFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CaseClient<$Result.GetResult<Prisma.$CasePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Case that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CaseFindFirstArgs} args - Arguments to find a Case
+     * @example
+     * // Get one Case
+     * const case = await prisma.case.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CaseFindFirstArgs>(args?: SelectSubset<T, CaseFindFirstArgs<ExtArgs>>): Prisma__CaseClient<$Result.GetResult<Prisma.$CasePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Case that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CaseFindFirstOrThrowArgs} args - Arguments to find a Case
+     * @example
+     * // Get one Case
+     * const case = await prisma.case.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CaseFindFirstOrThrowArgs>(args?: SelectSubset<T, CaseFindFirstOrThrowArgs<ExtArgs>>): Prisma__CaseClient<$Result.GetResult<Prisma.$CasePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Cases that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CaseFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Cases
+     * const cases = await prisma.case.findMany()
+     * 
+     * // Get first 10 Cases
+     * const cases = await prisma.case.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const caseWithIdOnly = await prisma.case.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends CaseFindManyArgs>(args?: SelectSubset<T, CaseFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CasePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Case.
+     * @param {CaseCreateArgs} args - Arguments to create a Case.
+     * @example
+     * // Create one Case
+     * const Case = await prisma.case.create({
+     *   data: {
+     *     // ... data to create a Case
+     *   }
+     * })
+     * 
+     */
+    create<T extends CaseCreateArgs>(args: SelectSubset<T, CaseCreateArgs<ExtArgs>>): Prisma__CaseClient<$Result.GetResult<Prisma.$CasePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Cases.
+     * @param {CaseCreateManyArgs} args - Arguments to create many Cases.
+     * @example
+     * // Create many Cases
+     * const case = await prisma.case.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CaseCreateManyArgs>(args?: SelectSubset<T, CaseCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Cases and returns the data saved in the database.
+     * @param {CaseCreateManyAndReturnArgs} args - Arguments to create many Cases.
+     * @example
+     * // Create many Cases
+     * const case = await prisma.case.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Cases and only return the `id`
+     * const caseWithIdOnly = await prisma.case.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends CaseCreateManyAndReturnArgs>(args?: SelectSubset<T, CaseCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CasePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Case.
+     * @param {CaseDeleteArgs} args - Arguments to delete one Case.
+     * @example
+     * // Delete one Case
+     * const Case = await prisma.case.delete({
+     *   where: {
+     *     // ... filter to delete one Case
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CaseDeleteArgs>(args: SelectSubset<T, CaseDeleteArgs<ExtArgs>>): Prisma__CaseClient<$Result.GetResult<Prisma.$CasePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Case.
+     * @param {CaseUpdateArgs} args - Arguments to update one Case.
+     * @example
+     * // Update one Case
+     * const case = await prisma.case.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CaseUpdateArgs>(args: SelectSubset<T, CaseUpdateArgs<ExtArgs>>): Prisma__CaseClient<$Result.GetResult<Prisma.$CasePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Cases.
+     * @param {CaseDeleteManyArgs} args - Arguments to filter Cases to delete.
+     * @example
+     * // Delete a few Cases
+     * const { count } = await prisma.case.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CaseDeleteManyArgs>(args?: SelectSubset<T, CaseDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Cases.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CaseUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Cases
+     * const case = await prisma.case.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CaseUpdateManyArgs>(args: SelectSubset<T, CaseUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Cases and returns the data updated in the database.
+     * @param {CaseUpdateManyAndReturnArgs} args - Arguments to update many Cases.
+     * @example
+     * // Update many Cases
+     * const case = await prisma.case.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Cases and only return the `id`
+     * const caseWithIdOnly = await prisma.case.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends CaseUpdateManyAndReturnArgs>(args: SelectSubset<T, CaseUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CasePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Case.
+     * @param {CaseUpsertArgs} args - Arguments to update or create a Case.
+     * @example
+     * // Update or create a Case
+     * const case = await prisma.case.upsert({
+     *   create: {
+     *     // ... data to create a Case
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Case we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CaseUpsertArgs>(args: SelectSubset<T, CaseUpsertArgs<ExtArgs>>): Prisma__CaseClient<$Result.GetResult<Prisma.$CasePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Cases.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CaseCountArgs} args - Arguments to filter Cases to count.
+     * @example
+     * // Count the number of Cases
+     * const count = await prisma.case.count({
+     *   where: {
+     *     // ... the filter for the Cases we want to count
+     *   }
+     * })
+    **/
+    count<T extends CaseCountArgs>(
+      args?: Subset<T, CaseCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CaseCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Case.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CaseAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CaseAggregateArgs>(args: Subset<T, CaseAggregateArgs>): Prisma.PrismaPromise<GetCaseAggregateType<T>>
+
+    /**
+     * Group by Case.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CaseGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CaseGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CaseGroupByArgs['orderBy'] }
+        : { orderBy?: CaseGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CaseGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCaseGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Case model
+   */
+  readonly fields: CaseFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Case.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CaseClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    author<T extends EmployeeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, EmployeeDefaultArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    manager<T extends Case$managerArgs<ExtArgs> = {}>(args?: Subset<T, Case$managerArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    opponent<T extends Case$opponentArgs<ExtArgs> = {}>(args?: Subset<T, Case$opponentArgs<ExtArgs>>): Prisma__OpponentClient<$Result.GetResult<Prisma.$OpponentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    person<T extends PersonDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PersonDefaultArgs<ExtArgs>>): Prisma__PersonClient<$Result.GetResult<Prisma.$PersonPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Case model
+   */
+  interface CaseFieldRefs {
+    readonly id: FieldRef<"Case", 'Int'>
+    readonly createdAt: FieldRef<"Case", 'DateTime'>
+    readonly caseImportance: FieldRef<"Case", 'IMPORTANCE'>
+    readonly caseUrgency: FieldRef<"Case", 'URGENCY'>
+    readonly caseStatus: FieldRef<"Case", 'CASE_STATUS'>
+    readonly categories: FieldRef<"Case", 'CASE_CATEGORY[]'>
+    readonly problemShort: FieldRef<"Case", 'String'>
+    readonly problemFull: FieldRef<"Case", 'String'>
+    readonly nearestTask: FieldRef<"Case", 'String'>
+    readonly courtInfo: FieldRef<"Case", 'String'>
+    readonly nearestTaskDeadline: FieldRef<"Case", 'DateTime'>
+    readonly timeOfPerformance: FieldRef<"Case", 'DateTime'>
+    readonly assignmentTime: FieldRef<"Case", 'DateTime'>
+    readonly refusalReason: FieldRef<"Case", 'REFUSAL_REASON'>
+    readonly legalAction: FieldRef<"Case", 'LEGAL_ACTION'>
+    readonly statusInCourt: FieldRef<"Case", 'STATUS_IN_COURT'>
+    readonly priceSOM: FieldRef<"Case", 'BigInt'>
+    readonly priceUSD: FieldRef<"Case", 'BigInt'>
+    readonly personId: FieldRef<"Case", 'Int'>
+    readonly authorId: FieldRef<"Case", 'Int'>
+    readonly opponentId: FieldRef<"Case", 'Int'>
+    readonly managerId: FieldRef<"Case", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Case findUnique
+   */
+  export type CaseFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Case
+     */
+    select?: CaseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Case
+     */
+    omit?: CaseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseInclude<ExtArgs> | null
+    /**
+     * Filter, which Case to fetch.
+     */
+    where: CaseWhereUniqueInput
+  }
+
+  /**
+   * Case findUniqueOrThrow
+   */
+  export type CaseFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Case
+     */
+    select?: CaseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Case
+     */
+    omit?: CaseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseInclude<ExtArgs> | null
+    /**
+     * Filter, which Case to fetch.
+     */
+    where: CaseWhereUniqueInput
+  }
+
+  /**
+   * Case findFirst
+   */
+  export type CaseFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Case
+     */
+    select?: CaseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Case
+     */
+    omit?: CaseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseInclude<ExtArgs> | null
+    /**
+     * Filter, which Case to fetch.
+     */
+    where?: CaseWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Cases to fetch.
+     */
+    orderBy?: CaseOrderByWithRelationInput | CaseOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Cases.
+     */
+    cursor?: CaseWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Cases from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Cases.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Cases.
+     */
+    distinct?: CaseScalarFieldEnum | CaseScalarFieldEnum[]
+  }
+
+  /**
+   * Case findFirstOrThrow
+   */
+  export type CaseFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Case
+     */
+    select?: CaseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Case
+     */
+    omit?: CaseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseInclude<ExtArgs> | null
+    /**
+     * Filter, which Case to fetch.
+     */
+    where?: CaseWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Cases to fetch.
+     */
+    orderBy?: CaseOrderByWithRelationInput | CaseOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Cases.
+     */
+    cursor?: CaseWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Cases from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Cases.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Cases.
+     */
+    distinct?: CaseScalarFieldEnum | CaseScalarFieldEnum[]
+  }
+
+  /**
+   * Case findMany
+   */
+  export type CaseFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Case
+     */
+    select?: CaseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Case
+     */
+    omit?: CaseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseInclude<ExtArgs> | null
+    /**
+     * Filter, which Cases to fetch.
+     */
+    where?: CaseWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Cases to fetch.
+     */
+    orderBy?: CaseOrderByWithRelationInput | CaseOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Cases.
+     */
+    cursor?: CaseWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Cases from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Cases.
+     */
+    skip?: number
+    distinct?: CaseScalarFieldEnum | CaseScalarFieldEnum[]
+  }
+
+  /**
+   * Case create
+   */
+  export type CaseCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Case
+     */
+    select?: CaseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Case
+     */
+    omit?: CaseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Case.
+     */
+    data: XOR<CaseCreateInput, CaseUncheckedCreateInput>
+  }
+
+  /**
+   * Case createMany
+   */
+  export type CaseCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Cases.
+     */
+    data: CaseCreateManyInput | CaseCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Case createManyAndReturn
+   */
+  export type CaseCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Case
+     */
+    select?: CaseSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Case
+     */
+    omit?: CaseOmit<ExtArgs> | null
+    /**
+     * The data used to create many Cases.
+     */
+    data: CaseCreateManyInput | CaseCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Case update
+   */
+  export type CaseUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Case
+     */
+    select?: CaseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Case
+     */
+    omit?: CaseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Case.
+     */
+    data: XOR<CaseUpdateInput, CaseUncheckedUpdateInput>
+    /**
+     * Choose, which Case to update.
+     */
+    where: CaseWhereUniqueInput
+  }
+
+  /**
+   * Case updateMany
+   */
+  export type CaseUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Cases.
+     */
+    data: XOR<CaseUpdateManyMutationInput, CaseUncheckedUpdateManyInput>
+    /**
+     * Filter which Cases to update
+     */
+    where?: CaseWhereInput
+    /**
+     * Limit how many Cases to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Case updateManyAndReturn
+   */
+  export type CaseUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Case
+     */
+    select?: CaseSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Case
+     */
+    omit?: CaseOmit<ExtArgs> | null
+    /**
+     * The data used to update Cases.
+     */
+    data: XOR<CaseUpdateManyMutationInput, CaseUncheckedUpdateManyInput>
+    /**
+     * Filter which Cases to update
+     */
+    where?: CaseWhereInput
+    /**
+     * Limit how many Cases to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Case upsert
+   */
+  export type CaseUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Case
+     */
+    select?: CaseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Case
+     */
+    omit?: CaseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Case to update in case it exists.
+     */
+    where: CaseWhereUniqueInput
+    /**
+     * In case the Case found by the `where` argument doesn't exist, create a new Case with this data.
+     */
+    create: XOR<CaseCreateInput, CaseUncheckedCreateInput>
+    /**
+     * In case the Case was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CaseUpdateInput, CaseUncheckedUpdateInput>
+  }
+
+  /**
+   * Case delete
+   */
+  export type CaseDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Case
+     */
+    select?: CaseSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Case
+     */
+    omit?: CaseOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CaseInclude<ExtArgs> | null
+    /**
+     * Filter which Case to delete.
+     */
+    where: CaseWhereUniqueInput
+  }
+
+  /**
+   * Case deleteMany
+   */
+  export type CaseDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Cases to delete
+     */
+    where?: CaseWhereInput
+    /**
+     * Limit how many Cases to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Case.manager
+   */
+  export type Case$managerArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Employee
+     */
+    select?: EmployeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Employee
+     */
+    omit?: EmployeeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeeInclude<ExtArgs> | null
+    where?: EmployeeWhereInput
+  }
+
+  /**
+   * Case.opponent
+   */
+  export type Case$opponentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Opponent
      */
@@ -4104,443 +5448,420 @@ export namespace Prisma {
   }
 
   /**
-   * User.manager
+   * Case without action
    */
-  export type User$managerArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CaseDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Manager
+     * Select specific fields to fetch from the Case
      */
-    select?: ManagerSelect<ExtArgs> | null
+    select?: CaseSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Manager
+     * Omit specific fields from the Case
      */
-    omit?: ManagerOmit<ExtArgs> | null
+    omit?: CaseOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ManagerInclude<ExtArgs> | null
-    where?: ManagerWhereInput
-  }
-
-  /**
-   * User without action
-   */
-  export type UserDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the User
-     */
-    select?: UserSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the User
-     */
-    omit?: UserOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: UserInclude<ExtArgs> | null
+    include?: CaseInclude<ExtArgs> | null
   }
 
 
   /**
-   * Model Source
+   * Model Origin
    */
 
-  export type AggregateSource = {
-    _count: SourceCountAggregateOutputType | null
-    _avg: SourceAvgAggregateOutputType | null
-    _sum: SourceSumAggregateOutputType | null
-    _min: SourceMinAggregateOutputType | null
-    _max: SourceMaxAggregateOutputType | null
+  export type AggregateOrigin = {
+    _count: OriginCountAggregateOutputType | null
+    _avg: OriginAvgAggregateOutputType | null
+    _sum: OriginSumAggregateOutputType | null
+    _min: OriginMinAggregateOutputType | null
+    _max: OriginMaxAggregateOutputType | null
   }
 
-  export type SourceAvgAggregateOutputType = {
+  export type OriginAvgAggregateOutputType = {
     id: number | null
     authorId: number | null
   }
 
-  export type SourceSumAggregateOutputType = {
+  export type OriginSumAggregateOutputType = {
     id: number | null
     authorId: number | null
   }
 
-  export type SourceMinAggregateOutputType = {
+  export type OriginMinAggregateOutputType = {
     id: number | null
-    title: string | null
-    sourceLink: string | null
-    category: $Enums.SOURCE_CATEGORY | null
     createdAt: Date | null
-    authorId: number | null
-  }
-
-  export type SourceMaxAggregateOutputType = {
-    id: number | null
     title: string | null
-    sourceLink: string | null
-    category: $Enums.SOURCE_CATEGORY | null
-    createdAt: Date | null
+    link: string | null
     authorId: number | null
   }
 
-  export type SourceCountAggregateOutputType = {
+  export type OriginMaxAggregateOutputType = {
+    id: number | null
+    createdAt: Date | null
+    title: string | null
+    link: string | null
+    authorId: number | null
+  }
+
+  export type OriginCountAggregateOutputType = {
     id: number
-    title: number
-    sourceLink: number
-    category: number
     createdAt: number
+    title: number
+    link: number
+    categories: number
     authorId: number
     _all: number
   }
 
 
-  export type SourceAvgAggregateInputType = {
+  export type OriginAvgAggregateInputType = {
     id?: true
     authorId?: true
   }
 
-  export type SourceSumAggregateInputType = {
+  export type OriginSumAggregateInputType = {
     id?: true
     authorId?: true
   }
 
-  export type SourceMinAggregateInputType = {
+  export type OriginMinAggregateInputType = {
     id?: true
-    title?: true
-    sourceLink?: true
-    category?: true
     createdAt?: true
+    title?: true
+    link?: true
     authorId?: true
   }
 
-  export type SourceMaxAggregateInputType = {
+  export type OriginMaxAggregateInputType = {
     id?: true
-    title?: true
-    sourceLink?: true
-    category?: true
     createdAt?: true
+    title?: true
+    link?: true
     authorId?: true
   }
 
-  export type SourceCountAggregateInputType = {
+  export type OriginCountAggregateInputType = {
     id?: true
-    title?: true
-    sourceLink?: true
-    category?: true
     createdAt?: true
+    title?: true
+    link?: true
+    categories?: true
     authorId?: true
     _all?: true
   }
 
-  export type SourceAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OriginAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Source to aggregate.
+     * Filter which Origin to aggregate.
      */
-    where?: SourceWhereInput
+    where?: OriginWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Sources to fetch.
+     * Determine the order of Origins to fetch.
      */
-    orderBy?: SourceOrderByWithRelationInput | SourceOrderByWithRelationInput[]
+    orderBy?: OriginOrderByWithRelationInput | OriginOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: SourceWhereUniqueInput
+    cursor?: OriginWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Sources from the position of the cursor.
+     * Take `±n` Origins from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Sources.
+     * Skip the first `n` Origins.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Sources
+     * Count returned Origins
     **/
-    _count?: true | SourceCountAggregateInputType
+    _count?: true | OriginCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: SourceAvgAggregateInputType
+    _avg?: OriginAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: SourceSumAggregateInputType
+    _sum?: OriginSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: SourceMinAggregateInputType
+    _min?: OriginMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: SourceMaxAggregateInputType
+    _max?: OriginMaxAggregateInputType
   }
 
-  export type GetSourceAggregateType<T extends SourceAggregateArgs> = {
-        [P in keyof T & keyof AggregateSource]: P extends '_count' | 'count'
+  export type GetOriginAggregateType<T extends OriginAggregateArgs> = {
+        [P in keyof T & keyof AggregateOrigin]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateSource[P]>
-      : GetScalarType<T[P], AggregateSource[P]>
+        : GetScalarType<T[P], AggregateOrigin[P]>
+      : GetScalarType<T[P], AggregateOrigin[P]>
   }
 
 
 
 
-  export type SourceGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: SourceWhereInput
-    orderBy?: SourceOrderByWithAggregationInput | SourceOrderByWithAggregationInput[]
-    by: SourceScalarFieldEnum[] | SourceScalarFieldEnum
-    having?: SourceScalarWhereWithAggregatesInput
+  export type OriginGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: OriginWhereInput
+    orderBy?: OriginOrderByWithAggregationInput | OriginOrderByWithAggregationInput[]
+    by: OriginScalarFieldEnum[] | OriginScalarFieldEnum
+    having?: OriginScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: SourceCountAggregateInputType | true
-    _avg?: SourceAvgAggregateInputType
-    _sum?: SourceSumAggregateInputType
-    _min?: SourceMinAggregateInputType
-    _max?: SourceMaxAggregateInputType
+    _count?: OriginCountAggregateInputType | true
+    _avg?: OriginAvgAggregateInputType
+    _sum?: OriginSumAggregateInputType
+    _min?: OriginMinAggregateInputType
+    _max?: OriginMaxAggregateInputType
   }
 
-  export type SourceGroupByOutputType = {
+  export type OriginGroupByOutputType = {
     id: number
-    title: string
-    sourceLink: string | null
-    category: $Enums.SOURCE_CATEGORY
     createdAt: Date
+    title: string
+    link: string | null
+    categories: $Enums.CASE_CATEGORY[]
     authorId: number
-    _count: SourceCountAggregateOutputType | null
-    _avg: SourceAvgAggregateOutputType | null
-    _sum: SourceSumAggregateOutputType | null
-    _min: SourceMinAggregateOutputType | null
-    _max: SourceMaxAggregateOutputType | null
+    _count: OriginCountAggregateOutputType | null
+    _avg: OriginAvgAggregateOutputType | null
+    _sum: OriginSumAggregateOutputType | null
+    _min: OriginMinAggregateOutputType | null
+    _max: OriginMaxAggregateOutputType | null
   }
 
-  type GetSourceGroupByPayload<T extends SourceGroupByArgs> = Prisma.PrismaPromise<
+  type GetOriginGroupByPayload<T extends OriginGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<SourceGroupByOutputType, T['by']> &
+      PickEnumerable<OriginGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof SourceGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof OriginGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], SourceGroupByOutputType[P]>
-            : GetScalarType<T[P], SourceGroupByOutputType[P]>
+              : GetScalarType<T[P], OriginGroupByOutputType[P]>
+            : GetScalarType<T[P], OriginGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type SourceSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type OriginSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    title?: boolean
-    sourceLink?: boolean
-    category?: boolean
     createdAt?: boolean
+    title?: boolean
+    link?: boolean
+    categories?: boolean
     authorId?: boolean
-    author?: boolean | ManagerDefaultArgs<ExtArgs>
-    users?: boolean | Source$usersArgs<ExtArgs>
-    _count?: boolean | SourceCountOutputTypeDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["source"]>
+    author?: boolean | EmployeeDefaultArgs<ExtArgs>
+    persons?: boolean | Origin$personsArgs<ExtArgs>
+    _count?: boolean | OriginCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["origin"]>
 
-  export type SourceSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type OriginSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    title?: boolean
-    sourceLink?: boolean
-    category?: boolean
     createdAt?: boolean
+    title?: boolean
+    link?: boolean
+    categories?: boolean
     authorId?: boolean
-    author?: boolean | ManagerDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["source"]>
+    author?: boolean | EmployeeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["origin"]>
 
-  export type SourceSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type OriginSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    title?: boolean
-    sourceLink?: boolean
-    category?: boolean
     createdAt?: boolean
+    title?: boolean
+    link?: boolean
+    categories?: boolean
     authorId?: boolean
-    author?: boolean | ManagerDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["source"]>
+    author?: boolean | EmployeeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["origin"]>
 
-  export type SourceSelectScalar = {
+  export type OriginSelectScalar = {
     id?: boolean
-    title?: boolean
-    sourceLink?: boolean
-    category?: boolean
     createdAt?: boolean
+    title?: boolean
+    link?: boolean
+    categories?: boolean
     authorId?: boolean
   }
 
-  export type SourceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "sourceLink" | "category" | "createdAt" | "authorId", ExtArgs["result"]["source"]>
-  export type SourceInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    author?: boolean | ManagerDefaultArgs<ExtArgs>
-    users?: boolean | Source$usersArgs<ExtArgs>
-    _count?: boolean | SourceCountOutputTypeDefaultArgs<ExtArgs>
+  export type OriginOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "title" | "link" | "categories" | "authorId", ExtArgs["result"]["origin"]>
+  export type OriginInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    author?: boolean | EmployeeDefaultArgs<ExtArgs>
+    persons?: boolean | Origin$personsArgs<ExtArgs>
+    _count?: boolean | OriginCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type SourceIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    author?: boolean | ManagerDefaultArgs<ExtArgs>
+  export type OriginIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    author?: boolean | EmployeeDefaultArgs<ExtArgs>
   }
-  export type SourceIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    author?: boolean | ManagerDefaultArgs<ExtArgs>
+  export type OriginIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    author?: boolean | EmployeeDefaultArgs<ExtArgs>
   }
 
-  export type $SourcePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Source"
+  export type $OriginPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Origin"
     objects: {
-      author: Prisma.$ManagerPayload<ExtArgs>
-      users: Prisma.$UserPayload<ExtArgs>[]
+      author: Prisma.$EmployeePayload<ExtArgs>
+      persons: Prisma.$PersonPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      title: string
-      sourceLink: string | null
-      category: $Enums.SOURCE_CATEGORY
       createdAt: Date
+      title: string
+      link: string | null
+      categories: $Enums.CASE_CATEGORY[]
       authorId: number
-    }, ExtArgs["result"]["source"]>
+    }, ExtArgs["result"]["origin"]>
     composites: {}
   }
 
-  type SourceGetPayload<S extends boolean | null | undefined | SourceDefaultArgs> = $Result.GetResult<Prisma.$SourcePayload, S>
+  type OriginGetPayload<S extends boolean | null | undefined | OriginDefaultArgs> = $Result.GetResult<Prisma.$OriginPayload, S>
 
-  type SourceCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<SourceFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: SourceCountAggregateInputType | true
+  type OriginCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<OriginFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: OriginCountAggregateInputType | true
     }
 
-  export interface SourceDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Source'], meta: { name: 'Source' } }
+  export interface OriginDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Origin'], meta: { name: 'Origin' } }
     /**
-     * Find zero or one Source that matches the filter.
-     * @param {SourceFindUniqueArgs} args - Arguments to find a Source
+     * Find zero or one Origin that matches the filter.
+     * @param {OriginFindUniqueArgs} args - Arguments to find a Origin
      * @example
-     * // Get one Source
-     * const source = await prisma.source.findUnique({
+     * // Get one Origin
+     * const origin = await prisma.origin.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends SourceFindUniqueArgs>(args: SelectSubset<T, SourceFindUniqueArgs<ExtArgs>>): Prisma__SourceClient<$Result.GetResult<Prisma.$SourcePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends OriginFindUniqueArgs>(args: SelectSubset<T, OriginFindUniqueArgs<ExtArgs>>): Prisma__OriginClient<$Result.GetResult<Prisma.$OriginPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Source that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Origin that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {SourceFindUniqueOrThrowArgs} args - Arguments to find a Source
+     * @param {OriginFindUniqueOrThrowArgs} args - Arguments to find a Origin
      * @example
-     * // Get one Source
-     * const source = await prisma.source.findUniqueOrThrow({
+     * // Get one Origin
+     * const origin = await prisma.origin.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends SourceFindUniqueOrThrowArgs>(args: SelectSubset<T, SourceFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SourceClient<$Result.GetResult<Prisma.$SourcePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends OriginFindUniqueOrThrowArgs>(args: SelectSubset<T, OriginFindUniqueOrThrowArgs<ExtArgs>>): Prisma__OriginClient<$Result.GetResult<Prisma.$OriginPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Source that matches the filter.
+     * Find the first Origin that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {SourceFindFirstArgs} args - Arguments to find a Source
+     * @param {OriginFindFirstArgs} args - Arguments to find a Origin
      * @example
-     * // Get one Source
-     * const source = await prisma.source.findFirst({
+     * // Get one Origin
+     * const origin = await prisma.origin.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends SourceFindFirstArgs>(args?: SelectSubset<T, SourceFindFirstArgs<ExtArgs>>): Prisma__SourceClient<$Result.GetResult<Prisma.$SourcePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends OriginFindFirstArgs>(args?: SelectSubset<T, OriginFindFirstArgs<ExtArgs>>): Prisma__OriginClient<$Result.GetResult<Prisma.$OriginPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Source that matches the filter or
+     * Find the first Origin that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {SourceFindFirstOrThrowArgs} args - Arguments to find a Source
+     * @param {OriginFindFirstOrThrowArgs} args - Arguments to find a Origin
      * @example
-     * // Get one Source
-     * const source = await prisma.source.findFirstOrThrow({
+     * // Get one Origin
+     * const origin = await prisma.origin.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends SourceFindFirstOrThrowArgs>(args?: SelectSubset<T, SourceFindFirstOrThrowArgs<ExtArgs>>): Prisma__SourceClient<$Result.GetResult<Prisma.$SourcePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends OriginFindFirstOrThrowArgs>(args?: SelectSubset<T, OriginFindFirstOrThrowArgs<ExtArgs>>): Prisma__OriginClient<$Result.GetResult<Prisma.$OriginPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Sources that matches the filter.
+     * Find zero or more Origins that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {SourceFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {OriginFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Sources
-     * const sources = await prisma.source.findMany()
+     * // Get all Origins
+     * const origins = await prisma.origin.findMany()
      * 
-     * // Get first 10 Sources
-     * const sources = await prisma.source.findMany({ take: 10 })
+     * // Get first 10 Origins
+     * const origins = await prisma.origin.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const sourceWithIdOnly = await prisma.source.findMany({ select: { id: true } })
+     * const originWithIdOnly = await prisma.origin.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends SourceFindManyArgs>(args?: SelectSubset<T, SourceFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SourcePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends OriginFindManyArgs>(args?: SelectSubset<T, OriginFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OriginPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Source.
-     * @param {SourceCreateArgs} args - Arguments to create a Source.
+     * Create a Origin.
+     * @param {OriginCreateArgs} args - Arguments to create a Origin.
      * @example
-     * // Create one Source
-     * const Source = await prisma.source.create({
+     * // Create one Origin
+     * const Origin = await prisma.origin.create({
      *   data: {
-     *     // ... data to create a Source
+     *     // ... data to create a Origin
      *   }
      * })
      * 
      */
-    create<T extends SourceCreateArgs>(args: SelectSubset<T, SourceCreateArgs<ExtArgs>>): Prisma__SourceClient<$Result.GetResult<Prisma.$SourcePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends OriginCreateArgs>(args: SelectSubset<T, OriginCreateArgs<ExtArgs>>): Prisma__OriginClient<$Result.GetResult<Prisma.$OriginPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Sources.
-     * @param {SourceCreateManyArgs} args - Arguments to create many Sources.
+     * Create many Origins.
+     * @param {OriginCreateManyArgs} args - Arguments to create many Origins.
      * @example
-     * // Create many Sources
-     * const source = await prisma.source.createMany({
+     * // Create many Origins
+     * const origin = await prisma.origin.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends SourceCreateManyArgs>(args?: SelectSubset<T, SourceCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends OriginCreateManyArgs>(args?: SelectSubset<T, OriginCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many Sources and returns the data saved in the database.
-     * @param {SourceCreateManyAndReturnArgs} args - Arguments to create many Sources.
+     * Create many Origins and returns the data saved in the database.
+     * @param {OriginCreateManyAndReturnArgs} args - Arguments to create many Origins.
      * @example
-     * // Create many Sources
-     * const source = await prisma.source.createManyAndReturn({
+     * // Create many Origins
+     * const origin = await prisma.origin.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many Sources and only return the `id`
-     * const sourceWithIdOnly = await prisma.source.createManyAndReturn({
+     * // Create many Origins and only return the `id`
+     * const originWithIdOnly = await prisma.origin.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -4550,28 +5871,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends SourceCreateManyAndReturnArgs>(args?: SelectSubset<T, SourceCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SourcePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends OriginCreateManyAndReturnArgs>(args?: SelectSubset<T, OriginCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OriginPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a Source.
-     * @param {SourceDeleteArgs} args - Arguments to delete one Source.
+     * Delete a Origin.
+     * @param {OriginDeleteArgs} args - Arguments to delete one Origin.
      * @example
-     * // Delete one Source
-     * const Source = await prisma.source.delete({
+     * // Delete one Origin
+     * const Origin = await prisma.origin.delete({
      *   where: {
-     *     // ... filter to delete one Source
+     *     // ... filter to delete one Origin
      *   }
      * })
      * 
      */
-    delete<T extends SourceDeleteArgs>(args: SelectSubset<T, SourceDeleteArgs<ExtArgs>>): Prisma__SourceClient<$Result.GetResult<Prisma.$SourcePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends OriginDeleteArgs>(args: SelectSubset<T, OriginDeleteArgs<ExtArgs>>): Prisma__OriginClient<$Result.GetResult<Prisma.$OriginPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Source.
-     * @param {SourceUpdateArgs} args - Arguments to update one Source.
+     * Update one Origin.
+     * @param {OriginUpdateArgs} args - Arguments to update one Origin.
      * @example
-     * // Update one Source
-     * const source = await prisma.source.update({
+     * // Update one Origin
+     * const origin = await prisma.origin.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -4581,30 +5902,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends SourceUpdateArgs>(args: SelectSubset<T, SourceUpdateArgs<ExtArgs>>): Prisma__SourceClient<$Result.GetResult<Prisma.$SourcePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends OriginUpdateArgs>(args: SelectSubset<T, OriginUpdateArgs<ExtArgs>>): Prisma__OriginClient<$Result.GetResult<Prisma.$OriginPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Sources.
-     * @param {SourceDeleteManyArgs} args - Arguments to filter Sources to delete.
+     * Delete zero or more Origins.
+     * @param {OriginDeleteManyArgs} args - Arguments to filter Origins to delete.
      * @example
-     * // Delete a few Sources
-     * const { count } = await prisma.source.deleteMany({
+     * // Delete a few Origins
+     * const { count } = await prisma.origin.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends SourceDeleteManyArgs>(args?: SelectSubset<T, SourceDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends OriginDeleteManyArgs>(args?: SelectSubset<T, OriginDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Sources.
+     * Update zero or more Origins.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {SourceUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {OriginUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Sources
-     * const source = await prisma.source.updateMany({
+     * // Update many Origins
+     * const origin = await prisma.origin.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -4614,14 +5935,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends SourceUpdateManyArgs>(args: SelectSubset<T, SourceUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends OriginUpdateManyArgs>(args: SelectSubset<T, OriginUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Sources and returns the data updated in the database.
-     * @param {SourceUpdateManyAndReturnArgs} args - Arguments to update many Sources.
+     * Update zero or more Origins and returns the data updated in the database.
+     * @param {OriginUpdateManyAndReturnArgs} args - Arguments to update many Origins.
      * @example
-     * // Update many Sources
-     * const source = await prisma.source.updateManyAndReturn({
+     * // Update many Origins
+     * const origin = await prisma.origin.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -4630,8 +5951,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more Sources and only return the `id`
-     * const sourceWithIdOnly = await prisma.source.updateManyAndReturn({
+     * // Update zero or more Origins and only return the `id`
+     * const originWithIdOnly = await prisma.origin.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -4644,56 +5965,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends SourceUpdateManyAndReturnArgs>(args: SelectSubset<T, SourceUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SourcePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends OriginUpdateManyAndReturnArgs>(args: SelectSubset<T, OriginUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OriginPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one Source.
-     * @param {SourceUpsertArgs} args - Arguments to update or create a Source.
+     * Create or update one Origin.
+     * @param {OriginUpsertArgs} args - Arguments to update or create a Origin.
      * @example
-     * // Update or create a Source
-     * const source = await prisma.source.upsert({
+     * // Update or create a Origin
+     * const origin = await prisma.origin.upsert({
      *   create: {
-     *     // ... data to create a Source
+     *     // ... data to create a Origin
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Source we want to update
+     *     // ... the filter for the Origin we want to update
      *   }
      * })
      */
-    upsert<T extends SourceUpsertArgs>(args: SelectSubset<T, SourceUpsertArgs<ExtArgs>>): Prisma__SourceClient<$Result.GetResult<Prisma.$SourcePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends OriginUpsertArgs>(args: SelectSubset<T, OriginUpsertArgs<ExtArgs>>): Prisma__OriginClient<$Result.GetResult<Prisma.$OriginPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Sources.
+     * Count the number of Origins.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {SourceCountArgs} args - Arguments to filter Sources to count.
+     * @param {OriginCountArgs} args - Arguments to filter Origins to count.
      * @example
-     * // Count the number of Sources
-     * const count = await prisma.source.count({
+     * // Count the number of Origins
+     * const count = await prisma.origin.count({
      *   where: {
-     *     // ... the filter for the Sources we want to count
+     *     // ... the filter for the Origins we want to count
      *   }
      * })
     **/
-    count<T extends SourceCountArgs>(
-      args?: Subset<T, SourceCountArgs>,
+    count<T extends OriginCountArgs>(
+      args?: Subset<T, OriginCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], SourceCountAggregateOutputType>
+          : GetScalarType<T['select'], OriginCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Source.
+     * Allows you to perform aggregations operations on a Origin.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {SourceAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {OriginAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -4713,13 +6034,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends SourceAggregateArgs>(args: Subset<T, SourceAggregateArgs>): Prisma.PrismaPromise<GetSourceAggregateType<T>>
+    aggregate<T extends OriginAggregateArgs>(args: Subset<T, OriginAggregateArgs>): Prisma.PrismaPromise<GetOriginAggregateType<T>>
 
     /**
-     * Group by Source.
+     * Group by Origin.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {SourceGroupByArgs} args - Group by arguments.
+     * @param {OriginGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -4734,14 +6055,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends SourceGroupByArgs,
+      T extends OriginGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: SourceGroupByArgs['orderBy'] }
-        : { orderBy?: SourceGroupByArgs['orderBy'] },
+        ? { orderBy: OriginGroupByArgs['orderBy'] }
+        : { orderBy?: OriginGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -4790,23 +6111,23 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, SourceGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSourceGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, OriginGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetOriginGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Source model
+   * Fields of the Origin model
    */
-  readonly fields: SourceFieldRefs;
+  readonly fields: OriginFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Source.
+   * The delegate class that acts as a "Promise-like" for Origin.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__SourceClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__OriginClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    author<T extends ManagerDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ManagerDefaultArgs<ExtArgs>>): Prisma__ManagerClient<$Result.GetResult<Prisma.$ManagerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    users<T extends Source$usersArgs<ExtArgs> = {}>(args?: Subset<T, Source$usersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    author<T extends EmployeeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, EmployeeDefaultArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    persons<T extends Origin$personsArgs<ExtArgs> = {}>(args?: Subset<T, Origin$personsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PersonPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4833,450 +6154,450 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Source model
+   * Fields of the Origin model
    */
-  interface SourceFieldRefs {
-    readonly id: FieldRef<"Source", 'Int'>
-    readonly title: FieldRef<"Source", 'String'>
-    readonly sourceLink: FieldRef<"Source", 'String'>
-    readonly category: FieldRef<"Source", 'SOURCE_CATEGORY'>
-    readonly createdAt: FieldRef<"Source", 'DateTime'>
-    readonly authorId: FieldRef<"Source", 'Int'>
+  interface OriginFieldRefs {
+    readonly id: FieldRef<"Origin", 'Int'>
+    readonly createdAt: FieldRef<"Origin", 'DateTime'>
+    readonly title: FieldRef<"Origin", 'String'>
+    readonly link: FieldRef<"Origin", 'String'>
+    readonly categories: FieldRef<"Origin", 'CASE_CATEGORY[]'>
+    readonly authorId: FieldRef<"Origin", 'Int'>
   }
     
 
   // Custom InputTypes
   /**
-   * Source findUnique
+   * Origin findUnique
    */
-  export type SourceFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OriginFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Source
+     * Select specific fields to fetch from the Origin
      */
-    select?: SourceSelect<ExtArgs> | null
+    select?: OriginSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Source
+     * Omit specific fields from the Origin
      */
-    omit?: SourceOmit<ExtArgs> | null
+    omit?: OriginOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: SourceInclude<ExtArgs> | null
+    include?: OriginInclude<ExtArgs> | null
     /**
-     * Filter, which Source to fetch.
+     * Filter, which Origin to fetch.
      */
-    where: SourceWhereUniqueInput
+    where: OriginWhereUniqueInput
   }
 
   /**
-   * Source findUniqueOrThrow
+   * Origin findUniqueOrThrow
    */
-  export type SourceFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OriginFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Source
+     * Select specific fields to fetch from the Origin
      */
-    select?: SourceSelect<ExtArgs> | null
+    select?: OriginSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Source
+     * Omit specific fields from the Origin
      */
-    omit?: SourceOmit<ExtArgs> | null
+    omit?: OriginOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: SourceInclude<ExtArgs> | null
+    include?: OriginInclude<ExtArgs> | null
     /**
-     * Filter, which Source to fetch.
+     * Filter, which Origin to fetch.
      */
-    where: SourceWhereUniqueInput
+    where: OriginWhereUniqueInput
   }
 
   /**
-   * Source findFirst
+   * Origin findFirst
    */
-  export type SourceFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OriginFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Source
+     * Select specific fields to fetch from the Origin
      */
-    select?: SourceSelect<ExtArgs> | null
+    select?: OriginSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Source
+     * Omit specific fields from the Origin
      */
-    omit?: SourceOmit<ExtArgs> | null
+    omit?: OriginOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: SourceInclude<ExtArgs> | null
+    include?: OriginInclude<ExtArgs> | null
     /**
-     * Filter, which Source to fetch.
+     * Filter, which Origin to fetch.
      */
-    where?: SourceWhereInput
+    where?: OriginWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Sources to fetch.
+     * Determine the order of Origins to fetch.
      */
-    orderBy?: SourceOrderByWithRelationInput | SourceOrderByWithRelationInput[]
+    orderBy?: OriginOrderByWithRelationInput | OriginOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Sources.
+     * Sets the position for searching for Origins.
      */
-    cursor?: SourceWhereUniqueInput
+    cursor?: OriginWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Sources from the position of the cursor.
+     * Take `±n` Origins from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Sources.
+     * Skip the first `n` Origins.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Sources.
+     * Filter by unique combinations of Origins.
      */
-    distinct?: SourceScalarFieldEnum | SourceScalarFieldEnum[]
+    distinct?: OriginScalarFieldEnum | OriginScalarFieldEnum[]
   }
 
   /**
-   * Source findFirstOrThrow
+   * Origin findFirstOrThrow
    */
-  export type SourceFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OriginFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Source
+     * Select specific fields to fetch from the Origin
      */
-    select?: SourceSelect<ExtArgs> | null
+    select?: OriginSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Source
+     * Omit specific fields from the Origin
      */
-    omit?: SourceOmit<ExtArgs> | null
+    omit?: OriginOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: SourceInclude<ExtArgs> | null
+    include?: OriginInclude<ExtArgs> | null
     /**
-     * Filter, which Source to fetch.
+     * Filter, which Origin to fetch.
      */
-    where?: SourceWhereInput
+    where?: OriginWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Sources to fetch.
+     * Determine the order of Origins to fetch.
      */
-    orderBy?: SourceOrderByWithRelationInput | SourceOrderByWithRelationInput[]
+    orderBy?: OriginOrderByWithRelationInput | OriginOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Sources.
+     * Sets the position for searching for Origins.
      */
-    cursor?: SourceWhereUniqueInput
+    cursor?: OriginWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Sources from the position of the cursor.
+     * Take `±n` Origins from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Sources.
+     * Skip the first `n` Origins.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Sources.
+     * Filter by unique combinations of Origins.
      */
-    distinct?: SourceScalarFieldEnum | SourceScalarFieldEnum[]
+    distinct?: OriginScalarFieldEnum | OriginScalarFieldEnum[]
   }
 
   /**
-   * Source findMany
+   * Origin findMany
    */
-  export type SourceFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OriginFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Source
+     * Select specific fields to fetch from the Origin
      */
-    select?: SourceSelect<ExtArgs> | null
+    select?: OriginSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Source
+     * Omit specific fields from the Origin
      */
-    omit?: SourceOmit<ExtArgs> | null
+    omit?: OriginOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: SourceInclude<ExtArgs> | null
+    include?: OriginInclude<ExtArgs> | null
     /**
-     * Filter, which Sources to fetch.
+     * Filter, which Origins to fetch.
      */
-    where?: SourceWhereInput
+    where?: OriginWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Sources to fetch.
+     * Determine the order of Origins to fetch.
      */
-    orderBy?: SourceOrderByWithRelationInput | SourceOrderByWithRelationInput[]
+    orderBy?: OriginOrderByWithRelationInput | OriginOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Sources.
+     * Sets the position for listing Origins.
      */
-    cursor?: SourceWhereUniqueInput
+    cursor?: OriginWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Sources from the position of the cursor.
+     * Take `±n` Origins from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Sources.
+     * Skip the first `n` Origins.
      */
     skip?: number
-    distinct?: SourceScalarFieldEnum | SourceScalarFieldEnum[]
+    distinct?: OriginScalarFieldEnum | OriginScalarFieldEnum[]
   }
 
   /**
-   * Source create
+   * Origin create
    */
-  export type SourceCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OriginCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Source
+     * Select specific fields to fetch from the Origin
      */
-    select?: SourceSelect<ExtArgs> | null
+    select?: OriginSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Source
+     * Omit specific fields from the Origin
      */
-    omit?: SourceOmit<ExtArgs> | null
+    omit?: OriginOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: SourceInclude<ExtArgs> | null
+    include?: OriginInclude<ExtArgs> | null
     /**
-     * The data needed to create a Source.
+     * The data needed to create a Origin.
      */
-    data: XOR<SourceCreateInput, SourceUncheckedCreateInput>
+    data: XOR<OriginCreateInput, OriginUncheckedCreateInput>
   }
 
   /**
-   * Source createMany
+   * Origin createMany
    */
-  export type SourceCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OriginCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Sources.
+     * The data used to create many Origins.
      */
-    data: SourceCreateManyInput | SourceCreateManyInput[]
+    data: OriginCreateManyInput | OriginCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * Source createManyAndReturn
+   * Origin createManyAndReturn
    */
-  export type SourceCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OriginCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Source
+     * Select specific fields to fetch from the Origin
      */
-    select?: SourceSelectCreateManyAndReturn<ExtArgs> | null
+    select?: OriginSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Source
+     * Omit specific fields from the Origin
      */
-    omit?: SourceOmit<ExtArgs> | null
+    omit?: OriginOmit<ExtArgs> | null
     /**
-     * The data used to create many Sources.
+     * The data used to create many Origins.
      */
-    data: SourceCreateManyInput | SourceCreateManyInput[]
+    data: OriginCreateManyInput | OriginCreateManyInput[]
     skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: SourceIncludeCreateManyAndReturn<ExtArgs> | null
+    include?: OriginIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * Source update
+   * Origin update
    */
-  export type SourceUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OriginUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Source
+     * Select specific fields to fetch from the Origin
      */
-    select?: SourceSelect<ExtArgs> | null
+    select?: OriginSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Source
+     * Omit specific fields from the Origin
      */
-    omit?: SourceOmit<ExtArgs> | null
+    omit?: OriginOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: SourceInclude<ExtArgs> | null
+    include?: OriginInclude<ExtArgs> | null
     /**
-     * The data needed to update a Source.
+     * The data needed to update a Origin.
      */
-    data: XOR<SourceUpdateInput, SourceUncheckedUpdateInput>
+    data: XOR<OriginUpdateInput, OriginUncheckedUpdateInput>
     /**
-     * Choose, which Source to update.
+     * Choose, which Origin to update.
      */
-    where: SourceWhereUniqueInput
+    where: OriginWhereUniqueInput
   }
 
   /**
-   * Source updateMany
+   * Origin updateMany
    */
-  export type SourceUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OriginUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Sources.
+     * The data used to update Origins.
      */
-    data: XOR<SourceUpdateManyMutationInput, SourceUncheckedUpdateManyInput>
+    data: XOR<OriginUpdateManyMutationInput, OriginUncheckedUpdateManyInput>
     /**
-     * Filter which Sources to update
+     * Filter which Origins to update
      */
-    where?: SourceWhereInput
+    where?: OriginWhereInput
     /**
-     * Limit how many Sources to update.
+     * Limit how many Origins to update.
      */
     limit?: number
   }
 
   /**
-   * Source updateManyAndReturn
+   * Origin updateManyAndReturn
    */
-  export type SourceUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OriginUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Source
+     * Select specific fields to fetch from the Origin
      */
-    select?: SourceSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: OriginSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Source
+     * Omit specific fields from the Origin
      */
-    omit?: SourceOmit<ExtArgs> | null
+    omit?: OriginOmit<ExtArgs> | null
     /**
-     * The data used to update Sources.
+     * The data used to update Origins.
      */
-    data: XOR<SourceUpdateManyMutationInput, SourceUncheckedUpdateManyInput>
+    data: XOR<OriginUpdateManyMutationInput, OriginUncheckedUpdateManyInput>
     /**
-     * Filter which Sources to update
+     * Filter which Origins to update
      */
-    where?: SourceWhereInput
+    where?: OriginWhereInput
     /**
-     * Limit how many Sources to update.
+     * Limit how many Origins to update.
      */
     limit?: number
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: SourceIncludeUpdateManyAndReturn<ExtArgs> | null
+    include?: OriginIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * Source upsert
+   * Origin upsert
    */
-  export type SourceUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OriginUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Source
+     * Select specific fields to fetch from the Origin
      */
-    select?: SourceSelect<ExtArgs> | null
+    select?: OriginSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Source
+     * Omit specific fields from the Origin
      */
-    omit?: SourceOmit<ExtArgs> | null
+    omit?: OriginOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: SourceInclude<ExtArgs> | null
+    include?: OriginInclude<ExtArgs> | null
     /**
-     * The filter to search for the Source to update in case it exists.
+     * The filter to search for the Origin to update in case it exists.
      */
-    where: SourceWhereUniqueInput
+    where: OriginWhereUniqueInput
     /**
-     * In case the Source found by the `where` argument doesn't exist, create a new Source with this data.
+     * In case the Origin found by the `where` argument doesn't exist, create a new Origin with this data.
      */
-    create: XOR<SourceCreateInput, SourceUncheckedCreateInput>
+    create: XOR<OriginCreateInput, OriginUncheckedCreateInput>
     /**
-     * In case the Source was found with the provided `where` argument, update it with this data.
+     * In case the Origin was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<SourceUpdateInput, SourceUncheckedUpdateInput>
+    update: XOR<OriginUpdateInput, OriginUncheckedUpdateInput>
   }
 
   /**
-   * Source delete
+   * Origin delete
    */
-  export type SourceDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OriginDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Source
+     * Select specific fields to fetch from the Origin
      */
-    select?: SourceSelect<ExtArgs> | null
+    select?: OriginSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Source
+     * Omit specific fields from the Origin
      */
-    omit?: SourceOmit<ExtArgs> | null
+    omit?: OriginOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: SourceInclude<ExtArgs> | null
+    include?: OriginInclude<ExtArgs> | null
     /**
-     * Filter which Source to delete.
+     * Filter which Origin to delete.
      */
-    where: SourceWhereUniqueInput
+    where: OriginWhereUniqueInput
   }
 
   /**
-   * Source deleteMany
+   * Origin deleteMany
    */
-  export type SourceDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OriginDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Sources to delete
+     * Filter which Origins to delete
      */
-    where?: SourceWhereInput
+    where?: OriginWhereInput
     /**
-     * Limit how many Sources to delete.
+     * Limit how many Origins to delete.
      */
     limit?: number
   }
 
   /**
-   * Source.users
+   * Origin.persons
    */
-  export type Source$usersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Origin$personsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the Person
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: PersonSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the User
+     * Omit specific fields from the Person
      */
-    omit?: UserOmit<ExtArgs> | null
+    omit?: PersonOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: UserInclude<ExtArgs> | null
-    where?: UserWhereInput
-    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
-    cursor?: UserWhereUniqueInput
+    include?: PersonInclude<ExtArgs> | null
+    where?: PersonWhereInput
+    orderBy?: PersonOrderByWithRelationInput | PersonOrderByWithRelationInput[]
+    cursor?: PersonWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+    distinct?: PersonScalarFieldEnum | PersonScalarFieldEnum[]
   }
 
   /**
-   * Source without action
+   * Origin without action
    */
-  export type SourceDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OriginDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Source
+     * Select specific fields to fetch from the Origin
      */
-    select?: SourceSelect<ExtArgs> | null
+    select?: OriginSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Source
+     * Omit specific fields from the Origin
      */
-    omit?: SourceOmit<ExtArgs> | null
+    omit?: OriginOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: SourceInclude<ExtArgs> | null
+    include?: OriginInclude<ExtArgs> | null
   }
 
 
@@ -5294,68 +6615,78 @@ export namespace Prisma {
 
   export type OpponentAvgAggregateOutputType = {
     id: number | null
+    authorId: number | null
   }
 
   export type OpponentSumAggregateOutputType = {
     id: number | null
+    authorId: number | null
   }
 
   export type OpponentMinAggregateOutputType = {
     id: number | null
+    createdAt: Date | null
     name: string | null
     link: string | null
     info: string | null
-    createdAt: Date | null
+    authorId: number | null
   }
 
   export type OpponentMaxAggregateOutputType = {
     id: number | null
+    createdAt: Date | null
     name: string | null
     link: string | null
     info: string | null
-    createdAt: Date | null
+    authorId: number | null
   }
 
   export type OpponentCountAggregateOutputType = {
     id: number
+    createdAt: number
     name: number
     link: number
     info: number
-    createdAt: number
+    authorId: number
     _all: number
   }
 
 
   export type OpponentAvgAggregateInputType = {
     id?: true
+    authorId?: true
   }
 
   export type OpponentSumAggregateInputType = {
     id?: true
+    authorId?: true
   }
 
   export type OpponentMinAggregateInputType = {
     id?: true
+    createdAt?: true
     name?: true
     link?: true
     info?: true
-    createdAt?: true
+    authorId?: true
   }
 
   export type OpponentMaxAggregateInputType = {
     id?: true
+    createdAt?: true
     name?: true
     link?: true
     info?: true
-    createdAt?: true
+    authorId?: true
   }
 
   export type OpponentCountAggregateInputType = {
     id?: true
+    createdAt?: true
     name?: true
     link?: true
     info?: true
-    createdAt?: true
+    authorId?: true
     _all?: true
   }
 
@@ -5447,10 +6778,11 @@ export namespace Prisma {
 
   export type OpponentGroupByOutputType = {
     id: number
+    createdAt: Date
     name: string
     link: string | null
-    info: string
-    createdAt: Date
+    info: string | null
+    authorId: number
     _count: OpponentCountAggregateOutputType | null
     _avg: OpponentAvgAggregateOutputType | null
     _sum: OpponentSumAggregateOutputType | null
@@ -5474,57 +6806,71 @@ export namespace Prisma {
 
   export type OpponentSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    createdAt?: boolean
     name?: boolean
     link?: boolean
     info?: boolean
-    createdAt?: boolean
-    users?: boolean | Opponent$usersArgs<ExtArgs>
+    authorId?: boolean
+    cases?: boolean | Opponent$casesArgs<ExtArgs>
+    author?: boolean | EmployeeDefaultArgs<ExtArgs>
     _count?: boolean | OpponentCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["opponent"]>
 
   export type OpponentSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    createdAt?: boolean
     name?: boolean
     link?: boolean
     info?: boolean
-    createdAt?: boolean
+    authorId?: boolean
+    author?: boolean | EmployeeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["opponent"]>
 
   export type OpponentSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    createdAt?: boolean
     name?: boolean
     link?: boolean
     info?: boolean
-    createdAt?: boolean
+    authorId?: boolean
+    author?: boolean | EmployeeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["opponent"]>
 
   export type OpponentSelectScalar = {
     id?: boolean
+    createdAt?: boolean
     name?: boolean
     link?: boolean
     info?: boolean
-    createdAt?: boolean
+    authorId?: boolean
   }
 
-  export type OpponentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "link" | "info" | "createdAt", ExtArgs["result"]["opponent"]>
+  export type OpponentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "name" | "link" | "info" | "authorId", ExtArgs["result"]["opponent"]>
   export type OpponentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    users?: boolean | Opponent$usersArgs<ExtArgs>
+    cases?: boolean | Opponent$casesArgs<ExtArgs>
+    author?: boolean | EmployeeDefaultArgs<ExtArgs>
     _count?: boolean | OpponentCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type OpponentIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
-  export type OpponentIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type OpponentIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    author?: boolean | EmployeeDefaultArgs<ExtArgs>
+  }
+  export type OpponentIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    author?: boolean | EmployeeDefaultArgs<ExtArgs>
+  }
 
   export type $OpponentPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Opponent"
     objects: {
-      users: Prisma.$UserPayload<ExtArgs>[]
+      cases: Prisma.$CasePayload<ExtArgs>[]
+      author: Prisma.$EmployeePayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
+      createdAt: Date
       name: string
       link: string | null
-      info: string
-      createdAt: Date
+      info: string | null
+      authorId: number
     }, ExtArgs["result"]["opponent"]>
     composites: {}
   }
@@ -5919,7 +7265,8 @@ export namespace Prisma {
    */
   export interface Prisma__OpponentClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    users<T extends Opponent$usersArgs<ExtArgs> = {}>(args?: Subset<T, Opponent$usersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    cases<T extends Opponent$casesArgs<ExtArgs> = {}>(args?: Subset<T, Opponent$casesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CasePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    author<T extends EmployeeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, EmployeeDefaultArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -5950,10 +7297,11 @@ export namespace Prisma {
    */
   interface OpponentFieldRefs {
     readonly id: FieldRef<"Opponent", 'Int'>
+    readonly createdAt: FieldRef<"Opponent", 'DateTime'>
     readonly name: FieldRef<"Opponent", 'String'>
     readonly link: FieldRef<"Opponent", 'String'>
     readonly info: FieldRef<"Opponent", 'String'>
-    readonly createdAt: FieldRef<"Opponent", 'DateTime'>
+    readonly authorId: FieldRef<"Opponent", 'Int'>
   }
     
 
@@ -6203,6 +7551,10 @@ export namespace Prisma {
      */
     data: OpponentCreateManyInput | OpponentCreateManyInput[]
     skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OpponentIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -6273,6 +7625,10 @@ export namespace Prisma {
      * Limit how many Opponents to update.
      */
     limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OpponentIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -6342,27 +7698,27 @@ export namespace Prisma {
   }
 
   /**
-   * Opponent.users
+   * Opponent.cases
    */
-  export type Opponent$usersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Opponent$casesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the Case
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: CaseSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the User
+     * Omit specific fields from the Case
      */
-    omit?: UserOmit<ExtArgs> | null
+    omit?: CaseOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: UserInclude<ExtArgs> | null
-    where?: UserWhereInput
-    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
-    cursor?: UserWhereUniqueInput
+    include?: CaseInclude<ExtArgs> | null
+    where?: CaseWhereInput
+    orderBy?: CaseOrderByWithRelationInput | CaseOrderByWithRelationInput[]
+    cursor?: CaseWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+    distinct?: CaseScalarFieldEnum | CaseScalarFieldEnum[]
   }
 
   /**
@@ -6406,53 +7762,53 @@ export namespace Prisma {
 
   export type BloggerSumAggregateOutputType = {
     id: number | null
-    subscribersCount: number | null
-    priceSOM: number | null
-    priceUSD: number | null
+    subscribersCount: bigint | null
+    priceSOM: bigint | null
+    priceUSD: bigint | null
     authorId: number | null
   }
 
   export type BloggerMinAggregateOutputType = {
     id: number | null
+    createdAt: Date | null
     name: string | null
     link: string | null
-    subscribersCount: number | null
-    info: string | null
-    priceSOM: number | null
-    priceUSD: number | null
     phoneNumber: string | null
     email: string | null
-    createdAt: Date | null
+    info: string | null
+    subscribersCount: bigint | null
+    priceSOM: bigint | null
+    priceUSD: bigint | null
     authorId: number | null
   }
 
   export type BloggerMaxAggregateOutputType = {
     id: number | null
+    createdAt: Date | null
     name: string | null
     link: string | null
-    subscribersCount: number | null
-    info: string | null
-    priceSOM: number | null
-    priceUSD: number | null
     phoneNumber: string | null
     email: string | null
-    createdAt: Date | null
+    info: string | null
+    subscribersCount: bigint | null
+    priceSOM: bigint | null
+    priceUSD: bigint | null
     authorId: number | null
   }
 
   export type BloggerCountAggregateOutputType = {
     id: number
+    createdAt: number
     name: number
     link: number
-    subscribersCount: number
-    info: number
-    priceSOM: number
-    priceUSD: number
     phoneNumber: number
     email: number
-    categories: number
-    createdAt: number
+    info: number
+    subscribersCount: number
+    priceSOM: number
+    priceUSD: number
     authorId: number
+    categories: number
     _all: number
   }
 
@@ -6475,45 +7831,45 @@ export namespace Prisma {
 
   export type BloggerMinAggregateInputType = {
     id?: true
+    createdAt?: true
     name?: true
     link?: true
-    subscribersCount?: true
-    info?: true
-    priceSOM?: true
-    priceUSD?: true
     phoneNumber?: true
     email?: true
-    createdAt?: true
+    info?: true
+    subscribersCount?: true
+    priceSOM?: true
+    priceUSD?: true
     authorId?: true
   }
 
   export type BloggerMaxAggregateInputType = {
     id?: true
+    createdAt?: true
     name?: true
     link?: true
-    subscribersCount?: true
-    info?: true
-    priceSOM?: true
-    priceUSD?: true
     phoneNumber?: true
     email?: true
-    createdAt?: true
+    info?: true
+    subscribersCount?: true
+    priceSOM?: true
+    priceUSD?: true
     authorId?: true
   }
 
   export type BloggerCountAggregateInputType = {
     id?: true
+    createdAt?: true
     name?: true
     link?: true
-    subscribersCount?: true
-    info?: true
-    priceSOM?: true
-    priceUSD?: true
     phoneNumber?: true
     email?: true
-    categories?: true
-    createdAt?: true
+    info?: true
+    subscribersCount?: true
+    priceSOM?: true
+    priceUSD?: true
     authorId?: true
+    categories?: true
     _all?: true
   }
 
@@ -6605,17 +7961,17 @@ export namespace Prisma {
 
   export type BloggerGroupByOutputType = {
     id: number
+    createdAt: Date
     name: string
     link: string
-    subscribersCount: number
-    info: string
-    priceSOM: number | null
-    priceUSD: number | null
     phoneNumber: string | null
     email: string | null
-    categories: $Enums.SOURCE_CATEGORY[]
-    createdAt: Date
+    info: string | null
+    subscribersCount: bigint
+    priceSOM: bigint | null
+    priceUSD: bigint | null
     authorId: number
+    categories: $Enums.CASE_CATEGORY[]
     _count: BloggerCountAggregateOutputType | null
     _avg: BloggerAvgAggregateOutputType | null
     _sum: BloggerSumAggregateOutputType | null
@@ -6639,96 +7995,96 @@ export namespace Prisma {
 
   export type BloggerSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    createdAt?: boolean
     name?: boolean
     link?: boolean
-    subscribersCount?: boolean
-    info?: boolean
-    priceSOM?: boolean
-    priceUSD?: boolean
     phoneNumber?: boolean
     email?: boolean
-    categories?: boolean
-    createdAt?: boolean
+    info?: boolean
+    subscribersCount?: boolean
+    priceSOM?: boolean
+    priceUSD?: boolean
     authorId?: boolean
-    author?: boolean | ManagerDefaultArgs<ExtArgs>
+    categories?: boolean
+    author?: boolean | EmployeeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["blogger"]>
 
   export type BloggerSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    createdAt?: boolean
     name?: boolean
     link?: boolean
-    subscribersCount?: boolean
-    info?: boolean
-    priceSOM?: boolean
-    priceUSD?: boolean
     phoneNumber?: boolean
     email?: boolean
-    categories?: boolean
-    createdAt?: boolean
+    info?: boolean
+    subscribersCount?: boolean
+    priceSOM?: boolean
+    priceUSD?: boolean
     authorId?: boolean
-    author?: boolean | ManagerDefaultArgs<ExtArgs>
+    categories?: boolean
+    author?: boolean | EmployeeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["blogger"]>
 
   export type BloggerSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    createdAt?: boolean
     name?: boolean
     link?: boolean
-    subscribersCount?: boolean
-    info?: boolean
-    priceSOM?: boolean
-    priceUSD?: boolean
     phoneNumber?: boolean
     email?: boolean
-    categories?: boolean
-    createdAt?: boolean
+    info?: boolean
+    subscribersCount?: boolean
+    priceSOM?: boolean
+    priceUSD?: boolean
     authorId?: boolean
-    author?: boolean | ManagerDefaultArgs<ExtArgs>
+    categories?: boolean
+    author?: boolean | EmployeeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["blogger"]>
 
   export type BloggerSelectScalar = {
     id?: boolean
+    createdAt?: boolean
     name?: boolean
     link?: boolean
-    subscribersCount?: boolean
-    info?: boolean
-    priceSOM?: boolean
-    priceUSD?: boolean
     phoneNumber?: boolean
     email?: boolean
-    categories?: boolean
-    createdAt?: boolean
+    info?: boolean
+    subscribersCount?: boolean
+    priceSOM?: boolean
+    priceUSD?: boolean
     authorId?: boolean
+    categories?: boolean
   }
 
-  export type BloggerOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "link" | "subscribersCount" | "info" | "priceSOM" | "priceUSD" | "phoneNumber" | "email" | "categories" | "createdAt" | "authorId", ExtArgs["result"]["blogger"]>
+  export type BloggerOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "name" | "link" | "phoneNumber" | "email" | "info" | "subscribersCount" | "priceSOM" | "priceUSD" | "authorId" | "categories", ExtArgs["result"]["blogger"]>
   export type BloggerInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    author?: boolean | ManagerDefaultArgs<ExtArgs>
+    author?: boolean | EmployeeDefaultArgs<ExtArgs>
   }
   export type BloggerIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    author?: boolean | ManagerDefaultArgs<ExtArgs>
+    author?: boolean | EmployeeDefaultArgs<ExtArgs>
   }
   export type BloggerIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    author?: boolean | ManagerDefaultArgs<ExtArgs>
+    author?: boolean | EmployeeDefaultArgs<ExtArgs>
   }
 
   export type $BloggerPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Blogger"
     objects: {
-      author: Prisma.$ManagerPayload<ExtArgs>
+      author: Prisma.$EmployeePayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
+      createdAt: Date
       name: string
       link: string
-      subscribersCount: number
-      info: string
-      priceSOM: number | null
-      priceUSD: number | null
       phoneNumber: string | null
       email: string | null
-      categories: $Enums.SOURCE_CATEGORY[]
-      createdAt: Date
+      info: string | null
+      subscribersCount: bigint
+      priceSOM: bigint | null
+      priceUSD: bigint | null
       authorId: number
+      categories: $Enums.CASE_CATEGORY[]
     }, ExtArgs["result"]["blogger"]>
     composites: {}
   }
@@ -7123,7 +8479,7 @@ export namespace Prisma {
    */
   export interface Prisma__BloggerClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    author<T extends ManagerDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ManagerDefaultArgs<ExtArgs>>): Prisma__ManagerClient<$Result.GetResult<Prisma.$ManagerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    author<T extends EmployeeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, EmployeeDefaultArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -7154,17 +8510,17 @@ export namespace Prisma {
    */
   interface BloggerFieldRefs {
     readonly id: FieldRef<"Blogger", 'Int'>
+    readonly createdAt: FieldRef<"Blogger", 'DateTime'>
     readonly name: FieldRef<"Blogger", 'String'>
     readonly link: FieldRef<"Blogger", 'String'>
-    readonly subscribersCount: FieldRef<"Blogger", 'Int'>
-    readonly info: FieldRef<"Blogger", 'String'>
-    readonly priceSOM: FieldRef<"Blogger", 'Int'>
-    readonly priceUSD: FieldRef<"Blogger", 'Int'>
     readonly phoneNumber: FieldRef<"Blogger", 'String'>
     readonly email: FieldRef<"Blogger", 'String'>
-    readonly categories: FieldRef<"Blogger", 'SOURCE_CATEGORY[]'>
-    readonly createdAt: FieldRef<"Blogger", 'DateTime'>
+    readonly info: FieldRef<"Blogger", 'String'>
+    readonly subscribersCount: FieldRef<"Blogger", 'BigInt'>
+    readonly priceSOM: FieldRef<"Blogger", 'BigInt'>
+    readonly priceUSD: FieldRef<"Blogger", 'BigInt'>
     readonly authorId: FieldRef<"Blogger", 'Int'>
+    readonly categories: FieldRef<"Blogger", 'CASE_CATEGORY[]'>
   }
     
 
@@ -7593,68 +8949,80 @@ export namespace Prisma {
   export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-  export const ManagerScalarFieldEnum: {
+  export const EmployeeScalarFieldEnum: {
     id: 'id',
+    createdAt: 'createdAt',
     username: 'username',
     password: 'password',
-    role: 'role',
-    createdAt: 'createdAt'
+    roles: 'roles'
   };
 
-  export type ManagerScalarFieldEnum = (typeof ManagerScalarFieldEnum)[keyof typeof ManagerScalarFieldEnum]
+  export type EmployeeScalarFieldEnum = (typeof EmployeeScalarFieldEnum)[keyof typeof EmployeeScalarFieldEnum]
 
 
-  export const UserScalarFieldEnum: {
+  export const PersonScalarFieldEnum: {
     id: 'id',
-    username: 'username',
-    userLink: 'userLink',
+    createdAt: 'createdAt',
+    name: 'name',
     phoneNumber: 'phoneNumber',
+    link: 'link',
     email: 'email',
     homeAddress: 'homeAddress',
-    leadStatus: 'leadStatus',
-    taskImportance: 'taskImportance',
-    taskUrgency: 'taskUrgency',
-    taskStatus: 'taskStatus',
-    legalAction: 'legalAction',
+    authorId: 'authorId',
+    originId: 'originId',
+    leadStatus: 'leadStatus'
+  };
+
+  export type PersonScalarFieldEnum = (typeof PersonScalarFieldEnum)[keyof typeof PersonScalarFieldEnum]
+
+
+  export const CaseScalarFieldEnum: {
+    id: 'id',
+    createdAt: 'createdAt',
+    caseImportance: 'caseImportance',
+    caseUrgency: 'caseUrgency',
+    caseStatus: 'caseStatus',
+    categories: 'categories',
     problemShort: 'problemShort',
     problemFull: 'problemFull',
     nearestTask: 'nearestTask',
+    courtInfo: 'courtInfo',
     nearestTaskDeadline: 'nearestTaskDeadline',
     timeOfPerformance: 'timeOfPerformance',
+    assignmentTime: 'assignmentTime',
+    refusalReason: 'refusalReason',
+    legalAction: 'legalAction',
+    statusInCourt: 'statusInCourt',
     priceSOM: 'priceSOM',
     priceUSD: 'priceUSD',
-    courtInfo: 'courtInfo',
-    statusInCourt: 'statusInCourt',
-    refusalReason: 'refusalReason',
-    createdAt: 'createdAt',
-    assignmentTime: 'assignmentTime',
+    personId: 'personId',
     authorId: 'authorId',
-    sourceId: 'sourceId',
     opponentId: 'opponentId',
     managerId: 'managerId'
   };
 
-  export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
+  export type CaseScalarFieldEnum = (typeof CaseScalarFieldEnum)[keyof typeof CaseScalarFieldEnum]
 
 
-  export const SourceScalarFieldEnum: {
+  export const OriginScalarFieldEnum: {
     id: 'id',
-    title: 'title',
-    sourceLink: 'sourceLink',
-    category: 'category',
     createdAt: 'createdAt',
+    title: 'title',
+    link: 'link',
+    categories: 'categories',
     authorId: 'authorId'
   };
 
-  export type SourceScalarFieldEnum = (typeof SourceScalarFieldEnum)[keyof typeof SourceScalarFieldEnum]
+  export type OriginScalarFieldEnum = (typeof OriginScalarFieldEnum)[keyof typeof OriginScalarFieldEnum]
 
 
   export const OpponentScalarFieldEnum: {
     id: 'id',
+    createdAt: 'createdAt',
     name: 'name',
     link: 'link',
     info: 'info',
-    createdAt: 'createdAt'
+    authorId: 'authorId'
   };
 
   export type OpponentScalarFieldEnum = (typeof OpponentScalarFieldEnum)[keyof typeof OpponentScalarFieldEnum]
@@ -7662,17 +9030,17 @@ export namespace Prisma {
 
   export const BloggerScalarFieldEnum: {
     id: 'id',
+    createdAt: 'createdAt',
     name: 'name',
     link: 'link',
-    subscribersCount: 'subscribersCount',
-    info: 'info',
-    priceSOM: 'priceSOM',
-    priceUSD: 'priceUSD',
     phoneNumber: 'phoneNumber',
     email: 'email',
-    categories: 'categories',
-    createdAt: 'createdAt',
-    authorId: 'authorId'
+    info: 'info',
+    subscribersCount: 'subscribersCount',
+    priceSOM: 'priceSOM',
+    priceUSD: 'priceUSD',
+    authorId: 'authorId',
+    categories: 'categories'
   };
 
   export type BloggerScalarFieldEnum = (typeof BloggerScalarFieldEnum)[keyof typeof BloggerScalarFieldEnum]
@@ -7722,6 +9090,20 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'DateTime'
+   */
+  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+  /**
+   * Reference to a field of type 'DateTime[]'
+   */
+  export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+  /**
    * Reference to a field of type 'String'
    */
   export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String'>
@@ -7736,30 +9118,16 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'ROLES'
+   * Reference to a field of type 'ROLE[]'
    */
-  export type EnumROLESFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ROLES'>
+  export type ListEnumROLEFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ROLE[]'>
     
 
 
   /**
-   * Reference to a field of type 'ROLES[]'
+   * Reference to a field of type 'ROLE'
    */
-  export type ListEnumROLESFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ROLES[]'>
-    
-
-
-  /**
-   * Reference to a field of type 'DateTime'
-   */
-  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
-    
-
-
-  /**
-   * Reference to a field of type 'DateTime[]'
-   */
-  export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+  export type EnumROLEFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ROLE'>
     
 
 
@@ -7778,86 +9146,58 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'TASK_IMPORTANCE'
+   * Reference to a field of type 'IMPORTANCE'
    */
-  export type EnumTASK_IMPORTANCEFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TASK_IMPORTANCE'>
+  export type EnumIMPORTANCEFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'IMPORTANCE'>
     
 
 
   /**
-   * Reference to a field of type 'TASK_IMPORTANCE[]'
+   * Reference to a field of type 'IMPORTANCE[]'
    */
-  export type ListEnumTASK_IMPORTANCEFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TASK_IMPORTANCE[]'>
+  export type ListEnumIMPORTANCEFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'IMPORTANCE[]'>
     
 
 
   /**
-   * Reference to a field of type 'TASK_URGENCY'
+   * Reference to a field of type 'URGENCY'
    */
-  export type EnumTASK_URGENCYFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TASK_URGENCY'>
+  export type EnumURGENCYFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'URGENCY'>
     
 
 
   /**
-   * Reference to a field of type 'TASK_URGENCY[]'
+   * Reference to a field of type 'URGENCY[]'
    */
-  export type ListEnumTASK_URGENCYFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TASK_URGENCY[]'>
+  export type ListEnumURGENCYFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'URGENCY[]'>
     
 
 
   /**
-   * Reference to a field of type 'TASK_STATUS'
+   * Reference to a field of type 'CASE_STATUS'
    */
-  export type EnumTASK_STATUSFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TASK_STATUS'>
+  export type EnumCASE_STATUSFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CASE_STATUS'>
     
 
 
   /**
-   * Reference to a field of type 'TASK_STATUS[]'
+   * Reference to a field of type 'CASE_STATUS[]'
    */
-  export type ListEnumTASK_STATUSFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TASK_STATUS[]'>
+  export type ListEnumCASE_STATUSFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CASE_STATUS[]'>
     
 
 
   /**
-   * Reference to a field of type 'LEGAL_ACTION'
+   * Reference to a field of type 'CASE_CATEGORY[]'
    */
-  export type EnumLEGAL_ACTIONFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'LEGAL_ACTION'>
+  export type ListEnumCASE_CATEGORYFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CASE_CATEGORY[]'>
     
 
 
   /**
-   * Reference to a field of type 'LEGAL_ACTION[]'
+   * Reference to a field of type 'CASE_CATEGORY'
    */
-  export type ListEnumLEGAL_ACTIONFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'LEGAL_ACTION[]'>
-    
-
-
-  /**
-   * Reference to a field of type 'BigInt'
-   */
-  export type BigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt'>
-    
-
-
-  /**
-   * Reference to a field of type 'BigInt[]'
-   */
-  export type ListBigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt[]'>
-    
-
-
-  /**
-   * Reference to a field of type 'STATUS_IN_COURT'
-   */
-  export type EnumSTATUS_IN_COURTFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'STATUS_IN_COURT'>
-    
-
-
-  /**
-   * Reference to a field of type 'STATUS_IN_COURT[]'
-   */
-  export type ListEnumSTATUS_IN_COURTFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'STATUS_IN_COURT[]'>
+  export type EnumCASE_CATEGORYFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CASE_CATEGORY'>
     
 
 
@@ -7876,16 +9216,44 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'SOURCE_CATEGORY'
+   * Reference to a field of type 'LEGAL_ACTION'
    */
-  export type EnumSOURCE_CATEGORYFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SOURCE_CATEGORY'>
+  export type EnumLEGAL_ACTIONFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'LEGAL_ACTION'>
     
 
 
   /**
-   * Reference to a field of type 'SOURCE_CATEGORY[]'
+   * Reference to a field of type 'LEGAL_ACTION[]'
    */
-  export type ListEnumSOURCE_CATEGORYFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SOURCE_CATEGORY[]'>
+  export type ListEnumLEGAL_ACTIONFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'LEGAL_ACTION[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'STATUS_IN_COURT'
+   */
+  export type EnumSTATUS_IN_COURTFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'STATUS_IN_COURT'>
+    
+
+
+  /**
+   * Reference to a field of type 'STATUS_IN_COURT[]'
+   */
+  export type ListEnumSTATUS_IN_COURTFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'STATUS_IN_COURT[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'BigInt'
+   */
+  export type BigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt'>
+    
+
+
+  /**
+   * Reference to a field of type 'BigInt[]'
+   */
+  export type ListBigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt[]'>
     
 
 
@@ -7906,311 +9274,380 @@ export namespace Prisma {
    */
 
 
-  export type ManagerWhereInput = {
-    AND?: ManagerWhereInput | ManagerWhereInput[]
-    OR?: ManagerWhereInput[]
-    NOT?: ManagerWhereInput | ManagerWhereInput[]
-    id?: IntFilter<"Manager"> | number
-    username?: StringFilter<"Manager"> | string
-    password?: StringFilter<"Manager"> | string
-    role?: EnumROLESFilter<"Manager"> | $Enums.ROLES
-    createdAt?: DateTimeFilter<"Manager"> | Date | string
-    authoredUsers?: UserListRelationFilter
-    managedUsers?: UserListRelationFilter
-    sources?: SourceListRelationFilter
-    bloggers?: BloggerListRelationFilter
+  export type EmployeeWhereInput = {
+    AND?: EmployeeWhereInput | EmployeeWhereInput[]
+    OR?: EmployeeWhereInput[]
+    NOT?: EmployeeWhereInput | EmployeeWhereInput[]
+    id?: IntFilter<"Employee"> | number
+    createdAt?: DateTimeFilter<"Employee"> | Date | string
+    username?: StringFilter<"Employee"> | string
+    password?: StringFilter<"Employee"> | string
+    roles?: EnumROLENullableListFilter<"Employee">
+    authoredBloggers?: BloggerListRelationFilter
+    authoredOrigins?: OriginListRelationFilter
+    authoredPersons?: PersonListRelationFilter
+    authoredCases?: CaseListRelationFilter
+    managedCases?: CaseListRelationFilter
+    Opponent?: OpponentListRelationFilter
   }
 
-  export type ManagerOrderByWithRelationInput = {
+  export type EmployeeOrderByWithRelationInput = {
     id?: SortOrder
+    createdAt?: SortOrder
     username?: SortOrder
     password?: SortOrder
-    role?: SortOrder
-    createdAt?: SortOrder
-    authoredUsers?: UserOrderByRelationAggregateInput
-    managedUsers?: UserOrderByRelationAggregateInput
-    sources?: SourceOrderByRelationAggregateInput
-    bloggers?: BloggerOrderByRelationAggregateInput
+    roles?: SortOrder
+    authoredBloggers?: BloggerOrderByRelationAggregateInput
+    authoredOrigins?: OriginOrderByRelationAggregateInput
+    authoredPersons?: PersonOrderByRelationAggregateInput
+    authoredCases?: CaseOrderByRelationAggregateInput
+    managedCases?: CaseOrderByRelationAggregateInput
+    Opponent?: OpponentOrderByRelationAggregateInput
   }
 
-  export type ManagerWhereUniqueInput = Prisma.AtLeast<{
+  export type EmployeeWhereUniqueInput = Prisma.AtLeast<{
     id?: number
     username?: string
-    AND?: ManagerWhereInput | ManagerWhereInput[]
-    OR?: ManagerWhereInput[]
-    NOT?: ManagerWhereInput | ManagerWhereInput[]
-    password?: StringFilter<"Manager"> | string
-    role?: EnumROLESFilter<"Manager"> | $Enums.ROLES
-    createdAt?: DateTimeFilter<"Manager"> | Date | string
-    authoredUsers?: UserListRelationFilter
-    managedUsers?: UserListRelationFilter
-    sources?: SourceListRelationFilter
-    bloggers?: BloggerListRelationFilter
+    AND?: EmployeeWhereInput | EmployeeWhereInput[]
+    OR?: EmployeeWhereInput[]
+    NOT?: EmployeeWhereInput | EmployeeWhereInput[]
+    createdAt?: DateTimeFilter<"Employee"> | Date | string
+    password?: StringFilter<"Employee"> | string
+    roles?: EnumROLENullableListFilter<"Employee">
+    authoredBloggers?: BloggerListRelationFilter
+    authoredOrigins?: OriginListRelationFilter
+    authoredPersons?: PersonListRelationFilter
+    authoredCases?: CaseListRelationFilter
+    managedCases?: CaseListRelationFilter
+    Opponent?: OpponentListRelationFilter
   }, "id" | "username">
 
-  export type ManagerOrderByWithAggregationInput = {
+  export type EmployeeOrderByWithAggregationInput = {
     id?: SortOrder
+    createdAt?: SortOrder
     username?: SortOrder
     password?: SortOrder
-    role?: SortOrder
-    createdAt?: SortOrder
-    _count?: ManagerCountOrderByAggregateInput
-    _avg?: ManagerAvgOrderByAggregateInput
-    _max?: ManagerMaxOrderByAggregateInput
-    _min?: ManagerMinOrderByAggregateInput
-    _sum?: ManagerSumOrderByAggregateInput
+    roles?: SortOrder
+    _count?: EmployeeCountOrderByAggregateInput
+    _avg?: EmployeeAvgOrderByAggregateInput
+    _max?: EmployeeMaxOrderByAggregateInput
+    _min?: EmployeeMinOrderByAggregateInput
+    _sum?: EmployeeSumOrderByAggregateInput
   }
 
-  export type ManagerScalarWhereWithAggregatesInput = {
-    AND?: ManagerScalarWhereWithAggregatesInput | ManagerScalarWhereWithAggregatesInput[]
-    OR?: ManagerScalarWhereWithAggregatesInput[]
-    NOT?: ManagerScalarWhereWithAggregatesInput | ManagerScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"Manager"> | number
-    username?: StringWithAggregatesFilter<"Manager"> | string
-    password?: StringWithAggregatesFilter<"Manager"> | string
-    role?: EnumROLESWithAggregatesFilter<"Manager"> | $Enums.ROLES
-    createdAt?: DateTimeWithAggregatesFilter<"Manager"> | Date | string
+  export type EmployeeScalarWhereWithAggregatesInput = {
+    AND?: EmployeeScalarWhereWithAggregatesInput | EmployeeScalarWhereWithAggregatesInput[]
+    OR?: EmployeeScalarWhereWithAggregatesInput[]
+    NOT?: EmployeeScalarWhereWithAggregatesInput | EmployeeScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Employee"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"Employee"> | Date | string
+    username?: StringWithAggregatesFilter<"Employee"> | string
+    password?: StringWithAggregatesFilter<"Employee"> | string
+    roles?: EnumROLENullableListFilter<"Employee">
   }
 
-  export type UserWhereInput = {
-    AND?: UserWhereInput | UserWhereInput[]
-    OR?: UserWhereInput[]
-    NOT?: UserWhereInput | UserWhereInput[]
-    id?: IntFilter<"User"> | number
-    username?: StringFilter<"User"> | string
-    userLink?: StringNullableFilter<"User"> | string | null
-    phoneNumber?: StringNullableFilter<"User"> | string | null
-    email?: StringNullableFilter<"User"> | string | null
-    homeAddress?: StringFilter<"User"> | string
-    leadStatus?: EnumLEAD_STATUSFilter<"User"> | $Enums.LEAD_STATUS
-    taskImportance?: EnumTASK_IMPORTANCEFilter<"User"> | $Enums.TASK_IMPORTANCE
-    taskUrgency?: EnumTASK_URGENCYFilter<"User"> | $Enums.TASK_URGENCY
-    taskStatus?: EnumTASK_STATUSFilter<"User"> | $Enums.TASK_STATUS
-    legalAction?: EnumLEGAL_ACTIONFilter<"User"> | $Enums.LEGAL_ACTION
-    problemShort?: StringFilter<"User"> | string
-    problemFull?: StringFilter<"User"> | string
-    nearestTask?: StringFilter<"User"> | string
-    nearestTaskDeadline?: DateTimeNullableFilter<"User"> | Date | string | null
-    timeOfPerformance?: DateTimeNullableFilter<"User"> | Date | string | null
-    priceSOM?: BigIntNullableFilter<"User"> | bigint | number | null
-    priceUSD?: BigIntNullableFilter<"User"> | bigint | number | null
-    courtInfo?: StringFilter<"User"> | string
-    statusInCourt?: EnumSTATUS_IN_COURTFilter<"User"> | $Enums.STATUS_IN_COURT
-    refusalReason?: EnumREFUSAL_REASONNullableFilter<"User"> | $Enums.REFUSAL_REASON | null
-    createdAt?: DateTimeFilter<"User"> | Date | string
-    assignmentTime?: DateTimeNullableFilter<"User"> | Date | string | null
-    authorId?: IntFilter<"User"> | number
-    sourceId?: IntFilter<"User"> | number
-    opponentId?: IntNullableFilter<"User"> | number | null
-    managerId?: IntNullableFilter<"User"> | number | null
-    author?: XOR<ManagerScalarRelationFilter, ManagerWhereInput>
-    source?: XOR<SourceScalarRelationFilter, SourceWhereInput>
-    opponent?: XOR<OpponentNullableScalarRelationFilter, OpponentWhereInput> | null
-    manager?: XOR<ManagerNullableScalarRelationFilter, ManagerWhereInput> | null
+  export type PersonWhereInput = {
+    AND?: PersonWhereInput | PersonWhereInput[]
+    OR?: PersonWhereInput[]
+    NOT?: PersonWhereInput | PersonWhereInput[]
+    id?: IntFilter<"Person"> | number
+    createdAt?: DateTimeFilter<"Person"> | Date | string
+    name?: StringFilter<"Person"> | string
+    phoneNumber?: StringNullableFilter<"Person"> | string | null
+    link?: StringNullableFilter<"Person"> | string | null
+    email?: StringNullableFilter<"Person"> | string | null
+    homeAddress?: StringNullableFilter<"Person"> | string | null
+    authorId?: IntFilter<"Person"> | number
+    originId?: IntFilter<"Person"> | number
+    leadStatus?: EnumLEAD_STATUSFilter<"Person"> | $Enums.LEAD_STATUS
+    cases?: CaseListRelationFilter
+    author?: XOR<EmployeeScalarRelationFilter, EmployeeWhereInput>
+    origin?: XOR<OriginScalarRelationFilter, OriginWhereInput>
   }
 
-  export type UserOrderByWithRelationInput = {
+  export type PersonOrderByWithRelationInput = {
     id?: SortOrder
-    username?: SortOrder
-    userLink?: SortOrderInput | SortOrder
-    phoneNumber?: SortOrderInput | SortOrder
-    email?: SortOrderInput | SortOrder
-    homeAddress?: SortOrder
-    leadStatus?: SortOrder
-    taskImportance?: SortOrder
-    taskUrgency?: SortOrder
-    taskStatus?: SortOrder
-    legalAction?: SortOrder
-    problemShort?: SortOrder
-    problemFull?: SortOrder
-    nearestTask?: SortOrder
-    nearestTaskDeadline?: SortOrderInput | SortOrder
-    timeOfPerformance?: SortOrderInput | SortOrder
-    priceSOM?: SortOrderInput | SortOrder
-    priceUSD?: SortOrderInput | SortOrder
-    courtInfo?: SortOrder
-    statusInCourt?: SortOrder
-    refusalReason?: SortOrderInput | SortOrder
     createdAt?: SortOrder
-    assignmentTime?: SortOrderInput | SortOrder
+    name?: SortOrder
+    phoneNumber?: SortOrderInput | SortOrder
+    link?: SortOrderInput | SortOrder
+    email?: SortOrderInput | SortOrder
+    homeAddress?: SortOrderInput | SortOrder
     authorId?: SortOrder
-    sourceId?: SortOrder
-    opponentId?: SortOrderInput | SortOrder
-    managerId?: SortOrderInput | SortOrder
-    author?: ManagerOrderByWithRelationInput
-    source?: SourceOrderByWithRelationInput
-    opponent?: OpponentOrderByWithRelationInput
-    manager?: ManagerOrderByWithRelationInput
+    originId?: SortOrder
+    leadStatus?: SortOrder
+    cases?: CaseOrderByRelationAggregateInput
+    author?: EmployeeOrderByWithRelationInput
+    origin?: OriginOrderByWithRelationInput
   }
 
-  export type UserWhereUniqueInput = Prisma.AtLeast<{
+  export type PersonWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    userLink?: string
     phoneNumber?: string
+    link?: string
     email?: string
-    AND?: UserWhereInput | UserWhereInput[]
-    OR?: UserWhereInput[]
-    NOT?: UserWhereInput | UserWhereInput[]
-    username?: StringFilter<"User"> | string
-    homeAddress?: StringFilter<"User"> | string
-    leadStatus?: EnumLEAD_STATUSFilter<"User"> | $Enums.LEAD_STATUS
-    taskImportance?: EnumTASK_IMPORTANCEFilter<"User"> | $Enums.TASK_IMPORTANCE
-    taskUrgency?: EnumTASK_URGENCYFilter<"User"> | $Enums.TASK_URGENCY
-    taskStatus?: EnumTASK_STATUSFilter<"User"> | $Enums.TASK_STATUS
-    legalAction?: EnumLEGAL_ACTIONFilter<"User"> | $Enums.LEGAL_ACTION
-    problemShort?: StringFilter<"User"> | string
-    problemFull?: StringFilter<"User"> | string
-    nearestTask?: StringFilter<"User"> | string
-    nearestTaskDeadline?: DateTimeNullableFilter<"User"> | Date | string | null
-    timeOfPerformance?: DateTimeNullableFilter<"User"> | Date | string | null
-    priceSOM?: BigIntNullableFilter<"User"> | bigint | number | null
-    priceUSD?: BigIntNullableFilter<"User"> | bigint | number | null
-    courtInfo?: StringFilter<"User"> | string
-    statusInCourt?: EnumSTATUS_IN_COURTFilter<"User"> | $Enums.STATUS_IN_COURT
-    refusalReason?: EnumREFUSAL_REASONNullableFilter<"User"> | $Enums.REFUSAL_REASON | null
-    createdAt?: DateTimeFilter<"User"> | Date | string
-    assignmentTime?: DateTimeNullableFilter<"User"> | Date | string | null
-    authorId?: IntFilter<"User"> | number
-    sourceId?: IntFilter<"User"> | number
-    opponentId?: IntNullableFilter<"User"> | number | null
-    managerId?: IntNullableFilter<"User"> | number | null
-    author?: XOR<ManagerScalarRelationFilter, ManagerWhereInput>
-    source?: XOR<SourceScalarRelationFilter, SourceWhereInput>
-    opponent?: XOR<OpponentNullableScalarRelationFilter, OpponentWhereInput> | null
-    manager?: XOR<ManagerNullableScalarRelationFilter, ManagerWhereInput> | null
-  }, "id" | "userLink" | "phoneNumber" | "email">
+    AND?: PersonWhereInput | PersonWhereInput[]
+    OR?: PersonWhereInput[]
+    NOT?: PersonWhereInput | PersonWhereInput[]
+    createdAt?: DateTimeFilter<"Person"> | Date | string
+    name?: StringFilter<"Person"> | string
+    homeAddress?: StringNullableFilter<"Person"> | string | null
+    authorId?: IntFilter<"Person"> | number
+    originId?: IntFilter<"Person"> | number
+    leadStatus?: EnumLEAD_STATUSFilter<"Person"> | $Enums.LEAD_STATUS
+    cases?: CaseListRelationFilter
+    author?: XOR<EmployeeScalarRelationFilter, EmployeeWhereInput>
+    origin?: XOR<OriginScalarRelationFilter, OriginWhereInput>
+  }, "id" | "phoneNumber" | "link" | "email">
 
-  export type UserOrderByWithAggregationInput = {
+  export type PersonOrderByWithAggregationInput = {
     id?: SortOrder
-    username?: SortOrder
-    userLink?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    name?: SortOrder
     phoneNumber?: SortOrderInput | SortOrder
+    link?: SortOrderInput | SortOrder
     email?: SortOrderInput | SortOrder
-    homeAddress?: SortOrder
+    homeAddress?: SortOrderInput | SortOrder
+    authorId?: SortOrder
+    originId?: SortOrder
     leadStatus?: SortOrder
-    taskImportance?: SortOrder
-    taskUrgency?: SortOrder
-    taskStatus?: SortOrder
-    legalAction?: SortOrder
-    problemShort?: SortOrder
-    problemFull?: SortOrder
-    nearestTask?: SortOrder
+    _count?: PersonCountOrderByAggregateInput
+    _avg?: PersonAvgOrderByAggregateInput
+    _max?: PersonMaxOrderByAggregateInput
+    _min?: PersonMinOrderByAggregateInput
+    _sum?: PersonSumOrderByAggregateInput
+  }
+
+  export type PersonScalarWhereWithAggregatesInput = {
+    AND?: PersonScalarWhereWithAggregatesInput | PersonScalarWhereWithAggregatesInput[]
+    OR?: PersonScalarWhereWithAggregatesInput[]
+    NOT?: PersonScalarWhereWithAggregatesInput | PersonScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Person"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"Person"> | Date | string
+    name?: StringWithAggregatesFilter<"Person"> | string
+    phoneNumber?: StringNullableWithAggregatesFilter<"Person"> | string | null
+    link?: StringNullableWithAggregatesFilter<"Person"> | string | null
+    email?: StringNullableWithAggregatesFilter<"Person"> | string | null
+    homeAddress?: StringNullableWithAggregatesFilter<"Person"> | string | null
+    authorId?: IntWithAggregatesFilter<"Person"> | number
+    originId?: IntWithAggregatesFilter<"Person"> | number
+    leadStatus?: EnumLEAD_STATUSWithAggregatesFilter<"Person"> | $Enums.LEAD_STATUS
+  }
+
+  export type CaseWhereInput = {
+    AND?: CaseWhereInput | CaseWhereInput[]
+    OR?: CaseWhereInput[]
+    NOT?: CaseWhereInput | CaseWhereInput[]
+    id?: IntFilter<"Case"> | number
+    createdAt?: DateTimeFilter<"Case"> | Date | string
+    caseImportance?: EnumIMPORTANCEFilter<"Case"> | $Enums.IMPORTANCE
+    caseUrgency?: EnumURGENCYFilter<"Case"> | $Enums.URGENCY
+    caseStatus?: EnumCASE_STATUSFilter<"Case"> | $Enums.CASE_STATUS
+    categories?: EnumCASE_CATEGORYNullableListFilter<"Case">
+    problemShort?: StringNullableFilter<"Case"> | string | null
+    problemFull?: StringNullableFilter<"Case"> | string | null
+    nearestTask?: StringNullableFilter<"Case"> | string | null
+    courtInfo?: StringNullableFilter<"Case"> | string | null
+    nearestTaskDeadline?: DateTimeNullableFilter<"Case"> | Date | string | null
+    timeOfPerformance?: DateTimeNullableFilter<"Case"> | Date | string | null
+    assignmentTime?: DateTimeNullableFilter<"Case"> | Date | string | null
+    refusalReason?: EnumREFUSAL_REASONNullableFilter<"Case"> | $Enums.REFUSAL_REASON | null
+    legalAction?: EnumLEGAL_ACTIONNullableFilter<"Case"> | $Enums.LEGAL_ACTION | null
+    statusInCourt?: EnumSTATUS_IN_COURTNullableFilter<"Case"> | $Enums.STATUS_IN_COURT | null
+    priceSOM?: BigIntNullableFilter<"Case"> | bigint | number | null
+    priceUSD?: BigIntNullableFilter<"Case"> | bigint | number | null
+    personId?: IntFilter<"Case"> | number
+    authorId?: IntFilter<"Case"> | number
+    opponentId?: IntNullableFilter<"Case"> | number | null
+    managerId?: IntNullableFilter<"Case"> | number | null
+    author?: XOR<EmployeeScalarRelationFilter, EmployeeWhereInput>
+    manager?: XOR<EmployeeNullableScalarRelationFilter, EmployeeWhereInput> | null
+    opponent?: XOR<OpponentNullableScalarRelationFilter, OpponentWhereInput> | null
+    person?: XOR<PersonScalarRelationFilter, PersonWhereInput>
+  }
+
+  export type CaseOrderByWithRelationInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    caseImportance?: SortOrder
+    caseUrgency?: SortOrder
+    caseStatus?: SortOrder
+    categories?: SortOrder
+    problemShort?: SortOrderInput | SortOrder
+    problemFull?: SortOrderInput | SortOrder
+    nearestTask?: SortOrderInput | SortOrder
+    courtInfo?: SortOrderInput | SortOrder
     nearestTaskDeadline?: SortOrderInput | SortOrder
     timeOfPerformance?: SortOrderInput | SortOrder
+    assignmentTime?: SortOrderInput | SortOrder
+    refusalReason?: SortOrderInput | SortOrder
+    legalAction?: SortOrderInput | SortOrder
+    statusInCourt?: SortOrderInput | SortOrder
     priceSOM?: SortOrderInput | SortOrder
     priceUSD?: SortOrderInput | SortOrder
-    courtInfo?: SortOrder
-    statusInCourt?: SortOrder
-    refusalReason?: SortOrderInput | SortOrder
-    createdAt?: SortOrder
-    assignmentTime?: SortOrderInput | SortOrder
+    personId?: SortOrder
     authorId?: SortOrder
-    sourceId?: SortOrder
     opponentId?: SortOrderInput | SortOrder
     managerId?: SortOrderInput | SortOrder
-    _count?: UserCountOrderByAggregateInput
-    _avg?: UserAvgOrderByAggregateInput
-    _max?: UserMaxOrderByAggregateInput
-    _min?: UserMinOrderByAggregateInput
-    _sum?: UserSumOrderByAggregateInput
+    author?: EmployeeOrderByWithRelationInput
+    manager?: EmployeeOrderByWithRelationInput
+    opponent?: OpponentOrderByWithRelationInput
+    person?: PersonOrderByWithRelationInput
   }
 
-  export type UserScalarWhereWithAggregatesInput = {
-    AND?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
-    OR?: UserScalarWhereWithAggregatesInput[]
-    NOT?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"User"> | number
-    username?: StringWithAggregatesFilter<"User"> | string
-    userLink?: StringNullableWithAggregatesFilter<"User"> | string | null
-    phoneNumber?: StringNullableWithAggregatesFilter<"User"> | string | null
-    email?: StringNullableWithAggregatesFilter<"User"> | string | null
-    homeAddress?: StringWithAggregatesFilter<"User"> | string
-    leadStatus?: EnumLEAD_STATUSWithAggregatesFilter<"User"> | $Enums.LEAD_STATUS
-    taskImportance?: EnumTASK_IMPORTANCEWithAggregatesFilter<"User"> | $Enums.TASK_IMPORTANCE
-    taskUrgency?: EnumTASK_URGENCYWithAggregatesFilter<"User"> | $Enums.TASK_URGENCY
-    taskStatus?: EnumTASK_STATUSWithAggregatesFilter<"User"> | $Enums.TASK_STATUS
-    legalAction?: EnumLEGAL_ACTIONWithAggregatesFilter<"User"> | $Enums.LEGAL_ACTION
-    problemShort?: StringWithAggregatesFilter<"User"> | string
-    problemFull?: StringWithAggregatesFilter<"User"> | string
-    nearestTask?: StringWithAggregatesFilter<"User"> | string
-    nearestTaskDeadline?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
-    timeOfPerformance?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
-    priceSOM?: BigIntNullableWithAggregatesFilter<"User"> | bigint | number | null
-    priceUSD?: BigIntNullableWithAggregatesFilter<"User"> | bigint | number | null
-    courtInfo?: StringWithAggregatesFilter<"User"> | string
-    statusInCourt?: EnumSTATUS_IN_COURTWithAggregatesFilter<"User"> | $Enums.STATUS_IN_COURT
-    refusalReason?: EnumREFUSAL_REASONNullableWithAggregatesFilter<"User"> | $Enums.REFUSAL_REASON | null
-    createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
-    assignmentTime?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
-    authorId?: IntWithAggregatesFilter<"User"> | number
-    sourceId?: IntWithAggregatesFilter<"User"> | number
-    opponentId?: IntNullableWithAggregatesFilter<"User"> | number | null
-    managerId?: IntNullableWithAggregatesFilter<"User"> | number | null
-  }
+  export type CaseWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: CaseWhereInput | CaseWhereInput[]
+    OR?: CaseWhereInput[]
+    NOT?: CaseWhereInput | CaseWhereInput[]
+    createdAt?: DateTimeFilter<"Case"> | Date | string
+    caseImportance?: EnumIMPORTANCEFilter<"Case"> | $Enums.IMPORTANCE
+    caseUrgency?: EnumURGENCYFilter<"Case"> | $Enums.URGENCY
+    caseStatus?: EnumCASE_STATUSFilter<"Case"> | $Enums.CASE_STATUS
+    categories?: EnumCASE_CATEGORYNullableListFilter<"Case">
+    problemShort?: StringNullableFilter<"Case"> | string | null
+    problemFull?: StringNullableFilter<"Case"> | string | null
+    nearestTask?: StringNullableFilter<"Case"> | string | null
+    courtInfo?: StringNullableFilter<"Case"> | string | null
+    nearestTaskDeadline?: DateTimeNullableFilter<"Case"> | Date | string | null
+    timeOfPerformance?: DateTimeNullableFilter<"Case"> | Date | string | null
+    assignmentTime?: DateTimeNullableFilter<"Case"> | Date | string | null
+    refusalReason?: EnumREFUSAL_REASONNullableFilter<"Case"> | $Enums.REFUSAL_REASON | null
+    legalAction?: EnumLEGAL_ACTIONNullableFilter<"Case"> | $Enums.LEGAL_ACTION | null
+    statusInCourt?: EnumSTATUS_IN_COURTNullableFilter<"Case"> | $Enums.STATUS_IN_COURT | null
+    priceSOM?: BigIntNullableFilter<"Case"> | bigint | number | null
+    priceUSD?: BigIntNullableFilter<"Case"> | bigint | number | null
+    personId?: IntFilter<"Case"> | number
+    authorId?: IntFilter<"Case"> | number
+    opponentId?: IntNullableFilter<"Case"> | number | null
+    managerId?: IntNullableFilter<"Case"> | number | null
+    author?: XOR<EmployeeScalarRelationFilter, EmployeeWhereInput>
+    manager?: XOR<EmployeeNullableScalarRelationFilter, EmployeeWhereInput> | null
+    opponent?: XOR<OpponentNullableScalarRelationFilter, OpponentWhereInput> | null
+    person?: XOR<PersonScalarRelationFilter, PersonWhereInput>
+  }, "id">
 
-  export type SourceWhereInput = {
-    AND?: SourceWhereInput | SourceWhereInput[]
-    OR?: SourceWhereInput[]
-    NOT?: SourceWhereInput | SourceWhereInput[]
-    id?: IntFilter<"Source"> | number
-    title?: StringFilter<"Source"> | string
-    sourceLink?: StringNullableFilter<"Source"> | string | null
-    category?: EnumSOURCE_CATEGORYFilter<"Source"> | $Enums.SOURCE_CATEGORY
-    createdAt?: DateTimeFilter<"Source"> | Date | string
-    authorId?: IntFilter<"Source"> | number
-    author?: XOR<ManagerScalarRelationFilter, ManagerWhereInput>
-    users?: UserListRelationFilter
-  }
-
-  export type SourceOrderByWithRelationInput = {
+  export type CaseOrderByWithAggregationInput = {
     id?: SortOrder
-    title?: SortOrder
-    sourceLink?: SortOrderInput | SortOrder
-    category?: SortOrder
     createdAt?: SortOrder
+    caseImportance?: SortOrder
+    caseUrgency?: SortOrder
+    caseStatus?: SortOrder
+    categories?: SortOrder
+    problemShort?: SortOrderInput | SortOrder
+    problemFull?: SortOrderInput | SortOrder
+    nearestTask?: SortOrderInput | SortOrder
+    courtInfo?: SortOrderInput | SortOrder
+    nearestTaskDeadline?: SortOrderInput | SortOrder
+    timeOfPerformance?: SortOrderInput | SortOrder
+    assignmentTime?: SortOrderInput | SortOrder
+    refusalReason?: SortOrderInput | SortOrder
+    legalAction?: SortOrderInput | SortOrder
+    statusInCourt?: SortOrderInput | SortOrder
+    priceSOM?: SortOrderInput | SortOrder
+    priceUSD?: SortOrderInput | SortOrder
+    personId?: SortOrder
     authorId?: SortOrder
-    author?: ManagerOrderByWithRelationInput
-    users?: UserOrderByRelationAggregateInput
+    opponentId?: SortOrderInput | SortOrder
+    managerId?: SortOrderInput | SortOrder
+    _count?: CaseCountOrderByAggregateInput
+    _avg?: CaseAvgOrderByAggregateInput
+    _max?: CaseMaxOrderByAggregateInput
+    _min?: CaseMinOrderByAggregateInput
+    _sum?: CaseSumOrderByAggregateInput
   }
 
-  export type SourceWhereUniqueInput = Prisma.AtLeast<{
+  export type CaseScalarWhereWithAggregatesInput = {
+    AND?: CaseScalarWhereWithAggregatesInput | CaseScalarWhereWithAggregatesInput[]
+    OR?: CaseScalarWhereWithAggregatesInput[]
+    NOT?: CaseScalarWhereWithAggregatesInput | CaseScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Case"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"Case"> | Date | string
+    caseImportance?: EnumIMPORTANCEWithAggregatesFilter<"Case"> | $Enums.IMPORTANCE
+    caseUrgency?: EnumURGENCYWithAggregatesFilter<"Case"> | $Enums.URGENCY
+    caseStatus?: EnumCASE_STATUSWithAggregatesFilter<"Case"> | $Enums.CASE_STATUS
+    categories?: EnumCASE_CATEGORYNullableListFilter<"Case">
+    problemShort?: StringNullableWithAggregatesFilter<"Case"> | string | null
+    problemFull?: StringNullableWithAggregatesFilter<"Case"> | string | null
+    nearestTask?: StringNullableWithAggregatesFilter<"Case"> | string | null
+    courtInfo?: StringNullableWithAggregatesFilter<"Case"> | string | null
+    nearestTaskDeadline?: DateTimeNullableWithAggregatesFilter<"Case"> | Date | string | null
+    timeOfPerformance?: DateTimeNullableWithAggregatesFilter<"Case"> | Date | string | null
+    assignmentTime?: DateTimeNullableWithAggregatesFilter<"Case"> | Date | string | null
+    refusalReason?: EnumREFUSAL_REASONNullableWithAggregatesFilter<"Case"> | $Enums.REFUSAL_REASON | null
+    legalAction?: EnumLEGAL_ACTIONNullableWithAggregatesFilter<"Case"> | $Enums.LEGAL_ACTION | null
+    statusInCourt?: EnumSTATUS_IN_COURTNullableWithAggregatesFilter<"Case"> | $Enums.STATUS_IN_COURT | null
+    priceSOM?: BigIntNullableWithAggregatesFilter<"Case"> | bigint | number | null
+    priceUSD?: BigIntNullableWithAggregatesFilter<"Case"> | bigint | number | null
+    personId?: IntWithAggregatesFilter<"Case"> | number
+    authorId?: IntWithAggregatesFilter<"Case"> | number
+    opponentId?: IntNullableWithAggregatesFilter<"Case"> | number | null
+    managerId?: IntNullableWithAggregatesFilter<"Case"> | number | null
+  }
+
+  export type OriginWhereInput = {
+    AND?: OriginWhereInput | OriginWhereInput[]
+    OR?: OriginWhereInput[]
+    NOT?: OriginWhereInput | OriginWhereInput[]
+    id?: IntFilter<"Origin"> | number
+    createdAt?: DateTimeFilter<"Origin"> | Date | string
+    title?: StringFilter<"Origin"> | string
+    link?: StringNullableFilter<"Origin"> | string | null
+    categories?: EnumCASE_CATEGORYNullableListFilter<"Origin">
+    authorId?: IntFilter<"Origin"> | number
+    author?: XOR<EmployeeScalarRelationFilter, EmployeeWhereInput>
+    persons?: PersonListRelationFilter
+  }
+
+  export type OriginOrderByWithRelationInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    title?: SortOrder
+    link?: SortOrderInput | SortOrder
+    categories?: SortOrder
+    authorId?: SortOrder
+    author?: EmployeeOrderByWithRelationInput
+    persons?: PersonOrderByRelationAggregateInput
+  }
+
+  export type OriginWhereUniqueInput = Prisma.AtLeast<{
     id?: number
     title?: string
-    sourceLink?: string
-    AND?: SourceWhereInput | SourceWhereInput[]
-    OR?: SourceWhereInput[]
-    NOT?: SourceWhereInput | SourceWhereInput[]
-    category?: EnumSOURCE_CATEGORYFilter<"Source"> | $Enums.SOURCE_CATEGORY
-    createdAt?: DateTimeFilter<"Source"> | Date | string
-    authorId?: IntFilter<"Source"> | number
-    author?: XOR<ManagerScalarRelationFilter, ManagerWhereInput>
-    users?: UserListRelationFilter
-  }, "id" | "title" | "sourceLink">
+    link?: string
+    AND?: OriginWhereInput | OriginWhereInput[]
+    OR?: OriginWhereInput[]
+    NOT?: OriginWhereInput | OriginWhereInput[]
+    createdAt?: DateTimeFilter<"Origin"> | Date | string
+    categories?: EnumCASE_CATEGORYNullableListFilter<"Origin">
+    authorId?: IntFilter<"Origin"> | number
+    author?: XOR<EmployeeScalarRelationFilter, EmployeeWhereInput>
+    persons?: PersonListRelationFilter
+  }, "id" | "title" | "link">
 
-  export type SourceOrderByWithAggregationInput = {
+  export type OriginOrderByWithAggregationInput = {
     id?: SortOrder
-    title?: SortOrder
-    sourceLink?: SortOrderInput | SortOrder
-    category?: SortOrder
     createdAt?: SortOrder
+    title?: SortOrder
+    link?: SortOrderInput | SortOrder
+    categories?: SortOrder
     authorId?: SortOrder
-    _count?: SourceCountOrderByAggregateInput
-    _avg?: SourceAvgOrderByAggregateInput
-    _max?: SourceMaxOrderByAggregateInput
-    _min?: SourceMinOrderByAggregateInput
-    _sum?: SourceSumOrderByAggregateInput
+    _count?: OriginCountOrderByAggregateInput
+    _avg?: OriginAvgOrderByAggregateInput
+    _max?: OriginMaxOrderByAggregateInput
+    _min?: OriginMinOrderByAggregateInput
+    _sum?: OriginSumOrderByAggregateInput
   }
 
-  export type SourceScalarWhereWithAggregatesInput = {
-    AND?: SourceScalarWhereWithAggregatesInput | SourceScalarWhereWithAggregatesInput[]
-    OR?: SourceScalarWhereWithAggregatesInput[]
-    NOT?: SourceScalarWhereWithAggregatesInput | SourceScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"Source"> | number
-    title?: StringWithAggregatesFilter<"Source"> | string
-    sourceLink?: StringNullableWithAggregatesFilter<"Source"> | string | null
-    category?: EnumSOURCE_CATEGORYWithAggregatesFilter<"Source"> | $Enums.SOURCE_CATEGORY
-    createdAt?: DateTimeWithAggregatesFilter<"Source"> | Date | string
-    authorId?: IntWithAggregatesFilter<"Source"> | number
+  export type OriginScalarWhereWithAggregatesInput = {
+    AND?: OriginScalarWhereWithAggregatesInput | OriginScalarWhereWithAggregatesInput[]
+    OR?: OriginScalarWhereWithAggregatesInput[]
+    NOT?: OriginScalarWhereWithAggregatesInput | OriginScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Origin"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"Origin"> | Date | string
+    title?: StringWithAggregatesFilter<"Origin"> | string
+    link?: StringNullableWithAggregatesFilter<"Origin"> | string | null
+    categories?: EnumCASE_CATEGORYNullableListFilter<"Origin">
+    authorId?: IntWithAggregatesFilter<"Origin"> | number
   }
 
   export type OpponentWhereInput = {
@@ -8218,20 +9655,24 @@ export namespace Prisma {
     OR?: OpponentWhereInput[]
     NOT?: OpponentWhereInput | OpponentWhereInput[]
     id?: IntFilter<"Opponent"> | number
+    createdAt?: DateTimeFilter<"Opponent"> | Date | string
     name?: StringFilter<"Opponent"> | string
     link?: StringNullableFilter<"Opponent"> | string | null
-    info?: StringFilter<"Opponent"> | string
-    createdAt?: DateTimeFilter<"Opponent"> | Date | string
-    users?: UserListRelationFilter
+    info?: StringNullableFilter<"Opponent"> | string | null
+    authorId?: IntFilter<"Opponent"> | number
+    cases?: CaseListRelationFilter
+    author?: XOR<EmployeeScalarRelationFilter, EmployeeWhereInput>
   }
 
   export type OpponentOrderByWithRelationInput = {
     id?: SortOrder
+    createdAt?: SortOrder
     name?: SortOrder
     link?: SortOrderInput | SortOrder
-    info?: SortOrder
-    createdAt?: SortOrder
-    users?: UserOrderByRelationAggregateInput
+    info?: SortOrderInput | SortOrder
+    authorId?: SortOrder
+    cases?: CaseOrderByRelationAggregateInput
+    author?: EmployeeOrderByWithRelationInput
   }
 
   export type OpponentWhereUniqueInput = Prisma.AtLeast<{
@@ -8241,17 +9682,20 @@ export namespace Prisma {
     AND?: OpponentWhereInput | OpponentWhereInput[]
     OR?: OpponentWhereInput[]
     NOT?: OpponentWhereInput | OpponentWhereInput[]
-    info?: StringFilter<"Opponent"> | string
     createdAt?: DateTimeFilter<"Opponent"> | Date | string
-    users?: UserListRelationFilter
+    info?: StringNullableFilter<"Opponent"> | string | null
+    authorId?: IntFilter<"Opponent"> | number
+    cases?: CaseListRelationFilter
+    author?: XOR<EmployeeScalarRelationFilter, EmployeeWhereInput>
   }, "id" | "name" | "link">
 
   export type OpponentOrderByWithAggregationInput = {
     id?: SortOrder
+    createdAt?: SortOrder
     name?: SortOrder
     link?: SortOrderInput | SortOrder
-    info?: SortOrder
-    createdAt?: SortOrder
+    info?: SortOrderInput | SortOrder
+    authorId?: SortOrder
     _count?: OpponentCountOrderByAggregateInput
     _avg?: OpponentAvgOrderByAggregateInput
     _max?: OpponentMaxOrderByAggregateInput
@@ -8264,10 +9708,11 @@ export namespace Prisma {
     OR?: OpponentScalarWhereWithAggregatesInput[]
     NOT?: OpponentScalarWhereWithAggregatesInput | OpponentScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Opponent"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"Opponent"> | Date | string
     name?: StringWithAggregatesFilter<"Opponent"> | string
     link?: StringNullableWithAggregatesFilter<"Opponent"> | string | null
-    info?: StringWithAggregatesFilter<"Opponent"> | string
-    createdAt?: DateTimeWithAggregatesFilter<"Opponent"> | Date | string
+    info?: StringNullableWithAggregatesFilter<"Opponent"> | string | null
+    authorId?: IntWithAggregatesFilter<"Opponent"> | number
   }
 
   export type BloggerWhereInput = {
@@ -8275,34 +9720,34 @@ export namespace Prisma {
     OR?: BloggerWhereInput[]
     NOT?: BloggerWhereInput | BloggerWhereInput[]
     id?: IntFilter<"Blogger"> | number
+    createdAt?: DateTimeFilter<"Blogger"> | Date | string
     name?: StringFilter<"Blogger"> | string
     link?: StringFilter<"Blogger"> | string
-    subscribersCount?: IntFilter<"Blogger"> | number
-    info?: StringFilter<"Blogger"> | string
-    priceSOM?: IntNullableFilter<"Blogger"> | number | null
-    priceUSD?: IntNullableFilter<"Blogger"> | number | null
     phoneNumber?: StringNullableFilter<"Blogger"> | string | null
     email?: StringNullableFilter<"Blogger"> | string | null
-    categories?: EnumSOURCE_CATEGORYNullableListFilter<"Blogger">
-    createdAt?: DateTimeFilter<"Blogger"> | Date | string
+    info?: StringNullableFilter<"Blogger"> | string | null
+    subscribersCount?: BigIntFilter<"Blogger"> | bigint | number
+    priceSOM?: BigIntNullableFilter<"Blogger"> | bigint | number | null
+    priceUSD?: BigIntNullableFilter<"Blogger"> | bigint | number | null
     authorId?: IntFilter<"Blogger"> | number
-    author?: XOR<ManagerScalarRelationFilter, ManagerWhereInput>
+    categories?: EnumCASE_CATEGORYNullableListFilter<"Blogger">
+    author?: XOR<EmployeeScalarRelationFilter, EmployeeWhereInput>
   }
 
   export type BloggerOrderByWithRelationInput = {
     id?: SortOrder
+    createdAt?: SortOrder
     name?: SortOrder
     link?: SortOrder
-    subscribersCount?: SortOrder
-    info?: SortOrder
-    priceSOM?: SortOrderInput | SortOrder
-    priceUSD?: SortOrderInput | SortOrder
     phoneNumber?: SortOrderInput | SortOrder
     email?: SortOrderInput | SortOrder
-    categories?: SortOrder
-    createdAt?: SortOrder
+    info?: SortOrderInput | SortOrder
+    subscribersCount?: SortOrder
+    priceSOM?: SortOrderInput | SortOrder
+    priceUSD?: SortOrderInput | SortOrder
     authorId?: SortOrder
-    author?: ManagerOrderByWithRelationInput
+    categories?: SortOrder
+    author?: EmployeeOrderByWithRelationInput
   }
 
   export type BloggerWhereUniqueInput = Prisma.AtLeast<{
@@ -8314,29 +9759,29 @@ export namespace Prisma {
     AND?: BloggerWhereInput | BloggerWhereInput[]
     OR?: BloggerWhereInput[]
     NOT?: BloggerWhereInput | BloggerWhereInput[]
-    subscribersCount?: IntFilter<"Blogger"> | number
-    info?: StringFilter<"Blogger"> | string
-    priceSOM?: IntNullableFilter<"Blogger"> | number | null
-    priceUSD?: IntNullableFilter<"Blogger"> | number | null
-    categories?: EnumSOURCE_CATEGORYNullableListFilter<"Blogger">
     createdAt?: DateTimeFilter<"Blogger"> | Date | string
+    info?: StringNullableFilter<"Blogger"> | string | null
+    subscribersCount?: BigIntFilter<"Blogger"> | bigint | number
+    priceSOM?: BigIntNullableFilter<"Blogger"> | bigint | number | null
+    priceUSD?: BigIntNullableFilter<"Blogger"> | bigint | number | null
     authorId?: IntFilter<"Blogger"> | number
-    author?: XOR<ManagerScalarRelationFilter, ManagerWhereInput>
+    categories?: EnumCASE_CATEGORYNullableListFilter<"Blogger">
+    author?: XOR<EmployeeScalarRelationFilter, EmployeeWhereInput>
   }, "id" | "name" | "link" | "phoneNumber" | "email">
 
   export type BloggerOrderByWithAggregationInput = {
     id?: SortOrder
+    createdAt?: SortOrder
     name?: SortOrder
     link?: SortOrder
-    subscribersCount?: SortOrder
-    info?: SortOrder
-    priceSOM?: SortOrderInput | SortOrder
-    priceUSD?: SortOrderInput | SortOrder
     phoneNumber?: SortOrderInput | SortOrder
     email?: SortOrderInput | SortOrder
-    categories?: SortOrder
-    createdAt?: SortOrder
+    info?: SortOrderInput | SortOrder
+    subscribersCount?: SortOrder
+    priceSOM?: SortOrderInput | SortOrder
+    priceUSD?: SortOrderInput | SortOrder
     authorId?: SortOrder
+    categories?: SortOrder
     _count?: BloggerCountOrderByAggregateInput
     _avg?: BloggerAvgOrderByAggregateInput
     _max?: BloggerMaxOrderByAggregateInput
@@ -8349,510 +9794,579 @@ export namespace Prisma {
     OR?: BloggerScalarWhereWithAggregatesInput[]
     NOT?: BloggerScalarWhereWithAggregatesInput | BloggerScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Blogger"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"Blogger"> | Date | string
     name?: StringWithAggregatesFilter<"Blogger"> | string
     link?: StringWithAggregatesFilter<"Blogger"> | string
-    subscribersCount?: IntWithAggregatesFilter<"Blogger"> | number
-    info?: StringWithAggregatesFilter<"Blogger"> | string
-    priceSOM?: IntNullableWithAggregatesFilter<"Blogger"> | number | null
-    priceUSD?: IntNullableWithAggregatesFilter<"Blogger"> | number | null
     phoneNumber?: StringNullableWithAggregatesFilter<"Blogger"> | string | null
     email?: StringNullableWithAggregatesFilter<"Blogger"> | string | null
-    categories?: EnumSOURCE_CATEGORYNullableListFilter<"Blogger">
-    createdAt?: DateTimeWithAggregatesFilter<"Blogger"> | Date | string
+    info?: StringNullableWithAggregatesFilter<"Blogger"> | string | null
+    subscribersCount?: BigIntWithAggregatesFilter<"Blogger"> | bigint | number
+    priceSOM?: BigIntNullableWithAggregatesFilter<"Blogger"> | bigint | number | null
+    priceUSD?: BigIntNullableWithAggregatesFilter<"Blogger"> | bigint | number | null
     authorId?: IntWithAggregatesFilter<"Blogger"> | number
+    categories?: EnumCASE_CATEGORYNullableListFilter<"Blogger">
   }
 
-  export type ManagerCreateInput = {
+  export type EmployeeCreateInput = {
+    createdAt?: Date | string
     username: string
     password: string
-    role: $Enums.ROLES
-    createdAt?: Date | string
-    authoredUsers?: UserCreateNestedManyWithoutAuthorInput
-    managedUsers?: UserCreateNestedManyWithoutManagerInput
-    sources?: SourceCreateNestedManyWithoutAuthorInput
-    bloggers?: BloggerCreateNestedManyWithoutAuthorInput
+    roles?: EmployeeCreaterolesInput | $Enums.ROLE[]
+    authoredBloggers?: BloggerCreateNestedManyWithoutAuthorInput
+    authoredOrigins?: OriginCreateNestedManyWithoutAuthorInput
+    authoredPersons?: PersonCreateNestedManyWithoutAuthorInput
+    authoredCases?: CaseCreateNestedManyWithoutAuthorInput
+    managedCases?: CaseCreateNestedManyWithoutManagerInput
+    Opponent?: OpponentCreateNestedManyWithoutAuthorInput
   }
 
-  export type ManagerUncheckedCreateInput = {
+  export type EmployeeUncheckedCreateInput = {
     id?: number
+    createdAt?: Date | string
     username: string
     password: string
-    role: $Enums.ROLES
-    createdAt?: Date | string
-    authoredUsers?: UserUncheckedCreateNestedManyWithoutAuthorInput
-    managedUsers?: UserUncheckedCreateNestedManyWithoutManagerInput
-    sources?: SourceUncheckedCreateNestedManyWithoutAuthorInput
-    bloggers?: BloggerUncheckedCreateNestedManyWithoutAuthorInput
+    roles?: EmployeeCreaterolesInput | $Enums.ROLE[]
+    authoredBloggers?: BloggerUncheckedCreateNestedManyWithoutAuthorInput
+    authoredOrigins?: OriginUncheckedCreateNestedManyWithoutAuthorInput
+    authoredPersons?: PersonUncheckedCreateNestedManyWithoutAuthorInput
+    authoredCases?: CaseUncheckedCreateNestedManyWithoutAuthorInput
+    managedCases?: CaseUncheckedCreateNestedManyWithoutManagerInput
+    Opponent?: OpponentUncheckedCreateNestedManyWithoutAuthorInput
   }
 
-  export type ManagerUpdateInput = {
+  export type EmployeeUpdateInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    role?: EnumROLESFieldUpdateOperationsInput | $Enums.ROLES
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    authoredUsers?: UserUpdateManyWithoutAuthorNestedInput
-    managedUsers?: UserUpdateManyWithoutManagerNestedInput
-    sources?: SourceUpdateManyWithoutAuthorNestedInput
-    bloggers?: BloggerUpdateManyWithoutAuthorNestedInput
+    roles?: EmployeeUpdaterolesInput | $Enums.ROLE[]
+    authoredBloggers?: BloggerUpdateManyWithoutAuthorNestedInput
+    authoredOrigins?: OriginUpdateManyWithoutAuthorNestedInput
+    authoredPersons?: PersonUpdateManyWithoutAuthorNestedInput
+    authoredCases?: CaseUpdateManyWithoutAuthorNestedInput
+    managedCases?: CaseUpdateManyWithoutManagerNestedInput
+    Opponent?: OpponentUpdateManyWithoutAuthorNestedInput
   }
 
-  export type ManagerUncheckedUpdateInput = {
+  export type EmployeeUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    role?: EnumROLESFieldUpdateOperationsInput | $Enums.ROLES
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    authoredUsers?: UserUncheckedUpdateManyWithoutAuthorNestedInput
-    managedUsers?: UserUncheckedUpdateManyWithoutManagerNestedInput
-    sources?: SourceUncheckedUpdateManyWithoutAuthorNestedInput
-    bloggers?: BloggerUncheckedUpdateManyWithoutAuthorNestedInput
+    roles?: EmployeeUpdaterolesInput | $Enums.ROLE[]
+    authoredBloggers?: BloggerUncheckedUpdateManyWithoutAuthorNestedInput
+    authoredOrigins?: OriginUncheckedUpdateManyWithoutAuthorNestedInput
+    authoredPersons?: PersonUncheckedUpdateManyWithoutAuthorNestedInput
+    authoredCases?: CaseUncheckedUpdateManyWithoutAuthorNestedInput
+    managedCases?: CaseUncheckedUpdateManyWithoutManagerNestedInput
+    Opponent?: OpponentUncheckedUpdateManyWithoutAuthorNestedInput
   }
 
-  export type ManagerCreateManyInput = {
+  export type EmployeeCreateManyInput = {
     id?: number
+    createdAt?: Date | string
     username: string
     password: string
-    role: $Enums.ROLES
-    createdAt?: Date | string
+    roles?: EmployeeCreaterolesInput | $Enums.ROLE[]
   }
 
-  export type ManagerUpdateManyMutationInput = {
+  export type EmployeeUpdateManyMutationInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    role?: EnumROLESFieldUpdateOperationsInput | $Enums.ROLES
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    roles?: EmployeeUpdaterolesInput | $Enums.ROLE[]
   }
 
-  export type ManagerUncheckedUpdateManyInput = {
+  export type EmployeeUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    role?: EnumROLESFieldUpdateOperationsInput | $Enums.ROLES
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    roles?: EmployeeUpdaterolesInput | $Enums.ROLE[]
   }
 
-  export type UserCreateInput = {
-    username: string
-    userLink?: string | null
-    phoneNumber?: string | null
-    email?: string | null
-    homeAddress: string
-    leadStatus?: $Enums.LEAD_STATUS
-    taskImportance?: $Enums.TASK_IMPORTANCE
-    taskUrgency?: $Enums.TASK_URGENCY
-    taskStatus?: $Enums.TASK_STATUS
-    legalAction: $Enums.LEGAL_ACTION
-    problemShort: string
-    problemFull: string
-    nearestTask?: string
-    nearestTaskDeadline?: Date | string | null
-    timeOfPerformance?: Date | string | null
-    priceSOM?: bigint | number | null
-    priceUSD?: bigint | number | null
-    courtInfo?: string
-    statusInCourt?: $Enums.STATUS_IN_COURT
-    refusalReason?: $Enums.REFUSAL_REASON | null
+  export type PersonCreateInput = {
     createdAt?: Date | string
-    assignmentTime?: Date | string | null
-    author: ManagerCreateNestedOneWithoutAuthoredUsersInput
-    source: SourceCreateNestedOneWithoutUsersInput
-    opponent?: OpponentCreateNestedOneWithoutUsersInput
-    manager?: ManagerCreateNestedOneWithoutManagedUsersInput
+    name: string
+    phoneNumber?: string | null
+    link?: string | null
+    email?: string | null
+    homeAddress?: string | null
+    leadStatus?: $Enums.LEAD_STATUS
+    cases?: CaseCreateNestedManyWithoutPersonInput
+    author: EmployeeCreateNestedOneWithoutAuthoredPersonsInput
+    origin: OriginCreateNestedOneWithoutPersonsInput
   }
 
-  export type UserUncheckedCreateInput = {
+  export type PersonUncheckedCreateInput = {
     id?: number
-    username: string
-    userLink?: string | null
-    phoneNumber?: string | null
-    email?: string | null
-    homeAddress: string
-    leadStatus?: $Enums.LEAD_STATUS
-    taskImportance?: $Enums.TASK_IMPORTANCE
-    taskUrgency?: $Enums.TASK_URGENCY
-    taskStatus?: $Enums.TASK_STATUS
-    legalAction: $Enums.LEGAL_ACTION
-    problemShort: string
-    problemFull: string
-    nearestTask?: string
-    nearestTaskDeadline?: Date | string | null
-    timeOfPerformance?: Date | string | null
-    priceSOM?: bigint | number | null
-    priceUSD?: bigint | number | null
-    courtInfo?: string
-    statusInCourt?: $Enums.STATUS_IN_COURT
-    refusalReason?: $Enums.REFUSAL_REASON | null
     createdAt?: Date | string
-    assignmentTime?: Date | string | null
+    name: string
+    phoneNumber?: string | null
+    link?: string | null
+    email?: string | null
+    homeAddress?: string | null
     authorId: number
-    sourceId: number
+    originId: number
+    leadStatus?: $Enums.LEAD_STATUS
+    cases?: CaseUncheckedCreateNestedManyWithoutPersonInput
+  }
+
+  export type PersonUpdateInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    link?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    homeAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
+    cases?: CaseUpdateManyWithoutPersonNestedInput
+    author?: EmployeeUpdateOneRequiredWithoutAuthoredPersonsNestedInput
+    origin?: OriginUpdateOneRequiredWithoutPersonsNestedInput
+  }
+
+  export type PersonUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    link?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    homeAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    authorId?: IntFieldUpdateOperationsInput | number
+    originId?: IntFieldUpdateOperationsInput | number
+    leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
+    cases?: CaseUncheckedUpdateManyWithoutPersonNestedInput
+  }
+
+  export type PersonCreateManyInput = {
+    id?: number
+    createdAt?: Date | string
+    name: string
+    phoneNumber?: string | null
+    link?: string | null
+    email?: string | null
+    homeAddress?: string | null
+    authorId: number
+    originId: number
+    leadStatus?: $Enums.LEAD_STATUS
+  }
+
+  export type PersonUpdateManyMutationInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    link?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    homeAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
+  }
+
+  export type PersonUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    link?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    homeAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    authorId?: IntFieldUpdateOperationsInput | number
+    originId?: IntFieldUpdateOperationsInput | number
+    leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
+  }
+
+  export type CaseCreateInput = {
+    createdAt?: Date | string
+    caseImportance?: $Enums.IMPORTANCE
+    caseUrgency?: $Enums.URGENCY
+    caseStatus?: $Enums.CASE_STATUS
+    categories?: CaseCreatecategoriesInput | $Enums.CASE_CATEGORY[]
+    problemShort?: string | null
+    problemFull?: string | null
+    nearestTask?: string | null
+    courtInfo?: string | null
+    nearestTaskDeadline?: Date | string | null
+    timeOfPerformance?: Date | string | null
+    assignmentTime?: Date | string | null
+    refusalReason?: $Enums.REFUSAL_REASON | null
+    legalAction?: $Enums.LEGAL_ACTION | null
+    statusInCourt?: $Enums.STATUS_IN_COURT | null
+    priceSOM?: bigint | number | null
+    priceUSD?: bigint | number | null
+    author: EmployeeCreateNestedOneWithoutAuthoredCasesInput
+    manager?: EmployeeCreateNestedOneWithoutManagedCasesInput
+    opponent?: OpponentCreateNestedOneWithoutCasesInput
+    person: PersonCreateNestedOneWithoutCasesInput
+  }
+
+  export type CaseUncheckedCreateInput = {
+    id?: number
+    createdAt?: Date | string
+    caseImportance?: $Enums.IMPORTANCE
+    caseUrgency?: $Enums.URGENCY
+    caseStatus?: $Enums.CASE_STATUS
+    categories?: CaseCreatecategoriesInput | $Enums.CASE_CATEGORY[]
+    problemShort?: string | null
+    problemFull?: string | null
+    nearestTask?: string | null
+    courtInfo?: string | null
+    nearestTaskDeadline?: Date | string | null
+    timeOfPerformance?: Date | string | null
+    assignmentTime?: Date | string | null
+    refusalReason?: $Enums.REFUSAL_REASON | null
+    legalAction?: $Enums.LEGAL_ACTION | null
+    statusInCourt?: $Enums.STATUS_IN_COURT | null
+    priceSOM?: bigint | number | null
+    priceUSD?: bigint | number | null
+    personId: number
+    authorId: number
     opponentId?: number | null
     managerId?: number | null
   }
 
-  export type UserUpdateInput = {
-    username?: StringFieldUpdateOperationsInput | string
-    userLink?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    homeAddress?: StringFieldUpdateOperationsInput | string
-    leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
-    taskImportance?: EnumTASK_IMPORTANCEFieldUpdateOperationsInput | $Enums.TASK_IMPORTANCE
-    taskUrgency?: EnumTASK_URGENCYFieldUpdateOperationsInput | $Enums.TASK_URGENCY
-    taskStatus?: EnumTASK_STATUSFieldUpdateOperationsInput | $Enums.TASK_STATUS
-    legalAction?: EnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION
-    problemShort?: StringFieldUpdateOperationsInput | string
-    problemFull?: StringFieldUpdateOperationsInput | string
-    nearestTask?: StringFieldUpdateOperationsInput | string
+  export type CaseUpdateInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    caseImportance?: EnumIMPORTANCEFieldUpdateOperationsInput | $Enums.IMPORTANCE
+    caseUrgency?: EnumURGENCYFieldUpdateOperationsInput | $Enums.URGENCY
+    caseStatus?: EnumCASE_STATUSFieldUpdateOperationsInput | $Enums.CASE_STATUS
+    categories?: CaseUpdatecategoriesInput | $Enums.CASE_CATEGORY[]
+    problemShort?: NullableStringFieldUpdateOperationsInput | string | null
+    problemFull?: NullableStringFieldUpdateOperationsInput | string | null
+    nearestTask?: NullableStringFieldUpdateOperationsInput | string | null
+    courtInfo?: NullableStringFieldUpdateOperationsInput | string | null
     nearestTaskDeadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
+    legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
+    statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
     priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    courtInfo?: StringFieldUpdateOperationsInput | string
-    statusInCourt?: EnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT
-    refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    author?: ManagerUpdateOneRequiredWithoutAuthoredUsersNestedInput
-    source?: SourceUpdateOneRequiredWithoutUsersNestedInput
-    opponent?: OpponentUpdateOneWithoutUsersNestedInput
-    manager?: ManagerUpdateOneWithoutManagedUsersNestedInput
+    author?: EmployeeUpdateOneRequiredWithoutAuthoredCasesNestedInput
+    manager?: EmployeeUpdateOneWithoutManagedCasesNestedInput
+    opponent?: OpponentUpdateOneWithoutCasesNestedInput
+    person?: PersonUpdateOneRequiredWithoutCasesNestedInput
   }
 
-  export type UserUncheckedUpdateInput = {
+  export type CaseUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    username?: StringFieldUpdateOperationsInput | string
-    userLink?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    homeAddress?: StringFieldUpdateOperationsInput | string
-    leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
-    taskImportance?: EnumTASK_IMPORTANCEFieldUpdateOperationsInput | $Enums.TASK_IMPORTANCE
-    taskUrgency?: EnumTASK_URGENCYFieldUpdateOperationsInput | $Enums.TASK_URGENCY
-    taskStatus?: EnumTASK_STATUSFieldUpdateOperationsInput | $Enums.TASK_STATUS
-    legalAction?: EnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION
-    problemShort?: StringFieldUpdateOperationsInput | string
-    problemFull?: StringFieldUpdateOperationsInput | string
-    nearestTask?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    caseImportance?: EnumIMPORTANCEFieldUpdateOperationsInput | $Enums.IMPORTANCE
+    caseUrgency?: EnumURGENCYFieldUpdateOperationsInput | $Enums.URGENCY
+    caseStatus?: EnumCASE_STATUSFieldUpdateOperationsInput | $Enums.CASE_STATUS
+    categories?: CaseUpdatecategoriesInput | $Enums.CASE_CATEGORY[]
+    problemShort?: NullableStringFieldUpdateOperationsInput | string | null
+    problemFull?: NullableStringFieldUpdateOperationsInput | string | null
+    nearestTask?: NullableStringFieldUpdateOperationsInput | string | null
+    courtInfo?: NullableStringFieldUpdateOperationsInput | string | null
     nearestTaskDeadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
+    legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
+    statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
     priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    courtInfo?: StringFieldUpdateOperationsInput | string
-    statusInCourt?: EnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT
-    refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    personId?: IntFieldUpdateOperationsInput | number
     authorId?: IntFieldUpdateOperationsInput | number
-    sourceId?: IntFieldUpdateOperationsInput | number
     opponentId?: NullableIntFieldUpdateOperationsInput | number | null
     managerId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
-  export type UserCreateManyInput = {
+  export type CaseCreateManyInput = {
     id?: number
-    username: string
-    userLink?: string | null
-    phoneNumber?: string | null
-    email?: string | null
-    homeAddress: string
-    leadStatus?: $Enums.LEAD_STATUS
-    taskImportance?: $Enums.TASK_IMPORTANCE
-    taskUrgency?: $Enums.TASK_URGENCY
-    taskStatus?: $Enums.TASK_STATUS
-    legalAction: $Enums.LEGAL_ACTION
-    problemShort: string
-    problemFull: string
-    nearestTask?: string
+    createdAt?: Date | string
+    caseImportance?: $Enums.IMPORTANCE
+    caseUrgency?: $Enums.URGENCY
+    caseStatus?: $Enums.CASE_STATUS
+    categories?: CaseCreatecategoriesInput | $Enums.CASE_CATEGORY[]
+    problemShort?: string | null
+    problemFull?: string | null
+    nearestTask?: string | null
+    courtInfo?: string | null
     nearestTaskDeadline?: Date | string | null
     timeOfPerformance?: Date | string | null
+    assignmentTime?: Date | string | null
+    refusalReason?: $Enums.REFUSAL_REASON | null
+    legalAction?: $Enums.LEGAL_ACTION | null
+    statusInCourt?: $Enums.STATUS_IN_COURT | null
     priceSOM?: bigint | number | null
     priceUSD?: bigint | number | null
-    courtInfo?: string
-    statusInCourt?: $Enums.STATUS_IN_COURT
-    refusalReason?: $Enums.REFUSAL_REASON | null
-    createdAt?: Date | string
-    assignmentTime?: Date | string | null
+    personId: number
     authorId: number
-    sourceId: number
     opponentId?: number | null
     managerId?: number | null
   }
 
-  export type UserUpdateManyMutationInput = {
-    username?: StringFieldUpdateOperationsInput | string
-    userLink?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    homeAddress?: StringFieldUpdateOperationsInput | string
-    leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
-    taskImportance?: EnumTASK_IMPORTANCEFieldUpdateOperationsInput | $Enums.TASK_IMPORTANCE
-    taskUrgency?: EnumTASK_URGENCYFieldUpdateOperationsInput | $Enums.TASK_URGENCY
-    taskStatus?: EnumTASK_STATUSFieldUpdateOperationsInput | $Enums.TASK_STATUS
-    legalAction?: EnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION
-    problemShort?: StringFieldUpdateOperationsInput | string
-    problemFull?: StringFieldUpdateOperationsInput | string
-    nearestTask?: StringFieldUpdateOperationsInput | string
+  export type CaseUpdateManyMutationInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    caseImportance?: EnumIMPORTANCEFieldUpdateOperationsInput | $Enums.IMPORTANCE
+    caseUrgency?: EnumURGENCYFieldUpdateOperationsInput | $Enums.URGENCY
+    caseStatus?: EnumCASE_STATUSFieldUpdateOperationsInput | $Enums.CASE_STATUS
+    categories?: CaseUpdatecategoriesInput | $Enums.CASE_CATEGORY[]
+    problemShort?: NullableStringFieldUpdateOperationsInput | string | null
+    problemFull?: NullableStringFieldUpdateOperationsInput | string | null
+    nearestTask?: NullableStringFieldUpdateOperationsInput | string | null
+    courtInfo?: NullableStringFieldUpdateOperationsInput | string | null
     nearestTaskDeadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
+    legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
+    statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
     priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    courtInfo?: StringFieldUpdateOperationsInput | string
-    statusInCourt?: EnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT
-    refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type UserUncheckedUpdateManyInput = {
+  export type CaseUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    username?: StringFieldUpdateOperationsInput | string
-    userLink?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    homeAddress?: StringFieldUpdateOperationsInput | string
-    leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
-    taskImportance?: EnumTASK_IMPORTANCEFieldUpdateOperationsInput | $Enums.TASK_IMPORTANCE
-    taskUrgency?: EnumTASK_URGENCYFieldUpdateOperationsInput | $Enums.TASK_URGENCY
-    taskStatus?: EnumTASK_STATUSFieldUpdateOperationsInput | $Enums.TASK_STATUS
-    legalAction?: EnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION
-    problemShort?: StringFieldUpdateOperationsInput | string
-    problemFull?: StringFieldUpdateOperationsInput | string
-    nearestTask?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    caseImportance?: EnumIMPORTANCEFieldUpdateOperationsInput | $Enums.IMPORTANCE
+    caseUrgency?: EnumURGENCYFieldUpdateOperationsInput | $Enums.URGENCY
+    caseStatus?: EnumCASE_STATUSFieldUpdateOperationsInput | $Enums.CASE_STATUS
+    categories?: CaseUpdatecategoriesInput | $Enums.CASE_CATEGORY[]
+    problemShort?: NullableStringFieldUpdateOperationsInput | string | null
+    problemFull?: NullableStringFieldUpdateOperationsInput | string | null
+    nearestTask?: NullableStringFieldUpdateOperationsInput | string | null
+    courtInfo?: NullableStringFieldUpdateOperationsInput | string | null
     nearestTaskDeadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
+    legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
+    statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
     priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    courtInfo?: StringFieldUpdateOperationsInput | string
-    statusInCourt?: EnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT
-    refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    personId?: IntFieldUpdateOperationsInput | number
     authorId?: IntFieldUpdateOperationsInput | number
-    sourceId?: IntFieldUpdateOperationsInput | number
     opponentId?: NullableIntFieldUpdateOperationsInput | number | null
     managerId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
-  export type SourceCreateInput = {
-    title: string
-    sourceLink?: string | null
-    category: $Enums.SOURCE_CATEGORY
+  export type OriginCreateInput = {
     createdAt?: Date | string
-    author: ManagerCreateNestedOneWithoutSourcesInput
-    users?: UserCreateNestedManyWithoutSourceInput
+    title: string
+    link?: string | null
+    categories?: OriginCreatecategoriesInput | $Enums.CASE_CATEGORY[]
+    author: EmployeeCreateNestedOneWithoutAuthoredOriginsInput
+    persons?: PersonCreateNestedManyWithoutOriginInput
   }
 
-  export type SourceUncheckedCreateInput = {
+  export type OriginUncheckedCreateInput = {
     id?: number
-    title: string
-    sourceLink?: string | null
-    category: $Enums.SOURCE_CATEGORY
     createdAt?: Date | string
+    title: string
+    link?: string | null
+    categories?: OriginCreatecategoriesInput | $Enums.CASE_CATEGORY[]
     authorId: number
-    users?: UserUncheckedCreateNestedManyWithoutSourceInput
+    persons?: PersonUncheckedCreateNestedManyWithoutOriginInput
   }
 
-  export type SourceUpdateInput = {
-    title?: StringFieldUpdateOperationsInput | string
-    sourceLink?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: EnumSOURCE_CATEGORYFieldUpdateOperationsInput | $Enums.SOURCE_CATEGORY
+  export type OriginUpdateInput = {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    author?: ManagerUpdateOneRequiredWithoutSourcesNestedInput
-    users?: UserUpdateManyWithoutSourceNestedInput
+    title?: StringFieldUpdateOperationsInput | string
+    link?: NullableStringFieldUpdateOperationsInput | string | null
+    categories?: OriginUpdatecategoriesInput | $Enums.CASE_CATEGORY[]
+    author?: EmployeeUpdateOneRequiredWithoutAuthoredOriginsNestedInput
+    persons?: PersonUpdateManyWithoutOriginNestedInput
   }
 
-  export type SourceUncheckedUpdateInput = {
+  export type OriginUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    title?: StringFieldUpdateOperationsInput | string
-    sourceLink?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: EnumSOURCE_CATEGORYFieldUpdateOperationsInput | $Enums.SOURCE_CATEGORY
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    title?: StringFieldUpdateOperationsInput | string
+    link?: NullableStringFieldUpdateOperationsInput | string | null
+    categories?: OriginUpdatecategoriesInput | $Enums.CASE_CATEGORY[]
     authorId?: IntFieldUpdateOperationsInput | number
-    users?: UserUncheckedUpdateManyWithoutSourceNestedInput
+    persons?: PersonUncheckedUpdateManyWithoutOriginNestedInput
   }
 
-  export type SourceCreateManyInput = {
+  export type OriginCreateManyInput = {
     id?: number
-    title: string
-    sourceLink?: string | null
-    category: $Enums.SOURCE_CATEGORY
     createdAt?: Date | string
+    title: string
+    link?: string | null
+    categories?: OriginCreatecategoriesInput | $Enums.CASE_CATEGORY[]
     authorId: number
   }
 
-  export type SourceUpdateManyMutationInput = {
-    title?: StringFieldUpdateOperationsInput | string
-    sourceLink?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: EnumSOURCE_CATEGORYFieldUpdateOperationsInput | $Enums.SOURCE_CATEGORY
+  export type OriginUpdateManyMutationInput = {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    title?: StringFieldUpdateOperationsInput | string
+    link?: NullableStringFieldUpdateOperationsInput | string | null
+    categories?: OriginUpdatecategoriesInput | $Enums.CASE_CATEGORY[]
   }
 
-  export type SourceUncheckedUpdateManyInput = {
+  export type OriginUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    title?: StringFieldUpdateOperationsInput | string
-    sourceLink?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: EnumSOURCE_CATEGORYFieldUpdateOperationsInput | $Enums.SOURCE_CATEGORY
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    title?: StringFieldUpdateOperationsInput | string
+    link?: NullableStringFieldUpdateOperationsInput | string | null
+    categories?: OriginUpdatecategoriesInput | $Enums.CASE_CATEGORY[]
     authorId?: IntFieldUpdateOperationsInput | number
   }
 
   export type OpponentCreateInput = {
+    createdAt?: Date | string
     name: string
     link?: string | null
-    info?: string
-    createdAt?: Date | string
-    users?: UserCreateNestedManyWithoutOpponentInput
+    info?: string | null
+    cases?: CaseCreateNestedManyWithoutOpponentInput
+    author: EmployeeCreateNestedOneWithoutOpponentInput
   }
 
   export type OpponentUncheckedCreateInput = {
     id?: number
+    createdAt?: Date | string
     name: string
     link?: string | null
-    info?: string
-    createdAt?: Date | string
-    users?: UserUncheckedCreateNestedManyWithoutOpponentInput
+    info?: string | null
+    authorId: number
+    cases?: CaseUncheckedCreateNestedManyWithoutOpponentInput
   }
 
   export type OpponentUpdateInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     name?: StringFieldUpdateOperationsInput | string
     link?: NullableStringFieldUpdateOperationsInput | string | null
-    info?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    users?: UserUpdateManyWithoutOpponentNestedInput
+    info?: NullableStringFieldUpdateOperationsInput | string | null
+    cases?: CaseUpdateManyWithoutOpponentNestedInput
+    author?: EmployeeUpdateOneRequiredWithoutOpponentNestedInput
   }
 
   export type OpponentUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     name?: StringFieldUpdateOperationsInput | string
     link?: NullableStringFieldUpdateOperationsInput | string | null
-    info?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    users?: UserUncheckedUpdateManyWithoutOpponentNestedInput
+    info?: NullableStringFieldUpdateOperationsInput | string | null
+    authorId?: IntFieldUpdateOperationsInput | number
+    cases?: CaseUncheckedUpdateManyWithoutOpponentNestedInput
   }
 
   export type OpponentCreateManyInput = {
     id?: number
+    createdAt?: Date | string
     name: string
     link?: string | null
-    info?: string
-    createdAt?: Date | string
+    info?: string | null
+    authorId: number
   }
 
   export type OpponentUpdateManyMutationInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     name?: StringFieldUpdateOperationsInput | string
     link?: NullableStringFieldUpdateOperationsInput | string | null
-    info?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    info?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type OpponentUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     name?: StringFieldUpdateOperationsInput | string
     link?: NullableStringFieldUpdateOperationsInput | string | null
-    info?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    info?: NullableStringFieldUpdateOperationsInput | string | null
+    authorId?: IntFieldUpdateOperationsInput | number
   }
 
   export type BloggerCreateInput = {
+    createdAt?: Date | string
     name: string
     link: string
-    subscribersCount: number
-    info?: string
-    priceSOM?: number | null
-    priceUSD?: number | null
     phoneNumber?: string | null
     email?: string | null
-    categories?: BloggerCreatecategoriesInput | $Enums.SOURCE_CATEGORY[]
-    createdAt?: Date | string
-    author: ManagerCreateNestedOneWithoutBloggersInput
+    info?: string | null
+    subscribersCount: bigint | number
+    priceSOM?: bigint | number | null
+    priceUSD?: bigint | number | null
+    categories?: BloggerCreatecategoriesInput | $Enums.CASE_CATEGORY[]
+    author: EmployeeCreateNestedOneWithoutAuthoredBloggersInput
   }
 
   export type BloggerUncheckedCreateInput = {
     id?: number
+    createdAt?: Date | string
     name: string
     link: string
-    subscribersCount: number
-    info?: string
-    priceSOM?: number | null
-    priceUSD?: number | null
     phoneNumber?: string | null
     email?: string | null
-    categories?: BloggerCreatecategoriesInput | $Enums.SOURCE_CATEGORY[]
-    createdAt?: Date | string
+    info?: string | null
+    subscribersCount: bigint | number
+    priceSOM?: bigint | number | null
+    priceUSD?: bigint | number | null
     authorId: number
+    categories?: BloggerCreatecategoriesInput | $Enums.CASE_CATEGORY[]
   }
 
   export type BloggerUpdateInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     name?: StringFieldUpdateOperationsInput | string
     link?: StringFieldUpdateOperationsInput | string
-    subscribersCount?: IntFieldUpdateOperationsInput | number
-    info?: StringFieldUpdateOperationsInput | string
-    priceSOM?: NullableIntFieldUpdateOperationsInput | number | null
-    priceUSD?: NullableIntFieldUpdateOperationsInput | number | null
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
-    categories?: BloggerUpdatecategoriesInput | $Enums.SOURCE_CATEGORY[]
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    author?: ManagerUpdateOneRequiredWithoutBloggersNestedInput
+    info?: NullableStringFieldUpdateOperationsInput | string | null
+    subscribersCount?: BigIntFieldUpdateOperationsInput | bigint | number
+    priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    categories?: BloggerUpdatecategoriesInput | $Enums.CASE_CATEGORY[]
+    author?: EmployeeUpdateOneRequiredWithoutAuthoredBloggersNestedInput
   }
 
   export type BloggerUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     name?: StringFieldUpdateOperationsInput | string
     link?: StringFieldUpdateOperationsInput | string
-    subscribersCount?: IntFieldUpdateOperationsInput | number
-    info?: StringFieldUpdateOperationsInput | string
-    priceSOM?: NullableIntFieldUpdateOperationsInput | number | null
-    priceUSD?: NullableIntFieldUpdateOperationsInput | number | null
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
-    categories?: BloggerUpdatecategoriesInput | $Enums.SOURCE_CATEGORY[]
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    info?: NullableStringFieldUpdateOperationsInput | string | null
+    subscribersCount?: BigIntFieldUpdateOperationsInput | bigint | number
+    priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     authorId?: IntFieldUpdateOperationsInput | number
+    categories?: BloggerUpdatecategoriesInput | $Enums.CASE_CATEGORY[]
   }
 
   export type BloggerCreateManyInput = {
     id?: number
+    createdAt?: Date | string
     name: string
     link: string
-    subscribersCount: number
-    info?: string
-    priceSOM?: number | null
-    priceUSD?: number | null
     phoneNumber?: string | null
     email?: string | null
-    categories?: BloggerCreatecategoriesInput | $Enums.SOURCE_CATEGORY[]
-    createdAt?: Date | string
+    info?: string | null
+    subscribersCount: bigint | number
+    priceSOM?: bigint | number | null
+    priceUSD?: bigint | number | null
     authorId: number
+    categories?: BloggerCreatecategoriesInput | $Enums.CASE_CATEGORY[]
   }
 
   export type BloggerUpdateManyMutationInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     name?: StringFieldUpdateOperationsInput | string
     link?: StringFieldUpdateOperationsInput | string
-    subscribersCount?: IntFieldUpdateOperationsInput | number
-    info?: StringFieldUpdateOperationsInput | string
-    priceSOM?: NullableIntFieldUpdateOperationsInput | number | null
-    priceUSD?: NullableIntFieldUpdateOperationsInput | number | null
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
-    categories?: BloggerUpdatecategoriesInput | $Enums.SOURCE_CATEGORY[]
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    info?: NullableStringFieldUpdateOperationsInput | string | null
+    subscribersCount?: BigIntFieldUpdateOperationsInput | bigint | number
+    priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    categories?: BloggerUpdatecategoriesInput | $Enums.CASE_CATEGORY[]
   }
 
   export type BloggerUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     name?: StringFieldUpdateOperationsInput | string
     link?: StringFieldUpdateOperationsInput | string
-    subscribersCount?: IntFieldUpdateOperationsInput | number
-    info?: StringFieldUpdateOperationsInput | string
-    priceSOM?: NullableIntFieldUpdateOperationsInput | number | null
-    priceUSD?: NullableIntFieldUpdateOperationsInput | number | null
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
-    categories?: BloggerUpdatecategoriesInput | $Enums.SOURCE_CATEGORY[]
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    info?: NullableStringFieldUpdateOperationsInput | string | null
+    subscribersCount?: BigIntFieldUpdateOperationsInput | bigint | number
+    priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     authorId?: IntFieldUpdateOperationsInput | number
+    categories?: BloggerUpdatecategoriesInput | $Enums.CASE_CATEGORY[]
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -8864,6 +10378,17 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -8881,34 +10406,12 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type EnumROLESFilter<$PrismaModel = never> = {
-    equals?: $Enums.ROLES | EnumROLESFieldRefInput<$PrismaModel>
-    in?: $Enums.ROLES[] | ListEnumROLESFieldRefInput<$PrismaModel>
-    notIn?: $Enums.ROLES[] | ListEnumROLESFieldRefInput<$PrismaModel>
-    not?: NestedEnumROLESFilter<$PrismaModel> | $Enums.ROLES
-  }
-
-  export type DateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
-  }
-
-  export type UserListRelationFilter = {
-    every?: UserWhereInput
-    some?: UserWhereInput
-    none?: UserWhereInput
-  }
-
-  export type SourceListRelationFilter = {
-    every?: SourceWhereInput
-    some?: SourceWhereInput
-    none?: SourceWhereInput
+  export type EnumROLENullableListFilter<$PrismaModel = never> = {
+    equals?: $Enums.ROLE[] | ListEnumROLEFieldRefInput<$PrismaModel> | null
+    has?: $Enums.ROLE | EnumROLEFieldRefInput<$PrismaModel> | null
+    hasEvery?: $Enums.ROLE[] | ListEnumROLEFieldRefInput<$PrismaModel>
+    hasSome?: $Enums.ROLE[] | ListEnumROLEFieldRefInput<$PrismaModel>
+    isEmpty?: boolean
   }
 
   export type BloggerListRelationFilter = {
@@ -8917,47 +10420,77 @@ export namespace Prisma {
     none?: BloggerWhereInput
   }
 
-  export type UserOrderByRelationAggregateInput = {
-    _count?: SortOrder
+  export type OriginListRelationFilter = {
+    every?: OriginWhereInput
+    some?: OriginWhereInput
+    none?: OriginWhereInput
   }
 
-  export type SourceOrderByRelationAggregateInput = {
-    _count?: SortOrder
+  export type PersonListRelationFilter = {
+    every?: PersonWhereInput
+    some?: PersonWhereInput
+    none?: PersonWhereInput
+  }
+
+  export type CaseListRelationFilter = {
+    every?: CaseWhereInput
+    some?: CaseWhereInput
+    none?: CaseWhereInput
+  }
+
+  export type OpponentListRelationFilter = {
+    every?: OpponentWhereInput
+    some?: OpponentWhereInput
+    none?: OpponentWhereInput
   }
 
   export type BloggerOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
-  export type ManagerCountOrderByAggregateInput = {
+  export type OriginOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type PersonOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type CaseOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type OpponentOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type EmployeeCountOrderByAggregateInput = {
     id?: SortOrder
+    createdAt?: SortOrder
     username?: SortOrder
     password?: SortOrder
-    role?: SortOrder
+    roles?: SortOrder
+  }
+
+  export type EmployeeAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type EmployeeMaxOrderByAggregateInput = {
+    id?: SortOrder
     createdAt?: SortOrder
-  }
-
-  export type ManagerAvgOrderByAggregateInput = {
-    id?: SortOrder
-  }
-
-  export type ManagerMaxOrderByAggregateInput = {
-    id?: SortOrder
     username?: SortOrder
     password?: SortOrder
-    role?: SortOrder
-    createdAt?: SortOrder
   }
 
-  export type ManagerMinOrderByAggregateInput = {
+  export type EmployeeMinOrderByAggregateInput = {
     id?: SortOrder
+    createdAt?: SortOrder
     username?: SortOrder
     password?: SortOrder
-    role?: SortOrder
-    createdAt?: SortOrder
   }
 
-  export type ManagerSumOrderByAggregateInput = {
+  export type EmployeeSumOrderByAggregateInput = {
     id?: SortOrder
   }
 
@@ -8977,6 +10510,20 @@ export namespace Prisma {
     _max?: NestedIntFilter<$PrismaModel>
   }
 
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -8993,30 +10540,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
-  }
-
-  export type EnumROLESWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.ROLES | EnumROLESFieldRefInput<$PrismaModel>
-    in?: $Enums.ROLES[] | ListEnumROLESFieldRefInput<$PrismaModel>
-    notIn?: $Enums.ROLES[] | ListEnumROLESFieldRefInput<$PrismaModel>
-    not?: NestedEnumROLESWithAggregatesFilter<$PrismaModel> | $Enums.ROLES
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumROLESFilter<$PrismaModel>
-    _max?: NestedEnumROLESFilter<$PrismaModel>
-  }
-
-  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type StringNullableFilter<$PrismaModel = never> = {
@@ -9041,99 +10564,14 @@ export namespace Prisma {
     not?: NestedEnumLEAD_STATUSFilter<$PrismaModel> | $Enums.LEAD_STATUS
   }
 
-  export type EnumTASK_IMPORTANCEFilter<$PrismaModel = never> = {
-    equals?: $Enums.TASK_IMPORTANCE | EnumTASK_IMPORTANCEFieldRefInput<$PrismaModel>
-    in?: $Enums.TASK_IMPORTANCE[] | ListEnumTASK_IMPORTANCEFieldRefInput<$PrismaModel>
-    notIn?: $Enums.TASK_IMPORTANCE[] | ListEnumTASK_IMPORTANCEFieldRefInput<$PrismaModel>
-    not?: NestedEnumTASK_IMPORTANCEFilter<$PrismaModel> | $Enums.TASK_IMPORTANCE
+  export type EmployeeScalarRelationFilter = {
+    is?: EmployeeWhereInput
+    isNot?: EmployeeWhereInput
   }
 
-  export type EnumTASK_URGENCYFilter<$PrismaModel = never> = {
-    equals?: $Enums.TASK_URGENCY | EnumTASK_URGENCYFieldRefInput<$PrismaModel>
-    in?: $Enums.TASK_URGENCY[] | ListEnumTASK_URGENCYFieldRefInput<$PrismaModel>
-    notIn?: $Enums.TASK_URGENCY[] | ListEnumTASK_URGENCYFieldRefInput<$PrismaModel>
-    not?: NestedEnumTASK_URGENCYFilter<$PrismaModel> | $Enums.TASK_URGENCY
-  }
-
-  export type EnumTASK_STATUSFilter<$PrismaModel = never> = {
-    equals?: $Enums.TASK_STATUS | EnumTASK_STATUSFieldRefInput<$PrismaModel>
-    in?: $Enums.TASK_STATUS[] | ListEnumTASK_STATUSFieldRefInput<$PrismaModel>
-    notIn?: $Enums.TASK_STATUS[] | ListEnumTASK_STATUSFieldRefInput<$PrismaModel>
-    not?: NestedEnumTASK_STATUSFilter<$PrismaModel> | $Enums.TASK_STATUS
-  }
-
-  export type EnumLEGAL_ACTIONFilter<$PrismaModel = never> = {
-    equals?: $Enums.LEGAL_ACTION | EnumLEGAL_ACTIONFieldRefInput<$PrismaModel>
-    in?: $Enums.LEGAL_ACTION[] | ListEnumLEGAL_ACTIONFieldRefInput<$PrismaModel>
-    notIn?: $Enums.LEGAL_ACTION[] | ListEnumLEGAL_ACTIONFieldRefInput<$PrismaModel>
-    not?: NestedEnumLEGAL_ACTIONFilter<$PrismaModel> | $Enums.LEGAL_ACTION
-  }
-
-  export type DateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
-  }
-
-  export type BigIntNullableFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
-    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
-    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
-    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntNullableFilter<$PrismaModel> | bigint | number | null
-  }
-
-  export type EnumSTATUS_IN_COURTFilter<$PrismaModel = never> = {
-    equals?: $Enums.STATUS_IN_COURT | EnumSTATUS_IN_COURTFieldRefInput<$PrismaModel>
-    in?: $Enums.STATUS_IN_COURT[] | ListEnumSTATUS_IN_COURTFieldRefInput<$PrismaModel>
-    notIn?: $Enums.STATUS_IN_COURT[] | ListEnumSTATUS_IN_COURTFieldRefInput<$PrismaModel>
-    not?: NestedEnumSTATUS_IN_COURTFilter<$PrismaModel> | $Enums.STATUS_IN_COURT
-  }
-
-  export type EnumREFUSAL_REASONNullableFilter<$PrismaModel = never> = {
-    equals?: $Enums.REFUSAL_REASON | EnumREFUSAL_REASONFieldRefInput<$PrismaModel> | null
-    in?: $Enums.REFUSAL_REASON[] | ListEnumREFUSAL_REASONFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.REFUSAL_REASON[] | ListEnumREFUSAL_REASONFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumREFUSAL_REASONNullableFilter<$PrismaModel> | $Enums.REFUSAL_REASON | null
-  }
-
-  export type IntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
-  export type ManagerScalarRelationFilter = {
-    is?: ManagerWhereInput
-    isNot?: ManagerWhereInput
-  }
-
-  export type SourceScalarRelationFilter = {
-    is?: SourceWhereInput
-    isNot?: SourceWhereInput
-  }
-
-  export type OpponentNullableScalarRelationFilter = {
-    is?: OpponentWhereInput | null
-    isNot?: OpponentWhereInput | null
-  }
-
-  export type ManagerNullableScalarRelationFilter = {
-    is?: ManagerWhereInput | null
-    isNot?: ManagerWhereInput | null
+  export type OriginScalarRelationFilter = {
+    is?: OriginWhereInput
+    isNot?: OriginWhereInput
   }
 
   export type SortOrderInput = {
@@ -9141,114 +10579,55 @@ export namespace Prisma {
     nulls?: NullsOrder
   }
 
-  export type UserCountOrderByAggregateInput = {
+  export type PersonCountOrderByAggregateInput = {
     id?: SortOrder
-    username?: SortOrder
-    userLink?: SortOrder
+    createdAt?: SortOrder
+    name?: SortOrder
     phoneNumber?: SortOrder
+    link?: SortOrder
     email?: SortOrder
     homeAddress?: SortOrder
+    authorId?: SortOrder
+    originId?: SortOrder
     leadStatus?: SortOrder
-    taskImportance?: SortOrder
-    taskUrgency?: SortOrder
-    taskStatus?: SortOrder
-    legalAction?: SortOrder
-    problemShort?: SortOrder
-    problemFull?: SortOrder
-    nearestTask?: SortOrder
-    nearestTaskDeadline?: SortOrder
-    timeOfPerformance?: SortOrder
-    priceSOM?: SortOrder
-    priceUSD?: SortOrder
-    courtInfo?: SortOrder
-    statusInCourt?: SortOrder
-    refusalReason?: SortOrder
+  }
+
+  export type PersonAvgOrderByAggregateInput = {
+    id?: SortOrder
+    authorId?: SortOrder
+    originId?: SortOrder
+  }
+
+  export type PersonMaxOrderByAggregateInput = {
+    id?: SortOrder
     createdAt?: SortOrder
-    assignmentTime?: SortOrder
-    authorId?: SortOrder
-    sourceId?: SortOrder
-    opponentId?: SortOrder
-    managerId?: SortOrder
-  }
-
-  export type UserAvgOrderByAggregateInput = {
-    id?: SortOrder
-    priceSOM?: SortOrder
-    priceUSD?: SortOrder
-    authorId?: SortOrder
-    sourceId?: SortOrder
-    opponentId?: SortOrder
-    managerId?: SortOrder
-  }
-
-  export type UserMaxOrderByAggregateInput = {
-    id?: SortOrder
-    username?: SortOrder
-    userLink?: SortOrder
+    name?: SortOrder
     phoneNumber?: SortOrder
+    link?: SortOrder
     email?: SortOrder
     homeAddress?: SortOrder
-    leadStatus?: SortOrder
-    taskImportance?: SortOrder
-    taskUrgency?: SortOrder
-    taskStatus?: SortOrder
-    legalAction?: SortOrder
-    problemShort?: SortOrder
-    problemFull?: SortOrder
-    nearestTask?: SortOrder
-    nearestTaskDeadline?: SortOrder
-    timeOfPerformance?: SortOrder
-    priceSOM?: SortOrder
-    priceUSD?: SortOrder
-    courtInfo?: SortOrder
-    statusInCourt?: SortOrder
-    refusalReason?: SortOrder
-    createdAt?: SortOrder
-    assignmentTime?: SortOrder
     authorId?: SortOrder
-    sourceId?: SortOrder
-    opponentId?: SortOrder
-    managerId?: SortOrder
+    originId?: SortOrder
+    leadStatus?: SortOrder
   }
 
-  export type UserMinOrderByAggregateInput = {
+  export type PersonMinOrderByAggregateInput = {
     id?: SortOrder
-    username?: SortOrder
-    userLink?: SortOrder
+    createdAt?: SortOrder
+    name?: SortOrder
     phoneNumber?: SortOrder
+    link?: SortOrder
     email?: SortOrder
     homeAddress?: SortOrder
-    leadStatus?: SortOrder
-    taskImportance?: SortOrder
-    taskUrgency?: SortOrder
-    taskStatus?: SortOrder
-    legalAction?: SortOrder
-    problemShort?: SortOrder
-    problemFull?: SortOrder
-    nearestTask?: SortOrder
-    nearestTaskDeadline?: SortOrder
-    timeOfPerformance?: SortOrder
-    priceSOM?: SortOrder
-    priceUSD?: SortOrder
-    courtInfo?: SortOrder
-    statusInCourt?: SortOrder
-    refusalReason?: SortOrder
-    createdAt?: SortOrder
-    assignmentTime?: SortOrder
     authorId?: SortOrder
-    sourceId?: SortOrder
-    opponentId?: SortOrder
-    managerId?: SortOrder
+    originId?: SortOrder
+    leadStatus?: SortOrder
   }
 
-  export type UserSumOrderByAggregateInput = {
+  export type PersonSumOrderByAggregateInput = {
     id?: SortOrder
-    priceSOM?: SortOrder
-    priceUSD?: SortOrder
     authorId?: SortOrder
-    sourceId?: SortOrder
-    opponentId?: SortOrder
-    managerId?: SortOrder
+    originId?: SortOrder
   }
 
   export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -9279,44 +10658,225 @@ export namespace Prisma {
     _max?: NestedEnumLEAD_STATUSFilter<$PrismaModel>
   }
 
-  export type EnumTASK_IMPORTANCEWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.TASK_IMPORTANCE | EnumTASK_IMPORTANCEFieldRefInput<$PrismaModel>
-    in?: $Enums.TASK_IMPORTANCE[] | ListEnumTASK_IMPORTANCEFieldRefInput<$PrismaModel>
-    notIn?: $Enums.TASK_IMPORTANCE[] | ListEnumTASK_IMPORTANCEFieldRefInput<$PrismaModel>
-    not?: NestedEnumTASK_IMPORTANCEWithAggregatesFilter<$PrismaModel> | $Enums.TASK_IMPORTANCE
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumTASK_IMPORTANCEFilter<$PrismaModel>
-    _max?: NestedEnumTASK_IMPORTANCEFilter<$PrismaModel>
+  export type EnumIMPORTANCEFilter<$PrismaModel = never> = {
+    equals?: $Enums.IMPORTANCE | EnumIMPORTANCEFieldRefInput<$PrismaModel>
+    in?: $Enums.IMPORTANCE[] | ListEnumIMPORTANCEFieldRefInput<$PrismaModel>
+    notIn?: $Enums.IMPORTANCE[] | ListEnumIMPORTANCEFieldRefInput<$PrismaModel>
+    not?: NestedEnumIMPORTANCEFilter<$PrismaModel> | $Enums.IMPORTANCE
   }
 
-  export type EnumTASK_URGENCYWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.TASK_URGENCY | EnumTASK_URGENCYFieldRefInput<$PrismaModel>
-    in?: $Enums.TASK_URGENCY[] | ListEnumTASK_URGENCYFieldRefInput<$PrismaModel>
-    notIn?: $Enums.TASK_URGENCY[] | ListEnumTASK_URGENCYFieldRefInput<$PrismaModel>
-    not?: NestedEnumTASK_URGENCYWithAggregatesFilter<$PrismaModel> | $Enums.TASK_URGENCY
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumTASK_URGENCYFilter<$PrismaModel>
-    _max?: NestedEnumTASK_URGENCYFilter<$PrismaModel>
+  export type EnumURGENCYFilter<$PrismaModel = never> = {
+    equals?: $Enums.URGENCY | EnumURGENCYFieldRefInput<$PrismaModel>
+    in?: $Enums.URGENCY[] | ListEnumURGENCYFieldRefInput<$PrismaModel>
+    notIn?: $Enums.URGENCY[] | ListEnumURGENCYFieldRefInput<$PrismaModel>
+    not?: NestedEnumURGENCYFilter<$PrismaModel> | $Enums.URGENCY
   }
 
-  export type EnumTASK_STATUSWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.TASK_STATUS | EnumTASK_STATUSFieldRefInput<$PrismaModel>
-    in?: $Enums.TASK_STATUS[] | ListEnumTASK_STATUSFieldRefInput<$PrismaModel>
-    notIn?: $Enums.TASK_STATUS[] | ListEnumTASK_STATUSFieldRefInput<$PrismaModel>
-    not?: NestedEnumTASK_STATUSWithAggregatesFilter<$PrismaModel> | $Enums.TASK_STATUS
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumTASK_STATUSFilter<$PrismaModel>
-    _max?: NestedEnumTASK_STATUSFilter<$PrismaModel>
+  export type EnumCASE_STATUSFilter<$PrismaModel = never> = {
+    equals?: $Enums.CASE_STATUS | EnumCASE_STATUSFieldRefInput<$PrismaModel>
+    in?: $Enums.CASE_STATUS[] | ListEnumCASE_STATUSFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CASE_STATUS[] | ListEnumCASE_STATUSFieldRefInput<$PrismaModel>
+    not?: NestedEnumCASE_STATUSFilter<$PrismaModel> | $Enums.CASE_STATUS
   }
 
-  export type EnumLEGAL_ACTIONWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.LEGAL_ACTION | EnumLEGAL_ACTIONFieldRefInput<$PrismaModel>
-    in?: $Enums.LEGAL_ACTION[] | ListEnumLEGAL_ACTIONFieldRefInput<$PrismaModel>
-    notIn?: $Enums.LEGAL_ACTION[] | ListEnumLEGAL_ACTIONFieldRefInput<$PrismaModel>
-    not?: NestedEnumLEGAL_ACTIONWithAggregatesFilter<$PrismaModel> | $Enums.LEGAL_ACTION
+  export type EnumCASE_CATEGORYNullableListFilter<$PrismaModel = never> = {
+    equals?: $Enums.CASE_CATEGORY[] | ListEnumCASE_CATEGORYFieldRefInput<$PrismaModel> | null
+    has?: $Enums.CASE_CATEGORY | EnumCASE_CATEGORYFieldRefInput<$PrismaModel> | null
+    hasEvery?: $Enums.CASE_CATEGORY[] | ListEnumCASE_CATEGORYFieldRefInput<$PrismaModel>
+    hasSome?: $Enums.CASE_CATEGORY[] | ListEnumCASE_CATEGORYFieldRefInput<$PrismaModel>
+    isEmpty?: boolean
+  }
+
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type EnumREFUSAL_REASONNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.REFUSAL_REASON | EnumREFUSAL_REASONFieldRefInput<$PrismaModel> | null
+    in?: $Enums.REFUSAL_REASON[] | ListEnumREFUSAL_REASONFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.REFUSAL_REASON[] | ListEnumREFUSAL_REASONFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumREFUSAL_REASONNullableFilter<$PrismaModel> | $Enums.REFUSAL_REASON | null
+  }
+
+  export type EnumLEGAL_ACTIONNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.LEGAL_ACTION | EnumLEGAL_ACTIONFieldRefInput<$PrismaModel> | null
+    in?: $Enums.LEGAL_ACTION[] | ListEnumLEGAL_ACTIONFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.LEGAL_ACTION[] | ListEnumLEGAL_ACTIONFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumLEGAL_ACTIONNullableFilter<$PrismaModel> | $Enums.LEGAL_ACTION | null
+  }
+
+  export type EnumSTATUS_IN_COURTNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.STATUS_IN_COURT | EnumSTATUS_IN_COURTFieldRefInput<$PrismaModel> | null
+    in?: $Enums.STATUS_IN_COURT[] | ListEnumSTATUS_IN_COURTFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.STATUS_IN_COURT[] | ListEnumSTATUS_IN_COURTFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumSTATUS_IN_COURTNullableFilter<$PrismaModel> | $Enums.STATUS_IN_COURT | null
+  }
+
+  export type BigIntNullableFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
+    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
+    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntNullableFilter<$PrismaModel> | bigint | number | null
+  }
+
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type EmployeeNullableScalarRelationFilter = {
+    is?: EmployeeWhereInput | null
+    isNot?: EmployeeWhereInput | null
+  }
+
+  export type OpponentNullableScalarRelationFilter = {
+    is?: OpponentWhereInput | null
+    isNot?: OpponentWhereInput | null
+  }
+
+  export type PersonScalarRelationFilter = {
+    is?: PersonWhereInput
+    isNot?: PersonWhereInput
+  }
+
+  export type CaseCountOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    caseImportance?: SortOrder
+    caseUrgency?: SortOrder
+    caseStatus?: SortOrder
+    categories?: SortOrder
+    problemShort?: SortOrder
+    problemFull?: SortOrder
+    nearestTask?: SortOrder
+    courtInfo?: SortOrder
+    nearestTaskDeadline?: SortOrder
+    timeOfPerformance?: SortOrder
+    assignmentTime?: SortOrder
+    refusalReason?: SortOrder
+    legalAction?: SortOrder
+    statusInCourt?: SortOrder
+    priceSOM?: SortOrder
+    priceUSD?: SortOrder
+    personId?: SortOrder
+    authorId?: SortOrder
+    opponentId?: SortOrder
+    managerId?: SortOrder
+  }
+
+  export type CaseAvgOrderByAggregateInput = {
+    id?: SortOrder
+    priceSOM?: SortOrder
+    priceUSD?: SortOrder
+    personId?: SortOrder
+    authorId?: SortOrder
+    opponentId?: SortOrder
+    managerId?: SortOrder
+  }
+
+  export type CaseMaxOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    caseImportance?: SortOrder
+    caseUrgency?: SortOrder
+    caseStatus?: SortOrder
+    problemShort?: SortOrder
+    problemFull?: SortOrder
+    nearestTask?: SortOrder
+    courtInfo?: SortOrder
+    nearestTaskDeadline?: SortOrder
+    timeOfPerformance?: SortOrder
+    assignmentTime?: SortOrder
+    refusalReason?: SortOrder
+    legalAction?: SortOrder
+    statusInCourt?: SortOrder
+    priceSOM?: SortOrder
+    priceUSD?: SortOrder
+    personId?: SortOrder
+    authorId?: SortOrder
+    opponentId?: SortOrder
+    managerId?: SortOrder
+  }
+
+  export type CaseMinOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    caseImportance?: SortOrder
+    caseUrgency?: SortOrder
+    caseStatus?: SortOrder
+    problemShort?: SortOrder
+    problemFull?: SortOrder
+    nearestTask?: SortOrder
+    courtInfo?: SortOrder
+    nearestTaskDeadline?: SortOrder
+    timeOfPerformance?: SortOrder
+    assignmentTime?: SortOrder
+    refusalReason?: SortOrder
+    legalAction?: SortOrder
+    statusInCourt?: SortOrder
+    priceSOM?: SortOrder
+    priceUSD?: SortOrder
+    personId?: SortOrder
+    authorId?: SortOrder
+    opponentId?: SortOrder
+    managerId?: SortOrder
+  }
+
+  export type CaseSumOrderByAggregateInput = {
+    id?: SortOrder
+    priceSOM?: SortOrder
+    priceUSD?: SortOrder
+    personId?: SortOrder
+    authorId?: SortOrder
+    opponentId?: SortOrder
+    managerId?: SortOrder
+  }
+
+  export type EnumIMPORTANCEWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.IMPORTANCE | EnumIMPORTANCEFieldRefInput<$PrismaModel>
+    in?: $Enums.IMPORTANCE[] | ListEnumIMPORTANCEFieldRefInput<$PrismaModel>
+    notIn?: $Enums.IMPORTANCE[] | ListEnumIMPORTANCEFieldRefInput<$PrismaModel>
+    not?: NestedEnumIMPORTANCEWithAggregatesFilter<$PrismaModel> | $Enums.IMPORTANCE
     _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumLEGAL_ACTIONFilter<$PrismaModel>
-    _max?: NestedEnumLEGAL_ACTIONFilter<$PrismaModel>
+    _min?: NestedEnumIMPORTANCEFilter<$PrismaModel>
+    _max?: NestedEnumIMPORTANCEFilter<$PrismaModel>
+  }
+
+  export type EnumURGENCYWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.URGENCY | EnumURGENCYFieldRefInput<$PrismaModel>
+    in?: $Enums.URGENCY[] | ListEnumURGENCYFieldRefInput<$PrismaModel>
+    notIn?: $Enums.URGENCY[] | ListEnumURGENCYFieldRefInput<$PrismaModel>
+    not?: NestedEnumURGENCYWithAggregatesFilter<$PrismaModel> | $Enums.URGENCY
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumURGENCYFilter<$PrismaModel>
+    _max?: NestedEnumURGENCYFilter<$PrismaModel>
+  }
+
+  export type EnumCASE_STATUSWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.CASE_STATUS | EnumCASE_STATUSFieldRefInput<$PrismaModel>
+    in?: $Enums.CASE_STATUS[] | ListEnumCASE_STATUSFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CASE_STATUS[] | ListEnumCASE_STATUSFieldRefInput<$PrismaModel>
+    not?: NestedEnumCASE_STATUSWithAggregatesFilter<$PrismaModel> | $Enums.CASE_STATUS
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumCASE_STATUSFilter<$PrismaModel>
+    _max?: NestedEnumCASE_STATUSFilter<$PrismaModel>
   }
 
   export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -9331,6 +10891,36 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedDateTimeNullableFilter<$PrismaModel>
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type EnumREFUSAL_REASONNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.REFUSAL_REASON | EnumREFUSAL_REASONFieldRefInput<$PrismaModel> | null
+    in?: $Enums.REFUSAL_REASON[] | ListEnumREFUSAL_REASONFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.REFUSAL_REASON[] | ListEnumREFUSAL_REASONFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumREFUSAL_REASONNullableWithAggregatesFilter<$PrismaModel> | $Enums.REFUSAL_REASON | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumREFUSAL_REASONNullableFilter<$PrismaModel>
+    _max?: NestedEnumREFUSAL_REASONNullableFilter<$PrismaModel>
+  }
+
+  export type EnumLEGAL_ACTIONNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.LEGAL_ACTION | EnumLEGAL_ACTIONFieldRefInput<$PrismaModel> | null
+    in?: $Enums.LEGAL_ACTION[] | ListEnumLEGAL_ACTIONFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.LEGAL_ACTION[] | ListEnumLEGAL_ACTIONFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumLEGAL_ACTIONNullableWithAggregatesFilter<$PrismaModel> | $Enums.LEGAL_ACTION | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumLEGAL_ACTIONNullableFilter<$PrismaModel>
+    _max?: NestedEnumLEGAL_ACTIONNullableFilter<$PrismaModel>
+  }
+
+  export type EnumSTATUS_IN_COURTNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.STATUS_IN_COURT | EnumSTATUS_IN_COURTFieldRefInput<$PrismaModel> | null
+    in?: $Enums.STATUS_IN_COURT[] | ListEnumSTATUS_IN_COURTFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.STATUS_IN_COURT[] | ListEnumSTATUS_IN_COURTFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumSTATUS_IN_COURTNullableWithAggregatesFilter<$PrismaModel> | $Enums.STATUS_IN_COURT | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumSTATUS_IN_COURTNullableFilter<$PrismaModel>
+    _max?: NestedEnumSTATUS_IN_COURTNullableFilter<$PrismaModel>
   }
 
   export type BigIntNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -9349,26 +10939,6 @@ export namespace Prisma {
     _max?: NestedBigIntNullableFilter<$PrismaModel>
   }
 
-  export type EnumSTATUS_IN_COURTWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.STATUS_IN_COURT | EnumSTATUS_IN_COURTFieldRefInput<$PrismaModel>
-    in?: $Enums.STATUS_IN_COURT[] | ListEnumSTATUS_IN_COURTFieldRefInput<$PrismaModel>
-    notIn?: $Enums.STATUS_IN_COURT[] | ListEnumSTATUS_IN_COURTFieldRefInput<$PrismaModel>
-    not?: NestedEnumSTATUS_IN_COURTWithAggregatesFilter<$PrismaModel> | $Enums.STATUS_IN_COURT
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumSTATUS_IN_COURTFilter<$PrismaModel>
-    _max?: NestedEnumSTATUS_IN_COURTFilter<$PrismaModel>
-  }
-
-  export type EnumREFUSAL_REASONNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.REFUSAL_REASON | EnumREFUSAL_REASONFieldRefInput<$PrismaModel> | null
-    in?: $Enums.REFUSAL_REASON[] | ListEnumREFUSAL_REASONFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.REFUSAL_REASON[] | ListEnumREFUSAL_REASONFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumREFUSAL_REASONNullableWithAggregatesFilter<$PrismaModel> | $Enums.REFUSAL_REASON | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedEnumREFUSAL_REASONNullableFilter<$PrismaModel>
-    _max?: NestedEnumREFUSAL_REASONNullableFilter<$PrismaModel>
-  }
-
   export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
     in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
@@ -9385,113 +10955,102 @@ export namespace Prisma {
     _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
-  export type EnumSOURCE_CATEGORYFilter<$PrismaModel = never> = {
-    equals?: $Enums.SOURCE_CATEGORY | EnumSOURCE_CATEGORYFieldRefInput<$PrismaModel>
-    in?: $Enums.SOURCE_CATEGORY[] | ListEnumSOURCE_CATEGORYFieldRefInput<$PrismaModel>
-    notIn?: $Enums.SOURCE_CATEGORY[] | ListEnumSOURCE_CATEGORYFieldRefInput<$PrismaModel>
-    not?: NestedEnumSOURCE_CATEGORYFilter<$PrismaModel> | $Enums.SOURCE_CATEGORY
-  }
-
-  export type SourceCountOrderByAggregateInput = {
+  export type OriginCountOrderByAggregateInput = {
     id?: SortOrder
-    title?: SortOrder
-    sourceLink?: SortOrder
-    category?: SortOrder
     createdAt?: SortOrder
-    authorId?: SortOrder
-  }
-
-  export type SourceAvgOrderByAggregateInput = {
-    id?: SortOrder
-    authorId?: SortOrder
-  }
-
-  export type SourceMaxOrderByAggregateInput = {
-    id?: SortOrder
     title?: SortOrder
-    sourceLink?: SortOrder
-    category?: SortOrder
-    createdAt?: SortOrder
+    link?: SortOrder
+    categories?: SortOrder
     authorId?: SortOrder
   }
 
-  export type SourceMinOrderByAggregateInput = {
+  export type OriginAvgOrderByAggregateInput = {
     id?: SortOrder
+    authorId?: SortOrder
+  }
+
+  export type OriginMaxOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
     title?: SortOrder
-    sourceLink?: SortOrder
-    category?: SortOrder
-    createdAt?: SortOrder
+    link?: SortOrder
     authorId?: SortOrder
   }
 
-  export type SourceSumOrderByAggregateInput = {
+  export type OriginMinOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    title?: SortOrder
+    link?: SortOrder
+    authorId?: SortOrder
+  }
+
+  export type OriginSumOrderByAggregateInput = {
     id?: SortOrder
     authorId?: SortOrder
-  }
-
-  export type EnumSOURCE_CATEGORYWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.SOURCE_CATEGORY | EnumSOURCE_CATEGORYFieldRefInput<$PrismaModel>
-    in?: $Enums.SOURCE_CATEGORY[] | ListEnumSOURCE_CATEGORYFieldRefInput<$PrismaModel>
-    notIn?: $Enums.SOURCE_CATEGORY[] | ListEnumSOURCE_CATEGORYFieldRefInput<$PrismaModel>
-    not?: NestedEnumSOURCE_CATEGORYWithAggregatesFilter<$PrismaModel> | $Enums.SOURCE_CATEGORY
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumSOURCE_CATEGORYFilter<$PrismaModel>
-    _max?: NestedEnumSOURCE_CATEGORYFilter<$PrismaModel>
   }
 
   export type OpponentCountOrderByAggregateInput = {
     id?: SortOrder
+    createdAt?: SortOrder
     name?: SortOrder
     link?: SortOrder
     info?: SortOrder
-    createdAt?: SortOrder
+    authorId?: SortOrder
   }
 
   export type OpponentAvgOrderByAggregateInput = {
     id?: SortOrder
+    authorId?: SortOrder
   }
 
   export type OpponentMaxOrderByAggregateInput = {
     id?: SortOrder
+    createdAt?: SortOrder
     name?: SortOrder
     link?: SortOrder
     info?: SortOrder
-    createdAt?: SortOrder
+    authorId?: SortOrder
   }
 
   export type OpponentMinOrderByAggregateInput = {
     id?: SortOrder
+    createdAt?: SortOrder
     name?: SortOrder
     link?: SortOrder
     info?: SortOrder
-    createdAt?: SortOrder
+    authorId?: SortOrder
   }
 
   export type OpponentSumOrderByAggregateInput = {
     id?: SortOrder
+    authorId?: SortOrder
   }
 
-  export type EnumSOURCE_CATEGORYNullableListFilter<$PrismaModel = never> = {
-    equals?: $Enums.SOURCE_CATEGORY[] | ListEnumSOURCE_CATEGORYFieldRefInput<$PrismaModel> | null
-    has?: $Enums.SOURCE_CATEGORY | EnumSOURCE_CATEGORYFieldRefInput<$PrismaModel> | null
-    hasEvery?: $Enums.SOURCE_CATEGORY[] | ListEnumSOURCE_CATEGORYFieldRefInput<$PrismaModel>
-    hasSome?: $Enums.SOURCE_CATEGORY[] | ListEnumSOURCE_CATEGORYFieldRefInput<$PrismaModel>
-    isEmpty?: boolean
+  export type BigIntFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
+    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntFilter<$PrismaModel> | bigint | number
   }
 
   export type BloggerCountOrderByAggregateInput = {
     id?: SortOrder
+    createdAt?: SortOrder
     name?: SortOrder
     link?: SortOrder
-    subscribersCount?: SortOrder
-    info?: SortOrder
-    priceSOM?: SortOrder
-    priceUSD?: SortOrder
     phoneNumber?: SortOrder
     email?: SortOrder
-    categories?: SortOrder
-    createdAt?: SortOrder
+    info?: SortOrder
+    subscribersCount?: SortOrder
+    priceSOM?: SortOrder
+    priceUSD?: SortOrder
     authorId?: SortOrder
+    categories?: SortOrder
   }
 
   export type BloggerAvgOrderByAggregateInput = {
@@ -9504,29 +11063,29 @@ export namespace Prisma {
 
   export type BloggerMaxOrderByAggregateInput = {
     id?: SortOrder
+    createdAt?: SortOrder
     name?: SortOrder
     link?: SortOrder
-    subscribersCount?: SortOrder
-    info?: SortOrder
-    priceSOM?: SortOrder
-    priceUSD?: SortOrder
     phoneNumber?: SortOrder
     email?: SortOrder
-    createdAt?: SortOrder
+    info?: SortOrder
+    subscribersCount?: SortOrder
+    priceSOM?: SortOrder
+    priceUSD?: SortOrder
     authorId?: SortOrder
   }
 
   export type BloggerMinOrderByAggregateInput = {
     id?: SortOrder
+    createdAt?: SortOrder
     name?: SortOrder
     link?: SortOrder
-    subscribersCount?: SortOrder
-    info?: SortOrder
-    priceSOM?: SortOrder
-    priceUSD?: SortOrder
     phoneNumber?: SortOrder
     email?: SortOrder
-    createdAt?: SortOrder
+    info?: SortOrder
+    subscribersCount?: SortOrder
+    priceSOM?: SortOrder
+    priceUSD?: SortOrder
     authorId?: SortOrder
   }
 
@@ -9538,25 +11097,24 @@ export namespace Prisma {
     authorId?: SortOrder
   }
 
-  export type UserCreateNestedManyWithoutAuthorInput = {
-    create?: XOR<UserCreateWithoutAuthorInput, UserUncheckedCreateWithoutAuthorInput> | UserCreateWithoutAuthorInput[] | UserUncheckedCreateWithoutAuthorInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutAuthorInput | UserCreateOrConnectWithoutAuthorInput[]
-    createMany?: UserCreateManyAuthorInputEnvelope
-    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+  export type BigIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
+    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntWithAggregatesFilter<$PrismaModel> | bigint | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedBigIntFilter<$PrismaModel>
+    _min?: NestedBigIntFilter<$PrismaModel>
+    _max?: NestedBigIntFilter<$PrismaModel>
   }
 
-  export type UserCreateNestedManyWithoutManagerInput = {
-    create?: XOR<UserCreateWithoutManagerInput, UserUncheckedCreateWithoutManagerInput> | UserCreateWithoutManagerInput[] | UserUncheckedCreateWithoutManagerInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutManagerInput | UserCreateOrConnectWithoutManagerInput[]
-    createMany?: UserCreateManyManagerInputEnvelope
-    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-  }
-
-  export type SourceCreateNestedManyWithoutAuthorInput = {
-    create?: XOR<SourceCreateWithoutAuthorInput, SourceUncheckedCreateWithoutAuthorInput> | SourceCreateWithoutAuthorInput[] | SourceUncheckedCreateWithoutAuthorInput[]
-    connectOrCreate?: SourceCreateOrConnectWithoutAuthorInput | SourceCreateOrConnectWithoutAuthorInput[]
-    createMany?: SourceCreateManyAuthorInputEnvelope
-    connect?: SourceWhereUniqueInput | SourceWhereUniqueInput[]
+  export type EmployeeCreaterolesInput = {
+    set: $Enums.ROLE[]
   }
 
   export type BloggerCreateNestedManyWithoutAuthorInput = {
@@ -9566,25 +11124,39 @@ export namespace Prisma {
     connect?: BloggerWhereUniqueInput | BloggerWhereUniqueInput[]
   }
 
-  export type UserUncheckedCreateNestedManyWithoutAuthorInput = {
-    create?: XOR<UserCreateWithoutAuthorInput, UserUncheckedCreateWithoutAuthorInput> | UserCreateWithoutAuthorInput[] | UserUncheckedCreateWithoutAuthorInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutAuthorInput | UserCreateOrConnectWithoutAuthorInput[]
-    createMany?: UserCreateManyAuthorInputEnvelope
-    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+  export type OriginCreateNestedManyWithoutAuthorInput = {
+    create?: XOR<OriginCreateWithoutAuthorInput, OriginUncheckedCreateWithoutAuthorInput> | OriginCreateWithoutAuthorInput[] | OriginUncheckedCreateWithoutAuthorInput[]
+    connectOrCreate?: OriginCreateOrConnectWithoutAuthorInput | OriginCreateOrConnectWithoutAuthorInput[]
+    createMany?: OriginCreateManyAuthorInputEnvelope
+    connect?: OriginWhereUniqueInput | OriginWhereUniqueInput[]
   }
 
-  export type UserUncheckedCreateNestedManyWithoutManagerInput = {
-    create?: XOR<UserCreateWithoutManagerInput, UserUncheckedCreateWithoutManagerInput> | UserCreateWithoutManagerInput[] | UserUncheckedCreateWithoutManagerInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutManagerInput | UserCreateOrConnectWithoutManagerInput[]
-    createMany?: UserCreateManyManagerInputEnvelope
-    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+  export type PersonCreateNestedManyWithoutAuthorInput = {
+    create?: XOR<PersonCreateWithoutAuthorInput, PersonUncheckedCreateWithoutAuthorInput> | PersonCreateWithoutAuthorInput[] | PersonUncheckedCreateWithoutAuthorInput[]
+    connectOrCreate?: PersonCreateOrConnectWithoutAuthorInput | PersonCreateOrConnectWithoutAuthorInput[]
+    createMany?: PersonCreateManyAuthorInputEnvelope
+    connect?: PersonWhereUniqueInput | PersonWhereUniqueInput[]
   }
 
-  export type SourceUncheckedCreateNestedManyWithoutAuthorInput = {
-    create?: XOR<SourceCreateWithoutAuthorInput, SourceUncheckedCreateWithoutAuthorInput> | SourceCreateWithoutAuthorInput[] | SourceUncheckedCreateWithoutAuthorInput[]
-    connectOrCreate?: SourceCreateOrConnectWithoutAuthorInput | SourceCreateOrConnectWithoutAuthorInput[]
-    createMany?: SourceCreateManyAuthorInputEnvelope
-    connect?: SourceWhereUniqueInput | SourceWhereUniqueInput[]
+  export type CaseCreateNestedManyWithoutAuthorInput = {
+    create?: XOR<CaseCreateWithoutAuthorInput, CaseUncheckedCreateWithoutAuthorInput> | CaseCreateWithoutAuthorInput[] | CaseUncheckedCreateWithoutAuthorInput[]
+    connectOrCreate?: CaseCreateOrConnectWithoutAuthorInput | CaseCreateOrConnectWithoutAuthorInput[]
+    createMany?: CaseCreateManyAuthorInputEnvelope
+    connect?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
+  }
+
+  export type CaseCreateNestedManyWithoutManagerInput = {
+    create?: XOR<CaseCreateWithoutManagerInput, CaseUncheckedCreateWithoutManagerInput> | CaseCreateWithoutManagerInput[] | CaseUncheckedCreateWithoutManagerInput[]
+    connectOrCreate?: CaseCreateOrConnectWithoutManagerInput | CaseCreateOrConnectWithoutManagerInput[]
+    createMany?: CaseCreateManyManagerInputEnvelope
+    connect?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
+  }
+
+  export type OpponentCreateNestedManyWithoutAuthorInput = {
+    create?: XOR<OpponentCreateWithoutAuthorInput, OpponentUncheckedCreateWithoutAuthorInput> | OpponentCreateWithoutAuthorInput[] | OpponentUncheckedCreateWithoutAuthorInput[]
+    connectOrCreate?: OpponentCreateOrConnectWithoutAuthorInput | OpponentCreateOrConnectWithoutAuthorInput[]
+    createMany?: OpponentCreateManyAuthorInputEnvelope
+    connect?: OpponentWhereUniqueInput | OpponentWhereUniqueInput[]
   }
 
   export type BloggerUncheckedCreateNestedManyWithoutAuthorInput = {
@@ -9594,58 +11166,52 @@ export namespace Prisma {
     connect?: BloggerWhereUniqueInput | BloggerWhereUniqueInput[]
   }
 
-  export type StringFieldUpdateOperationsInput = {
-    set?: string
+  export type OriginUncheckedCreateNestedManyWithoutAuthorInput = {
+    create?: XOR<OriginCreateWithoutAuthorInput, OriginUncheckedCreateWithoutAuthorInput> | OriginCreateWithoutAuthorInput[] | OriginUncheckedCreateWithoutAuthorInput[]
+    connectOrCreate?: OriginCreateOrConnectWithoutAuthorInput | OriginCreateOrConnectWithoutAuthorInput[]
+    createMany?: OriginCreateManyAuthorInputEnvelope
+    connect?: OriginWhereUniqueInput | OriginWhereUniqueInput[]
   }
 
-  export type EnumROLESFieldUpdateOperationsInput = {
-    set?: $Enums.ROLES
+  export type PersonUncheckedCreateNestedManyWithoutAuthorInput = {
+    create?: XOR<PersonCreateWithoutAuthorInput, PersonUncheckedCreateWithoutAuthorInput> | PersonCreateWithoutAuthorInput[] | PersonUncheckedCreateWithoutAuthorInput[]
+    connectOrCreate?: PersonCreateOrConnectWithoutAuthorInput | PersonCreateOrConnectWithoutAuthorInput[]
+    createMany?: PersonCreateManyAuthorInputEnvelope
+    connect?: PersonWhereUniqueInput | PersonWhereUniqueInput[]
+  }
+
+  export type CaseUncheckedCreateNestedManyWithoutAuthorInput = {
+    create?: XOR<CaseCreateWithoutAuthorInput, CaseUncheckedCreateWithoutAuthorInput> | CaseCreateWithoutAuthorInput[] | CaseUncheckedCreateWithoutAuthorInput[]
+    connectOrCreate?: CaseCreateOrConnectWithoutAuthorInput | CaseCreateOrConnectWithoutAuthorInput[]
+    createMany?: CaseCreateManyAuthorInputEnvelope
+    connect?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
+  }
+
+  export type CaseUncheckedCreateNestedManyWithoutManagerInput = {
+    create?: XOR<CaseCreateWithoutManagerInput, CaseUncheckedCreateWithoutManagerInput> | CaseCreateWithoutManagerInput[] | CaseUncheckedCreateWithoutManagerInput[]
+    connectOrCreate?: CaseCreateOrConnectWithoutManagerInput | CaseCreateOrConnectWithoutManagerInput[]
+    createMany?: CaseCreateManyManagerInputEnvelope
+    connect?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
+  }
+
+  export type OpponentUncheckedCreateNestedManyWithoutAuthorInput = {
+    create?: XOR<OpponentCreateWithoutAuthorInput, OpponentUncheckedCreateWithoutAuthorInput> | OpponentCreateWithoutAuthorInput[] | OpponentUncheckedCreateWithoutAuthorInput[]
+    connectOrCreate?: OpponentCreateOrConnectWithoutAuthorInput | OpponentCreateOrConnectWithoutAuthorInput[]
+    createMany?: OpponentCreateManyAuthorInputEnvelope
+    connect?: OpponentWhereUniqueInput | OpponentWhereUniqueInput[]
   }
 
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
   }
 
-  export type UserUpdateManyWithoutAuthorNestedInput = {
-    create?: XOR<UserCreateWithoutAuthorInput, UserUncheckedCreateWithoutAuthorInput> | UserCreateWithoutAuthorInput[] | UserUncheckedCreateWithoutAuthorInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutAuthorInput | UserCreateOrConnectWithoutAuthorInput[]
-    upsert?: UserUpsertWithWhereUniqueWithoutAuthorInput | UserUpsertWithWhereUniqueWithoutAuthorInput[]
-    createMany?: UserCreateManyAuthorInputEnvelope
-    set?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    disconnect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    delete?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    update?: UserUpdateWithWhereUniqueWithoutAuthorInput | UserUpdateWithWhereUniqueWithoutAuthorInput[]
-    updateMany?: UserUpdateManyWithWhereWithoutAuthorInput | UserUpdateManyWithWhereWithoutAuthorInput[]
-    deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
+  export type StringFieldUpdateOperationsInput = {
+    set?: string
   }
 
-  export type UserUpdateManyWithoutManagerNestedInput = {
-    create?: XOR<UserCreateWithoutManagerInput, UserUncheckedCreateWithoutManagerInput> | UserCreateWithoutManagerInput[] | UserUncheckedCreateWithoutManagerInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutManagerInput | UserCreateOrConnectWithoutManagerInput[]
-    upsert?: UserUpsertWithWhereUniqueWithoutManagerInput | UserUpsertWithWhereUniqueWithoutManagerInput[]
-    createMany?: UserCreateManyManagerInputEnvelope
-    set?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    disconnect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    delete?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    update?: UserUpdateWithWhereUniqueWithoutManagerInput | UserUpdateWithWhereUniqueWithoutManagerInput[]
-    updateMany?: UserUpdateManyWithWhereWithoutManagerInput | UserUpdateManyWithWhereWithoutManagerInput[]
-    deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
-  }
-
-  export type SourceUpdateManyWithoutAuthorNestedInput = {
-    create?: XOR<SourceCreateWithoutAuthorInput, SourceUncheckedCreateWithoutAuthorInput> | SourceCreateWithoutAuthorInput[] | SourceUncheckedCreateWithoutAuthorInput[]
-    connectOrCreate?: SourceCreateOrConnectWithoutAuthorInput | SourceCreateOrConnectWithoutAuthorInput[]
-    upsert?: SourceUpsertWithWhereUniqueWithoutAuthorInput | SourceUpsertWithWhereUniqueWithoutAuthorInput[]
-    createMany?: SourceCreateManyAuthorInputEnvelope
-    set?: SourceWhereUniqueInput | SourceWhereUniqueInput[]
-    disconnect?: SourceWhereUniqueInput | SourceWhereUniqueInput[]
-    delete?: SourceWhereUniqueInput | SourceWhereUniqueInput[]
-    connect?: SourceWhereUniqueInput | SourceWhereUniqueInput[]
-    update?: SourceUpdateWithWhereUniqueWithoutAuthorInput | SourceUpdateWithWhereUniqueWithoutAuthorInput[]
-    updateMany?: SourceUpdateManyWithWhereWithoutAuthorInput | SourceUpdateManyWithWhereWithoutAuthorInput[]
-    deleteMany?: SourceScalarWhereInput | SourceScalarWhereInput[]
+  export type EmployeeUpdaterolesInput = {
+    set?: $Enums.ROLE[]
+    push?: $Enums.ROLE | $Enums.ROLE[]
   }
 
   export type BloggerUpdateManyWithoutAuthorNestedInput = {
@@ -9662,54 +11228,82 @@ export namespace Prisma {
     deleteMany?: BloggerScalarWhereInput | BloggerScalarWhereInput[]
   }
 
+  export type OriginUpdateManyWithoutAuthorNestedInput = {
+    create?: XOR<OriginCreateWithoutAuthorInput, OriginUncheckedCreateWithoutAuthorInput> | OriginCreateWithoutAuthorInput[] | OriginUncheckedCreateWithoutAuthorInput[]
+    connectOrCreate?: OriginCreateOrConnectWithoutAuthorInput | OriginCreateOrConnectWithoutAuthorInput[]
+    upsert?: OriginUpsertWithWhereUniqueWithoutAuthorInput | OriginUpsertWithWhereUniqueWithoutAuthorInput[]
+    createMany?: OriginCreateManyAuthorInputEnvelope
+    set?: OriginWhereUniqueInput | OriginWhereUniqueInput[]
+    disconnect?: OriginWhereUniqueInput | OriginWhereUniqueInput[]
+    delete?: OriginWhereUniqueInput | OriginWhereUniqueInput[]
+    connect?: OriginWhereUniqueInput | OriginWhereUniqueInput[]
+    update?: OriginUpdateWithWhereUniqueWithoutAuthorInput | OriginUpdateWithWhereUniqueWithoutAuthorInput[]
+    updateMany?: OriginUpdateManyWithWhereWithoutAuthorInput | OriginUpdateManyWithWhereWithoutAuthorInput[]
+    deleteMany?: OriginScalarWhereInput | OriginScalarWhereInput[]
+  }
+
+  export type PersonUpdateManyWithoutAuthorNestedInput = {
+    create?: XOR<PersonCreateWithoutAuthorInput, PersonUncheckedCreateWithoutAuthorInput> | PersonCreateWithoutAuthorInput[] | PersonUncheckedCreateWithoutAuthorInput[]
+    connectOrCreate?: PersonCreateOrConnectWithoutAuthorInput | PersonCreateOrConnectWithoutAuthorInput[]
+    upsert?: PersonUpsertWithWhereUniqueWithoutAuthorInput | PersonUpsertWithWhereUniqueWithoutAuthorInput[]
+    createMany?: PersonCreateManyAuthorInputEnvelope
+    set?: PersonWhereUniqueInput | PersonWhereUniqueInput[]
+    disconnect?: PersonWhereUniqueInput | PersonWhereUniqueInput[]
+    delete?: PersonWhereUniqueInput | PersonWhereUniqueInput[]
+    connect?: PersonWhereUniqueInput | PersonWhereUniqueInput[]
+    update?: PersonUpdateWithWhereUniqueWithoutAuthorInput | PersonUpdateWithWhereUniqueWithoutAuthorInput[]
+    updateMany?: PersonUpdateManyWithWhereWithoutAuthorInput | PersonUpdateManyWithWhereWithoutAuthorInput[]
+    deleteMany?: PersonScalarWhereInput | PersonScalarWhereInput[]
+  }
+
+  export type CaseUpdateManyWithoutAuthorNestedInput = {
+    create?: XOR<CaseCreateWithoutAuthorInput, CaseUncheckedCreateWithoutAuthorInput> | CaseCreateWithoutAuthorInput[] | CaseUncheckedCreateWithoutAuthorInput[]
+    connectOrCreate?: CaseCreateOrConnectWithoutAuthorInput | CaseCreateOrConnectWithoutAuthorInput[]
+    upsert?: CaseUpsertWithWhereUniqueWithoutAuthorInput | CaseUpsertWithWhereUniqueWithoutAuthorInput[]
+    createMany?: CaseCreateManyAuthorInputEnvelope
+    set?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
+    disconnect?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
+    delete?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
+    connect?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
+    update?: CaseUpdateWithWhereUniqueWithoutAuthorInput | CaseUpdateWithWhereUniqueWithoutAuthorInput[]
+    updateMany?: CaseUpdateManyWithWhereWithoutAuthorInput | CaseUpdateManyWithWhereWithoutAuthorInput[]
+    deleteMany?: CaseScalarWhereInput | CaseScalarWhereInput[]
+  }
+
+  export type CaseUpdateManyWithoutManagerNestedInput = {
+    create?: XOR<CaseCreateWithoutManagerInput, CaseUncheckedCreateWithoutManagerInput> | CaseCreateWithoutManagerInput[] | CaseUncheckedCreateWithoutManagerInput[]
+    connectOrCreate?: CaseCreateOrConnectWithoutManagerInput | CaseCreateOrConnectWithoutManagerInput[]
+    upsert?: CaseUpsertWithWhereUniqueWithoutManagerInput | CaseUpsertWithWhereUniqueWithoutManagerInput[]
+    createMany?: CaseCreateManyManagerInputEnvelope
+    set?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
+    disconnect?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
+    delete?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
+    connect?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
+    update?: CaseUpdateWithWhereUniqueWithoutManagerInput | CaseUpdateWithWhereUniqueWithoutManagerInput[]
+    updateMany?: CaseUpdateManyWithWhereWithoutManagerInput | CaseUpdateManyWithWhereWithoutManagerInput[]
+    deleteMany?: CaseScalarWhereInput | CaseScalarWhereInput[]
+  }
+
+  export type OpponentUpdateManyWithoutAuthorNestedInput = {
+    create?: XOR<OpponentCreateWithoutAuthorInput, OpponentUncheckedCreateWithoutAuthorInput> | OpponentCreateWithoutAuthorInput[] | OpponentUncheckedCreateWithoutAuthorInput[]
+    connectOrCreate?: OpponentCreateOrConnectWithoutAuthorInput | OpponentCreateOrConnectWithoutAuthorInput[]
+    upsert?: OpponentUpsertWithWhereUniqueWithoutAuthorInput | OpponentUpsertWithWhereUniqueWithoutAuthorInput[]
+    createMany?: OpponentCreateManyAuthorInputEnvelope
+    set?: OpponentWhereUniqueInput | OpponentWhereUniqueInput[]
+    disconnect?: OpponentWhereUniqueInput | OpponentWhereUniqueInput[]
+    delete?: OpponentWhereUniqueInput | OpponentWhereUniqueInput[]
+    connect?: OpponentWhereUniqueInput | OpponentWhereUniqueInput[]
+    update?: OpponentUpdateWithWhereUniqueWithoutAuthorInput | OpponentUpdateWithWhereUniqueWithoutAuthorInput[]
+    updateMany?: OpponentUpdateManyWithWhereWithoutAuthorInput | OpponentUpdateManyWithWhereWithoutAuthorInput[]
+    deleteMany?: OpponentScalarWhereInput | OpponentScalarWhereInput[]
+  }
+
   export type IntFieldUpdateOperationsInput = {
     set?: number
     increment?: number
     decrement?: number
     multiply?: number
     divide?: number
-  }
-
-  export type UserUncheckedUpdateManyWithoutAuthorNestedInput = {
-    create?: XOR<UserCreateWithoutAuthorInput, UserUncheckedCreateWithoutAuthorInput> | UserCreateWithoutAuthorInput[] | UserUncheckedCreateWithoutAuthorInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutAuthorInput | UserCreateOrConnectWithoutAuthorInput[]
-    upsert?: UserUpsertWithWhereUniqueWithoutAuthorInput | UserUpsertWithWhereUniqueWithoutAuthorInput[]
-    createMany?: UserCreateManyAuthorInputEnvelope
-    set?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    disconnect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    delete?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    update?: UserUpdateWithWhereUniqueWithoutAuthorInput | UserUpdateWithWhereUniqueWithoutAuthorInput[]
-    updateMany?: UserUpdateManyWithWhereWithoutAuthorInput | UserUpdateManyWithWhereWithoutAuthorInput[]
-    deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
-  }
-
-  export type UserUncheckedUpdateManyWithoutManagerNestedInput = {
-    create?: XOR<UserCreateWithoutManagerInput, UserUncheckedCreateWithoutManagerInput> | UserCreateWithoutManagerInput[] | UserUncheckedCreateWithoutManagerInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutManagerInput | UserCreateOrConnectWithoutManagerInput[]
-    upsert?: UserUpsertWithWhereUniqueWithoutManagerInput | UserUpsertWithWhereUniqueWithoutManagerInput[]
-    createMany?: UserCreateManyManagerInputEnvelope
-    set?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    disconnect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    delete?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    update?: UserUpdateWithWhereUniqueWithoutManagerInput | UserUpdateWithWhereUniqueWithoutManagerInput[]
-    updateMany?: UserUpdateManyWithWhereWithoutManagerInput | UserUpdateManyWithWhereWithoutManagerInput[]
-    deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
-  }
-
-  export type SourceUncheckedUpdateManyWithoutAuthorNestedInput = {
-    create?: XOR<SourceCreateWithoutAuthorInput, SourceUncheckedCreateWithoutAuthorInput> | SourceCreateWithoutAuthorInput[] | SourceUncheckedCreateWithoutAuthorInput[]
-    connectOrCreate?: SourceCreateOrConnectWithoutAuthorInput | SourceCreateOrConnectWithoutAuthorInput[]
-    upsert?: SourceUpsertWithWhereUniqueWithoutAuthorInput | SourceUpsertWithWhereUniqueWithoutAuthorInput[]
-    createMany?: SourceCreateManyAuthorInputEnvelope
-    set?: SourceWhereUniqueInput | SourceWhereUniqueInput[]
-    disconnect?: SourceWhereUniqueInput | SourceWhereUniqueInput[]
-    delete?: SourceWhereUniqueInput | SourceWhereUniqueInput[]
-    connect?: SourceWhereUniqueInput | SourceWhereUniqueInput[]
-    update?: SourceUpdateWithWhereUniqueWithoutAuthorInput | SourceUpdateWithWhereUniqueWithoutAuthorInput[]
-    updateMany?: SourceUpdateManyWithWhereWithoutAuthorInput | SourceUpdateManyWithWhereWithoutAuthorInput[]
-    deleteMany?: SourceScalarWhereInput | SourceScalarWhereInput[]
   }
 
   export type BloggerUncheckedUpdateManyWithoutAuthorNestedInput = {
@@ -9726,28 +11320,100 @@ export namespace Prisma {
     deleteMany?: BloggerScalarWhereInput | BloggerScalarWhereInput[]
   }
 
-  export type ManagerCreateNestedOneWithoutAuthoredUsersInput = {
-    create?: XOR<ManagerCreateWithoutAuthoredUsersInput, ManagerUncheckedCreateWithoutAuthoredUsersInput>
-    connectOrCreate?: ManagerCreateOrConnectWithoutAuthoredUsersInput
-    connect?: ManagerWhereUniqueInput
+  export type OriginUncheckedUpdateManyWithoutAuthorNestedInput = {
+    create?: XOR<OriginCreateWithoutAuthorInput, OriginUncheckedCreateWithoutAuthorInput> | OriginCreateWithoutAuthorInput[] | OriginUncheckedCreateWithoutAuthorInput[]
+    connectOrCreate?: OriginCreateOrConnectWithoutAuthorInput | OriginCreateOrConnectWithoutAuthorInput[]
+    upsert?: OriginUpsertWithWhereUniqueWithoutAuthorInput | OriginUpsertWithWhereUniqueWithoutAuthorInput[]
+    createMany?: OriginCreateManyAuthorInputEnvelope
+    set?: OriginWhereUniqueInput | OriginWhereUniqueInput[]
+    disconnect?: OriginWhereUniqueInput | OriginWhereUniqueInput[]
+    delete?: OriginWhereUniqueInput | OriginWhereUniqueInput[]
+    connect?: OriginWhereUniqueInput | OriginWhereUniqueInput[]
+    update?: OriginUpdateWithWhereUniqueWithoutAuthorInput | OriginUpdateWithWhereUniqueWithoutAuthorInput[]
+    updateMany?: OriginUpdateManyWithWhereWithoutAuthorInput | OriginUpdateManyWithWhereWithoutAuthorInput[]
+    deleteMany?: OriginScalarWhereInput | OriginScalarWhereInput[]
   }
 
-  export type SourceCreateNestedOneWithoutUsersInput = {
-    create?: XOR<SourceCreateWithoutUsersInput, SourceUncheckedCreateWithoutUsersInput>
-    connectOrCreate?: SourceCreateOrConnectWithoutUsersInput
-    connect?: SourceWhereUniqueInput
+  export type PersonUncheckedUpdateManyWithoutAuthorNestedInput = {
+    create?: XOR<PersonCreateWithoutAuthorInput, PersonUncheckedCreateWithoutAuthorInput> | PersonCreateWithoutAuthorInput[] | PersonUncheckedCreateWithoutAuthorInput[]
+    connectOrCreate?: PersonCreateOrConnectWithoutAuthorInput | PersonCreateOrConnectWithoutAuthorInput[]
+    upsert?: PersonUpsertWithWhereUniqueWithoutAuthorInput | PersonUpsertWithWhereUniqueWithoutAuthorInput[]
+    createMany?: PersonCreateManyAuthorInputEnvelope
+    set?: PersonWhereUniqueInput | PersonWhereUniqueInput[]
+    disconnect?: PersonWhereUniqueInput | PersonWhereUniqueInput[]
+    delete?: PersonWhereUniqueInput | PersonWhereUniqueInput[]
+    connect?: PersonWhereUniqueInput | PersonWhereUniqueInput[]
+    update?: PersonUpdateWithWhereUniqueWithoutAuthorInput | PersonUpdateWithWhereUniqueWithoutAuthorInput[]
+    updateMany?: PersonUpdateManyWithWhereWithoutAuthorInput | PersonUpdateManyWithWhereWithoutAuthorInput[]
+    deleteMany?: PersonScalarWhereInput | PersonScalarWhereInput[]
   }
 
-  export type OpponentCreateNestedOneWithoutUsersInput = {
-    create?: XOR<OpponentCreateWithoutUsersInput, OpponentUncheckedCreateWithoutUsersInput>
-    connectOrCreate?: OpponentCreateOrConnectWithoutUsersInput
-    connect?: OpponentWhereUniqueInput
+  export type CaseUncheckedUpdateManyWithoutAuthorNestedInput = {
+    create?: XOR<CaseCreateWithoutAuthorInput, CaseUncheckedCreateWithoutAuthorInput> | CaseCreateWithoutAuthorInput[] | CaseUncheckedCreateWithoutAuthorInput[]
+    connectOrCreate?: CaseCreateOrConnectWithoutAuthorInput | CaseCreateOrConnectWithoutAuthorInput[]
+    upsert?: CaseUpsertWithWhereUniqueWithoutAuthorInput | CaseUpsertWithWhereUniqueWithoutAuthorInput[]
+    createMany?: CaseCreateManyAuthorInputEnvelope
+    set?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
+    disconnect?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
+    delete?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
+    connect?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
+    update?: CaseUpdateWithWhereUniqueWithoutAuthorInput | CaseUpdateWithWhereUniqueWithoutAuthorInput[]
+    updateMany?: CaseUpdateManyWithWhereWithoutAuthorInput | CaseUpdateManyWithWhereWithoutAuthorInput[]
+    deleteMany?: CaseScalarWhereInput | CaseScalarWhereInput[]
   }
 
-  export type ManagerCreateNestedOneWithoutManagedUsersInput = {
-    create?: XOR<ManagerCreateWithoutManagedUsersInput, ManagerUncheckedCreateWithoutManagedUsersInput>
-    connectOrCreate?: ManagerCreateOrConnectWithoutManagedUsersInput
-    connect?: ManagerWhereUniqueInput
+  export type CaseUncheckedUpdateManyWithoutManagerNestedInput = {
+    create?: XOR<CaseCreateWithoutManagerInput, CaseUncheckedCreateWithoutManagerInput> | CaseCreateWithoutManagerInput[] | CaseUncheckedCreateWithoutManagerInput[]
+    connectOrCreate?: CaseCreateOrConnectWithoutManagerInput | CaseCreateOrConnectWithoutManagerInput[]
+    upsert?: CaseUpsertWithWhereUniqueWithoutManagerInput | CaseUpsertWithWhereUniqueWithoutManagerInput[]
+    createMany?: CaseCreateManyManagerInputEnvelope
+    set?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
+    disconnect?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
+    delete?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
+    connect?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
+    update?: CaseUpdateWithWhereUniqueWithoutManagerInput | CaseUpdateWithWhereUniqueWithoutManagerInput[]
+    updateMany?: CaseUpdateManyWithWhereWithoutManagerInput | CaseUpdateManyWithWhereWithoutManagerInput[]
+    deleteMany?: CaseScalarWhereInput | CaseScalarWhereInput[]
+  }
+
+  export type OpponentUncheckedUpdateManyWithoutAuthorNestedInput = {
+    create?: XOR<OpponentCreateWithoutAuthorInput, OpponentUncheckedCreateWithoutAuthorInput> | OpponentCreateWithoutAuthorInput[] | OpponentUncheckedCreateWithoutAuthorInput[]
+    connectOrCreate?: OpponentCreateOrConnectWithoutAuthorInput | OpponentCreateOrConnectWithoutAuthorInput[]
+    upsert?: OpponentUpsertWithWhereUniqueWithoutAuthorInput | OpponentUpsertWithWhereUniqueWithoutAuthorInput[]
+    createMany?: OpponentCreateManyAuthorInputEnvelope
+    set?: OpponentWhereUniqueInput | OpponentWhereUniqueInput[]
+    disconnect?: OpponentWhereUniqueInput | OpponentWhereUniqueInput[]
+    delete?: OpponentWhereUniqueInput | OpponentWhereUniqueInput[]
+    connect?: OpponentWhereUniqueInput | OpponentWhereUniqueInput[]
+    update?: OpponentUpdateWithWhereUniqueWithoutAuthorInput | OpponentUpdateWithWhereUniqueWithoutAuthorInput[]
+    updateMany?: OpponentUpdateManyWithWhereWithoutAuthorInput | OpponentUpdateManyWithWhereWithoutAuthorInput[]
+    deleteMany?: OpponentScalarWhereInput | OpponentScalarWhereInput[]
+  }
+
+  export type CaseCreateNestedManyWithoutPersonInput = {
+    create?: XOR<CaseCreateWithoutPersonInput, CaseUncheckedCreateWithoutPersonInput> | CaseCreateWithoutPersonInput[] | CaseUncheckedCreateWithoutPersonInput[]
+    connectOrCreate?: CaseCreateOrConnectWithoutPersonInput | CaseCreateOrConnectWithoutPersonInput[]
+    createMany?: CaseCreateManyPersonInputEnvelope
+    connect?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
+  }
+
+  export type EmployeeCreateNestedOneWithoutAuthoredPersonsInput = {
+    create?: XOR<EmployeeCreateWithoutAuthoredPersonsInput, EmployeeUncheckedCreateWithoutAuthoredPersonsInput>
+    connectOrCreate?: EmployeeCreateOrConnectWithoutAuthoredPersonsInput
+    connect?: EmployeeWhereUniqueInput
+  }
+
+  export type OriginCreateNestedOneWithoutPersonsInput = {
+    create?: XOR<OriginCreateWithoutPersonsInput, OriginUncheckedCreateWithoutPersonsInput>
+    connectOrCreate?: OriginCreateOrConnectWithoutPersonsInput
+    connect?: OriginWhereUniqueInput
+  }
+
+  export type CaseUncheckedCreateNestedManyWithoutPersonInput = {
+    create?: XOR<CaseCreateWithoutPersonInput, CaseUncheckedCreateWithoutPersonInput> | CaseCreateWithoutPersonInput[] | CaseUncheckedCreateWithoutPersonInput[]
+    connectOrCreate?: CaseCreateOrConnectWithoutPersonInput | CaseCreateOrConnectWithoutPersonInput[]
+    createMany?: CaseCreateManyPersonInputEnvelope
+    connect?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
   }
 
   export type NullableStringFieldUpdateOperationsInput = {
@@ -9758,24 +11424,109 @@ export namespace Prisma {
     set?: $Enums.LEAD_STATUS
   }
 
-  export type EnumTASK_IMPORTANCEFieldUpdateOperationsInput = {
-    set?: $Enums.TASK_IMPORTANCE
+  export type CaseUpdateManyWithoutPersonNestedInput = {
+    create?: XOR<CaseCreateWithoutPersonInput, CaseUncheckedCreateWithoutPersonInput> | CaseCreateWithoutPersonInput[] | CaseUncheckedCreateWithoutPersonInput[]
+    connectOrCreate?: CaseCreateOrConnectWithoutPersonInput | CaseCreateOrConnectWithoutPersonInput[]
+    upsert?: CaseUpsertWithWhereUniqueWithoutPersonInput | CaseUpsertWithWhereUniqueWithoutPersonInput[]
+    createMany?: CaseCreateManyPersonInputEnvelope
+    set?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
+    disconnect?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
+    delete?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
+    connect?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
+    update?: CaseUpdateWithWhereUniqueWithoutPersonInput | CaseUpdateWithWhereUniqueWithoutPersonInput[]
+    updateMany?: CaseUpdateManyWithWhereWithoutPersonInput | CaseUpdateManyWithWhereWithoutPersonInput[]
+    deleteMany?: CaseScalarWhereInput | CaseScalarWhereInput[]
   }
 
-  export type EnumTASK_URGENCYFieldUpdateOperationsInput = {
-    set?: $Enums.TASK_URGENCY
+  export type EmployeeUpdateOneRequiredWithoutAuthoredPersonsNestedInput = {
+    create?: XOR<EmployeeCreateWithoutAuthoredPersonsInput, EmployeeUncheckedCreateWithoutAuthoredPersonsInput>
+    connectOrCreate?: EmployeeCreateOrConnectWithoutAuthoredPersonsInput
+    upsert?: EmployeeUpsertWithoutAuthoredPersonsInput
+    connect?: EmployeeWhereUniqueInput
+    update?: XOR<XOR<EmployeeUpdateToOneWithWhereWithoutAuthoredPersonsInput, EmployeeUpdateWithoutAuthoredPersonsInput>, EmployeeUncheckedUpdateWithoutAuthoredPersonsInput>
   }
 
-  export type EnumTASK_STATUSFieldUpdateOperationsInput = {
-    set?: $Enums.TASK_STATUS
+  export type OriginUpdateOneRequiredWithoutPersonsNestedInput = {
+    create?: XOR<OriginCreateWithoutPersonsInput, OriginUncheckedCreateWithoutPersonsInput>
+    connectOrCreate?: OriginCreateOrConnectWithoutPersonsInput
+    upsert?: OriginUpsertWithoutPersonsInput
+    connect?: OriginWhereUniqueInput
+    update?: XOR<XOR<OriginUpdateToOneWithWhereWithoutPersonsInput, OriginUpdateWithoutPersonsInput>, OriginUncheckedUpdateWithoutPersonsInput>
   }
 
-  export type EnumLEGAL_ACTIONFieldUpdateOperationsInput = {
-    set?: $Enums.LEGAL_ACTION
+  export type CaseUncheckedUpdateManyWithoutPersonNestedInput = {
+    create?: XOR<CaseCreateWithoutPersonInput, CaseUncheckedCreateWithoutPersonInput> | CaseCreateWithoutPersonInput[] | CaseUncheckedCreateWithoutPersonInput[]
+    connectOrCreate?: CaseCreateOrConnectWithoutPersonInput | CaseCreateOrConnectWithoutPersonInput[]
+    upsert?: CaseUpsertWithWhereUniqueWithoutPersonInput | CaseUpsertWithWhereUniqueWithoutPersonInput[]
+    createMany?: CaseCreateManyPersonInputEnvelope
+    set?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
+    disconnect?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
+    delete?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
+    connect?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
+    update?: CaseUpdateWithWhereUniqueWithoutPersonInput | CaseUpdateWithWhereUniqueWithoutPersonInput[]
+    updateMany?: CaseUpdateManyWithWhereWithoutPersonInput | CaseUpdateManyWithWhereWithoutPersonInput[]
+    deleteMany?: CaseScalarWhereInput | CaseScalarWhereInput[]
+  }
+
+  export type CaseCreatecategoriesInput = {
+    set: $Enums.CASE_CATEGORY[]
+  }
+
+  export type EmployeeCreateNestedOneWithoutAuthoredCasesInput = {
+    create?: XOR<EmployeeCreateWithoutAuthoredCasesInput, EmployeeUncheckedCreateWithoutAuthoredCasesInput>
+    connectOrCreate?: EmployeeCreateOrConnectWithoutAuthoredCasesInput
+    connect?: EmployeeWhereUniqueInput
+  }
+
+  export type EmployeeCreateNestedOneWithoutManagedCasesInput = {
+    create?: XOR<EmployeeCreateWithoutManagedCasesInput, EmployeeUncheckedCreateWithoutManagedCasesInput>
+    connectOrCreate?: EmployeeCreateOrConnectWithoutManagedCasesInput
+    connect?: EmployeeWhereUniqueInput
+  }
+
+  export type OpponentCreateNestedOneWithoutCasesInput = {
+    create?: XOR<OpponentCreateWithoutCasesInput, OpponentUncheckedCreateWithoutCasesInput>
+    connectOrCreate?: OpponentCreateOrConnectWithoutCasesInput
+    connect?: OpponentWhereUniqueInput
+  }
+
+  export type PersonCreateNestedOneWithoutCasesInput = {
+    create?: XOR<PersonCreateWithoutCasesInput, PersonUncheckedCreateWithoutCasesInput>
+    connectOrCreate?: PersonCreateOrConnectWithoutCasesInput
+    connect?: PersonWhereUniqueInput
+  }
+
+  export type EnumIMPORTANCEFieldUpdateOperationsInput = {
+    set?: $Enums.IMPORTANCE
+  }
+
+  export type EnumURGENCYFieldUpdateOperationsInput = {
+    set?: $Enums.URGENCY
+  }
+
+  export type EnumCASE_STATUSFieldUpdateOperationsInput = {
+    set?: $Enums.CASE_STATUS
+  }
+
+  export type CaseUpdatecategoriesInput = {
+    set?: $Enums.CASE_CATEGORY[]
+    push?: $Enums.CASE_CATEGORY | $Enums.CASE_CATEGORY[]
   }
 
   export type NullableDateTimeFieldUpdateOperationsInput = {
     set?: Date | string | null
+  }
+
+  export type NullableEnumREFUSAL_REASONFieldUpdateOperationsInput = {
+    set?: $Enums.REFUSAL_REASON | null
+  }
+
+  export type NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput = {
+    set?: $Enums.LEGAL_ACTION | null
+  }
+
+  export type NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput = {
+    set?: $Enums.STATUS_IN_COURT | null
   }
 
   export type NullableBigIntFieldUpdateOperationsInput = {
@@ -9786,48 +11537,40 @@ export namespace Prisma {
     divide?: bigint | number
   }
 
-  export type EnumSTATUS_IN_COURTFieldUpdateOperationsInput = {
-    set?: $Enums.STATUS_IN_COURT
+  export type EmployeeUpdateOneRequiredWithoutAuthoredCasesNestedInput = {
+    create?: XOR<EmployeeCreateWithoutAuthoredCasesInput, EmployeeUncheckedCreateWithoutAuthoredCasesInput>
+    connectOrCreate?: EmployeeCreateOrConnectWithoutAuthoredCasesInput
+    upsert?: EmployeeUpsertWithoutAuthoredCasesInput
+    connect?: EmployeeWhereUniqueInput
+    update?: XOR<XOR<EmployeeUpdateToOneWithWhereWithoutAuthoredCasesInput, EmployeeUpdateWithoutAuthoredCasesInput>, EmployeeUncheckedUpdateWithoutAuthoredCasesInput>
   }
 
-  export type NullableEnumREFUSAL_REASONFieldUpdateOperationsInput = {
-    set?: $Enums.REFUSAL_REASON | null
+  export type EmployeeUpdateOneWithoutManagedCasesNestedInput = {
+    create?: XOR<EmployeeCreateWithoutManagedCasesInput, EmployeeUncheckedCreateWithoutManagedCasesInput>
+    connectOrCreate?: EmployeeCreateOrConnectWithoutManagedCasesInput
+    upsert?: EmployeeUpsertWithoutManagedCasesInput
+    disconnect?: EmployeeWhereInput | boolean
+    delete?: EmployeeWhereInput | boolean
+    connect?: EmployeeWhereUniqueInput
+    update?: XOR<XOR<EmployeeUpdateToOneWithWhereWithoutManagedCasesInput, EmployeeUpdateWithoutManagedCasesInput>, EmployeeUncheckedUpdateWithoutManagedCasesInput>
   }
 
-  export type ManagerUpdateOneRequiredWithoutAuthoredUsersNestedInput = {
-    create?: XOR<ManagerCreateWithoutAuthoredUsersInput, ManagerUncheckedCreateWithoutAuthoredUsersInput>
-    connectOrCreate?: ManagerCreateOrConnectWithoutAuthoredUsersInput
-    upsert?: ManagerUpsertWithoutAuthoredUsersInput
-    connect?: ManagerWhereUniqueInput
-    update?: XOR<XOR<ManagerUpdateToOneWithWhereWithoutAuthoredUsersInput, ManagerUpdateWithoutAuthoredUsersInput>, ManagerUncheckedUpdateWithoutAuthoredUsersInput>
-  }
-
-  export type SourceUpdateOneRequiredWithoutUsersNestedInput = {
-    create?: XOR<SourceCreateWithoutUsersInput, SourceUncheckedCreateWithoutUsersInput>
-    connectOrCreate?: SourceCreateOrConnectWithoutUsersInput
-    upsert?: SourceUpsertWithoutUsersInput
-    connect?: SourceWhereUniqueInput
-    update?: XOR<XOR<SourceUpdateToOneWithWhereWithoutUsersInput, SourceUpdateWithoutUsersInput>, SourceUncheckedUpdateWithoutUsersInput>
-  }
-
-  export type OpponentUpdateOneWithoutUsersNestedInput = {
-    create?: XOR<OpponentCreateWithoutUsersInput, OpponentUncheckedCreateWithoutUsersInput>
-    connectOrCreate?: OpponentCreateOrConnectWithoutUsersInput
-    upsert?: OpponentUpsertWithoutUsersInput
+  export type OpponentUpdateOneWithoutCasesNestedInput = {
+    create?: XOR<OpponentCreateWithoutCasesInput, OpponentUncheckedCreateWithoutCasesInput>
+    connectOrCreate?: OpponentCreateOrConnectWithoutCasesInput
+    upsert?: OpponentUpsertWithoutCasesInput
     disconnect?: OpponentWhereInput | boolean
     delete?: OpponentWhereInput | boolean
     connect?: OpponentWhereUniqueInput
-    update?: XOR<XOR<OpponentUpdateToOneWithWhereWithoutUsersInput, OpponentUpdateWithoutUsersInput>, OpponentUncheckedUpdateWithoutUsersInput>
+    update?: XOR<XOR<OpponentUpdateToOneWithWhereWithoutCasesInput, OpponentUpdateWithoutCasesInput>, OpponentUncheckedUpdateWithoutCasesInput>
   }
 
-  export type ManagerUpdateOneWithoutManagedUsersNestedInput = {
-    create?: XOR<ManagerCreateWithoutManagedUsersInput, ManagerUncheckedCreateWithoutManagedUsersInput>
-    connectOrCreate?: ManagerCreateOrConnectWithoutManagedUsersInput
-    upsert?: ManagerUpsertWithoutManagedUsersInput
-    disconnect?: ManagerWhereInput | boolean
-    delete?: ManagerWhereInput | boolean
-    connect?: ManagerWhereUniqueInput
-    update?: XOR<XOR<ManagerUpdateToOneWithWhereWithoutManagedUsersInput, ManagerUpdateWithoutManagedUsersInput>, ManagerUncheckedUpdateWithoutManagedUsersInput>
+  export type PersonUpdateOneRequiredWithoutCasesNestedInput = {
+    create?: XOR<PersonCreateWithoutCasesInput, PersonUncheckedCreateWithoutCasesInput>
+    connectOrCreate?: PersonCreateOrConnectWithoutCasesInput
+    upsert?: PersonUpsertWithoutCasesInput
+    connect?: PersonWhereUniqueInput
+    update?: XOR<XOR<PersonUpdateToOneWithWhereWithoutCasesInput, PersonUpdateWithoutCasesInput>, PersonUncheckedUpdateWithoutCasesInput>
   }
 
   export type NullableIntFieldUpdateOperationsInput = {
@@ -9838,129 +11581,156 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type ManagerCreateNestedOneWithoutSourcesInput = {
-    create?: XOR<ManagerCreateWithoutSourcesInput, ManagerUncheckedCreateWithoutSourcesInput>
-    connectOrCreate?: ManagerCreateOrConnectWithoutSourcesInput
-    connect?: ManagerWhereUniqueInput
+  export type OriginCreatecategoriesInput = {
+    set: $Enums.CASE_CATEGORY[]
   }
 
-  export type UserCreateNestedManyWithoutSourceInput = {
-    create?: XOR<UserCreateWithoutSourceInput, UserUncheckedCreateWithoutSourceInput> | UserCreateWithoutSourceInput[] | UserUncheckedCreateWithoutSourceInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutSourceInput | UserCreateOrConnectWithoutSourceInput[]
-    createMany?: UserCreateManySourceInputEnvelope
-    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+  export type EmployeeCreateNestedOneWithoutAuthoredOriginsInput = {
+    create?: XOR<EmployeeCreateWithoutAuthoredOriginsInput, EmployeeUncheckedCreateWithoutAuthoredOriginsInput>
+    connectOrCreate?: EmployeeCreateOrConnectWithoutAuthoredOriginsInput
+    connect?: EmployeeWhereUniqueInput
   }
 
-  export type UserUncheckedCreateNestedManyWithoutSourceInput = {
-    create?: XOR<UserCreateWithoutSourceInput, UserUncheckedCreateWithoutSourceInput> | UserCreateWithoutSourceInput[] | UserUncheckedCreateWithoutSourceInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutSourceInput | UserCreateOrConnectWithoutSourceInput[]
-    createMany?: UserCreateManySourceInputEnvelope
-    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+  export type PersonCreateNestedManyWithoutOriginInput = {
+    create?: XOR<PersonCreateWithoutOriginInput, PersonUncheckedCreateWithoutOriginInput> | PersonCreateWithoutOriginInput[] | PersonUncheckedCreateWithoutOriginInput[]
+    connectOrCreate?: PersonCreateOrConnectWithoutOriginInput | PersonCreateOrConnectWithoutOriginInput[]
+    createMany?: PersonCreateManyOriginInputEnvelope
+    connect?: PersonWhereUniqueInput | PersonWhereUniqueInput[]
   }
 
-  export type EnumSOURCE_CATEGORYFieldUpdateOperationsInput = {
-    set?: $Enums.SOURCE_CATEGORY
+  export type PersonUncheckedCreateNestedManyWithoutOriginInput = {
+    create?: XOR<PersonCreateWithoutOriginInput, PersonUncheckedCreateWithoutOriginInput> | PersonCreateWithoutOriginInput[] | PersonUncheckedCreateWithoutOriginInput[]
+    connectOrCreate?: PersonCreateOrConnectWithoutOriginInput | PersonCreateOrConnectWithoutOriginInput[]
+    createMany?: PersonCreateManyOriginInputEnvelope
+    connect?: PersonWhereUniqueInput | PersonWhereUniqueInput[]
   }
 
-  export type ManagerUpdateOneRequiredWithoutSourcesNestedInput = {
-    create?: XOR<ManagerCreateWithoutSourcesInput, ManagerUncheckedCreateWithoutSourcesInput>
-    connectOrCreate?: ManagerCreateOrConnectWithoutSourcesInput
-    upsert?: ManagerUpsertWithoutSourcesInput
-    connect?: ManagerWhereUniqueInput
-    update?: XOR<XOR<ManagerUpdateToOneWithWhereWithoutSourcesInput, ManagerUpdateWithoutSourcesInput>, ManagerUncheckedUpdateWithoutSourcesInput>
+  export type OriginUpdatecategoriesInput = {
+    set?: $Enums.CASE_CATEGORY[]
+    push?: $Enums.CASE_CATEGORY | $Enums.CASE_CATEGORY[]
   }
 
-  export type UserUpdateManyWithoutSourceNestedInput = {
-    create?: XOR<UserCreateWithoutSourceInput, UserUncheckedCreateWithoutSourceInput> | UserCreateWithoutSourceInput[] | UserUncheckedCreateWithoutSourceInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutSourceInput | UserCreateOrConnectWithoutSourceInput[]
-    upsert?: UserUpsertWithWhereUniqueWithoutSourceInput | UserUpsertWithWhereUniqueWithoutSourceInput[]
-    createMany?: UserCreateManySourceInputEnvelope
-    set?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    disconnect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    delete?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    update?: UserUpdateWithWhereUniqueWithoutSourceInput | UserUpdateWithWhereUniqueWithoutSourceInput[]
-    updateMany?: UserUpdateManyWithWhereWithoutSourceInput | UserUpdateManyWithWhereWithoutSourceInput[]
-    deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
+  export type EmployeeUpdateOneRequiredWithoutAuthoredOriginsNestedInput = {
+    create?: XOR<EmployeeCreateWithoutAuthoredOriginsInput, EmployeeUncheckedCreateWithoutAuthoredOriginsInput>
+    connectOrCreate?: EmployeeCreateOrConnectWithoutAuthoredOriginsInput
+    upsert?: EmployeeUpsertWithoutAuthoredOriginsInput
+    connect?: EmployeeWhereUniqueInput
+    update?: XOR<XOR<EmployeeUpdateToOneWithWhereWithoutAuthoredOriginsInput, EmployeeUpdateWithoutAuthoredOriginsInput>, EmployeeUncheckedUpdateWithoutAuthoredOriginsInput>
   }
 
-  export type UserUncheckedUpdateManyWithoutSourceNestedInput = {
-    create?: XOR<UserCreateWithoutSourceInput, UserUncheckedCreateWithoutSourceInput> | UserCreateWithoutSourceInput[] | UserUncheckedCreateWithoutSourceInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutSourceInput | UserCreateOrConnectWithoutSourceInput[]
-    upsert?: UserUpsertWithWhereUniqueWithoutSourceInput | UserUpsertWithWhereUniqueWithoutSourceInput[]
-    createMany?: UserCreateManySourceInputEnvelope
-    set?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    disconnect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    delete?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    update?: UserUpdateWithWhereUniqueWithoutSourceInput | UserUpdateWithWhereUniqueWithoutSourceInput[]
-    updateMany?: UserUpdateManyWithWhereWithoutSourceInput | UserUpdateManyWithWhereWithoutSourceInput[]
-    deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
+  export type PersonUpdateManyWithoutOriginNestedInput = {
+    create?: XOR<PersonCreateWithoutOriginInput, PersonUncheckedCreateWithoutOriginInput> | PersonCreateWithoutOriginInput[] | PersonUncheckedCreateWithoutOriginInput[]
+    connectOrCreate?: PersonCreateOrConnectWithoutOriginInput | PersonCreateOrConnectWithoutOriginInput[]
+    upsert?: PersonUpsertWithWhereUniqueWithoutOriginInput | PersonUpsertWithWhereUniqueWithoutOriginInput[]
+    createMany?: PersonCreateManyOriginInputEnvelope
+    set?: PersonWhereUniqueInput | PersonWhereUniqueInput[]
+    disconnect?: PersonWhereUniqueInput | PersonWhereUniqueInput[]
+    delete?: PersonWhereUniqueInput | PersonWhereUniqueInput[]
+    connect?: PersonWhereUniqueInput | PersonWhereUniqueInput[]
+    update?: PersonUpdateWithWhereUniqueWithoutOriginInput | PersonUpdateWithWhereUniqueWithoutOriginInput[]
+    updateMany?: PersonUpdateManyWithWhereWithoutOriginInput | PersonUpdateManyWithWhereWithoutOriginInput[]
+    deleteMany?: PersonScalarWhereInput | PersonScalarWhereInput[]
   }
 
-  export type UserCreateNestedManyWithoutOpponentInput = {
-    create?: XOR<UserCreateWithoutOpponentInput, UserUncheckedCreateWithoutOpponentInput> | UserCreateWithoutOpponentInput[] | UserUncheckedCreateWithoutOpponentInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutOpponentInput | UserCreateOrConnectWithoutOpponentInput[]
-    createMany?: UserCreateManyOpponentInputEnvelope
-    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+  export type PersonUncheckedUpdateManyWithoutOriginNestedInput = {
+    create?: XOR<PersonCreateWithoutOriginInput, PersonUncheckedCreateWithoutOriginInput> | PersonCreateWithoutOriginInput[] | PersonUncheckedCreateWithoutOriginInput[]
+    connectOrCreate?: PersonCreateOrConnectWithoutOriginInput | PersonCreateOrConnectWithoutOriginInput[]
+    upsert?: PersonUpsertWithWhereUniqueWithoutOriginInput | PersonUpsertWithWhereUniqueWithoutOriginInput[]
+    createMany?: PersonCreateManyOriginInputEnvelope
+    set?: PersonWhereUniqueInput | PersonWhereUniqueInput[]
+    disconnect?: PersonWhereUniqueInput | PersonWhereUniqueInput[]
+    delete?: PersonWhereUniqueInput | PersonWhereUniqueInput[]
+    connect?: PersonWhereUniqueInput | PersonWhereUniqueInput[]
+    update?: PersonUpdateWithWhereUniqueWithoutOriginInput | PersonUpdateWithWhereUniqueWithoutOriginInput[]
+    updateMany?: PersonUpdateManyWithWhereWithoutOriginInput | PersonUpdateManyWithWhereWithoutOriginInput[]
+    deleteMany?: PersonScalarWhereInput | PersonScalarWhereInput[]
   }
 
-  export type UserUncheckedCreateNestedManyWithoutOpponentInput = {
-    create?: XOR<UserCreateWithoutOpponentInput, UserUncheckedCreateWithoutOpponentInput> | UserCreateWithoutOpponentInput[] | UserUncheckedCreateWithoutOpponentInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutOpponentInput | UserCreateOrConnectWithoutOpponentInput[]
-    createMany?: UserCreateManyOpponentInputEnvelope
-    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+  export type CaseCreateNestedManyWithoutOpponentInput = {
+    create?: XOR<CaseCreateWithoutOpponentInput, CaseUncheckedCreateWithoutOpponentInput> | CaseCreateWithoutOpponentInput[] | CaseUncheckedCreateWithoutOpponentInput[]
+    connectOrCreate?: CaseCreateOrConnectWithoutOpponentInput | CaseCreateOrConnectWithoutOpponentInput[]
+    createMany?: CaseCreateManyOpponentInputEnvelope
+    connect?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
   }
 
-  export type UserUpdateManyWithoutOpponentNestedInput = {
-    create?: XOR<UserCreateWithoutOpponentInput, UserUncheckedCreateWithoutOpponentInput> | UserCreateWithoutOpponentInput[] | UserUncheckedCreateWithoutOpponentInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutOpponentInput | UserCreateOrConnectWithoutOpponentInput[]
-    upsert?: UserUpsertWithWhereUniqueWithoutOpponentInput | UserUpsertWithWhereUniqueWithoutOpponentInput[]
-    createMany?: UserCreateManyOpponentInputEnvelope
-    set?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    disconnect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    delete?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    update?: UserUpdateWithWhereUniqueWithoutOpponentInput | UserUpdateWithWhereUniqueWithoutOpponentInput[]
-    updateMany?: UserUpdateManyWithWhereWithoutOpponentInput | UserUpdateManyWithWhereWithoutOpponentInput[]
-    deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
+  export type EmployeeCreateNestedOneWithoutOpponentInput = {
+    create?: XOR<EmployeeCreateWithoutOpponentInput, EmployeeUncheckedCreateWithoutOpponentInput>
+    connectOrCreate?: EmployeeCreateOrConnectWithoutOpponentInput
+    connect?: EmployeeWhereUniqueInput
   }
 
-  export type UserUncheckedUpdateManyWithoutOpponentNestedInput = {
-    create?: XOR<UserCreateWithoutOpponentInput, UserUncheckedCreateWithoutOpponentInput> | UserCreateWithoutOpponentInput[] | UserUncheckedCreateWithoutOpponentInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutOpponentInput | UserCreateOrConnectWithoutOpponentInput[]
-    upsert?: UserUpsertWithWhereUniqueWithoutOpponentInput | UserUpsertWithWhereUniqueWithoutOpponentInput[]
-    createMany?: UserCreateManyOpponentInputEnvelope
-    set?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    disconnect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    delete?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    update?: UserUpdateWithWhereUniqueWithoutOpponentInput | UserUpdateWithWhereUniqueWithoutOpponentInput[]
-    updateMany?: UserUpdateManyWithWhereWithoutOpponentInput | UserUpdateManyWithWhereWithoutOpponentInput[]
-    deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
+  export type CaseUncheckedCreateNestedManyWithoutOpponentInput = {
+    create?: XOR<CaseCreateWithoutOpponentInput, CaseUncheckedCreateWithoutOpponentInput> | CaseCreateWithoutOpponentInput[] | CaseUncheckedCreateWithoutOpponentInput[]
+    connectOrCreate?: CaseCreateOrConnectWithoutOpponentInput | CaseCreateOrConnectWithoutOpponentInput[]
+    createMany?: CaseCreateManyOpponentInputEnvelope
+    connect?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
+  }
+
+  export type CaseUpdateManyWithoutOpponentNestedInput = {
+    create?: XOR<CaseCreateWithoutOpponentInput, CaseUncheckedCreateWithoutOpponentInput> | CaseCreateWithoutOpponentInput[] | CaseUncheckedCreateWithoutOpponentInput[]
+    connectOrCreate?: CaseCreateOrConnectWithoutOpponentInput | CaseCreateOrConnectWithoutOpponentInput[]
+    upsert?: CaseUpsertWithWhereUniqueWithoutOpponentInput | CaseUpsertWithWhereUniqueWithoutOpponentInput[]
+    createMany?: CaseCreateManyOpponentInputEnvelope
+    set?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
+    disconnect?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
+    delete?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
+    connect?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
+    update?: CaseUpdateWithWhereUniqueWithoutOpponentInput | CaseUpdateWithWhereUniqueWithoutOpponentInput[]
+    updateMany?: CaseUpdateManyWithWhereWithoutOpponentInput | CaseUpdateManyWithWhereWithoutOpponentInput[]
+    deleteMany?: CaseScalarWhereInput | CaseScalarWhereInput[]
+  }
+
+  export type EmployeeUpdateOneRequiredWithoutOpponentNestedInput = {
+    create?: XOR<EmployeeCreateWithoutOpponentInput, EmployeeUncheckedCreateWithoutOpponentInput>
+    connectOrCreate?: EmployeeCreateOrConnectWithoutOpponentInput
+    upsert?: EmployeeUpsertWithoutOpponentInput
+    connect?: EmployeeWhereUniqueInput
+    update?: XOR<XOR<EmployeeUpdateToOneWithWhereWithoutOpponentInput, EmployeeUpdateWithoutOpponentInput>, EmployeeUncheckedUpdateWithoutOpponentInput>
+  }
+
+  export type CaseUncheckedUpdateManyWithoutOpponentNestedInput = {
+    create?: XOR<CaseCreateWithoutOpponentInput, CaseUncheckedCreateWithoutOpponentInput> | CaseCreateWithoutOpponentInput[] | CaseUncheckedCreateWithoutOpponentInput[]
+    connectOrCreate?: CaseCreateOrConnectWithoutOpponentInput | CaseCreateOrConnectWithoutOpponentInput[]
+    upsert?: CaseUpsertWithWhereUniqueWithoutOpponentInput | CaseUpsertWithWhereUniqueWithoutOpponentInput[]
+    createMany?: CaseCreateManyOpponentInputEnvelope
+    set?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
+    disconnect?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
+    delete?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
+    connect?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
+    update?: CaseUpdateWithWhereUniqueWithoutOpponentInput | CaseUpdateWithWhereUniqueWithoutOpponentInput[]
+    updateMany?: CaseUpdateManyWithWhereWithoutOpponentInput | CaseUpdateManyWithWhereWithoutOpponentInput[]
+    deleteMany?: CaseScalarWhereInput | CaseScalarWhereInput[]
   }
 
   export type BloggerCreatecategoriesInput = {
-    set: $Enums.SOURCE_CATEGORY[]
+    set: $Enums.CASE_CATEGORY[]
   }
 
-  export type ManagerCreateNestedOneWithoutBloggersInput = {
-    create?: XOR<ManagerCreateWithoutBloggersInput, ManagerUncheckedCreateWithoutBloggersInput>
-    connectOrCreate?: ManagerCreateOrConnectWithoutBloggersInput
-    connect?: ManagerWhereUniqueInput
+  export type EmployeeCreateNestedOneWithoutAuthoredBloggersInput = {
+    create?: XOR<EmployeeCreateWithoutAuthoredBloggersInput, EmployeeUncheckedCreateWithoutAuthoredBloggersInput>
+    connectOrCreate?: EmployeeCreateOrConnectWithoutAuthoredBloggersInput
+    connect?: EmployeeWhereUniqueInput
+  }
+
+  export type BigIntFieldUpdateOperationsInput = {
+    set?: bigint | number
+    increment?: bigint | number
+    decrement?: bigint | number
+    multiply?: bigint | number
+    divide?: bigint | number
   }
 
   export type BloggerUpdatecategoriesInput = {
-    set?: $Enums.SOURCE_CATEGORY[]
-    push?: $Enums.SOURCE_CATEGORY | $Enums.SOURCE_CATEGORY[]
+    set?: $Enums.CASE_CATEGORY[]
+    push?: $Enums.CASE_CATEGORY | $Enums.CASE_CATEGORY[]
   }
 
-  export type ManagerUpdateOneRequiredWithoutBloggersNestedInput = {
-    create?: XOR<ManagerCreateWithoutBloggersInput, ManagerUncheckedCreateWithoutBloggersInput>
-    connectOrCreate?: ManagerCreateOrConnectWithoutBloggersInput
-    upsert?: ManagerUpsertWithoutBloggersInput
-    connect?: ManagerWhereUniqueInput
-    update?: XOR<XOR<ManagerUpdateToOneWithWhereWithoutBloggersInput, ManagerUpdateWithoutBloggersInput>, ManagerUncheckedUpdateWithoutBloggersInput>
+  export type EmployeeUpdateOneRequiredWithoutAuthoredBloggersNestedInput = {
+    create?: XOR<EmployeeCreateWithoutAuthoredBloggersInput, EmployeeUncheckedCreateWithoutAuthoredBloggersInput>
+    connectOrCreate?: EmployeeCreateOrConnectWithoutAuthoredBloggersInput
+    upsert?: EmployeeUpsertWithoutAuthoredBloggersInput
+    connect?: EmployeeWhereUniqueInput
+    update?: XOR<XOR<EmployeeUpdateToOneWithWhereWithoutAuthoredBloggersInput, EmployeeUpdateWithoutAuthoredBloggersInput>, EmployeeUncheckedUpdateWithoutAuthoredBloggersInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -9972,6 +11742,17 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -9986,24 +11767,6 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringFilter<$PrismaModel> | string
-  }
-
-  export type NestedEnumROLESFilter<$PrismaModel = never> = {
-    equals?: $Enums.ROLES | EnumROLESFieldRefInput<$PrismaModel>
-    in?: $Enums.ROLES[] | ListEnumROLESFieldRefInput<$PrismaModel>
-    notIn?: $Enums.ROLES[] | ListEnumROLESFieldRefInput<$PrismaModel>
-    not?: NestedEnumROLESFilter<$PrismaModel> | $Enums.ROLES
-  }
-
-  export type NestedDateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -10033,6 +11796,20 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -10048,30 +11825,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
-  }
-
-  export type NestedEnumROLESWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.ROLES | EnumROLESFieldRefInput<$PrismaModel>
-    in?: $Enums.ROLES[] | ListEnumROLESFieldRefInput<$PrismaModel>
-    notIn?: $Enums.ROLES[] | ListEnumROLESFieldRefInput<$PrismaModel>
-    not?: NestedEnumROLESWithAggregatesFilter<$PrismaModel> | $Enums.ROLES
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumROLESFilter<$PrismaModel>
-    _max?: NestedEnumROLESFilter<$PrismaModel>
-  }
-
-  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type NestedStringNullableFilter<$PrismaModel = never> = {
@@ -10095,81 +11848,6 @@ export namespace Prisma {
     not?: NestedEnumLEAD_STATUSFilter<$PrismaModel> | $Enums.LEAD_STATUS
   }
 
-  export type NestedEnumTASK_IMPORTANCEFilter<$PrismaModel = never> = {
-    equals?: $Enums.TASK_IMPORTANCE | EnumTASK_IMPORTANCEFieldRefInput<$PrismaModel>
-    in?: $Enums.TASK_IMPORTANCE[] | ListEnumTASK_IMPORTANCEFieldRefInput<$PrismaModel>
-    notIn?: $Enums.TASK_IMPORTANCE[] | ListEnumTASK_IMPORTANCEFieldRefInput<$PrismaModel>
-    not?: NestedEnumTASK_IMPORTANCEFilter<$PrismaModel> | $Enums.TASK_IMPORTANCE
-  }
-
-  export type NestedEnumTASK_URGENCYFilter<$PrismaModel = never> = {
-    equals?: $Enums.TASK_URGENCY | EnumTASK_URGENCYFieldRefInput<$PrismaModel>
-    in?: $Enums.TASK_URGENCY[] | ListEnumTASK_URGENCYFieldRefInput<$PrismaModel>
-    notIn?: $Enums.TASK_URGENCY[] | ListEnumTASK_URGENCYFieldRefInput<$PrismaModel>
-    not?: NestedEnumTASK_URGENCYFilter<$PrismaModel> | $Enums.TASK_URGENCY
-  }
-
-  export type NestedEnumTASK_STATUSFilter<$PrismaModel = never> = {
-    equals?: $Enums.TASK_STATUS | EnumTASK_STATUSFieldRefInput<$PrismaModel>
-    in?: $Enums.TASK_STATUS[] | ListEnumTASK_STATUSFieldRefInput<$PrismaModel>
-    notIn?: $Enums.TASK_STATUS[] | ListEnumTASK_STATUSFieldRefInput<$PrismaModel>
-    not?: NestedEnumTASK_STATUSFilter<$PrismaModel> | $Enums.TASK_STATUS
-  }
-
-  export type NestedEnumLEGAL_ACTIONFilter<$PrismaModel = never> = {
-    equals?: $Enums.LEGAL_ACTION | EnumLEGAL_ACTIONFieldRefInput<$PrismaModel>
-    in?: $Enums.LEGAL_ACTION[] | ListEnumLEGAL_ACTIONFieldRefInput<$PrismaModel>
-    notIn?: $Enums.LEGAL_ACTION[] | ListEnumLEGAL_ACTIONFieldRefInput<$PrismaModel>
-    not?: NestedEnumLEGAL_ACTIONFilter<$PrismaModel> | $Enums.LEGAL_ACTION
-  }
-
-  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
-  }
-
-  export type NestedBigIntNullableFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
-    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
-    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
-    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntNullableFilter<$PrismaModel> | bigint | number | null
-  }
-
-  export type NestedEnumSTATUS_IN_COURTFilter<$PrismaModel = never> = {
-    equals?: $Enums.STATUS_IN_COURT | EnumSTATUS_IN_COURTFieldRefInput<$PrismaModel>
-    in?: $Enums.STATUS_IN_COURT[] | ListEnumSTATUS_IN_COURTFieldRefInput<$PrismaModel>
-    notIn?: $Enums.STATUS_IN_COURT[] | ListEnumSTATUS_IN_COURTFieldRefInput<$PrismaModel>
-    not?: NestedEnumSTATUS_IN_COURTFilter<$PrismaModel> | $Enums.STATUS_IN_COURT
-  }
-
-  export type NestedEnumREFUSAL_REASONNullableFilter<$PrismaModel = never> = {
-    equals?: $Enums.REFUSAL_REASON | EnumREFUSAL_REASONFieldRefInput<$PrismaModel> | null
-    in?: $Enums.REFUSAL_REASON[] | ListEnumREFUSAL_REASONFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.REFUSAL_REASON[] | ListEnumREFUSAL_REASONFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumREFUSAL_REASONNullableFilter<$PrismaModel> | $Enums.REFUSAL_REASON | null
-  }
-
-  export type NestedIntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -10187,6 +11865,17 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
   export type NestedEnumLEAD_STATUSWithAggregatesFilter<$PrismaModel = never> = {
     equals?: $Enums.LEAD_STATUS | EnumLEAD_STATUSFieldRefInput<$PrismaModel>
     in?: $Enums.LEAD_STATUS[] | ListEnumLEAD_STATUSFieldRefInput<$PrismaModel>
@@ -10197,44 +11886,98 @@ export namespace Prisma {
     _max?: NestedEnumLEAD_STATUSFilter<$PrismaModel>
   }
 
-  export type NestedEnumTASK_IMPORTANCEWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.TASK_IMPORTANCE | EnumTASK_IMPORTANCEFieldRefInput<$PrismaModel>
-    in?: $Enums.TASK_IMPORTANCE[] | ListEnumTASK_IMPORTANCEFieldRefInput<$PrismaModel>
-    notIn?: $Enums.TASK_IMPORTANCE[] | ListEnumTASK_IMPORTANCEFieldRefInput<$PrismaModel>
-    not?: NestedEnumTASK_IMPORTANCEWithAggregatesFilter<$PrismaModel> | $Enums.TASK_IMPORTANCE
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumTASK_IMPORTANCEFilter<$PrismaModel>
-    _max?: NestedEnumTASK_IMPORTANCEFilter<$PrismaModel>
+  export type NestedEnumIMPORTANCEFilter<$PrismaModel = never> = {
+    equals?: $Enums.IMPORTANCE | EnumIMPORTANCEFieldRefInput<$PrismaModel>
+    in?: $Enums.IMPORTANCE[] | ListEnumIMPORTANCEFieldRefInput<$PrismaModel>
+    notIn?: $Enums.IMPORTANCE[] | ListEnumIMPORTANCEFieldRefInput<$PrismaModel>
+    not?: NestedEnumIMPORTANCEFilter<$PrismaModel> | $Enums.IMPORTANCE
   }
 
-  export type NestedEnumTASK_URGENCYWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.TASK_URGENCY | EnumTASK_URGENCYFieldRefInput<$PrismaModel>
-    in?: $Enums.TASK_URGENCY[] | ListEnumTASK_URGENCYFieldRefInput<$PrismaModel>
-    notIn?: $Enums.TASK_URGENCY[] | ListEnumTASK_URGENCYFieldRefInput<$PrismaModel>
-    not?: NestedEnumTASK_URGENCYWithAggregatesFilter<$PrismaModel> | $Enums.TASK_URGENCY
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumTASK_URGENCYFilter<$PrismaModel>
-    _max?: NestedEnumTASK_URGENCYFilter<$PrismaModel>
+  export type NestedEnumURGENCYFilter<$PrismaModel = never> = {
+    equals?: $Enums.URGENCY | EnumURGENCYFieldRefInput<$PrismaModel>
+    in?: $Enums.URGENCY[] | ListEnumURGENCYFieldRefInput<$PrismaModel>
+    notIn?: $Enums.URGENCY[] | ListEnumURGENCYFieldRefInput<$PrismaModel>
+    not?: NestedEnumURGENCYFilter<$PrismaModel> | $Enums.URGENCY
   }
 
-  export type NestedEnumTASK_STATUSWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.TASK_STATUS | EnumTASK_STATUSFieldRefInput<$PrismaModel>
-    in?: $Enums.TASK_STATUS[] | ListEnumTASK_STATUSFieldRefInput<$PrismaModel>
-    notIn?: $Enums.TASK_STATUS[] | ListEnumTASK_STATUSFieldRefInput<$PrismaModel>
-    not?: NestedEnumTASK_STATUSWithAggregatesFilter<$PrismaModel> | $Enums.TASK_STATUS
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumTASK_STATUSFilter<$PrismaModel>
-    _max?: NestedEnumTASK_STATUSFilter<$PrismaModel>
+  export type NestedEnumCASE_STATUSFilter<$PrismaModel = never> = {
+    equals?: $Enums.CASE_STATUS | EnumCASE_STATUSFieldRefInput<$PrismaModel>
+    in?: $Enums.CASE_STATUS[] | ListEnumCASE_STATUSFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CASE_STATUS[] | ListEnumCASE_STATUSFieldRefInput<$PrismaModel>
+    not?: NestedEnumCASE_STATUSFilter<$PrismaModel> | $Enums.CASE_STATUS
   }
 
-  export type NestedEnumLEGAL_ACTIONWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.LEGAL_ACTION | EnumLEGAL_ACTIONFieldRefInput<$PrismaModel>
-    in?: $Enums.LEGAL_ACTION[] | ListEnumLEGAL_ACTIONFieldRefInput<$PrismaModel>
-    notIn?: $Enums.LEGAL_ACTION[] | ListEnumLEGAL_ACTIONFieldRefInput<$PrismaModel>
-    not?: NestedEnumLEGAL_ACTIONWithAggregatesFilter<$PrismaModel> | $Enums.LEGAL_ACTION
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type NestedEnumREFUSAL_REASONNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.REFUSAL_REASON | EnumREFUSAL_REASONFieldRefInput<$PrismaModel> | null
+    in?: $Enums.REFUSAL_REASON[] | ListEnumREFUSAL_REASONFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.REFUSAL_REASON[] | ListEnumREFUSAL_REASONFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumREFUSAL_REASONNullableFilter<$PrismaModel> | $Enums.REFUSAL_REASON | null
+  }
+
+  export type NestedEnumLEGAL_ACTIONNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.LEGAL_ACTION | EnumLEGAL_ACTIONFieldRefInput<$PrismaModel> | null
+    in?: $Enums.LEGAL_ACTION[] | ListEnumLEGAL_ACTIONFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.LEGAL_ACTION[] | ListEnumLEGAL_ACTIONFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumLEGAL_ACTIONNullableFilter<$PrismaModel> | $Enums.LEGAL_ACTION | null
+  }
+
+  export type NestedEnumSTATUS_IN_COURTNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.STATUS_IN_COURT | EnumSTATUS_IN_COURTFieldRefInput<$PrismaModel> | null
+    in?: $Enums.STATUS_IN_COURT[] | ListEnumSTATUS_IN_COURTFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.STATUS_IN_COURT[] | ListEnumSTATUS_IN_COURTFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumSTATUS_IN_COURTNullableFilter<$PrismaModel> | $Enums.STATUS_IN_COURT | null
+  }
+
+  export type NestedBigIntNullableFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
+    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
+    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntNullableFilter<$PrismaModel> | bigint | number | null
+  }
+
+  export type NestedEnumIMPORTANCEWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.IMPORTANCE | EnumIMPORTANCEFieldRefInput<$PrismaModel>
+    in?: $Enums.IMPORTANCE[] | ListEnumIMPORTANCEFieldRefInput<$PrismaModel>
+    notIn?: $Enums.IMPORTANCE[] | ListEnumIMPORTANCEFieldRefInput<$PrismaModel>
+    not?: NestedEnumIMPORTANCEWithAggregatesFilter<$PrismaModel> | $Enums.IMPORTANCE
     _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumLEGAL_ACTIONFilter<$PrismaModel>
-    _max?: NestedEnumLEGAL_ACTIONFilter<$PrismaModel>
+    _min?: NestedEnumIMPORTANCEFilter<$PrismaModel>
+    _max?: NestedEnumIMPORTANCEFilter<$PrismaModel>
+  }
+
+  export type NestedEnumURGENCYWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.URGENCY | EnumURGENCYFieldRefInput<$PrismaModel>
+    in?: $Enums.URGENCY[] | ListEnumURGENCYFieldRefInput<$PrismaModel>
+    notIn?: $Enums.URGENCY[] | ListEnumURGENCYFieldRefInput<$PrismaModel>
+    not?: NestedEnumURGENCYWithAggregatesFilter<$PrismaModel> | $Enums.URGENCY
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumURGENCYFilter<$PrismaModel>
+    _max?: NestedEnumURGENCYFilter<$PrismaModel>
+  }
+
+  export type NestedEnumCASE_STATUSWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.CASE_STATUS | EnumCASE_STATUSFieldRefInput<$PrismaModel>
+    in?: $Enums.CASE_STATUS[] | ListEnumCASE_STATUSFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CASE_STATUS[] | ListEnumCASE_STATUSFieldRefInput<$PrismaModel>
+    not?: NestedEnumCASE_STATUSWithAggregatesFilter<$PrismaModel> | $Enums.CASE_STATUS
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumCASE_STATUSFilter<$PrismaModel>
+    _max?: NestedEnumCASE_STATUSFilter<$PrismaModel>
   }
 
   export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -10249,6 +11992,36 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedDateTimeNullableFilter<$PrismaModel>
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type NestedEnumREFUSAL_REASONNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.REFUSAL_REASON | EnumREFUSAL_REASONFieldRefInput<$PrismaModel> | null
+    in?: $Enums.REFUSAL_REASON[] | ListEnumREFUSAL_REASONFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.REFUSAL_REASON[] | ListEnumREFUSAL_REASONFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumREFUSAL_REASONNullableWithAggregatesFilter<$PrismaModel> | $Enums.REFUSAL_REASON | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumREFUSAL_REASONNullableFilter<$PrismaModel>
+    _max?: NestedEnumREFUSAL_REASONNullableFilter<$PrismaModel>
+  }
+
+  export type NestedEnumLEGAL_ACTIONNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.LEGAL_ACTION | EnumLEGAL_ACTIONFieldRefInput<$PrismaModel> | null
+    in?: $Enums.LEGAL_ACTION[] | ListEnumLEGAL_ACTIONFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.LEGAL_ACTION[] | ListEnumLEGAL_ACTIONFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumLEGAL_ACTIONNullableWithAggregatesFilter<$PrismaModel> | $Enums.LEGAL_ACTION | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumLEGAL_ACTIONNullableFilter<$PrismaModel>
+    _max?: NestedEnumLEGAL_ACTIONNullableFilter<$PrismaModel>
+  }
+
+  export type NestedEnumSTATUS_IN_COURTNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.STATUS_IN_COURT | EnumSTATUS_IN_COURTFieldRefInput<$PrismaModel> | null
+    in?: $Enums.STATUS_IN_COURT[] | ListEnumSTATUS_IN_COURTFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.STATUS_IN_COURT[] | ListEnumSTATUS_IN_COURTFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumSTATUS_IN_COURTNullableWithAggregatesFilter<$PrismaModel> | $Enums.STATUS_IN_COURT | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumSTATUS_IN_COURTNullableFilter<$PrismaModel>
+    _max?: NestedEnumSTATUS_IN_COURTNullableFilter<$PrismaModel>
   }
 
   export type NestedBigIntNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -10278,26 +12051,6 @@ export namespace Prisma {
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
-  export type NestedEnumSTATUS_IN_COURTWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.STATUS_IN_COURT | EnumSTATUS_IN_COURTFieldRefInput<$PrismaModel>
-    in?: $Enums.STATUS_IN_COURT[] | ListEnumSTATUS_IN_COURTFieldRefInput<$PrismaModel>
-    notIn?: $Enums.STATUS_IN_COURT[] | ListEnumSTATUS_IN_COURTFieldRefInput<$PrismaModel>
-    not?: NestedEnumSTATUS_IN_COURTWithAggregatesFilter<$PrismaModel> | $Enums.STATUS_IN_COURT
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumSTATUS_IN_COURTFilter<$PrismaModel>
-    _max?: NestedEnumSTATUS_IN_COURTFilter<$PrismaModel>
-  }
-
-  export type NestedEnumREFUSAL_REASONNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.REFUSAL_REASON | EnumREFUSAL_REASONFieldRefInput<$PrismaModel> | null
-    in?: $Enums.REFUSAL_REASON[] | ListEnumREFUSAL_REASONFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.REFUSAL_REASON[] | ListEnumREFUSAL_REASONFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumREFUSAL_REASONNullableWithAggregatesFilter<$PrismaModel> | $Enums.REFUSAL_REASON | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedEnumREFUSAL_REASONNullableFilter<$PrismaModel>
-    _max?: NestedEnumREFUSAL_REASONNullableFilter<$PrismaModel>
-  }
-
   export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
     in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
@@ -10314,209 +12067,58 @@ export namespace Prisma {
     _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
-  export type NestedEnumSOURCE_CATEGORYFilter<$PrismaModel = never> = {
-    equals?: $Enums.SOURCE_CATEGORY | EnumSOURCE_CATEGORYFieldRefInput<$PrismaModel>
-    in?: $Enums.SOURCE_CATEGORY[] | ListEnumSOURCE_CATEGORYFieldRefInput<$PrismaModel>
-    notIn?: $Enums.SOURCE_CATEGORY[] | ListEnumSOURCE_CATEGORYFieldRefInput<$PrismaModel>
-    not?: NestedEnumSOURCE_CATEGORYFilter<$PrismaModel> | $Enums.SOURCE_CATEGORY
+  export type NestedBigIntFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
+    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntFilter<$PrismaModel> | bigint | number
   }
 
-  export type NestedEnumSOURCE_CATEGORYWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.SOURCE_CATEGORY | EnumSOURCE_CATEGORYFieldRefInput<$PrismaModel>
-    in?: $Enums.SOURCE_CATEGORY[] | ListEnumSOURCE_CATEGORYFieldRefInput<$PrismaModel>
-    notIn?: $Enums.SOURCE_CATEGORY[] | ListEnumSOURCE_CATEGORYFieldRefInput<$PrismaModel>
-    not?: NestedEnumSOURCE_CATEGORYWithAggregatesFilter<$PrismaModel> | $Enums.SOURCE_CATEGORY
+  export type NestedBigIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
+    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntWithAggregatesFilter<$PrismaModel> | bigint | number
     _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumSOURCE_CATEGORYFilter<$PrismaModel>
-    _max?: NestedEnumSOURCE_CATEGORYFilter<$PrismaModel>
-  }
-
-  export type UserCreateWithoutAuthorInput = {
-    username: string
-    userLink?: string | null
-    phoneNumber?: string | null
-    email?: string | null
-    homeAddress: string
-    leadStatus?: $Enums.LEAD_STATUS
-    taskImportance?: $Enums.TASK_IMPORTANCE
-    taskUrgency?: $Enums.TASK_URGENCY
-    taskStatus?: $Enums.TASK_STATUS
-    legalAction: $Enums.LEGAL_ACTION
-    problemShort: string
-    problemFull: string
-    nearestTask?: string
-    nearestTaskDeadline?: Date | string | null
-    timeOfPerformance?: Date | string | null
-    priceSOM?: bigint | number | null
-    priceUSD?: bigint | number | null
-    courtInfo?: string
-    statusInCourt?: $Enums.STATUS_IN_COURT
-    refusalReason?: $Enums.REFUSAL_REASON | null
-    createdAt?: Date | string
-    assignmentTime?: Date | string | null
-    source: SourceCreateNestedOneWithoutUsersInput
-    opponent?: OpponentCreateNestedOneWithoutUsersInput
-    manager?: ManagerCreateNestedOneWithoutManagedUsersInput
-  }
-
-  export type UserUncheckedCreateWithoutAuthorInput = {
-    id?: number
-    username: string
-    userLink?: string | null
-    phoneNumber?: string | null
-    email?: string | null
-    homeAddress: string
-    leadStatus?: $Enums.LEAD_STATUS
-    taskImportance?: $Enums.TASK_IMPORTANCE
-    taskUrgency?: $Enums.TASK_URGENCY
-    taskStatus?: $Enums.TASK_STATUS
-    legalAction: $Enums.LEGAL_ACTION
-    problemShort: string
-    problemFull: string
-    nearestTask?: string
-    nearestTaskDeadline?: Date | string | null
-    timeOfPerformance?: Date | string | null
-    priceSOM?: bigint | number | null
-    priceUSD?: bigint | number | null
-    courtInfo?: string
-    statusInCourt?: $Enums.STATUS_IN_COURT
-    refusalReason?: $Enums.REFUSAL_REASON | null
-    createdAt?: Date | string
-    assignmentTime?: Date | string | null
-    sourceId: number
-    opponentId?: number | null
-    managerId?: number | null
-  }
-
-  export type UserCreateOrConnectWithoutAuthorInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutAuthorInput, UserUncheckedCreateWithoutAuthorInput>
-  }
-
-  export type UserCreateManyAuthorInputEnvelope = {
-    data: UserCreateManyAuthorInput | UserCreateManyAuthorInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type UserCreateWithoutManagerInput = {
-    username: string
-    userLink?: string | null
-    phoneNumber?: string | null
-    email?: string | null
-    homeAddress: string
-    leadStatus?: $Enums.LEAD_STATUS
-    taskImportance?: $Enums.TASK_IMPORTANCE
-    taskUrgency?: $Enums.TASK_URGENCY
-    taskStatus?: $Enums.TASK_STATUS
-    legalAction: $Enums.LEGAL_ACTION
-    problemShort: string
-    problemFull: string
-    nearestTask?: string
-    nearestTaskDeadline?: Date | string | null
-    timeOfPerformance?: Date | string | null
-    priceSOM?: bigint | number | null
-    priceUSD?: bigint | number | null
-    courtInfo?: string
-    statusInCourt?: $Enums.STATUS_IN_COURT
-    refusalReason?: $Enums.REFUSAL_REASON | null
-    createdAt?: Date | string
-    assignmentTime?: Date | string | null
-    author: ManagerCreateNestedOneWithoutAuthoredUsersInput
-    source: SourceCreateNestedOneWithoutUsersInput
-    opponent?: OpponentCreateNestedOneWithoutUsersInput
-  }
-
-  export type UserUncheckedCreateWithoutManagerInput = {
-    id?: number
-    username: string
-    userLink?: string | null
-    phoneNumber?: string | null
-    email?: string | null
-    homeAddress: string
-    leadStatus?: $Enums.LEAD_STATUS
-    taskImportance?: $Enums.TASK_IMPORTANCE
-    taskUrgency?: $Enums.TASK_URGENCY
-    taskStatus?: $Enums.TASK_STATUS
-    legalAction: $Enums.LEGAL_ACTION
-    problemShort: string
-    problemFull: string
-    nearestTask?: string
-    nearestTaskDeadline?: Date | string | null
-    timeOfPerformance?: Date | string | null
-    priceSOM?: bigint | number | null
-    priceUSD?: bigint | number | null
-    courtInfo?: string
-    statusInCourt?: $Enums.STATUS_IN_COURT
-    refusalReason?: $Enums.REFUSAL_REASON | null
-    createdAt?: Date | string
-    assignmentTime?: Date | string | null
-    authorId: number
-    sourceId: number
-    opponentId?: number | null
-  }
-
-  export type UserCreateOrConnectWithoutManagerInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutManagerInput, UserUncheckedCreateWithoutManagerInput>
-  }
-
-  export type UserCreateManyManagerInputEnvelope = {
-    data: UserCreateManyManagerInput | UserCreateManyManagerInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type SourceCreateWithoutAuthorInput = {
-    title: string
-    sourceLink?: string | null
-    category: $Enums.SOURCE_CATEGORY
-    createdAt?: Date | string
-    users?: UserCreateNestedManyWithoutSourceInput
-  }
-
-  export type SourceUncheckedCreateWithoutAuthorInput = {
-    id?: number
-    title: string
-    sourceLink?: string | null
-    category: $Enums.SOURCE_CATEGORY
-    createdAt?: Date | string
-    users?: UserUncheckedCreateNestedManyWithoutSourceInput
-  }
-
-  export type SourceCreateOrConnectWithoutAuthorInput = {
-    where: SourceWhereUniqueInput
-    create: XOR<SourceCreateWithoutAuthorInput, SourceUncheckedCreateWithoutAuthorInput>
-  }
-
-  export type SourceCreateManyAuthorInputEnvelope = {
-    data: SourceCreateManyAuthorInput | SourceCreateManyAuthorInput[]
-    skipDuplicates?: boolean
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedBigIntFilter<$PrismaModel>
+    _min?: NestedBigIntFilter<$PrismaModel>
+    _max?: NestedBigIntFilter<$PrismaModel>
   }
 
   export type BloggerCreateWithoutAuthorInput = {
+    createdAt?: Date | string
     name: string
     link: string
-    subscribersCount: number
-    info?: string
-    priceSOM?: number | null
-    priceUSD?: number | null
     phoneNumber?: string | null
     email?: string | null
-    categories?: BloggerCreatecategoriesInput | $Enums.SOURCE_CATEGORY[]
-    createdAt?: Date | string
+    info?: string | null
+    subscribersCount: bigint | number
+    priceSOM?: bigint | number | null
+    priceUSD?: bigint | number | null
+    categories?: BloggerCreatecategoriesInput | $Enums.CASE_CATEGORY[]
   }
 
   export type BloggerUncheckedCreateWithoutAuthorInput = {
     id?: number
+    createdAt?: Date | string
     name: string
     link: string
-    subscribersCount: number
-    info?: string
-    priceSOM?: number | null
-    priceUSD?: number | null
     phoneNumber?: string | null
     email?: string | null
-    categories?: BloggerCreatecategoriesInput | $Enums.SOURCE_CATEGORY[]
-    createdAt?: Date | string
+    info?: string | null
+    subscribersCount: bigint | number
+    priceSOM?: bigint | number | null
+    priceUSD?: bigint | number | null
+    categories?: BloggerCreatecategoriesInput | $Enums.CASE_CATEGORY[]
   }
 
   export type BloggerCreateOrConnectWithoutAuthorInput = {
@@ -10529,97 +12131,207 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type UserUpsertWithWhereUniqueWithoutAuthorInput = {
-    where: UserWhereUniqueInput
-    update: XOR<UserUpdateWithoutAuthorInput, UserUncheckedUpdateWithoutAuthorInput>
-    create: XOR<UserCreateWithoutAuthorInput, UserUncheckedCreateWithoutAuthorInput>
+  export type OriginCreateWithoutAuthorInput = {
+    createdAt?: Date | string
+    title: string
+    link?: string | null
+    categories?: OriginCreatecategoriesInput | $Enums.CASE_CATEGORY[]
+    persons?: PersonCreateNestedManyWithoutOriginInput
   }
 
-  export type UserUpdateWithWhereUniqueWithoutAuthorInput = {
-    where: UserWhereUniqueInput
-    data: XOR<UserUpdateWithoutAuthorInput, UserUncheckedUpdateWithoutAuthorInput>
+  export type OriginUncheckedCreateWithoutAuthorInput = {
+    id?: number
+    createdAt?: Date | string
+    title: string
+    link?: string | null
+    categories?: OriginCreatecategoriesInput | $Enums.CASE_CATEGORY[]
+    persons?: PersonUncheckedCreateNestedManyWithoutOriginInput
   }
 
-  export type UserUpdateManyWithWhereWithoutAuthorInput = {
-    where: UserScalarWhereInput
-    data: XOR<UserUpdateManyMutationInput, UserUncheckedUpdateManyWithoutAuthorInput>
+  export type OriginCreateOrConnectWithoutAuthorInput = {
+    where: OriginWhereUniqueInput
+    create: XOR<OriginCreateWithoutAuthorInput, OriginUncheckedCreateWithoutAuthorInput>
   }
 
-  export type UserScalarWhereInput = {
-    AND?: UserScalarWhereInput | UserScalarWhereInput[]
-    OR?: UserScalarWhereInput[]
-    NOT?: UserScalarWhereInput | UserScalarWhereInput[]
-    id?: IntFilter<"User"> | number
-    username?: StringFilter<"User"> | string
-    userLink?: StringNullableFilter<"User"> | string | null
-    phoneNumber?: StringNullableFilter<"User"> | string | null
-    email?: StringNullableFilter<"User"> | string | null
-    homeAddress?: StringFilter<"User"> | string
-    leadStatus?: EnumLEAD_STATUSFilter<"User"> | $Enums.LEAD_STATUS
-    taskImportance?: EnumTASK_IMPORTANCEFilter<"User"> | $Enums.TASK_IMPORTANCE
-    taskUrgency?: EnumTASK_URGENCYFilter<"User"> | $Enums.TASK_URGENCY
-    taskStatus?: EnumTASK_STATUSFilter<"User"> | $Enums.TASK_STATUS
-    legalAction?: EnumLEGAL_ACTIONFilter<"User"> | $Enums.LEGAL_ACTION
-    problemShort?: StringFilter<"User"> | string
-    problemFull?: StringFilter<"User"> | string
-    nearestTask?: StringFilter<"User"> | string
-    nearestTaskDeadline?: DateTimeNullableFilter<"User"> | Date | string | null
-    timeOfPerformance?: DateTimeNullableFilter<"User"> | Date | string | null
-    priceSOM?: BigIntNullableFilter<"User"> | bigint | number | null
-    priceUSD?: BigIntNullableFilter<"User"> | bigint | number | null
-    courtInfo?: StringFilter<"User"> | string
-    statusInCourt?: EnumSTATUS_IN_COURTFilter<"User"> | $Enums.STATUS_IN_COURT
-    refusalReason?: EnumREFUSAL_REASONNullableFilter<"User"> | $Enums.REFUSAL_REASON | null
-    createdAt?: DateTimeFilter<"User"> | Date | string
-    assignmentTime?: DateTimeNullableFilter<"User"> | Date | string | null
-    authorId?: IntFilter<"User"> | number
-    sourceId?: IntFilter<"User"> | number
-    opponentId?: IntNullableFilter<"User"> | number | null
-    managerId?: IntNullableFilter<"User"> | number | null
+  export type OriginCreateManyAuthorInputEnvelope = {
+    data: OriginCreateManyAuthorInput | OriginCreateManyAuthorInput[]
+    skipDuplicates?: boolean
   }
 
-  export type UserUpsertWithWhereUniqueWithoutManagerInput = {
-    where: UserWhereUniqueInput
-    update: XOR<UserUpdateWithoutManagerInput, UserUncheckedUpdateWithoutManagerInput>
-    create: XOR<UserCreateWithoutManagerInput, UserUncheckedCreateWithoutManagerInput>
+  export type PersonCreateWithoutAuthorInput = {
+    createdAt?: Date | string
+    name: string
+    phoneNumber?: string | null
+    link?: string | null
+    email?: string | null
+    homeAddress?: string | null
+    leadStatus?: $Enums.LEAD_STATUS
+    cases?: CaseCreateNestedManyWithoutPersonInput
+    origin: OriginCreateNestedOneWithoutPersonsInput
   }
 
-  export type UserUpdateWithWhereUniqueWithoutManagerInput = {
-    where: UserWhereUniqueInput
-    data: XOR<UserUpdateWithoutManagerInput, UserUncheckedUpdateWithoutManagerInput>
+  export type PersonUncheckedCreateWithoutAuthorInput = {
+    id?: number
+    createdAt?: Date | string
+    name: string
+    phoneNumber?: string | null
+    link?: string | null
+    email?: string | null
+    homeAddress?: string | null
+    originId: number
+    leadStatus?: $Enums.LEAD_STATUS
+    cases?: CaseUncheckedCreateNestedManyWithoutPersonInput
   }
 
-  export type UserUpdateManyWithWhereWithoutManagerInput = {
-    where: UserScalarWhereInput
-    data: XOR<UserUpdateManyMutationInput, UserUncheckedUpdateManyWithoutManagerInput>
+  export type PersonCreateOrConnectWithoutAuthorInput = {
+    where: PersonWhereUniqueInput
+    create: XOR<PersonCreateWithoutAuthorInput, PersonUncheckedCreateWithoutAuthorInput>
   }
 
-  export type SourceUpsertWithWhereUniqueWithoutAuthorInput = {
-    where: SourceWhereUniqueInput
-    update: XOR<SourceUpdateWithoutAuthorInput, SourceUncheckedUpdateWithoutAuthorInput>
-    create: XOR<SourceCreateWithoutAuthorInput, SourceUncheckedCreateWithoutAuthorInput>
+  export type PersonCreateManyAuthorInputEnvelope = {
+    data: PersonCreateManyAuthorInput | PersonCreateManyAuthorInput[]
+    skipDuplicates?: boolean
   }
 
-  export type SourceUpdateWithWhereUniqueWithoutAuthorInput = {
-    where: SourceWhereUniqueInput
-    data: XOR<SourceUpdateWithoutAuthorInput, SourceUncheckedUpdateWithoutAuthorInput>
+  export type CaseCreateWithoutAuthorInput = {
+    createdAt?: Date | string
+    caseImportance?: $Enums.IMPORTANCE
+    caseUrgency?: $Enums.URGENCY
+    caseStatus?: $Enums.CASE_STATUS
+    categories?: CaseCreatecategoriesInput | $Enums.CASE_CATEGORY[]
+    problemShort?: string | null
+    problemFull?: string | null
+    nearestTask?: string | null
+    courtInfo?: string | null
+    nearestTaskDeadline?: Date | string | null
+    timeOfPerformance?: Date | string | null
+    assignmentTime?: Date | string | null
+    refusalReason?: $Enums.REFUSAL_REASON | null
+    legalAction?: $Enums.LEGAL_ACTION | null
+    statusInCourt?: $Enums.STATUS_IN_COURT | null
+    priceSOM?: bigint | number | null
+    priceUSD?: bigint | number | null
+    manager?: EmployeeCreateNestedOneWithoutManagedCasesInput
+    opponent?: OpponentCreateNestedOneWithoutCasesInput
+    person: PersonCreateNestedOneWithoutCasesInput
   }
 
-  export type SourceUpdateManyWithWhereWithoutAuthorInput = {
-    where: SourceScalarWhereInput
-    data: XOR<SourceUpdateManyMutationInput, SourceUncheckedUpdateManyWithoutAuthorInput>
+  export type CaseUncheckedCreateWithoutAuthorInput = {
+    id?: number
+    createdAt?: Date | string
+    caseImportance?: $Enums.IMPORTANCE
+    caseUrgency?: $Enums.URGENCY
+    caseStatus?: $Enums.CASE_STATUS
+    categories?: CaseCreatecategoriesInput | $Enums.CASE_CATEGORY[]
+    problemShort?: string | null
+    problemFull?: string | null
+    nearestTask?: string | null
+    courtInfo?: string | null
+    nearestTaskDeadline?: Date | string | null
+    timeOfPerformance?: Date | string | null
+    assignmentTime?: Date | string | null
+    refusalReason?: $Enums.REFUSAL_REASON | null
+    legalAction?: $Enums.LEGAL_ACTION | null
+    statusInCourt?: $Enums.STATUS_IN_COURT | null
+    priceSOM?: bigint | number | null
+    priceUSD?: bigint | number | null
+    personId: number
+    opponentId?: number | null
+    managerId?: number | null
   }
 
-  export type SourceScalarWhereInput = {
-    AND?: SourceScalarWhereInput | SourceScalarWhereInput[]
-    OR?: SourceScalarWhereInput[]
-    NOT?: SourceScalarWhereInput | SourceScalarWhereInput[]
-    id?: IntFilter<"Source"> | number
-    title?: StringFilter<"Source"> | string
-    sourceLink?: StringNullableFilter<"Source"> | string | null
-    category?: EnumSOURCE_CATEGORYFilter<"Source"> | $Enums.SOURCE_CATEGORY
-    createdAt?: DateTimeFilter<"Source"> | Date | string
-    authorId?: IntFilter<"Source"> | number
+  export type CaseCreateOrConnectWithoutAuthorInput = {
+    where: CaseWhereUniqueInput
+    create: XOR<CaseCreateWithoutAuthorInput, CaseUncheckedCreateWithoutAuthorInput>
+  }
+
+  export type CaseCreateManyAuthorInputEnvelope = {
+    data: CaseCreateManyAuthorInput | CaseCreateManyAuthorInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type CaseCreateWithoutManagerInput = {
+    createdAt?: Date | string
+    caseImportance?: $Enums.IMPORTANCE
+    caseUrgency?: $Enums.URGENCY
+    caseStatus?: $Enums.CASE_STATUS
+    categories?: CaseCreatecategoriesInput | $Enums.CASE_CATEGORY[]
+    problemShort?: string | null
+    problemFull?: string | null
+    nearestTask?: string | null
+    courtInfo?: string | null
+    nearestTaskDeadline?: Date | string | null
+    timeOfPerformance?: Date | string | null
+    assignmentTime?: Date | string | null
+    refusalReason?: $Enums.REFUSAL_REASON | null
+    legalAction?: $Enums.LEGAL_ACTION | null
+    statusInCourt?: $Enums.STATUS_IN_COURT | null
+    priceSOM?: bigint | number | null
+    priceUSD?: bigint | number | null
+    author: EmployeeCreateNestedOneWithoutAuthoredCasesInput
+    opponent?: OpponentCreateNestedOneWithoutCasesInput
+    person: PersonCreateNestedOneWithoutCasesInput
+  }
+
+  export type CaseUncheckedCreateWithoutManagerInput = {
+    id?: number
+    createdAt?: Date | string
+    caseImportance?: $Enums.IMPORTANCE
+    caseUrgency?: $Enums.URGENCY
+    caseStatus?: $Enums.CASE_STATUS
+    categories?: CaseCreatecategoriesInput | $Enums.CASE_CATEGORY[]
+    problemShort?: string | null
+    problemFull?: string | null
+    nearestTask?: string | null
+    courtInfo?: string | null
+    nearestTaskDeadline?: Date | string | null
+    timeOfPerformance?: Date | string | null
+    assignmentTime?: Date | string | null
+    refusalReason?: $Enums.REFUSAL_REASON | null
+    legalAction?: $Enums.LEGAL_ACTION | null
+    statusInCourt?: $Enums.STATUS_IN_COURT | null
+    priceSOM?: bigint | number | null
+    priceUSD?: bigint | number | null
+    personId: number
+    authorId: number
+    opponentId?: number | null
+  }
+
+  export type CaseCreateOrConnectWithoutManagerInput = {
+    where: CaseWhereUniqueInput
+    create: XOR<CaseCreateWithoutManagerInput, CaseUncheckedCreateWithoutManagerInput>
+  }
+
+  export type CaseCreateManyManagerInputEnvelope = {
+    data: CaseCreateManyManagerInput | CaseCreateManyManagerInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type OpponentCreateWithoutAuthorInput = {
+    createdAt?: Date | string
+    name: string
+    link?: string | null
+    info?: string | null
+    cases?: CaseCreateNestedManyWithoutOpponentInput
+  }
+
+  export type OpponentUncheckedCreateWithoutAuthorInput = {
+    id?: number
+    createdAt?: Date | string
+    name: string
+    link?: string | null
+    info?: string | null
+    cases?: CaseUncheckedCreateNestedManyWithoutOpponentInput
+  }
+
+  export type OpponentCreateOrConnectWithoutAuthorInput = {
+    where: OpponentWhereUniqueInput
+    create: XOR<OpponentCreateWithoutAuthorInput, OpponentUncheckedCreateWithoutAuthorInput>
+  }
+
+  export type OpponentCreateManyAuthorInputEnvelope = {
+    data: OpponentCreateManyAuthorInput | OpponentCreateManyAuthorInput[]
+    skipDuplicates?: boolean
   }
 
   export type BloggerUpsertWithWhereUniqueWithoutAuthorInput = {
@@ -10643,1058 +12355,1522 @@ export namespace Prisma {
     OR?: BloggerScalarWhereInput[]
     NOT?: BloggerScalarWhereInput | BloggerScalarWhereInput[]
     id?: IntFilter<"Blogger"> | number
+    createdAt?: DateTimeFilter<"Blogger"> | Date | string
     name?: StringFilter<"Blogger"> | string
     link?: StringFilter<"Blogger"> | string
-    subscribersCount?: IntFilter<"Blogger"> | number
-    info?: StringFilter<"Blogger"> | string
-    priceSOM?: IntNullableFilter<"Blogger"> | number | null
-    priceUSD?: IntNullableFilter<"Blogger"> | number | null
     phoneNumber?: StringNullableFilter<"Blogger"> | string | null
     email?: StringNullableFilter<"Blogger"> | string | null
-    categories?: EnumSOURCE_CATEGORYNullableListFilter<"Blogger">
-    createdAt?: DateTimeFilter<"Blogger"> | Date | string
+    info?: StringNullableFilter<"Blogger"> | string | null
+    subscribersCount?: BigIntFilter<"Blogger"> | bigint | number
+    priceSOM?: BigIntNullableFilter<"Blogger"> | bigint | number | null
+    priceUSD?: BigIntNullableFilter<"Blogger"> | bigint | number | null
     authorId?: IntFilter<"Blogger"> | number
+    categories?: EnumCASE_CATEGORYNullableListFilter<"Blogger">
   }
 
-  export type ManagerCreateWithoutAuthoredUsersInput = {
+  export type OriginUpsertWithWhereUniqueWithoutAuthorInput = {
+    where: OriginWhereUniqueInput
+    update: XOR<OriginUpdateWithoutAuthorInput, OriginUncheckedUpdateWithoutAuthorInput>
+    create: XOR<OriginCreateWithoutAuthorInput, OriginUncheckedCreateWithoutAuthorInput>
+  }
+
+  export type OriginUpdateWithWhereUniqueWithoutAuthorInput = {
+    where: OriginWhereUniqueInput
+    data: XOR<OriginUpdateWithoutAuthorInput, OriginUncheckedUpdateWithoutAuthorInput>
+  }
+
+  export type OriginUpdateManyWithWhereWithoutAuthorInput = {
+    where: OriginScalarWhereInput
+    data: XOR<OriginUpdateManyMutationInput, OriginUncheckedUpdateManyWithoutAuthorInput>
+  }
+
+  export type OriginScalarWhereInput = {
+    AND?: OriginScalarWhereInput | OriginScalarWhereInput[]
+    OR?: OriginScalarWhereInput[]
+    NOT?: OriginScalarWhereInput | OriginScalarWhereInput[]
+    id?: IntFilter<"Origin"> | number
+    createdAt?: DateTimeFilter<"Origin"> | Date | string
+    title?: StringFilter<"Origin"> | string
+    link?: StringNullableFilter<"Origin"> | string | null
+    categories?: EnumCASE_CATEGORYNullableListFilter<"Origin">
+    authorId?: IntFilter<"Origin"> | number
+  }
+
+  export type PersonUpsertWithWhereUniqueWithoutAuthorInput = {
+    where: PersonWhereUniqueInput
+    update: XOR<PersonUpdateWithoutAuthorInput, PersonUncheckedUpdateWithoutAuthorInput>
+    create: XOR<PersonCreateWithoutAuthorInput, PersonUncheckedCreateWithoutAuthorInput>
+  }
+
+  export type PersonUpdateWithWhereUniqueWithoutAuthorInput = {
+    where: PersonWhereUniqueInput
+    data: XOR<PersonUpdateWithoutAuthorInput, PersonUncheckedUpdateWithoutAuthorInput>
+  }
+
+  export type PersonUpdateManyWithWhereWithoutAuthorInput = {
+    where: PersonScalarWhereInput
+    data: XOR<PersonUpdateManyMutationInput, PersonUncheckedUpdateManyWithoutAuthorInput>
+  }
+
+  export type PersonScalarWhereInput = {
+    AND?: PersonScalarWhereInput | PersonScalarWhereInput[]
+    OR?: PersonScalarWhereInput[]
+    NOT?: PersonScalarWhereInput | PersonScalarWhereInput[]
+    id?: IntFilter<"Person"> | number
+    createdAt?: DateTimeFilter<"Person"> | Date | string
+    name?: StringFilter<"Person"> | string
+    phoneNumber?: StringNullableFilter<"Person"> | string | null
+    link?: StringNullableFilter<"Person"> | string | null
+    email?: StringNullableFilter<"Person"> | string | null
+    homeAddress?: StringNullableFilter<"Person"> | string | null
+    authorId?: IntFilter<"Person"> | number
+    originId?: IntFilter<"Person"> | number
+    leadStatus?: EnumLEAD_STATUSFilter<"Person"> | $Enums.LEAD_STATUS
+  }
+
+  export type CaseUpsertWithWhereUniqueWithoutAuthorInput = {
+    where: CaseWhereUniqueInput
+    update: XOR<CaseUpdateWithoutAuthorInput, CaseUncheckedUpdateWithoutAuthorInput>
+    create: XOR<CaseCreateWithoutAuthorInput, CaseUncheckedCreateWithoutAuthorInput>
+  }
+
+  export type CaseUpdateWithWhereUniqueWithoutAuthorInput = {
+    where: CaseWhereUniqueInput
+    data: XOR<CaseUpdateWithoutAuthorInput, CaseUncheckedUpdateWithoutAuthorInput>
+  }
+
+  export type CaseUpdateManyWithWhereWithoutAuthorInput = {
+    where: CaseScalarWhereInput
+    data: XOR<CaseUpdateManyMutationInput, CaseUncheckedUpdateManyWithoutAuthorInput>
+  }
+
+  export type CaseScalarWhereInput = {
+    AND?: CaseScalarWhereInput | CaseScalarWhereInput[]
+    OR?: CaseScalarWhereInput[]
+    NOT?: CaseScalarWhereInput | CaseScalarWhereInput[]
+    id?: IntFilter<"Case"> | number
+    createdAt?: DateTimeFilter<"Case"> | Date | string
+    caseImportance?: EnumIMPORTANCEFilter<"Case"> | $Enums.IMPORTANCE
+    caseUrgency?: EnumURGENCYFilter<"Case"> | $Enums.URGENCY
+    caseStatus?: EnumCASE_STATUSFilter<"Case"> | $Enums.CASE_STATUS
+    categories?: EnumCASE_CATEGORYNullableListFilter<"Case">
+    problemShort?: StringNullableFilter<"Case"> | string | null
+    problemFull?: StringNullableFilter<"Case"> | string | null
+    nearestTask?: StringNullableFilter<"Case"> | string | null
+    courtInfo?: StringNullableFilter<"Case"> | string | null
+    nearestTaskDeadline?: DateTimeNullableFilter<"Case"> | Date | string | null
+    timeOfPerformance?: DateTimeNullableFilter<"Case"> | Date | string | null
+    assignmentTime?: DateTimeNullableFilter<"Case"> | Date | string | null
+    refusalReason?: EnumREFUSAL_REASONNullableFilter<"Case"> | $Enums.REFUSAL_REASON | null
+    legalAction?: EnumLEGAL_ACTIONNullableFilter<"Case"> | $Enums.LEGAL_ACTION | null
+    statusInCourt?: EnumSTATUS_IN_COURTNullableFilter<"Case"> | $Enums.STATUS_IN_COURT | null
+    priceSOM?: BigIntNullableFilter<"Case"> | bigint | number | null
+    priceUSD?: BigIntNullableFilter<"Case"> | bigint | number | null
+    personId?: IntFilter<"Case"> | number
+    authorId?: IntFilter<"Case"> | number
+    opponentId?: IntNullableFilter<"Case"> | number | null
+    managerId?: IntNullableFilter<"Case"> | number | null
+  }
+
+  export type CaseUpsertWithWhereUniqueWithoutManagerInput = {
+    where: CaseWhereUniqueInput
+    update: XOR<CaseUpdateWithoutManagerInput, CaseUncheckedUpdateWithoutManagerInput>
+    create: XOR<CaseCreateWithoutManagerInput, CaseUncheckedCreateWithoutManagerInput>
+  }
+
+  export type CaseUpdateWithWhereUniqueWithoutManagerInput = {
+    where: CaseWhereUniqueInput
+    data: XOR<CaseUpdateWithoutManagerInput, CaseUncheckedUpdateWithoutManagerInput>
+  }
+
+  export type CaseUpdateManyWithWhereWithoutManagerInput = {
+    where: CaseScalarWhereInput
+    data: XOR<CaseUpdateManyMutationInput, CaseUncheckedUpdateManyWithoutManagerInput>
+  }
+
+  export type OpponentUpsertWithWhereUniqueWithoutAuthorInput = {
+    where: OpponentWhereUniqueInput
+    update: XOR<OpponentUpdateWithoutAuthorInput, OpponentUncheckedUpdateWithoutAuthorInput>
+    create: XOR<OpponentCreateWithoutAuthorInput, OpponentUncheckedCreateWithoutAuthorInput>
+  }
+
+  export type OpponentUpdateWithWhereUniqueWithoutAuthorInput = {
+    where: OpponentWhereUniqueInput
+    data: XOR<OpponentUpdateWithoutAuthorInput, OpponentUncheckedUpdateWithoutAuthorInput>
+  }
+
+  export type OpponentUpdateManyWithWhereWithoutAuthorInput = {
+    where: OpponentScalarWhereInput
+    data: XOR<OpponentUpdateManyMutationInput, OpponentUncheckedUpdateManyWithoutAuthorInput>
+  }
+
+  export type OpponentScalarWhereInput = {
+    AND?: OpponentScalarWhereInput | OpponentScalarWhereInput[]
+    OR?: OpponentScalarWhereInput[]
+    NOT?: OpponentScalarWhereInput | OpponentScalarWhereInput[]
+    id?: IntFilter<"Opponent"> | number
+    createdAt?: DateTimeFilter<"Opponent"> | Date | string
+    name?: StringFilter<"Opponent"> | string
+    link?: StringNullableFilter<"Opponent"> | string | null
+    info?: StringNullableFilter<"Opponent"> | string | null
+    authorId?: IntFilter<"Opponent"> | number
+  }
+
+  export type CaseCreateWithoutPersonInput = {
+    createdAt?: Date | string
+    caseImportance?: $Enums.IMPORTANCE
+    caseUrgency?: $Enums.URGENCY
+    caseStatus?: $Enums.CASE_STATUS
+    categories?: CaseCreatecategoriesInput | $Enums.CASE_CATEGORY[]
+    problemShort?: string | null
+    problemFull?: string | null
+    nearestTask?: string | null
+    courtInfo?: string | null
+    nearestTaskDeadline?: Date | string | null
+    timeOfPerformance?: Date | string | null
+    assignmentTime?: Date | string | null
+    refusalReason?: $Enums.REFUSAL_REASON | null
+    legalAction?: $Enums.LEGAL_ACTION | null
+    statusInCourt?: $Enums.STATUS_IN_COURT | null
+    priceSOM?: bigint | number | null
+    priceUSD?: bigint | number | null
+    author: EmployeeCreateNestedOneWithoutAuthoredCasesInput
+    manager?: EmployeeCreateNestedOneWithoutManagedCasesInput
+    opponent?: OpponentCreateNestedOneWithoutCasesInput
+  }
+
+  export type CaseUncheckedCreateWithoutPersonInput = {
+    id?: number
+    createdAt?: Date | string
+    caseImportance?: $Enums.IMPORTANCE
+    caseUrgency?: $Enums.URGENCY
+    caseStatus?: $Enums.CASE_STATUS
+    categories?: CaseCreatecategoriesInput | $Enums.CASE_CATEGORY[]
+    problemShort?: string | null
+    problemFull?: string | null
+    nearestTask?: string | null
+    courtInfo?: string | null
+    nearestTaskDeadline?: Date | string | null
+    timeOfPerformance?: Date | string | null
+    assignmentTime?: Date | string | null
+    refusalReason?: $Enums.REFUSAL_REASON | null
+    legalAction?: $Enums.LEGAL_ACTION | null
+    statusInCourt?: $Enums.STATUS_IN_COURT | null
+    priceSOM?: bigint | number | null
+    priceUSD?: bigint | number | null
+    authorId: number
+    opponentId?: number | null
+    managerId?: number | null
+  }
+
+  export type CaseCreateOrConnectWithoutPersonInput = {
+    where: CaseWhereUniqueInput
+    create: XOR<CaseCreateWithoutPersonInput, CaseUncheckedCreateWithoutPersonInput>
+  }
+
+  export type CaseCreateManyPersonInputEnvelope = {
+    data: CaseCreateManyPersonInput | CaseCreateManyPersonInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type EmployeeCreateWithoutAuthoredPersonsInput = {
+    createdAt?: Date | string
     username: string
     password: string
-    role: $Enums.ROLES
-    createdAt?: Date | string
-    managedUsers?: UserCreateNestedManyWithoutManagerInput
-    sources?: SourceCreateNestedManyWithoutAuthorInput
-    bloggers?: BloggerCreateNestedManyWithoutAuthorInput
+    roles?: EmployeeCreaterolesInput | $Enums.ROLE[]
+    authoredBloggers?: BloggerCreateNestedManyWithoutAuthorInput
+    authoredOrigins?: OriginCreateNestedManyWithoutAuthorInput
+    authoredCases?: CaseCreateNestedManyWithoutAuthorInput
+    managedCases?: CaseCreateNestedManyWithoutManagerInput
+    Opponent?: OpponentCreateNestedManyWithoutAuthorInput
   }
 
-  export type ManagerUncheckedCreateWithoutAuthoredUsersInput = {
+  export type EmployeeUncheckedCreateWithoutAuthoredPersonsInput = {
     id?: number
+    createdAt?: Date | string
     username: string
     password: string
-    role: $Enums.ROLES
+    roles?: EmployeeCreaterolesInput | $Enums.ROLE[]
+    authoredBloggers?: BloggerUncheckedCreateNestedManyWithoutAuthorInput
+    authoredOrigins?: OriginUncheckedCreateNestedManyWithoutAuthorInput
+    authoredCases?: CaseUncheckedCreateNestedManyWithoutAuthorInput
+    managedCases?: CaseUncheckedCreateNestedManyWithoutManagerInput
+    Opponent?: OpponentUncheckedCreateNestedManyWithoutAuthorInput
+  }
+
+  export type EmployeeCreateOrConnectWithoutAuthoredPersonsInput = {
+    where: EmployeeWhereUniqueInput
+    create: XOR<EmployeeCreateWithoutAuthoredPersonsInput, EmployeeUncheckedCreateWithoutAuthoredPersonsInput>
+  }
+
+  export type OriginCreateWithoutPersonsInput = {
     createdAt?: Date | string
-    managedUsers?: UserUncheckedCreateNestedManyWithoutManagerInput
-    sources?: SourceUncheckedCreateNestedManyWithoutAuthorInput
-    bloggers?: BloggerUncheckedCreateNestedManyWithoutAuthorInput
-  }
-
-  export type ManagerCreateOrConnectWithoutAuthoredUsersInput = {
-    where: ManagerWhereUniqueInput
-    create: XOR<ManagerCreateWithoutAuthoredUsersInput, ManagerUncheckedCreateWithoutAuthoredUsersInput>
-  }
-
-  export type SourceCreateWithoutUsersInput = {
     title: string
-    sourceLink?: string | null
-    category: $Enums.SOURCE_CATEGORY
-    createdAt?: Date | string
-    author: ManagerCreateNestedOneWithoutSourcesInput
+    link?: string | null
+    categories?: OriginCreatecategoriesInput | $Enums.CASE_CATEGORY[]
+    author: EmployeeCreateNestedOneWithoutAuthoredOriginsInput
   }
 
-  export type SourceUncheckedCreateWithoutUsersInput = {
+  export type OriginUncheckedCreateWithoutPersonsInput = {
     id?: number
-    title: string
-    sourceLink?: string | null
-    category: $Enums.SOURCE_CATEGORY
     createdAt?: Date | string
+    title: string
+    link?: string | null
+    categories?: OriginCreatecategoriesInput | $Enums.CASE_CATEGORY[]
     authorId: number
   }
 
-  export type SourceCreateOrConnectWithoutUsersInput = {
-    where: SourceWhereUniqueInput
-    create: XOR<SourceCreateWithoutUsersInput, SourceUncheckedCreateWithoutUsersInput>
+  export type OriginCreateOrConnectWithoutPersonsInput = {
+    where: OriginWhereUniqueInput
+    create: XOR<OriginCreateWithoutPersonsInput, OriginUncheckedCreateWithoutPersonsInput>
   }
 
-  export type OpponentCreateWithoutUsersInput = {
-    name: string
-    link?: string | null
-    info?: string
-    createdAt?: Date | string
+  export type CaseUpsertWithWhereUniqueWithoutPersonInput = {
+    where: CaseWhereUniqueInput
+    update: XOR<CaseUpdateWithoutPersonInput, CaseUncheckedUpdateWithoutPersonInput>
+    create: XOR<CaseCreateWithoutPersonInput, CaseUncheckedCreateWithoutPersonInput>
   }
 
-  export type OpponentUncheckedCreateWithoutUsersInput = {
-    id?: number
-    name: string
-    link?: string | null
-    info?: string
-    createdAt?: Date | string
+  export type CaseUpdateWithWhereUniqueWithoutPersonInput = {
+    where: CaseWhereUniqueInput
+    data: XOR<CaseUpdateWithoutPersonInput, CaseUncheckedUpdateWithoutPersonInput>
   }
 
-  export type OpponentCreateOrConnectWithoutUsersInput = {
-    where: OpponentWhereUniqueInput
-    create: XOR<OpponentCreateWithoutUsersInput, OpponentUncheckedCreateWithoutUsersInput>
+  export type CaseUpdateManyWithWhereWithoutPersonInput = {
+    where: CaseScalarWhereInput
+    data: XOR<CaseUpdateManyMutationInput, CaseUncheckedUpdateManyWithoutPersonInput>
   }
 
-  export type ManagerCreateWithoutManagedUsersInput = {
-    username: string
-    password: string
-    role: $Enums.ROLES
-    createdAt?: Date | string
-    authoredUsers?: UserCreateNestedManyWithoutAuthorInput
-    sources?: SourceCreateNestedManyWithoutAuthorInput
-    bloggers?: BloggerCreateNestedManyWithoutAuthorInput
+  export type EmployeeUpsertWithoutAuthoredPersonsInput = {
+    update: XOR<EmployeeUpdateWithoutAuthoredPersonsInput, EmployeeUncheckedUpdateWithoutAuthoredPersonsInput>
+    create: XOR<EmployeeCreateWithoutAuthoredPersonsInput, EmployeeUncheckedCreateWithoutAuthoredPersonsInput>
+    where?: EmployeeWhereInput
   }
 
-  export type ManagerUncheckedCreateWithoutManagedUsersInput = {
-    id?: number
-    username: string
-    password: string
-    role: $Enums.ROLES
-    createdAt?: Date | string
-    authoredUsers?: UserUncheckedCreateNestedManyWithoutAuthorInput
-    sources?: SourceUncheckedCreateNestedManyWithoutAuthorInput
-    bloggers?: BloggerUncheckedCreateNestedManyWithoutAuthorInput
+  export type EmployeeUpdateToOneWithWhereWithoutAuthoredPersonsInput = {
+    where?: EmployeeWhereInput
+    data: XOR<EmployeeUpdateWithoutAuthoredPersonsInput, EmployeeUncheckedUpdateWithoutAuthoredPersonsInput>
   }
 
-  export type ManagerCreateOrConnectWithoutManagedUsersInput = {
-    where: ManagerWhereUniqueInput
-    create: XOR<ManagerCreateWithoutManagedUsersInput, ManagerUncheckedCreateWithoutManagedUsersInput>
-  }
-
-  export type ManagerUpsertWithoutAuthoredUsersInput = {
-    update: XOR<ManagerUpdateWithoutAuthoredUsersInput, ManagerUncheckedUpdateWithoutAuthoredUsersInput>
-    create: XOR<ManagerCreateWithoutAuthoredUsersInput, ManagerUncheckedCreateWithoutAuthoredUsersInput>
-    where?: ManagerWhereInput
-  }
-
-  export type ManagerUpdateToOneWithWhereWithoutAuthoredUsersInput = {
-    where?: ManagerWhereInput
-    data: XOR<ManagerUpdateWithoutAuthoredUsersInput, ManagerUncheckedUpdateWithoutAuthoredUsersInput>
-  }
-
-  export type ManagerUpdateWithoutAuthoredUsersInput = {
+  export type EmployeeUpdateWithoutAuthoredPersonsInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    role?: EnumROLESFieldUpdateOperationsInput | $Enums.ROLES
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    managedUsers?: UserUpdateManyWithoutManagerNestedInput
-    sources?: SourceUpdateManyWithoutAuthorNestedInput
-    bloggers?: BloggerUpdateManyWithoutAuthorNestedInput
+    roles?: EmployeeUpdaterolesInput | $Enums.ROLE[]
+    authoredBloggers?: BloggerUpdateManyWithoutAuthorNestedInput
+    authoredOrigins?: OriginUpdateManyWithoutAuthorNestedInput
+    authoredCases?: CaseUpdateManyWithoutAuthorNestedInput
+    managedCases?: CaseUpdateManyWithoutManagerNestedInput
+    Opponent?: OpponentUpdateManyWithoutAuthorNestedInput
   }
 
-  export type ManagerUncheckedUpdateWithoutAuthoredUsersInput = {
+  export type EmployeeUncheckedUpdateWithoutAuthoredPersonsInput = {
     id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    role?: EnumROLESFieldUpdateOperationsInput | $Enums.ROLES
+    roles?: EmployeeUpdaterolesInput | $Enums.ROLE[]
+    authoredBloggers?: BloggerUncheckedUpdateManyWithoutAuthorNestedInput
+    authoredOrigins?: OriginUncheckedUpdateManyWithoutAuthorNestedInput
+    authoredCases?: CaseUncheckedUpdateManyWithoutAuthorNestedInput
+    managedCases?: CaseUncheckedUpdateManyWithoutManagerNestedInput
+    Opponent?: OpponentUncheckedUpdateManyWithoutAuthorNestedInput
+  }
+
+  export type OriginUpsertWithoutPersonsInput = {
+    update: XOR<OriginUpdateWithoutPersonsInput, OriginUncheckedUpdateWithoutPersonsInput>
+    create: XOR<OriginCreateWithoutPersonsInput, OriginUncheckedCreateWithoutPersonsInput>
+    where?: OriginWhereInput
+  }
+
+  export type OriginUpdateToOneWithWhereWithoutPersonsInput = {
+    where?: OriginWhereInput
+    data: XOR<OriginUpdateWithoutPersonsInput, OriginUncheckedUpdateWithoutPersonsInput>
+  }
+
+  export type OriginUpdateWithoutPersonsInput = {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    managedUsers?: UserUncheckedUpdateManyWithoutManagerNestedInput
-    sources?: SourceUncheckedUpdateManyWithoutAuthorNestedInput
-    bloggers?: BloggerUncheckedUpdateManyWithoutAuthorNestedInput
-  }
-
-  export type SourceUpsertWithoutUsersInput = {
-    update: XOR<SourceUpdateWithoutUsersInput, SourceUncheckedUpdateWithoutUsersInput>
-    create: XOR<SourceCreateWithoutUsersInput, SourceUncheckedCreateWithoutUsersInput>
-    where?: SourceWhereInput
-  }
-
-  export type SourceUpdateToOneWithWhereWithoutUsersInput = {
-    where?: SourceWhereInput
-    data: XOR<SourceUpdateWithoutUsersInput, SourceUncheckedUpdateWithoutUsersInput>
-  }
-
-  export type SourceUpdateWithoutUsersInput = {
     title?: StringFieldUpdateOperationsInput | string
-    sourceLink?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: EnumSOURCE_CATEGORYFieldUpdateOperationsInput | $Enums.SOURCE_CATEGORY
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    author?: ManagerUpdateOneRequiredWithoutSourcesNestedInput
+    link?: NullableStringFieldUpdateOperationsInput | string | null
+    categories?: OriginUpdatecategoriesInput | $Enums.CASE_CATEGORY[]
+    author?: EmployeeUpdateOneRequiredWithoutAuthoredOriginsNestedInput
   }
 
-  export type SourceUncheckedUpdateWithoutUsersInput = {
+  export type OriginUncheckedUpdateWithoutPersonsInput = {
     id?: IntFieldUpdateOperationsInput | number
-    title?: StringFieldUpdateOperationsInput | string
-    sourceLink?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: EnumSOURCE_CATEGORYFieldUpdateOperationsInput | $Enums.SOURCE_CATEGORY
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    title?: StringFieldUpdateOperationsInput | string
+    link?: NullableStringFieldUpdateOperationsInput | string | null
+    categories?: OriginUpdatecategoriesInput | $Enums.CASE_CATEGORY[]
     authorId?: IntFieldUpdateOperationsInput | number
   }
 
-  export type OpponentUpsertWithoutUsersInput = {
-    update: XOR<OpponentUpdateWithoutUsersInput, OpponentUncheckedUpdateWithoutUsersInput>
-    create: XOR<OpponentCreateWithoutUsersInput, OpponentUncheckedCreateWithoutUsersInput>
+  export type EmployeeCreateWithoutAuthoredCasesInput = {
+    createdAt?: Date | string
+    username: string
+    password: string
+    roles?: EmployeeCreaterolesInput | $Enums.ROLE[]
+    authoredBloggers?: BloggerCreateNestedManyWithoutAuthorInput
+    authoredOrigins?: OriginCreateNestedManyWithoutAuthorInput
+    authoredPersons?: PersonCreateNestedManyWithoutAuthorInput
+    managedCases?: CaseCreateNestedManyWithoutManagerInput
+    Opponent?: OpponentCreateNestedManyWithoutAuthorInput
+  }
+
+  export type EmployeeUncheckedCreateWithoutAuthoredCasesInput = {
+    id?: number
+    createdAt?: Date | string
+    username: string
+    password: string
+    roles?: EmployeeCreaterolesInput | $Enums.ROLE[]
+    authoredBloggers?: BloggerUncheckedCreateNestedManyWithoutAuthorInput
+    authoredOrigins?: OriginUncheckedCreateNestedManyWithoutAuthorInput
+    authoredPersons?: PersonUncheckedCreateNestedManyWithoutAuthorInput
+    managedCases?: CaseUncheckedCreateNestedManyWithoutManagerInput
+    Opponent?: OpponentUncheckedCreateNestedManyWithoutAuthorInput
+  }
+
+  export type EmployeeCreateOrConnectWithoutAuthoredCasesInput = {
+    where: EmployeeWhereUniqueInput
+    create: XOR<EmployeeCreateWithoutAuthoredCasesInput, EmployeeUncheckedCreateWithoutAuthoredCasesInput>
+  }
+
+  export type EmployeeCreateWithoutManagedCasesInput = {
+    createdAt?: Date | string
+    username: string
+    password: string
+    roles?: EmployeeCreaterolesInput | $Enums.ROLE[]
+    authoredBloggers?: BloggerCreateNestedManyWithoutAuthorInput
+    authoredOrigins?: OriginCreateNestedManyWithoutAuthorInput
+    authoredPersons?: PersonCreateNestedManyWithoutAuthorInput
+    authoredCases?: CaseCreateNestedManyWithoutAuthorInput
+    Opponent?: OpponentCreateNestedManyWithoutAuthorInput
+  }
+
+  export type EmployeeUncheckedCreateWithoutManagedCasesInput = {
+    id?: number
+    createdAt?: Date | string
+    username: string
+    password: string
+    roles?: EmployeeCreaterolesInput | $Enums.ROLE[]
+    authoredBloggers?: BloggerUncheckedCreateNestedManyWithoutAuthorInput
+    authoredOrigins?: OriginUncheckedCreateNestedManyWithoutAuthorInput
+    authoredPersons?: PersonUncheckedCreateNestedManyWithoutAuthorInput
+    authoredCases?: CaseUncheckedCreateNestedManyWithoutAuthorInput
+    Opponent?: OpponentUncheckedCreateNestedManyWithoutAuthorInput
+  }
+
+  export type EmployeeCreateOrConnectWithoutManagedCasesInput = {
+    where: EmployeeWhereUniqueInput
+    create: XOR<EmployeeCreateWithoutManagedCasesInput, EmployeeUncheckedCreateWithoutManagedCasesInput>
+  }
+
+  export type OpponentCreateWithoutCasesInput = {
+    createdAt?: Date | string
+    name: string
+    link?: string | null
+    info?: string | null
+    author: EmployeeCreateNestedOneWithoutOpponentInput
+  }
+
+  export type OpponentUncheckedCreateWithoutCasesInput = {
+    id?: number
+    createdAt?: Date | string
+    name: string
+    link?: string | null
+    info?: string | null
+    authorId: number
+  }
+
+  export type OpponentCreateOrConnectWithoutCasesInput = {
+    where: OpponentWhereUniqueInput
+    create: XOR<OpponentCreateWithoutCasesInput, OpponentUncheckedCreateWithoutCasesInput>
+  }
+
+  export type PersonCreateWithoutCasesInput = {
+    createdAt?: Date | string
+    name: string
+    phoneNumber?: string | null
+    link?: string | null
+    email?: string | null
+    homeAddress?: string | null
+    leadStatus?: $Enums.LEAD_STATUS
+    author: EmployeeCreateNestedOneWithoutAuthoredPersonsInput
+    origin: OriginCreateNestedOneWithoutPersonsInput
+  }
+
+  export type PersonUncheckedCreateWithoutCasesInput = {
+    id?: number
+    createdAt?: Date | string
+    name: string
+    phoneNumber?: string | null
+    link?: string | null
+    email?: string | null
+    homeAddress?: string | null
+    authorId: number
+    originId: number
+    leadStatus?: $Enums.LEAD_STATUS
+  }
+
+  export type PersonCreateOrConnectWithoutCasesInput = {
+    where: PersonWhereUniqueInput
+    create: XOR<PersonCreateWithoutCasesInput, PersonUncheckedCreateWithoutCasesInput>
+  }
+
+  export type EmployeeUpsertWithoutAuthoredCasesInput = {
+    update: XOR<EmployeeUpdateWithoutAuthoredCasesInput, EmployeeUncheckedUpdateWithoutAuthoredCasesInput>
+    create: XOR<EmployeeCreateWithoutAuthoredCasesInput, EmployeeUncheckedCreateWithoutAuthoredCasesInput>
+    where?: EmployeeWhereInput
+  }
+
+  export type EmployeeUpdateToOneWithWhereWithoutAuthoredCasesInput = {
+    where?: EmployeeWhereInput
+    data: XOR<EmployeeUpdateWithoutAuthoredCasesInput, EmployeeUncheckedUpdateWithoutAuthoredCasesInput>
+  }
+
+  export type EmployeeUpdateWithoutAuthoredCasesInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    username?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    roles?: EmployeeUpdaterolesInput | $Enums.ROLE[]
+    authoredBloggers?: BloggerUpdateManyWithoutAuthorNestedInput
+    authoredOrigins?: OriginUpdateManyWithoutAuthorNestedInput
+    authoredPersons?: PersonUpdateManyWithoutAuthorNestedInput
+    managedCases?: CaseUpdateManyWithoutManagerNestedInput
+    Opponent?: OpponentUpdateManyWithoutAuthorNestedInput
+  }
+
+  export type EmployeeUncheckedUpdateWithoutAuthoredCasesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    username?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    roles?: EmployeeUpdaterolesInput | $Enums.ROLE[]
+    authoredBloggers?: BloggerUncheckedUpdateManyWithoutAuthorNestedInput
+    authoredOrigins?: OriginUncheckedUpdateManyWithoutAuthorNestedInput
+    authoredPersons?: PersonUncheckedUpdateManyWithoutAuthorNestedInput
+    managedCases?: CaseUncheckedUpdateManyWithoutManagerNestedInput
+    Opponent?: OpponentUncheckedUpdateManyWithoutAuthorNestedInput
+  }
+
+  export type EmployeeUpsertWithoutManagedCasesInput = {
+    update: XOR<EmployeeUpdateWithoutManagedCasesInput, EmployeeUncheckedUpdateWithoutManagedCasesInput>
+    create: XOR<EmployeeCreateWithoutManagedCasesInput, EmployeeUncheckedCreateWithoutManagedCasesInput>
+    where?: EmployeeWhereInput
+  }
+
+  export type EmployeeUpdateToOneWithWhereWithoutManagedCasesInput = {
+    where?: EmployeeWhereInput
+    data: XOR<EmployeeUpdateWithoutManagedCasesInput, EmployeeUncheckedUpdateWithoutManagedCasesInput>
+  }
+
+  export type EmployeeUpdateWithoutManagedCasesInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    username?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    roles?: EmployeeUpdaterolesInput | $Enums.ROLE[]
+    authoredBloggers?: BloggerUpdateManyWithoutAuthorNestedInput
+    authoredOrigins?: OriginUpdateManyWithoutAuthorNestedInput
+    authoredPersons?: PersonUpdateManyWithoutAuthorNestedInput
+    authoredCases?: CaseUpdateManyWithoutAuthorNestedInput
+    Opponent?: OpponentUpdateManyWithoutAuthorNestedInput
+  }
+
+  export type EmployeeUncheckedUpdateWithoutManagedCasesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    username?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    roles?: EmployeeUpdaterolesInput | $Enums.ROLE[]
+    authoredBloggers?: BloggerUncheckedUpdateManyWithoutAuthorNestedInput
+    authoredOrigins?: OriginUncheckedUpdateManyWithoutAuthorNestedInput
+    authoredPersons?: PersonUncheckedUpdateManyWithoutAuthorNestedInput
+    authoredCases?: CaseUncheckedUpdateManyWithoutAuthorNestedInput
+    Opponent?: OpponentUncheckedUpdateManyWithoutAuthorNestedInput
+  }
+
+  export type OpponentUpsertWithoutCasesInput = {
+    update: XOR<OpponentUpdateWithoutCasesInput, OpponentUncheckedUpdateWithoutCasesInput>
+    create: XOR<OpponentCreateWithoutCasesInput, OpponentUncheckedCreateWithoutCasesInput>
     where?: OpponentWhereInput
   }
 
-  export type OpponentUpdateToOneWithWhereWithoutUsersInput = {
+  export type OpponentUpdateToOneWithWhereWithoutCasesInput = {
     where?: OpponentWhereInput
-    data: XOR<OpponentUpdateWithoutUsersInput, OpponentUncheckedUpdateWithoutUsersInput>
+    data: XOR<OpponentUpdateWithoutCasesInput, OpponentUncheckedUpdateWithoutCasesInput>
   }
 
-  export type OpponentUpdateWithoutUsersInput = {
+  export type OpponentUpdateWithoutCasesInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     name?: StringFieldUpdateOperationsInput | string
     link?: NullableStringFieldUpdateOperationsInput | string | null
-    info?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    info?: NullableStringFieldUpdateOperationsInput | string | null
+    author?: EmployeeUpdateOneRequiredWithoutOpponentNestedInput
   }
 
-  export type OpponentUncheckedUpdateWithoutUsersInput = {
+  export type OpponentUncheckedUpdateWithoutCasesInput = {
     id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     name?: StringFieldUpdateOperationsInput | string
     link?: NullableStringFieldUpdateOperationsInput | string | null
-    info?: StringFieldUpdateOperationsInput | string
+    info?: NullableStringFieldUpdateOperationsInput | string | null
+    authorId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type PersonUpsertWithoutCasesInput = {
+    update: XOR<PersonUpdateWithoutCasesInput, PersonUncheckedUpdateWithoutCasesInput>
+    create: XOR<PersonCreateWithoutCasesInput, PersonUncheckedCreateWithoutCasesInput>
+    where?: PersonWhereInput
+  }
+
+  export type PersonUpdateToOneWithWhereWithoutCasesInput = {
+    where?: PersonWhereInput
+    data: XOR<PersonUpdateWithoutCasesInput, PersonUncheckedUpdateWithoutCasesInput>
+  }
+
+  export type PersonUpdateWithoutCasesInput = {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    link?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    homeAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
+    author?: EmployeeUpdateOneRequiredWithoutAuthoredPersonsNestedInput
+    origin?: OriginUpdateOneRequiredWithoutPersonsNestedInput
   }
 
-  export type ManagerUpsertWithoutManagedUsersInput = {
-    update: XOR<ManagerUpdateWithoutManagedUsersInput, ManagerUncheckedUpdateWithoutManagedUsersInput>
-    create: XOR<ManagerCreateWithoutManagedUsersInput, ManagerUncheckedCreateWithoutManagedUsersInput>
-    where?: ManagerWhereInput
-  }
-
-  export type ManagerUpdateToOneWithWhereWithoutManagedUsersInput = {
-    where?: ManagerWhereInput
-    data: XOR<ManagerUpdateWithoutManagedUsersInput, ManagerUncheckedUpdateWithoutManagedUsersInput>
-  }
-
-  export type ManagerUpdateWithoutManagedUsersInput = {
-    username?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    role?: EnumROLESFieldUpdateOperationsInput | $Enums.ROLES
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    authoredUsers?: UserUpdateManyWithoutAuthorNestedInput
-    sources?: SourceUpdateManyWithoutAuthorNestedInput
-    bloggers?: BloggerUpdateManyWithoutAuthorNestedInput
-  }
-
-  export type ManagerUncheckedUpdateWithoutManagedUsersInput = {
+  export type PersonUncheckedUpdateWithoutCasesInput = {
     id?: IntFieldUpdateOperationsInput | number
-    username?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    role?: EnumROLESFieldUpdateOperationsInput | $Enums.ROLES
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    authoredUsers?: UserUncheckedUpdateManyWithoutAuthorNestedInput
-    sources?: SourceUncheckedUpdateManyWithoutAuthorNestedInput
-    bloggers?: BloggerUncheckedUpdateManyWithoutAuthorNestedInput
+    name?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    link?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    homeAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    authorId?: IntFieldUpdateOperationsInput | number
+    originId?: IntFieldUpdateOperationsInput | number
+    leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
   }
 
-  export type ManagerCreateWithoutSourcesInput = {
+  export type EmployeeCreateWithoutAuthoredOriginsInput = {
+    createdAt?: Date | string
     username: string
     password: string
-    role: $Enums.ROLES
-    createdAt?: Date | string
-    authoredUsers?: UserCreateNestedManyWithoutAuthorInput
-    managedUsers?: UserCreateNestedManyWithoutManagerInput
-    bloggers?: BloggerCreateNestedManyWithoutAuthorInput
+    roles?: EmployeeCreaterolesInput | $Enums.ROLE[]
+    authoredBloggers?: BloggerCreateNestedManyWithoutAuthorInput
+    authoredPersons?: PersonCreateNestedManyWithoutAuthorInput
+    authoredCases?: CaseCreateNestedManyWithoutAuthorInput
+    managedCases?: CaseCreateNestedManyWithoutManagerInput
+    Opponent?: OpponentCreateNestedManyWithoutAuthorInput
   }
 
-  export type ManagerUncheckedCreateWithoutSourcesInput = {
+  export type EmployeeUncheckedCreateWithoutAuthoredOriginsInput = {
     id?: number
+    createdAt?: Date | string
     username: string
     password: string
-    role: $Enums.ROLES
+    roles?: EmployeeCreaterolesInput | $Enums.ROLE[]
+    authoredBloggers?: BloggerUncheckedCreateNestedManyWithoutAuthorInput
+    authoredPersons?: PersonUncheckedCreateNestedManyWithoutAuthorInput
+    authoredCases?: CaseUncheckedCreateNestedManyWithoutAuthorInput
+    managedCases?: CaseUncheckedCreateNestedManyWithoutManagerInput
+    Opponent?: OpponentUncheckedCreateNestedManyWithoutAuthorInput
+  }
+
+  export type EmployeeCreateOrConnectWithoutAuthoredOriginsInput = {
+    where: EmployeeWhereUniqueInput
+    create: XOR<EmployeeCreateWithoutAuthoredOriginsInput, EmployeeUncheckedCreateWithoutAuthoredOriginsInput>
+  }
+
+  export type PersonCreateWithoutOriginInput = {
     createdAt?: Date | string
-    authoredUsers?: UserUncheckedCreateNestedManyWithoutAuthorInput
-    managedUsers?: UserUncheckedCreateNestedManyWithoutManagerInput
-    bloggers?: BloggerUncheckedCreateNestedManyWithoutAuthorInput
-  }
-
-  export type ManagerCreateOrConnectWithoutSourcesInput = {
-    where: ManagerWhereUniqueInput
-    create: XOR<ManagerCreateWithoutSourcesInput, ManagerUncheckedCreateWithoutSourcesInput>
-  }
-
-  export type UserCreateWithoutSourceInput = {
-    username: string
-    userLink?: string | null
+    name: string
     phoneNumber?: string | null
+    link?: string | null
     email?: string | null
-    homeAddress: string
+    homeAddress?: string | null
     leadStatus?: $Enums.LEAD_STATUS
-    taskImportance?: $Enums.TASK_IMPORTANCE
-    taskUrgency?: $Enums.TASK_URGENCY
-    taskStatus?: $Enums.TASK_STATUS
-    legalAction: $Enums.LEGAL_ACTION
-    problemShort: string
-    problemFull: string
-    nearestTask?: string
-    nearestTaskDeadline?: Date | string | null
-    timeOfPerformance?: Date | string | null
-    priceSOM?: bigint | number | null
-    priceUSD?: bigint | number | null
-    courtInfo?: string
-    statusInCourt?: $Enums.STATUS_IN_COURT
-    refusalReason?: $Enums.REFUSAL_REASON | null
-    createdAt?: Date | string
-    assignmentTime?: Date | string | null
-    author: ManagerCreateNestedOneWithoutAuthoredUsersInput
-    opponent?: OpponentCreateNestedOneWithoutUsersInput
-    manager?: ManagerCreateNestedOneWithoutManagedUsersInput
+    cases?: CaseCreateNestedManyWithoutPersonInput
+    author: EmployeeCreateNestedOneWithoutAuthoredPersonsInput
   }
 
-  export type UserUncheckedCreateWithoutSourceInput = {
+  export type PersonUncheckedCreateWithoutOriginInput = {
     id?: number
-    username: string
-    userLink?: string | null
-    phoneNumber?: string | null
-    email?: string | null
-    homeAddress: string
-    leadStatus?: $Enums.LEAD_STATUS
-    taskImportance?: $Enums.TASK_IMPORTANCE
-    taskUrgency?: $Enums.TASK_URGENCY
-    taskStatus?: $Enums.TASK_STATUS
-    legalAction: $Enums.LEGAL_ACTION
-    problemShort: string
-    problemFull: string
-    nearestTask?: string
-    nearestTaskDeadline?: Date | string | null
-    timeOfPerformance?: Date | string | null
-    priceSOM?: bigint | number | null
-    priceUSD?: bigint | number | null
-    courtInfo?: string
-    statusInCourt?: $Enums.STATUS_IN_COURT
-    refusalReason?: $Enums.REFUSAL_REASON | null
     createdAt?: Date | string
-    assignmentTime?: Date | string | null
+    name: string
+    phoneNumber?: string | null
+    link?: string | null
+    email?: string | null
+    homeAddress?: string | null
     authorId: number
-    opponentId?: number | null
-    managerId?: number | null
+    leadStatus?: $Enums.LEAD_STATUS
+    cases?: CaseUncheckedCreateNestedManyWithoutPersonInput
   }
 
-  export type UserCreateOrConnectWithoutSourceInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutSourceInput, UserUncheckedCreateWithoutSourceInput>
+  export type PersonCreateOrConnectWithoutOriginInput = {
+    where: PersonWhereUniqueInput
+    create: XOR<PersonCreateWithoutOriginInput, PersonUncheckedCreateWithoutOriginInput>
   }
 
-  export type UserCreateManySourceInputEnvelope = {
-    data: UserCreateManySourceInput | UserCreateManySourceInput[]
+  export type PersonCreateManyOriginInputEnvelope = {
+    data: PersonCreateManyOriginInput | PersonCreateManyOriginInput[]
     skipDuplicates?: boolean
   }
 
-  export type ManagerUpsertWithoutSourcesInput = {
-    update: XOR<ManagerUpdateWithoutSourcesInput, ManagerUncheckedUpdateWithoutSourcesInput>
-    create: XOR<ManagerCreateWithoutSourcesInput, ManagerUncheckedCreateWithoutSourcesInput>
-    where?: ManagerWhereInput
+  export type EmployeeUpsertWithoutAuthoredOriginsInput = {
+    update: XOR<EmployeeUpdateWithoutAuthoredOriginsInput, EmployeeUncheckedUpdateWithoutAuthoredOriginsInput>
+    create: XOR<EmployeeCreateWithoutAuthoredOriginsInput, EmployeeUncheckedCreateWithoutAuthoredOriginsInput>
+    where?: EmployeeWhereInput
   }
 
-  export type ManagerUpdateToOneWithWhereWithoutSourcesInput = {
-    where?: ManagerWhereInput
-    data: XOR<ManagerUpdateWithoutSourcesInput, ManagerUncheckedUpdateWithoutSourcesInput>
+  export type EmployeeUpdateToOneWithWhereWithoutAuthoredOriginsInput = {
+    where?: EmployeeWhereInput
+    data: XOR<EmployeeUpdateWithoutAuthoredOriginsInput, EmployeeUncheckedUpdateWithoutAuthoredOriginsInput>
   }
 
-  export type ManagerUpdateWithoutSourcesInput = {
+  export type EmployeeUpdateWithoutAuthoredOriginsInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    role?: EnumROLESFieldUpdateOperationsInput | $Enums.ROLES
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    authoredUsers?: UserUpdateManyWithoutAuthorNestedInput
-    managedUsers?: UserUpdateManyWithoutManagerNestedInput
-    bloggers?: BloggerUpdateManyWithoutAuthorNestedInput
+    roles?: EmployeeUpdaterolesInput | $Enums.ROLE[]
+    authoredBloggers?: BloggerUpdateManyWithoutAuthorNestedInput
+    authoredPersons?: PersonUpdateManyWithoutAuthorNestedInput
+    authoredCases?: CaseUpdateManyWithoutAuthorNestedInput
+    managedCases?: CaseUpdateManyWithoutManagerNestedInput
+    Opponent?: OpponentUpdateManyWithoutAuthorNestedInput
   }
 
-  export type ManagerUncheckedUpdateWithoutSourcesInput = {
+  export type EmployeeUncheckedUpdateWithoutAuthoredOriginsInput = {
     id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    role?: EnumROLESFieldUpdateOperationsInput | $Enums.ROLES
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    authoredUsers?: UserUncheckedUpdateManyWithoutAuthorNestedInput
-    managedUsers?: UserUncheckedUpdateManyWithoutManagerNestedInput
-    bloggers?: BloggerUncheckedUpdateManyWithoutAuthorNestedInput
+    roles?: EmployeeUpdaterolesInput | $Enums.ROLE[]
+    authoredBloggers?: BloggerUncheckedUpdateManyWithoutAuthorNestedInput
+    authoredPersons?: PersonUncheckedUpdateManyWithoutAuthorNestedInput
+    authoredCases?: CaseUncheckedUpdateManyWithoutAuthorNestedInput
+    managedCases?: CaseUncheckedUpdateManyWithoutManagerNestedInput
+    Opponent?: OpponentUncheckedUpdateManyWithoutAuthorNestedInput
   }
 
-  export type UserUpsertWithWhereUniqueWithoutSourceInput = {
-    where: UserWhereUniqueInput
-    update: XOR<UserUpdateWithoutSourceInput, UserUncheckedUpdateWithoutSourceInput>
-    create: XOR<UserCreateWithoutSourceInput, UserUncheckedCreateWithoutSourceInput>
+  export type PersonUpsertWithWhereUniqueWithoutOriginInput = {
+    where: PersonWhereUniqueInput
+    update: XOR<PersonUpdateWithoutOriginInput, PersonUncheckedUpdateWithoutOriginInput>
+    create: XOR<PersonCreateWithoutOriginInput, PersonUncheckedCreateWithoutOriginInput>
   }
 
-  export type UserUpdateWithWhereUniqueWithoutSourceInput = {
-    where: UserWhereUniqueInput
-    data: XOR<UserUpdateWithoutSourceInput, UserUncheckedUpdateWithoutSourceInput>
+  export type PersonUpdateWithWhereUniqueWithoutOriginInput = {
+    where: PersonWhereUniqueInput
+    data: XOR<PersonUpdateWithoutOriginInput, PersonUncheckedUpdateWithoutOriginInput>
   }
 
-  export type UserUpdateManyWithWhereWithoutSourceInput = {
-    where: UserScalarWhereInput
-    data: XOR<UserUpdateManyMutationInput, UserUncheckedUpdateManyWithoutSourceInput>
+  export type PersonUpdateManyWithWhereWithoutOriginInput = {
+    where: PersonScalarWhereInput
+    data: XOR<PersonUpdateManyMutationInput, PersonUncheckedUpdateManyWithoutOriginInput>
   }
 
-  export type UserCreateWithoutOpponentInput = {
-    username: string
-    userLink?: string | null
-    phoneNumber?: string | null
-    email?: string | null
-    homeAddress: string
-    leadStatus?: $Enums.LEAD_STATUS
-    taskImportance?: $Enums.TASK_IMPORTANCE
-    taskUrgency?: $Enums.TASK_URGENCY
-    taskStatus?: $Enums.TASK_STATUS
-    legalAction: $Enums.LEGAL_ACTION
-    problemShort: string
-    problemFull: string
-    nearestTask?: string
+  export type CaseCreateWithoutOpponentInput = {
+    createdAt?: Date | string
+    caseImportance?: $Enums.IMPORTANCE
+    caseUrgency?: $Enums.URGENCY
+    caseStatus?: $Enums.CASE_STATUS
+    categories?: CaseCreatecategoriesInput | $Enums.CASE_CATEGORY[]
+    problemShort?: string | null
+    problemFull?: string | null
+    nearestTask?: string | null
+    courtInfo?: string | null
     nearestTaskDeadline?: Date | string | null
     timeOfPerformance?: Date | string | null
+    assignmentTime?: Date | string | null
+    refusalReason?: $Enums.REFUSAL_REASON | null
+    legalAction?: $Enums.LEGAL_ACTION | null
+    statusInCourt?: $Enums.STATUS_IN_COURT | null
     priceSOM?: bigint | number | null
     priceUSD?: bigint | number | null
-    courtInfo?: string
-    statusInCourt?: $Enums.STATUS_IN_COURT
-    refusalReason?: $Enums.REFUSAL_REASON | null
-    createdAt?: Date | string
-    assignmentTime?: Date | string | null
-    author: ManagerCreateNestedOneWithoutAuthoredUsersInput
-    source: SourceCreateNestedOneWithoutUsersInput
-    manager?: ManagerCreateNestedOneWithoutManagedUsersInput
+    author: EmployeeCreateNestedOneWithoutAuthoredCasesInput
+    manager?: EmployeeCreateNestedOneWithoutManagedCasesInput
+    person: PersonCreateNestedOneWithoutCasesInput
   }
 
-  export type UserUncheckedCreateWithoutOpponentInput = {
+  export type CaseUncheckedCreateWithoutOpponentInput = {
     id?: number
-    username: string
-    userLink?: string | null
-    phoneNumber?: string | null
-    email?: string | null
-    homeAddress: string
-    leadStatus?: $Enums.LEAD_STATUS
-    taskImportance?: $Enums.TASK_IMPORTANCE
-    taskUrgency?: $Enums.TASK_URGENCY
-    taskStatus?: $Enums.TASK_STATUS
-    legalAction: $Enums.LEGAL_ACTION
-    problemShort: string
-    problemFull: string
-    nearestTask?: string
+    createdAt?: Date | string
+    caseImportance?: $Enums.IMPORTANCE
+    caseUrgency?: $Enums.URGENCY
+    caseStatus?: $Enums.CASE_STATUS
+    categories?: CaseCreatecategoriesInput | $Enums.CASE_CATEGORY[]
+    problemShort?: string | null
+    problemFull?: string | null
+    nearestTask?: string | null
+    courtInfo?: string | null
     nearestTaskDeadline?: Date | string | null
     timeOfPerformance?: Date | string | null
+    assignmentTime?: Date | string | null
+    refusalReason?: $Enums.REFUSAL_REASON | null
+    legalAction?: $Enums.LEGAL_ACTION | null
+    statusInCourt?: $Enums.STATUS_IN_COURT | null
     priceSOM?: bigint | number | null
     priceUSD?: bigint | number | null
-    courtInfo?: string
-    statusInCourt?: $Enums.STATUS_IN_COURT
-    refusalReason?: $Enums.REFUSAL_REASON | null
-    createdAt?: Date | string
-    assignmentTime?: Date | string | null
+    personId: number
     authorId: number
-    sourceId: number
     managerId?: number | null
   }
 
-  export type UserCreateOrConnectWithoutOpponentInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutOpponentInput, UserUncheckedCreateWithoutOpponentInput>
+  export type CaseCreateOrConnectWithoutOpponentInput = {
+    where: CaseWhereUniqueInput
+    create: XOR<CaseCreateWithoutOpponentInput, CaseUncheckedCreateWithoutOpponentInput>
   }
 
-  export type UserCreateManyOpponentInputEnvelope = {
-    data: UserCreateManyOpponentInput | UserCreateManyOpponentInput[]
+  export type CaseCreateManyOpponentInputEnvelope = {
+    data: CaseCreateManyOpponentInput | CaseCreateManyOpponentInput[]
     skipDuplicates?: boolean
   }
 
-  export type UserUpsertWithWhereUniqueWithoutOpponentInput = {
-    where: UserWhereUniqueInput
-    update: XOR<UserUpdateWithoutOpponentInput, UserUncheckedUpdateWithoutOpponentInput>
-    create: XOR<UserCreateWithoutOpponentInput, UserUncheckedCreateWithoutOpponentInput>
-  }
-
-  export type UserUpdateWithWhereUniqueWithoutOpponentInput = {
-    where: UserWhereUniqueInput
-    data: XOR<UserUpdateWithoutOpponentInput, UserUncheckedUpdateWithoutOpponentInput>
-  }
-
-  export type UserUpdateManyWithWhereWithoutOpponentInput = {
-    where: UserScalarWhereInput
-    data: XOR<UserUpdateManyMutationInput, UserUncheckedUpdateManyWithoutOpponentInput>
-  }
-
-  export type ManagerCreateWithoutBloggersInput = {
+  export type EmployeeCreateWithoutOpponentInput = {
+    createdAt?: Date | string
     username: string
     password: string
-    role: $Enums.ROLES
-    createdAt?: Date | string
-    authoredUsers?: UserCreateNestedManyWithoutAuthorInput
-    managedUsers?: UserCreateNestedManyWithoutManagerInput
-    sources?: SourceCreateNestedManyWithoutAuthorInput
+    roles?: EmployeeCreaterolesInput | $Enums.ROLE[]
+    authoredBloggers?: BloggerCreateNestedManyWithoutAuthorInput
+    authoredOrigins?: OriginCreateNestedManyWithoutAuthorInput
+    authoredPersons?: PersonCreateNestedManyWithoutAuthorInput
+    authoredCases?: CaseCreateNestedManyWithoutAuthorInput
+    managedCases?: CaseCreateNestedManyWithoutManagerInput
   }
 
-  export type ManagerUncheckedCreateWithoutBloggersInput = {
+  export type EmployeeUncheckedCreateWithoutOpponentInput = {
     id?: number
+    createdAt?: Date | string
     username: string
     password: string
-    role: $Enums.ROLES
-    createdAt?: Date | string
-    authoredUsers?: UserUncheckedCreateNestedManyWithoutAuthorInput
-    managedUsers?: UserUncheckedCreateNestedManyWithoutManagerInput
-    sources?: SourceUncheckedCreateNestedManyWithoutAuthorInput
+    roles?: EmployeeCreaterolesInput | $Enums.ROLE[]
+    authoredBloggers?: BloggerUncheckedCreateNestedManyWithoutAuthorInput
+    authoredOrigins?: OriginUncheckedCreateNestedManyWithoutAuthorInput
+    authoredPersons?: PersonUncheckedCreateNestedManyWithoutAuthorInput
+    authoredCases?: CaseUncheckedCreateNestedManyWithoutAuthorInput
+    managedCases?: CaseUncheckedCreateNestedManyWithoutManagerInput
   }
 
-  export type ManagerCreateOrConnectWithoutBloggersInput = {
-    where: ManagerWhereUniqueInput
-    create: XOR<ManagerCreateWithoutBloggersInput, ManagerUncheckedCreateWithoutBloggersInput>
+  export type EmployeeCreateOrConnectWithoutOpponentInput = {
+    where: EmployeeWhereUniqueInput
+    create: XOR<EmployeeCreateWithoutOpponentInput, EmployeeUncheckedCreateWithoutOpponentInput>
   }
 
-  export type ManagerUpsertWithoutBloggersInput = {
-    update: XOR<ManagerUpdateWithoutBloggersInput, ManagerUncheckedUpdateWithoutBloggersInput>
-    create: XOR<ManagerCreateWithoutBloggersInput, ManagerUncheckedCreateWithoutBloggersInput>
-    where?: ManagerWhereInput
+  export type CaseUpsertWithWhereUniqueWithoutOpponentInput = {
+    where: CaseWhereUniqueInput
+    update: XOR<CaseUpdateWithoutOpponentInput, CaseUncheckedUpdateWithoutOpponentInput>
+    create: XOR<CaseCreateWithoutOpponentInput, CaseUncheckedCreateWithoutOpponentInput>
   }
 
-  export type ManagerUpdateToOneWithWhereWithoutBloggersInput = {
-    where?: ManagerWhereInput
-    data: XOR<ManagerUpdateWithoutBloggersInput, ManagerUncheckedUpdateWithoutBloggersInput>
+  export type CaseUpdateWithWhereUniqueWithoutOpponentInput = {
+    where: CaseWhereUniqueInput
+    data: XOR<CaseUpdateWithoutOpponentInput, CaseUncheckedUpdateWithoutOpponentInput>
   }
 
-  export type ManagerUpdateWithoutBloggersInput = {
+  export type CaseUpdateManyWithWhereWithoutOpponentInput = {
+    where: CaseScalarWhereInput
+    data: XOR<CaseUpdateManyMutationInput, CaseUncheckedUpdateManyWithoutOpponentInput>
+  }
+
+  export type EmployeeUpsertWithoutOpponentInput = {
+    update: XOR<EmployeeUpdateWithoutOpponentInput, EmployeeUncheckedUpdateWithoutOpponentInput>
+    create: XOR<EmployeeCreateWithoutOpponentInput, EmployeeUncheckedCreateWithoutOpponentInput>
+    where?: EmployeeWhereInput
+  }
+
+  export type EmployeeUpdateToOneWithWhereWithoutOpponentInput = {
+    where?: EmployeeWhereInput
+    data: XOR<EmployeeUpdateWithoutOpponentInput, EmployeeUncheckedUpdateWithoutOpponentInput>
+  }
+
+  export type EmployeeUpdateWithoutOpponentInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    role?: EnumROLESFieldUpdateOperationsInput | $Enums.ROLES
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    authoredUsers?: UserUpdateManyWithoutAuthorNestedInput
-    managedUsers?: UserUpdateManyWithoutManagerNestedInput
-    sources?: SourceUpdateManyWithoutAuthorNestedInput
+    roles?: EmployeeUpdaterolesInput | $Enums.ROLE[]
+    authoredBloggers?: BloggerUpdateManyWithoutAuthorNestedInput
+    authoredOrigins?: OriginUpdateManyWithoutAuthorNestedInput
+    authoredPersons?: PersonUpdateManyWithoutAuthorNestedInput
+    authoredCases?: CaseUpdateManyWithoutAuthorNestedInput
+    managedCases?: CaseUpdateManyWithoutManagerNestedInput
   }
 
-  export type ManagerUncheckedUpdateWithoutBloggersInput = {
+  export type EmployeeUncheckedUpdateWithoutOpponentInput = {
     id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    role?: EnumROLESFieldUpdateOperationsInput | $Enums.ROLES
+    roles?: EmployeeUpdaterolesInput | $Enums.ROLE[]
+    authoredBloggers?: BloggerUncheckedUpdateManyWithoutAuthorNestedInput
+    authoredOrigins?: OriginUncheckedUpdateManyWithoutAuthorNestedInput
+    authoredPersons?: PersonUncheckedUpdateManyWithoutAuthorNestedInput
+    authoredCases?: CaseUncheckedUpdateManyWithoutAuthorNestedInput
+    managedCases?: CaseUncheckedUpdateManyWithoutManagerNestedInput
+  }
+
+  export type EmployeeCreateWithoutAuthoredBloggersInput = {
+    createdAt?: Date | string
+    username: string
+    password: string
+    roles?: EmployeeCreaterolesInput | $Enums.ROLE[]
+    authoredOrigins?: OriginCreateNestedManyWithoutAuthorInput
+    authoredPersons?: PersonCreateNestedManyWithoutAuthorInput
+    authoredCases?: CaseCreateNestedManyWithoutAuthorInput
+    managedCases?: CaseCreateNestedManyWithoutManagerInput
+    Opponent?: OpponentCreateNestedManyWithoutAuthorInput
+  }
+
+  export type EmployeeUncheckedCreateWithoutAuthoredBloggersInput = {
+    id?: number
+    createdAt?: Date | string
+    username: string
+    password: string
+    roles?: EmployeeCreaterolesInput | $Enums.ROLE[]
+    authoredOrigins?: OriginUncheckedCreateNestedManyWithoutAuthorInput
+    authoredPersons?: PersonUncheckedCreateNestedManyWithoutAuthorInput
+    authoredCases?: CaseUncheckedCreateNestedManyWithoutAuthorInput
+    managedCases?: CaseUncheckedCreateNestedManyWithoutManagerInput
+    Opponent?: OpponentUncheckedCreateNestedManyWithoutAuthorInput
+  }
+
+  export type EmployeeCreateOrConnectWithoutAuthoredBloggersInput = {
+    where: EmployeeWhereUniqueInput
+    create: XOR<EmployeeCreateWithoutAuthoredBloggersInput, EmployeeUncheckedCreateWithoutAuthoredBloggersInput>
+  }
+
+  export type EmployeeUpsertWithoutAuthoredBloggersInput = {
+    update: XOR<EmployeeUpdateWithoutAuthoredBloggersInput, EmployeeUncheckedUpdateWithoutAuthoredBloggersInput>
+    create: XOR<EmployeeCreateWithoutAuthoredBloggersInput, EmployeeUncheckedCreateWithoutAuthoredBloggersInput>
+    where?: EmployeeWhereInput
+  }
+
+  export type EmployeeUpdateToOneWithWhereWithoutAuthoredBloggersInput = {
+    where?: EmployeeWhereInput
+    data: XOR<EmployeeUpdateWithoutAuthoredBloggersInput, EmployeeUncheckedUpdateWithoutAuthoredBloggersInput>
+  }
+
+  export type EmployeeUpdateWithoutAuthoredBloggersInput = {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    authoredUsers?: UserUncheckedUpdateManyWithoutAuthorNestedInput
-    managedUsers?: UserUncheckedUpdateManyWithoutManagerNestedInput
-    sources?: SourceUncheckedUpdateManyWithoutAuthorNestedInput
+    username?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    roles?: EmployeeUpdaterolesInput | $Enums.ROLE[]
+    authoredOrigins?: OriginUpdateManyWithoutAuthorNestedInput
+    authoredPersons?: PersonUpdateManyWithoutAuthorNestedInput
+    authoredCases?: CaseUpdateManyWithoutAuthorNestedInput
+    managedCases?: CaseUpdateManyWithoutManagerNestedInput
+    Opponent?: OpponentUpdateManyWithoutAuthorNestedInput
   }
 
-  export type UserCreateManyAuthorInput = {
-    id?: number
-    username: string
-    userLink?: string | null
-    phoneNumber?: string | null
-    email?: string | null
-    homeAddress: string
-    leadStatus?: $Enums.LEAD_STATUS
-    taskImportance?: $Enums.TASK_IMPORTANCE
-    taskUrgency?: $Enums.TASK_URGENCY
-    taskStatus?: $Enums.TASK_STATUS
-    legalAction: $Enums.LEGAL_ACTION
-    problemShort: string
-    problemFull: string
-    nearestTask?: string
-    nearestTaskDeadline?: Date | string | null
-    timeOfPerformance?: Date | string | null
-    priceSOM?: bigint | number | null
-    priceUSD?: bigint | number | null
-    courtInfo?: string
-    statusInCourt?: $Enums.STATUS_IN_COURT
-    refusalReason?: $Enums.REFUSAL_REASON | null
-    createdAt?: Date | string
-    assignmentTime?: Date | string | null
-    sourceId: number
-    opponentId?: number | null
-    managerId?: number | null
-  }
-
-  export type UserCreateManyManagerInput = {
-    id?: number
-    username: string
-    userLink?: string | null
-    phoneNumber?: string | null
-    email?: string | null
-    homeAddress: string
-    leadStatus?: $Enums.LEAD_STATUS
-    taskImportance?: $Enums.TASK_IMPORTANCE
-    taskUrgency?: $Enums.TASK_URGENCY
-    taskStatus?: $Enums.TASK_STATUS
-    legalAction: $Enums.LEGAL_ACTION
-    problemShort: string
-    problemFull: string
-    nearestTask?: string
-    nearestTaskDeadline?: Date | string | null
-    timeOfPerformance?: Date | string | null
-    priceSOM?: bigint | number | null
-    priceUSD?: bigint | number | null
-    courtInfo?: string
-    statusInCourt?: $Enums.STATUS_IN_COURT
-    refusalReason?: $Enums.REFUSAL_REASON | null
-    createdAt?: Date | string
-    assignmentTime?: Date | string | null
-    authorId: number
-    sourceId: number
-    opponentId?: number | null
-  }
-
-  export type SourceCreateManyAuthorInput = {
-    id?: number
-    title: string
-    sourceLink?: string | null
-    category: $Enums.SOURCE_CATEGORY
-    createdAt?: Date | string
+  export type EmployeeUncheckedUpdateWithoutAuthoredBloggersInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    username?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    roles?: EmployeeUpdaterolesInput | $Enums.ROLE[]
+    authoredOrigins?: OriginUncheckedUpdateManyWithoutAuthorNestedInput
+    authoredPersons?: PersonUncheckedUpdateManyWithoutAuthorNestedInput
+    authoredCases?: CaseUncheckedUpdateManyWithoutAuthorNestedInput
+    managedCases?: CaseUncheckedUpdateManyWithoutManagerNestedInput
+    Opponent?: OpponentUncheckedUpdateManyWithoutAuthorNestedInput
   }
 
   export type BloggerCreateManyAuthorInput = {
     id?: number
+    createdAt?: Date | string
     name: string
     link: string
-    subscribersCount: number
-    info?: string
-    priceSOM?: number | null
-    priceUSD?: number | null
     phoneNumber?: string | null
     email?: string | null
-    categories?: BloggerCreatecategoriesInput | $Enums.SOURCE_CATEGORY[]
+    info?: string | null
+    subscribersCount: bigint | number
+    priceSOM?: bigint | number | null
+    priceUSD?: bigint | number | null
+    categories?: BloggerCreatecategoriesInput | $Enums.CASE_CATEGORY[]
+  }
+
+  export type OriginCreateManyAuthorInput = {
+    id?: number
     createdAt?: Date | string
+    title: string
+    link?: string | null
+    categories?: OriginCreatecategoriesInput | $Enums.CASE_CATEGORY[]
   }
 
-  export type UserUpdateWithoutAuthorInput = {
-    username?: StringFieldUpdateOperationsInput | string
-    userLink?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    homeAddress?: StringFieldUpdateOperationsInput | string
-    leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
-    taskImportance?: EnumTASK_IMPORTANCEFieldUpdateOperationsInput | $Enums.TASK_IMPORTANCE
-    taskUrgency?: EnumTASK_URGENCYFieldUpdateOperationsInput | $Enums.TASK_URGENCY
-    taskStatus?: EnumTASK_STATUSFieldUpdateOperationsInput | $Enums.TASK_STATUS
-    legalAction?: EnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION
-    problemShort?: StringFieldUpdateOperationsInput | string
-    problemFull?: StringFieldUpdateOperationsInput | string
-    nearestTask?: StringFieldUpdateOperationsInput | string
-    nearestTaskDeadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    courtInfo?: StringFieldUpdateOperationsInput | string
-    statusInCourt?: EnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT
-    refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    source?: SourceUpdateOneRequiredWithoutUsersNestedInput
-    opponent?: OpponentUpdateOneWithoutUsersNestedInput
-    manager?: ManagerUpdateOneWithoutManagedUsersNestedInput
+  export type PersonCreateManyAuthorInput = {
+    id?: number
+    createdAt?: Date | string
+    name: string
+    phoneNumber?: string | null
+    link?: string | null
+    email?: string | null
+    homeAddress?: string | null
+    originId: number
+    leadStatus?: $Enums.LEAD_STATUS
   }
 
-  export type UserUncheckedUpdateWithoutAuthorInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    username?: StringFieldUpdateOperationsInput | string
-    userLink?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    homeAddress?: StringFieldUpdateOperationsInput | string
-    leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
-    taskImportance?: EnumTASK_IMPORTANCEFieldUpdateOperationsInput | $Enums.TASK_IMPORTANCE
-    taskUrgency?: EnumTASK_URGENCYFieldUpdateOperationsInput | $Enums.TASK_URGENCY
-    taskStatus?: EnumTASK_STATUSFieldUpdateOperationsInput | $Enums.TASK_STATUS
-    legalAction?: EnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION
-    problemShort?: StringFieldUpdateOperationsInput | string
-    problemFull?: StringFieldUpdateOperationsInput | string
-    nearestTask?: StringFieldUpdateOperationsInput | string
-    nearestTaskDeadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    courtInfo?: StringFieldUpdateOperationsInput | string
-    statusInCourt?: EnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT
-    refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    sourceId?: IntFieldUpdateOperationsInput | number
-    opponentId?: NullableIntFieldUpdateOperationsInput | number | null
-    managerId?: NullableIntFieldUpdateOperationsInput | number | null
+  export type CaseCreateManyAuthorInput = {
+    id?: number
+    createdAt?: Date | string
+    caseImportance?: $Enums.IMPORTANCE
+    caseUrgency?: $Enums.URGENCY
+    caseStatus?: $Enums.CASE_STATUS
+    categories?: CaseCreatecategoriesInput | $Enums.CASE_CATEGORY[]
+    problemShort?: string | null
+    problemFull?: string | null
+    nearestTask?: string | null
+    courtInfo?: string | null
+    nearestTaskDeadline?: Date | string | null
+    timeOfPerformance?: Date | string | null
+    assignmentTime?: Date | string | null
+    refusalReason?: $Enums.REFUSAL_REASON | null
+    legalAction?: $Enums.LEGAL_ACTION | null
+    statusInCourt?: $Enums.STATUS_IN_COURT | null
+    priceSOM?: bigint | number | null
+    priceUSD?: bigint | number | null
+    personId: number
+    opponentId?: number | null
+    managerId?: number | null
   }
 
-  export type UserUncheckedUpdateManyWithoutAuthorInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    username?: StringFieldUpdateOperationsInput | string
-    userLink?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    homeAddress?: StringFieldUpdateOperationsInput | string
-    leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
-    taskImportance?: EnumTASK_IMPORTANCEFieldUpdateOperationsInput | $Enums.TASK_IMPORTANCE
-    taskUrgency?: EnumTASK_URGENCYFieldUpdateOperationsInput | $Enums.TASK_URGENCY
-    taskStatus?: EnumTASK_STATUSFieldUpdateOperationsInput | $Enums.TASK_STATUS
-    legalAction?: EnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION
-    problemShort?: StringFieldUpdateOperationsInput | string
-    problemFull?: StringFieldUpdateOperationsInput | string
-    nearestTask?: StringFieldUpdateOperationsInput | string
-    nearestTaskDeadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    courtInfo?: StringFieldUpdateOperationsInput | string
-    statusInCourt?: EnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT
-    refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    sourceId?: IntFieldUpdateOperationsInput | number
-    opponentId?: NullableIntFieldUpdateOperationsInput | number | null
-    managerId?: NullableIntFieldUpdateOperationsInput | number | null
+  export type CaseCreateManyManagerInput = {
+    id?: number
+    createdAt?: Date | string
+    caseImportance?: $Enums.IMPORTANCE
+    caseUrgency?: $Enums.URGENCY
+    caseStatus?: $Enums.CASE_STATUS
+    categories?: CaseCreatecategoriesInput | $Enums.CASE_CATEGORY[]
+    problemShort?: string | null
+    problemFull?: string | null
+    nearestTask?: string | null
+    courtInfo?: string | null
+    nearestTaskDeadline?: Date | string | null
+    timeOfPerformance?: Date | string | null
+    assignmentTime?: Date | string | null
+    refusalReason?: $Enums.REFUSAL_REASON | null
+    legalAction?: $Enums.LEGAL_ACTION | null
+    statusInCourt?: $Enums.STATUS_IN_COURT | null
+    priceSOM?: bigint | number | null
+    priceUSD?: bigint | number | null
+    personId: number
+    authorId: number
+    opponentId?: number | null
   }
 
-  export type UserUpdateWithoutManagerInput = {
-    username?: StringFieldUpdateOperationsInput | string
-    userLink?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    homeAddress?: StringFieldUpdateOperationsInput | string
-    leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
-    taskImportance?: EnumTASK_IMPORTANCEFieldUpdateOperationsInput | $Enums.TASK_IMPORTANCE
-    taskUrgency?: EnumTASK_URGENCYFieldUpdateOperationsInput | $Enums.TASK_URGENCY
-    taskStatus?: EnumTASK_STATUSFieldUpdateOperationsInput | $Enums.TASK_STATUS
-    legalAction?: EnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION
-    problemShort?: StringFieldUpdateOperationsInput | string
-    problemFull?: StringFieldUpdateOperationsInput | string
-    nearestTask?: StringFieldUpdateOperationsInput | string
-    nearestTaskDeadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    courtInfo?: StringFieldUpdateOperationsInput | string
-    statusInCourt?: EnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT
-    refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    author?: ManagerUpdateOneRequiredWithoutAuthoredUsersNestedInput
-    source?: SourceUpdateOneRequiredWithoutUsersNestedInput
-    opponent?: OpponentUpdateOneWithoutUsersNestedInput
-  }
-
-  export type UserUncheckedUpdateWithoutManagerInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    username?: StringFieldUpdateOperationsInput | string
-    userLink?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    homeAddress?: StringFieldUpdateOperationsInput | string
-    leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
-    taskImportance?: EnumTASK_IMPORTANCEFieldUpdateOperationsInput | $Enums.TASK_IMPORTANCE
-    taskUrgency?: EnumTASK_URGENCYFieldUpdateOperationsInput | $Enums.TASK_URGENCY
-    taskStatus?: EnumTASK_STATUSFieldUpdateOperationsInput | $Enums.TASK_STATUS
-    legalAction?: EnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION
-    problemShort?: StringFieldUpdateOperationsInput | string
-    problemFull?: StringFieldUpdateOperationsInput | string
-    nearestTask?: StringFieldUpdateOperationsInput | string
-    nearestTaskDeadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    courtInfo?: StringFieldUpdateOperationsInput | string
-    statusInCourt?: EnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT
-    refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    authorId?: IntFieldUpdateOperationsInput | number
-    sourceId?: IntFieldUpdateOperationsInput | number
-    opponentId?: NullableIntFieldUpdateOperationsInput | number | null
-  }
-
-  export type UserUncheckedUpdateManyWithoutManagerInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    username?: StringFieldUpdateOperationsInput | string
-    userLink?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    homeAddress?: StringFieldUpdateOperationsInput | string
-    leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
-    taskImportance?: EnumTASK_IMPORTANCEFieldUpdateOperationsInput | $Enums.TASK_IMPORTANCE
-    taskUrgency?: EnumTASK_URGENCYFieldUpdateOperationsInput | $Enums.TASK_URGENCY
-    taskStatus?: EnumTASK_STATUSFieldUpdateOperationsInput | $Enums.TASK_STATUS
-    legalAction?: EnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION
-    problemShort?: StringFieldUpdateOperationsInput | string
-    problemFull?: StringFieldUpdateOperationsInput | string
-    nearestTask?: StringFieldUpdateOperationsInput | string
-    nearestTaskDeadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    courtInfo?: StringFieldUpdateOperationsInput | string
-    statusInCourt?: EnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT
-    refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    authorId?: IntFieldUpdateOperationsInput | number
-    sourceId?: IntFieldUpdateOperationsInput | number
-    opponentId?: NullableIntFieldUpdateOperationsInput | number | null
-  }
-
-  export type SourceUpdateWithoutAuthorInput = {
-    title?: StringFieldUpdateOperationsInput | string
-    sourceLink?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: EnumSOURCE_CATEGORYFieldUpdateOperationsInput | $Enums.SOURCE_CATEGORY
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    users?: UserUpdateManyWithoutSourceNestedInput
-  }
-
-  export type SourceUncheckedUpdateWithoutAuthorInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    title?: StringFieldUpdateOperationsInput | string
-    sourceLink?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: EnumSOURCE_CATEGORYFieldUpdateOperationsInput | $Enums.SOURCE_CATEGORY
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    users?: UserUncheckedUpdateManyWithoutSourceNestedInput
-  }
-
-  export type SourceUncheckedUpdateManyWithoutAuthorInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    title?: StringFieldUpdateOperationsInput | string
-    sourceLink?: NullableStringFieldUpdateOperationsInput | string | null
-    category?: EnumSOURCE_CATEGORYFieldUpdateOperationsInput | $Enums.SOURCE_CATEGORY
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  export type OpponentCreateManyAuthorInput = {
+    id?: number
+    createdAt?: Date | string
+    name: string
+    link?: string | null
+    info?: string | null
   }
 
   export type BloggerUpdateWithoutAuthorInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     name?: StringFieldUpdateOperationsInput | string
     link?: StringFieldUpdateOperationsInput | string
-    subscribersCount?: IntFieldUpdateOperationsInput | number
-    info?: StringFieldUpdateOperationsInput | string
-    priceSOM?: NullableIntFieldUpdateOperationsInput | number | null
-    priceUSD?: NullableIntFieldUpdateOperationsInput | number | null
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
-    categories?: BloggerUpdatecategoriesInput | $Enums.SOURCE_CATEGORY[]
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    info?: NullableStringFieldUpdateOperationsInput | string | null
+    subscribersCount?: BigIntFieldUpdateOperationsInput | bigint | number
+    priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    categories?: BloggerUpdatecategoriesInput | $Enums.CASE_CATEGORY[]
   }
 
   export type BloggerUncheckedUpdateWithoutAuthorInput = {
     id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     name?: StringFieldUpdateOperationsInput | string
     link?: StringFieldUpdateOperationsInput | string
-    subscribersCount?: IntFieldUpdateOperationsInput | number
-    info?: StringFieldUpdateOperationsInput | string
-    priceSOM?: NullableIntFieldUpdateOperationsInput | number | null
-    priceUSD?: NullableIntFieldUpdateOperationsInput | number | null
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
-    categories?: BloggerUpdatecategoriesInput | $Enums.SOURCE_CATEGORY[]
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    info?: NullableStringFieldUpdateOperationsInput | string | null
+    subscribersCount?: BigIntFieldUpdateOperationsInput | bigint | number
+    priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    categories?: BloggerUpdatecategoriesInput | $Enums.CASE_CATEGORY[]
   }
 
   export type BloggerUncheckedUpdateManyWithoutAuthorInput = {
     id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     name?: StringFieldUpdateOperationsInput | string
     link?: StringFieldUpdateOperationsInput | string
-    subscribersCount?: IntFieldUpdateOperationsInput | number
-    info?: StringFieldUpdateOperationsInput | string
-    priceSOM?: NullableIntFieldUpdateOperationsInput | number | null
-    priceUSD?: NullableIntFieldUpdateOperationsInput | number | null
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
-    categories?: BloggerUpdatecategoriesInput | $Enums.SOURCE_CATEGORY[]
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    info?: NullableStringFieldUpdateOperationsInput | string | null
+    subscribersCount?: BigIntFieldUpdateOperationsInput | bigint | number
+    priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    categories?: BloggerUpdatecategoriesInput | $Enums.CASE_CATEGORY[]
   }
 
-  export type UserCreateManySourceInput = {
+  export type OriginUpdateWithoutAuthorInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    title?: StringFieldUpdateOperationsInput | string
+    link?: NullableStringFieldUpdateOperationsInput | string | null
+    categories?: OriginUpdatecategoriesInput | $Enums.CASE_CATEGORY[]
+    persons?: PersonUpdateManyWithoutOriginNestedInput
+  }
+
+  export type OriginUncheckedUpdateWithoutAuthorInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    title?: StringFieldUpdateOperationsInput | string
+    link?: NullableStringFieldUpdateOperationsInput | string | null
+    categories?: OriginUpdatecategoriesInput | $Enums.CASE_CATEGORY[]
+    persons?: PersonUncheckedUpdateManyWithoutOriginNestedInput
+  }
+
+  export type OriginUncheckedUpdateManyWithoutAuthorInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    title?: StringFieldUpdateOperationsInput | string
+    link?: NullableStringFieldUpdateOperationsInput | string | null
+    categories?: OriginUpdatecategoriesInput | $Enums.CASE_CATEGORY[]
+  }
+
+  export type PersonUpdateWithoutAuthorInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    link?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    homeAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
+    cases?: CaseUpdateManyWithoutPersonNestedInput
+    origin?: OriginUpdateOneRequiredWithoutPersonsNestedInput
+  }
+
+  export type PersonUncheckedUpdateWithoutAuthorInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    link?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    homeAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    originId?: IntFieldUpdateOperationsInput | number
+    leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
+    cases?: CaseUncheckedUpdateManyWithoutPersonNestedInput
+  }
+
+  export type PersonUncheckedUpdateManyWithoutAuthorInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    link?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    homeAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    originId?: IntFieldUpdateOperationsInput | number
+    leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
+  }
+
+  export type CaseUpdateWithoutAuthorInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    caseImportance?: EnumIMPORTANCEFieldUpdateOperationsInput | $Enums.IMPORTANCE
+    caseUrgency?: EnumURGENCYFieldUpdateOperationsInput | $Enums.URGENCY
+    caseStatus?: EnumCASE_STATUSFieldUpdateOperationsInput | $Enums.CASE_STATUS
+    categories?: CaseUpdatecategoriesInput | $Enums.CASE_CATEGORY[]
+    problemShort?: NullableStringFieldUpdateOperationsInput | string | null
+    problemFull?: NullableStringFieldUpdateOperationsInput | string | null
+    nearestTask?: NullableStringFieldUpdateOperationsInput | string | null
+    courtInfo?: NullableStringFieldUpdateOperationsInput | string | null
+    nearestTaskDeadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
+    legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
+    statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
+    priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    manager?: EmployeeUpdateOneWithoutManagedCasesNestedInput
+    opponent?: OpponentUpdateOneWithoutCasesNestedInput
+    person?: PersonUpdateOneRequiredWithoutCasesNestedInput
+  }
+
+  export type CaseUncheckedUpdateWithoutAuthorInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    caseImportance?: EnumIMPORTANCEFieldUpdateOperationsInput | $Enums.IMPORTANCE
+    caseUrgency?: EnumURGENCYFieldUpdateOperationsInput | $Enums.URGENCY
+    caseStatus?: EnumCASE_STATUSFieldUpdateOperationsInput | $Enums.CASE_STATUS
+    categories?: CaseUpdatecategoriesInput | $Enums.CASE_CATEGORY[]
+    problemShort?: NullableStringFieldUpdateOperationsInput | string | null
+    problemFull?: NullableStringFieldUpdateOperationsInput | string | null
+    nearestTask?: NullableStringFieldUpdateOperationsInput | string | null
+    courtInfo?: NullableStringFieldUpdateOperationsInput | string | null
+    nearestTaskDeadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
+    legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
+    statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
+    priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    personId?: IntFieldUpdateOperationsInput | number
+    opponentId?: NullableIntFieldUpdateOperationsInput | number | null
+    managerId?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type CaseUncheckedUpdateManyWithoutAuthorInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    caseImportance?: EnumIMPORTANCEFieldUpdateOperationsInput | $Enums.IMPORTANCE
+    caseUrgency?: EnumURGENCYFieldUpdateOperationsInput | $Enums.URGENCY
+    caseStatus?: EnumCASE_STATUSFieldUpdateOperationsInput | $Enums.CASE_STATUS
+    categories?: CaseUpdatecategoriesInput | $Enums.CASE_CATEGORY[]
+    problemShort?: NullableStringFieldUpdateOperationsInput | string | null
+    problemFull?: NullableStringFieldUpdateOperationsInput | string | null
+    nearestTask?: NullableStringFieldUpdateOperationsInput | string | null
+    courtInfo?: NullableStringFieldUpdateOperationsInput | string | null
+    nearestTaskDeadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
+    legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
+    statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
+    priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    personId?: IntFieldUpdateOperationsInput | number
+    opponentId?: NullableIntFieldUpdateOperationsInput | number | null
+    managerId?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type CaseUpdateWithoutManagerInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    caseImportance?: EnumIMPORTANCEFieldUpdateOperationsInput | $Enums.IMPORTANCE
+    caseUrgency?: EnumURGENCYFieldUpdateOperationsInput | $Enums.URGENCY
+    caseStatus?: EnumCASE_STATUSFieldUpdateOperationsInput | $Enums.CASE_STATUS
+    categories?: CaseUpdatecategoriesInput | $Enums.CASE_CATEGORY[]
+    problemShort?: NullableStringFieldUpdateOperationsInput | string | null
+    problemFull?: NullableStringFieldUpdateOperationsInput | string | null
+    nearestTask?: NullableStringFieldUpdateOperationsInput | string | null
+    courtInfo?: NullableStringFieldUpdateOperationsInput | string | null
+    nearestTaskDeadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
+    legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
+    statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
+    priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    author?: EmployeeUpdateOneRequiredWithoutAuthoredCasesNestedInput
+    opponent?: OpponentUpdateOneWithoutCasesNestedInput
+    person?: PersonUpdateOneRequiredWithoutCasesNestedInput
+  }
+
+  export type CaseUncheckedUpdateWithoutManagerInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    caseImportance?: EnumIMPORTANCEFieldUpdateOperationsInput | $Enums.IMPORTANCE
+    caseUrgency?: EnumURGENCYFieldUpdateOperationsInput | $Enums.URGENCY
+    caseStatus?: EnumCASE_STATUSFieldUpdateOperationsInput | $Enums.CASE_STATUS
+    categories?: CaseUpdatecategoriesInput | $Enums.CASE_CATEGORY[]
+    problemShort?: NullableStringFieldUpdateOperationsInput | string | null
+    problemFull?: NullableStringFieldUpdateOperationsInput | string | null
+    nearestTask?: NullableStringFieldUpdateOperationsInput | string | null
+    courtInfo?: NullableStringFieldUpdateOperationsInput | string | null
+    nearestTaskDeadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
+    legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
+    statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
+    priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    personId?: IntFieldUpdateOperationsInput | number
+    authorId?: IntFieldUpdateOperationsInput | number
+    opponentId?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type CaseUncheckedUpdateManyWithoutManagerInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    caseImportance?: EnumIMPORTANCEFieldUpdateOperationsInput | $Enums.IMPORTANCE
+    caseUrgency?: EnumURGENCYFieldUpdateOperationsInput | $Enums.URGENCY
+    caseStatus?: EnumCASE_STATUSFieldUpdateOperationsInput | $Enums.CASE_STATUS
+    categories?: CaseUpdatecategoriesInput | $Enums.CASE_CATEGORY[]
+    problemShort?: NullableStringFieldUpdateOperationsInput | string | null
+    problemFull?: NullableStringFieldUpdateOperationsInput | string | null
+    nearestTask?: NullableStringFieldUpdateOperationsInput | string | null
+    courtInfo?: NullableStringFieldUpdateOperationsInput | string | null
+    nearestTaskDeadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
+    legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
+    statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
+    priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    personId?: IntFieldUpdateOperationsInput | number
+    authorId?: IntFieldUpdateOperationsInput | number
+    opponentId?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type OpponentUpdateWithoutAuthorInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    link?: NullableStringFieldUpdateOperationsInput | string | null
+    info?: NullableStringFieldUpdateOperationsInput | string | null
+    cases?: CaseUpdateManyWithoutOpponentNestedInput
+  }
+
+  export type OpponentUncheckedUpdateWithoutAuthorInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    link?: NullableStringFieldUpdateOperationsInput | string | null
+    info?: NullableStringFieldUpdateOperationsInput | string | null
+    cases?: CaseUncheckedUpdateManyWithoutOpponentNestedInput
+  }
+
+  export type OpponentUncheckedUpdateManyWithoutAuthorInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    link?: NullableStringFieldUpdateOperationsInput | string | null
+    info?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type CaseCreateManyPersonInput = {
     id?: number
-    username: string
-    userLink?: string | null
-    phoneNumber?: string | null
-    email?: string | null
-    homeAddress: string
-    leadStatus?: $Enums.LEAD_STATUS
-    taskImportance?: $Enums.TASK_IMPORTANCE
-    taskUrgency?: $Enums.TASK_URGENCY
-    taskStatus?: $Enums.TASK_STATUS
-    legalAction: $Enums.LEGAL_ACTION
-    problemShort: string
-    problemFull: string
-    nearestTask?: string
+    createdAt?: Date | string
+    caseImportance?: $Enums.IMPORTANCE
+    caseUrgency?: $Enums.URGENCY
+    caseStatus?: $Enums.CASE_STATUS
+    categories?: CaseCreatecategoriesInput | $Enums.CASE_CATEGORY[]
+    problemShort?: string | null
+    problemFull?: string | null
+    nearestTask?: string | null
+    courtInfo?: string | null
     nearestTaskDeadline?: Date | string | null
     timeOfPerformance?: Date | string | null
+    assignmentTime?: Date | string | null
+    refusalReason?: $Enums.REFUSAL_REASON | null
+    legalAction?: $Enums.LEGAL_ACTION | null
+    statusInCourt?: $Enums.STATUS_IN_COURT | null
     priceSOM?: bigint | number | null
     priceUSD?: bigint | number | null
-    courtInfo?: string
-    statusInCourt?: $Enums.STATUS_IN_COURT
-    refusalReason?: $Enums.REFUSAL_REASON | null
-    createdAt?: Date | string
-    assignmentTime?: Date | string | null
     authorId: number
     opponentId?: number | null
     managerId?: number | null
   }
 
-  export type UserUpdateWithoutSourceInput = {
-    username?: StringFieldUpdateOperationsInput | string
-    userLink?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    homeAddress?: StringFieldUpdateOperationsInput | string
-    leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
-    taskImportance?: EnumTASK_IMPORTANCEFieldUpdateOperationsInput | $Enums.TASK_IMPORTANCE
-    taskUrgency?: EnumTASK_URGENCYFieldUpdateOperationsInput | $Enums.TASK_URGENCY
-    taskStatus?: EnumTASK_STATUSFieldUpdateOperationsInput | $Enums.TASK_STATUS
-    legalAction?: EnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION
-    problemShort?: StringFieldUpdateOperationsInput | string
-    problemFull?: StringFieldUpdateOperationsInput | string
-    nearestTask?: StringFieldUpdateOperationsInput | string
+  export type CaseUpdateWithoutPersonInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    caseImportance?: EnumIMPORTANCEFieldUpdateOperationsInput | $Enums.IMPORTANCE
+    caseUrgency?: EnumURGENCYFieldUpdateOperationsInput | $Enums.URGENCY
+    caseStatus?: EnumCASE_STATUSFieldUpdateOperationsInput | $Enums.CASE_STATUS
+    categories?: CaseUpdatecategoriesInput | $Enums.CASE_CATEGORY[]
+    problemShort?: NullableStringFieldUpdateOperationsInput | string | null
+    problemFull?: NullableStringFieldUpdateOperationsInput | string | null
+    nearestTask?: NullableStringFieldUpdateOperationsInput | string | null
+    courtInfo?: NullableStringFieldUpdateOperationsInput | string | null
     nearestTaskDeadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
+    legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
+    statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
     priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    courtInfo?: StringFieldUpdateOperationsInput | string
-    statusInCourt?: EnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT
-    refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    author?: ManagerUpdateOneRequiredWithoutAuthoredUsersNestedInput
-    opponent?: OpponentUpdateOneWithoutUsersNestedInput
-    manager?: ManagerUpdateOneWithoutManagedUsersNestedInput
+    author?: EmployeeUpdateOneRequiredWithoutAuthoredCasesNestedInput
+    manager?: EmployeeUpdateOneWithoutManagedCasesNestedInput
+    opponent?: OpponentUpdateOneWithoutCasesNestedInput
   }
 
-  export type UserUncheckedUpdateWithoutSourceInput = {
+  export type CaseUncheckedUpdateWithoutPersonInput = {
     id?: IntFieldUpdateOperationsInput | number
-    username?: StringFieldUpdateOperationsInput | string
-    userLink?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    homeAddress?: StringFieldUpdateOperationsInput | string
-    leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
-    taskImportance?: EnumTASK_IMPORTANCEFieldUpdateOperationsInput | $Enums.TASK_IMPORTANCE
-    taskUrgency?: EnumTASK_URGENCYFieldUpdateOperationsInput | $Enums.TASK_URGENCY
-    taskStatus?: EnumTASK_STATUSFieldUpdateOperationsInput | $Enums.TASK_STATUS
-    legalAction?: EnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION
-    problemShort?: StringFieldUpdateOperationsInput | string
-    problemFull?: StringFieldUpdateOperationsInput | string
-    nearestTask?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    caseImportance?: EnumIMPORTANCEFieldUpdateOperationsInput | $Enums.IMPORTANCE
+    caseUrgency?: EnumURGENCYFieldUpdateOperationsInput | $Enums.URGENCY
+    caseStatus?: EnumCASE_STATUSFieldUpdateOperationsInput | $Enums.CASE_STATUS
+    categories?: CaseUpdatecategoriesInput | $Enums.CASE_CATEGORY[]
+    problemShort?: NullableStringFieldUpdateOperationsInput | string | null
+    problemFull?: NullableStringFieldUpdateOperationsInput | string | null
+    nearestTask?: NullableStringFieldUpdateOperationsInput | string | null
+    courtInfo?: NullableStringFieldUpdateOperationsInput | string | null
     nearestTaskDeadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
+    legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
+    statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
     priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    courtInfo?: StringFieldUpdateOperationsInput | string
-    statusInCourt?: EnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT
-    refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     authorId?: IntFieldUpdateOperationsInput | number
     opponentId?: NullableIntFieldUpdateOperationsInput | number | null
     managerId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
-  export type UserUncheckedUpdateManyWithoutSourceInput = {
+  export type CaseUncheckedUpdateManyWithoutPersonInput = {
     id?: IntFieldUpdateOperationsInput | number
-    username?: StringFieldUpdateOperationsInput | string
-    userLink?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    homeAddress?: StringFieldUpdateOperationsInput | string
-    leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
-    taskImportance?: EnumTASK_IMPORTANCEFieldUpdateOperationsInput | $Enums.TASK_IMPORTANCE
-    taskUrgency?: EnumTASK_URGENCYFieldUpdateOperationsInput | $Enums.TASK_URGENCY
-    taskStatus?: EnumTASK_STATUSFieldUpdateOperationsInput | $Enums.TASK_STATUS
-    legalAction?: EnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION
-    problemShort?: StringFieldUpdateOperationsInput | string
-    problemFull?: StringFieldUpdateOperationsInput | string
-    nearestTask?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    caseImportance?: EnumIMPORTANCEFieldUpdateOperationsInput | $Enums.IMPORTANCE
+    caseUrgency?: EnumURGENCYFieldUpdateOperationsInput | $Enums.URGENCY
+    caseStatus?: EnumCASE_STATUSFieldUpdateOperationsInput | $Enums.CASE_STATUS
+    categories?: CaseUpdatecategoriesInput | $Enums.CASE_CATEGORY[]
+    problemShort?: NullableStringFieldUpdateOperationsInput | string | null
+    problemFull?: NullableStringFieldUpdateOperationsInput | string | null
+    nearestTask?: NullableStringFieldUpdateOperationsInput | string | null
+    courtInfo?: NullableStringFieldUpdateOperationsInput | string | null
     nearestTaskDeadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
+    legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
+    statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
     priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    courtInfo?: StringFieldUpdateOperationsInput | string
-    statusInCourt?: EnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT
-    refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     authorId?: IntFieldUpdateOperationsInput | number
     opponentId?: NullableIntFieldUpdateOperationsInput | number | null
     managerId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
-  export type UserCreateManyOpponentInput = {
+  export type PersonCreateManyOriginInput = {
     id?: number
-    username: string
-    userLink?: string | null
+    createdAt?: Date | string
+    name: string
     phoneNumber?: string | null
+    link?: string | null
     email?: string | null
-    homeAddress: string
+    homeAddress?: string | null
+    authorId: number
     leadStatus?: $Enums.LEAD_STATUS
-    taskImportance?: $Enums.TASK_IMPORTANCE
-    taskUrgency?: $Enums.TASK_URGENCY
-    taskStatus?: $Enums.TASK_STATUS
-    legalAction: $Enums.LEGAL_ACTION
-    problemShort: string
-    problemFull: string
-    nearestTask?: string
+  }
+
+  export type PersonUpdateWithoutOriginInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    link?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    homeAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
+    cases?: CaseUpdateManyWithoutPersonNestedInput
+    author?: EmployeeUpdateOneRequiredWithoutAuthoredPersonsNestedInput
+  }
+
+  export type PersonUncheckedUpdateWithoutOriginInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    link?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    homeAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    authorId?: IntFieldUpdateOperationsInput | number
+    leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
+    cases?: CaseUncheckedUpdateManyWithoutPersonNestedInput
+  }
+
+  export type PersonUncheckedUpdateManyWithoutOriginInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    name?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    link?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    homeAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    authorId?: IntFieldUpdateOperationsInput | number
+    leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
+  }
+
+  export type CaseCreateManyOpponentInput = {
+    id?: number
+    createdAt?: Date | string
+    caseImportance?: $Enums.IMPORTANCE
+    caseUrgency?: $Enums.URGENCY
+    caseStatus?: $Enums.CASE_STATUS
+    categories?: CaseCreatecategoriesInput | $Enums.CASE_CATEGORY[]
+    problemShort?: string | null
+    problemFull?: string | null
+    nearestTask?: string | null
+    courtInfo?: string | null
     nearestTaskDeadline?: Date | string | null
     timeOfPerformance?: Date | string | null
+    assignmentTime?: Date | string | null
+    refusalReason?: $Enums.REFUSAL_REASON | null
+    legalAction?: $Enums.LEGAL_ACTION | null
+    statusInCourt?: $Enums.STATUS_IN_COURT | null
     priceSOM?: bigint | number | null
     priceUSD?: bigint | number | null
-    courtInfo?: string
-    statusInCourt?: $Enums.STATUS_IN_COURT
-    refusalReason?: $Enums.REFUSAL_REASON | null
-    createdAt?: Date | string
-    assignmentTime?: Date | string | null
+    personId: number
     authorId: number
-    sourceId: number
     managerId?: number | null
   }
 
-  export type UserUpdateWithoutOpponentInput = {
-    username?: StringFieldUpdateOperationsInput | string
-    userLink?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    homeAddress?: StringFieldUpdateOperationsInput | string
-    leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
-    taskImportance?: EnumTASK_IMPORTANCEFieldUpdateOperationsInput | $Enums.TASK_IMPORTANCE
-    taskUrgency?: EnumTASK_URGENCYFieldUpdateOperationsInput | $Enums.TASK_URGENCY
-    taskStatus?: EnumTASK_STATUSFieldUpdateOperationsInput | $Enums.TASK_STATUS
-    legalAction?: EnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION
-    problemShort?: StringFieldUpdateOperationsInput | string
-    problemFull?: StringFieldUpdateOperationsInput | string
-    nearestTask?: StringFieldUpdateOperationsInput | string
+  export type CaseUpdateWithoutOpponentInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    caseImportance?: EnumIMPORTANCEFieldUpdateOperationsInput | $Enums.IMPORTANCE
+    caseUrgency?: EnumURGENCYFieldUpdateOperationsInput | $Enums.URGENCY
+    caseStatus?: EnumCASE_STATUSFieldUpdateOperationsInput | $Enums.CASE_STATUS
+    categories?: CaseUpdatecategoriesInput | $Enums.CASE_CATEGORY[]
+    problemShort?: NullableStringFieldUpdateOperationsInput | string | null
+    problemFull?: NullableStringFieldUpdateOperationsInput | string | null
+    nearestTask?: NullableStringFieldUpdateOperationsInput | string | null
+    courtInfo?: NullableStringFieldUpdateOperationsInput | string | null
     nearestTaskDeadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
+    legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
+    statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
     priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    courtInfo?: StringFieldUpdateOperationsInput | string
-    statusInCourt?: EnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT
-    refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    author?: ManagerUpdateOneRequiredWithoutAuthoredUsersNestedInput
-    source?: SourceUpdateOneRequiredWithoutUsersNestedInput
-    manager?: ManagerUpdateOneWithoutManagedUsersNestedInput
+    author?: EmployeeUpdateOneRequiredWithoutAuthoredCasesNestedInput
+    manager?: EmployeeUpdateOneWithoutManagedCasesNestedInput
+    person?: PersonUpdateOneRequiredWithoutCasesNestedInput
   }
 
-  export type UserUncheckedUpdateWithoutOpponentInput = {
+  export type CaseUncheckedUpdateWithoutOpponentInput = {
     id?: IntFieldUpdateOperationsInput | number
-    username?: StringFieldUpdateOperationsInput | string
-    userLink?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    homeAddress?: StringFieldUpdateOperationsInput | string
-    leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
-    taskImportance?: EnumTASK_IMPORTANCEFieldUpdateOperationsInput | $Enums.TASK_IMPORTANCE
-    taskUrgency?: EnumTASK_URGENCYFieldUpdateOperationsInput | $Enums.TASK_URGENCY
-    taskStatus?: EnumTASK_STATUSFieldUpdateOperationsInput | $Enums.TASK_STATUS
-    legalAction?: EnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION
-    problemShort?: StringFieldUpdateOperationsInput | string
-    problemFull?: StringFieldUpdateOperationsInput | string
-    nearestTask?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    caseImportance?: EnumIMPORTANCEFieldUpdateOperationsInput | $Enums.IMPORTANCE
+    caseUrgency?: EnumURGENCYFieldUpdateOperationsInput | $Enums.URGENCY
+    caseStatus?: EnumCASE_STATUSFieldUpdateOperationsInput | $Enums.CASE_STATUS
+    categories?: CaseUpdatecategoriesInput | $Enums.CASE_CATEGORY[]
+    problemShort?: NullableStringFieldUpdateOperationsInput | string | null
+    problemFull?: NullableStringFieldUpdateOperationsInput | string | null
+    nearestTask?: NullableStringFieldUpdateOperationsInput | string | null
+    courtInfo?: NullableStringFieldUpdateOperationsInput | string | null
     nearestTaskDeadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
+    legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
+    statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
     priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    courtInfo?: StringFieldUpdateOperationsInput | string
-    statusInCourt?: EnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT
-    refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    personId?: IntFieldUpdateOperationsInput | number
     authorId?: IntFieldUpdateOperationsInput | number
-    sourceId?: IntFieldUpdateOperationsInput | number
     managerId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
-  export type UserUncheckedUpdateManyWithoutOpponentInput = {
+  export type CaseUncheckedUpdateManyWithoutOpponentInput = {
     id?: IntFieldUpdateOperationsInput | number
-    username?: StringFieldUpdateOperationsInput | string
-    userLink?: NullableStringFieldUpdateOperationsInput | string | null
-    phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
-    email?: NullableStringFieldUpdateOperationsInput | string | null
-    homeAddress?: StringFieldUpdateOperationsInput | string
-    leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
-    taskImportance?: EnumTASK_IMPORTANCEFieldUpdateOperationsInput | $Enums.TASK_IMPORTANCE
-    taskUrgency?: EnumTASK_URGENCYFieldUpdateOperationsInput | $Enums.TASK_URGENCY
-    taskStatus?: EnumTASK_STATUSFieldUpdateOperationsInput | $Enums.TASK_STATUS
-    legalAction?: EnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION
-    problemShort?: StringFieldUpdateOperationsInput | string
-    problemFull?: StringFieldUpdateOperationsInput | string
-    nearestTask?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    caseImportance?: EnumIMPORTANCEFieldUpdateOperationsInput | $Enums.IMPORTANCE
+    caseUrgency?: EnumURGENCYFieldUpdateOperationsInput | $Enums.URGENCY
+    caseStatus?: EnumCASE_STATUSFieldUpdateOperationsInput | $Enums.CASE_STATUS
+    categories?: CaseUpdatecategoriesInput | $Enums.CASE_CATEGORY[]
+    problemShort?: NullableStringFieldUpdateOperationsInput | string | null
+    problemFull?: NullableStringFieldUpdateOperationsInput | string | null
+    nearestTask?: NullableStringFieldUpdateOperationsInput | string | null
+    courtInfo?: NullableStringFieldUpdateOperationsInput | string | null
     nearestTaskDeadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
+    legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
+    statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
     priceSOM?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     priceUSD?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    courtInfo?: StringFieldUpdateOperationsInput | string
-    statusInCourt?: EnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT
-    refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    personId?: IntFieldUpdateOperationsInput | number
     authorId?: IntFieldUpdateOperationsInput | number
-    sourceId?: IntFieldUpdateOperationsInput | number
     managerId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 

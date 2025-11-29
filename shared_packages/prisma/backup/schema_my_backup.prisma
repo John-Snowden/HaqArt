@@ -1,0 +1,191 @@
+generator client {
+  provider      = "prisma-client-js"
+  output        = "./prisma/client"
+  binaryTargets = ["native", "darwin-arm64", "debian-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Manager {
+  id        Int      @id @default(autoincrement())
+  username  String   @unique
+  password  String
+  role      ROLES
+  createdAt DateTime @default(now())
+
+  bloggers      Blogger[]
+  sources       Source[]
+  authoredUsers User[]    @relation("UserAuthor")
+  authoredCases Case[]    @relation("CaseAuthor")
+  managedCases  Case[]    @relation("CaseManager")
+}
+
+model Case {
+  id Int @id @default(autoincrement())
+
+  taskImportance      TASK_IMPORTANCE @default(two)
+  taskUrgency         TASK_URGENCY    @default(three)
+  taskStatus          TASK_STATUS     @default(notAssigned)
+  legalAction         LEGAL_ACTION
+  problemShort        String
+  problemFull         String
+  nearestTask         String          @default("")
+  nearestTaskDeadline DateTime?
+  timeOfPerformance   DateTime?
+  priceSOM            BigInt?
+  priceUSD            BigInt?
+  courtInfo           String          @default("")
+  statusInCourt       STATUS_IN_COURT @default(none)
+  refusalReason       REFUSAL_REASON?
+  createdAt           DateTime        @default(now())
+  assignmentTime      DateTime?
+  authorId            Int
+  opponentId          Int?
+  managerId           Int?
+  sourceId            Int
+
+  author   Manager   @relation("CaseAuthor", fields: [authorId], references: [id])
+  manager  Manager?  @relation("CaseManager", fields: [managerId], references: [id])
+  opponent Opponent? @relation(fields: [opponentId], references: [id])
+  source   Source    @relation(fields: [sourceId], references: [id])
+  user     User      @relation(fields: [id], references: [id])
+}
+
+model User {
+  id Int @id @default(autoincrement())
+
+  username    String
+  phoneNumber String? @unique
+  userLink    String? @unique
+  email       String? @unique
+  homeAddress String
+  authorId    Int
+
+  leadStatus LEAD_STATUS @default(addedToDB)
+  cases      Case[]
+
+  author Manager @relation("UserAuthor", fields: [authorId], references: [id])
+}
+
+model Source {
+  id Int @id @default(autoincrement())
+
+  title      String          @unique
+  sourceLink String?         @unique
+  category   CASE_CATEGORY
+  createdAt  DateTime        @default(now())
+  authorId   Int
+
+  author Manager @relation(fields: [authorId], references: [id])
+  cases  Case[]
+}
+
+model Opponent {
+  id Int @id @default(autoincrement())
+
+  name      String   @unique
+  link      String?  @unique
+  info      String   @default("")
+  createdAt DateTime @default(now())
+  cases     Case[]
+}
+
+model Blogger {
+  id Int @id @default(autoincrement())
+
+  name             String            @unique
+  link             String            @unique
+  subscribersCount Int
+  info             String            @default("")
+  priceSOM         Int?
+  priceUSD         Int?
+  phoneNumber      String?           @unique
+  email            String?           @unique
+  categories       CASE_CATEGORY[]
+  createdAt        DateTime          @default(now())
+  authorId         Int
+  author           Manager           @relation(fields: [authorId], references: [id])
+}
+
+enum LEAD_STATUS {
+  addedToDB
+  messageSent
+  messageRead
+  replied
+  contactShared
+}
+
+enum TASK_STATUS {
+  notAssigned
+  assignedNotStarted
+  workInProgress
+  blocked
+  checkMe
+  done
+  weRefused
+  leadRefused
+}
+
+enum TASK_URGENCY {
+  one
+  two
+  three
+  four
+  five
+}
+
+enum TASK_IMPORTANCE {
+  one
+  two
+  three
+}
+
+enum ROLES {
+  dev
+  owner
+  ceo
+  bot
+  smm_manager
+  account_manager
+  sales_manager
+  lawyer
+}
+
+enum LEGAL_ACTION {
+  none
+  filing
+  courtParticipation
+  consultation
+  appointment
+  negotiations
+  claim
+  lawyerRequest
+}
+
+enum STATUS_IN_COURT {
+  postponed
+  paused
+  judgeOnVacation
+  reassigned
+  negotiations
+  returned
+  none
+}
+
+enum REFUSAL_REASON {
+  none
+  choseCompetitor
+  irrelevantServices
+  tooExpensive
+  noReasonGiven
+}
+
+enum CASE_CATEGORY {
+  none
+  realEstate
+  loans
+  other
+}

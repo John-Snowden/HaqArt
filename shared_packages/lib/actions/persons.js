@@ -1,22 +1,18 @@
 "use server";
-
 import prisma from "@shared/prisma";
-import { LEAD_STATUS, TASK_STATUS, User } from "@shared/prisma/prisma/client";
-
-export const prismaGetUserById = async (id: number) => {
+import { TASK_STATUS } from "@shared/prisma/prisma/client";
+export const prismaGetPersonById = async (id) => {
   try {
     return await prisma.user.findUnique({ where: { id } });
   } catch (e) {
     return { error: "Лид не получен:\n" + e };
   }
 };
-
-export const prismaGetFilteredUsers = async (filteres: Record<string, any>) => {
+export const prismaGetFilteredUsers = async (filteres) => {
   try {
     const filtersArr = Object.entries(filteres).filter(([, value]) => {
       return value !== "none";
     });
-
     // basic filter setup
     let where = {
       OR: [
@@ -32,19 +28,18 @@ export const prismaGetFilteredUsers = async (filteres: Record<string, any>) => {
         ],
       },
     };
-
     // override basic setup
     filtersArr.forEach((filter) => {
-      where = { ...where, [filter[0]]: filter[1] };
+      where = Object.assign(Object.assign({}, where), {
+        [filter[0]]: filter[1],
+      });
     });
-
     return await prisma.user.findMany({ where });
   } catch (e) {
     return { error: "Лиды не получены\n" + e };
   }
 };
-
-export const prismaGetUsersBySource = async (sourceId: number) => {
+export const prismaGetPersonsBySource = async (sourceId) => {
   try {
     return await prisma.user.findMany({
       where: { sourceId },
@@ -55,8 +50,7 @@ export const prismaGetUsersBySource = async (sourceId: number) => {
     return { error: "Лиды не получены:\n" + e };
   }
 };
-
-export const prismaSearchUser = async (search: string) => {
+export const prismaSearchUser = async (search) => {
   try {
     return await prisma.user.findMany({
       where: {
@@ -70,34 +64,29 @@ export const prismaSearchUser = async (search: string) => {
     return { error: "Лиды не получены:\n" + e };
   }
 };
-
-export const prismaSaveUser = async (user: Omit<User, "id" | "createdAt">) => {
+export const prismaCreatePerson = async (user) => {
   try {
     if (!user.authorId || !user.sourceId) {
       throw new Error("authorId или sourceId = undefined");
     }
     return await prisma.user.create({
-      data: { ...user },
+      data: Object.assign({}, user),
     });
   } catch (e) {
     return { error: "Новый лид не добавлен:\n" + e };
   }
 };
-
-export const prismaUpdateUser = async (
-  user: Omit<User, "createdAt" | "sourceId" | "authorId">
-) => {
+export const prismaUpdatePerson = async (user) => {
   try {
     return await prisma.user.update({
       where: { id: user.id },
-      data: { ...user },
+      data: Object.assign({}, user),
     });
   } catch (e) {
     return { error: "Лид не обновлен " + e };
   }
 };
-
-export const prismaDeleteUser = async (id: number) => {
+export const prismaDeletePerson = async (id) => {
   try {
     return await prisma.user.delete({ where: { id } });
   } catch (e) {

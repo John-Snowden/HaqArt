@@ -101,7 +101,7 @@ export const UIHeader = observer(() => {
           {me && capitalizeName(me?.username)}
         </h3>
 
-        {false && (
+        {true && (
           <div className={styles.buttonWrapper} onClick={logout}>
             <h3 className={styles.margRight}>{translations.bttns.logout}</h3>
             <UIIcon size={25} source={"/svg/logout.svg"} />

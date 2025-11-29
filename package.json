@@ -10,10 +10,20 @@
     "stop:all": "pm2 stop all && pm2 delete all && pm2 save --force && pm2 unstartup",
     "pm2:save": "pm2 save",
     "pm2:startup": "pm2 startup",
+    "pr_gen": "npx prisma generate --schema ./shared_packages/prisma/schema.prisma",
     "pr_reset": "npx prisma migrate reset --schema ./shared_packages/prisma/schema.prisma",
     "pr_dev": "prisma migrate dev --name init --schema ./shared_packages/prisma/schema.prisma",
     "pr_prod": "prisma generate --schema ./shared_packages/prisma/schema.prisma && prisma migrate deploy --schema ./shared_packages/prisma/schema.prisma",
-    "pr_format": "prisma format --schema ./shared_packages/prisma/schema.prisma"
+    "pr_format": "prisma format --schema ./shared_packages/prisma/schema.prisma",
+    "db:psql": "psql -d userbook",
+    "pr:backup": "cp shared_packages/prisma/schema.prisma shared_packages/prisma/backup/schema_backup_$(date +%Y%m%d_%H%M%S).prisma",
+    "pr:diff": "npx prisma migrate diff --from-schema-datamodel ./shared_packages/prisma/schema_old.prisma --to-schema-datamodel ./shared_packages/prisma/schema.prisma --script > ./shared_packages/prisma/reconcile.sql",
+    "db:pull": "touch ./shared_packages/prisma/schema_old.prisma && npx prisma db pull --schema ./shared_packages/prisma/schema_old.prisma",
+    "db:dump": "node scripts/dbDump.js",
+    "db:restore_to_plainSQL": "pg_restore -f shared_packages/prisma/backup/db_backup_plain.sql -F c shared_packages/prisma/backup/db_backup_20251111095847.sql"
+  },
+  "prisma": {
+    "schema": "./shared_packages/prisma/schema.prisma"
   },
   "type": "module",
   "keywords": [],

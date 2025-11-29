@@ -120,74 +120,83 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
-exports.Prisma.ManagerScalarFieldEnum = {
+exports.Prisma.EmployeeScalarFieldEnum = {
   id: 'id',
+  createdAt: 'createdAt',
   username: 'username',
   password: 'password',
-  role: 'role',
-  createdAt: 'createdAt'
+  roles: 'roles'
 };
 
-exports.Prisma.UserScalarFieldEnum = {
+exports.Prisma.PersonScalarFieldEnum = {
   id: 'id',
-  username: 'username',
-  userLink: 'userLink',
+  createdAt: 'createdAt',
+  name: 'name',
   phoneNumber: 'phoneNumber',
+  link: 'link',
   email: 'email',
   homeAddress: 'homeAddress',
-  leadStatus: 'leadStatus',
-  taskImportance: 'taskImportance',
-  taskUrgency: 'taskUrgency',
-  taskStatus: 'taskStatus',
-  legalAction: 'legalAction',
+  authorId: 'authorId',
+  originId: 'originId',
+  leadStatus: 'leadStatus'
+};
+
+exports.Prisma.CaseScalarFieldEnum = {
+  id: 'id',
+  createdAt: 'createdAt',
+  caseImportance: 'caseImportance',
+  caseUrgency: 'caseUrgency',
+  caseStatus: 'caseStatus',
+  categories: 'categories',
   problemShort: 'problemShort',
   problemFull: 'problemFull',
   nearestTask: 'nearestTask',
+  courtInfo: 'courtInfo',
   nearestTaskDeadline: 'nearestTaskDeadline',
   timeOfPerformance: 'timeOfPerformance',
+  assignmentTime: 'assignmentTime',
+  refusalReason: 'refusalReason',
+  legalAction: 'legalAction',
+  statusInCourt: 'statusInCourt',
   priceSOM: 'priceSOM',
   priceUSD: 'priceUSD',
-  courtInfo: 'courtInfo',
-  statusInCourt: 'statusInCourt',
-  refusalReason: 'refusalReason',
-  createdAt: 'createdAt',
-  assignmentTime: 'assignmentTime',
+  personId: 'personId',
   authorId: 'authorId',
-  sourceId: 'sourceId',
   opponentId: 'opponentId',
   managerId: 'managerId'
 };
 
-exports.Prisma.SourceScalarFieldEnum = {
+exports.Prisma.OriginScalarFieldEnum = {
   id: 'id',
-  title: 'title',
-  sourceLink: 'sourceLink',
-  category: 'category',
   createdAt: 'createdAt',
+  title: 'title',
+  link: 'link',
+  categories: 'categories',
   authorId: 'authorId'
 };
 
 exports.Prisma.OpponentScalarFieldEnum = {
   id: 'id',
+  createdAt: 'createdAt',
   name: 'name',
   link: 'link',
   info: 'info',
-  createdAt: 'createdAt'
+  authorId: 'authorId'
 };
 
 exports.Prisma.BloggerScalarFieldEnum = {
   id: 'id',
+  createdAt: 'createdAt',
   name: 'name',
   link: 'link',
-  subscribersCount: 'subscribersCount',
-  info: 'info',
-  priceSOM: 'priceSOM',
-  priceUSD: 'priceUSD',
   phoneNumber: 'phoneNumber',
   email: 'email',
-  categories: 'categories',
-  createdAt: 'createdAt',
-  authorId: 'authorId'
+  info: 'info',
+  subscribersCount: 'subscribersCount',
+  priceSOM: 'priceSOM',
+  priceUSD: 'priceUSD',
+  authorId: 'authorId',
+  categories: 'categories'
 };
 
 exports.Prisma.SortOrder = {
@@ -204,87 +213,87 @@ exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
-exports.ROLES = exports.$Enums.ROLES = {
-  dev: 'dev',
-  owner: 'owner',
-  ceo: 'ceo',
-  manager: 'manager',
-  bot: 'bot'
+exports.ROLE = exports.$Enums.ROLE = {
+  DEV: 'DEV',
+  OWNER: 'OWNER',
+  CEO: 'CEO',
+  SMM_MANAGER: 'SMM_MANAGER',
+  SALES_MANAGER: 'SALES_MANAGER',
+  ACCOUNT_MANAGER: 'ACCOUNT_MANAGER',
+  LAWYER: 'LAWYER',
+  BOT: 'BOT'
 };
 
 exports.LEAD_STATUS = exports.$Enums.LEAD_STATUS = {
-  addedToDB: 'addedToDB',
-  messageSent: 'messageSent',
-  messageRead: 'messageRead',
-  replied: 'replied',
-  contactShared: 'contactShared'
+  ADDED_TO_DB: 'ADDED_TO_DB',
+  CONTACT_SHARED: 'CONTACT_SHARED',
+  CLIENT: 'CLIENT',
+  RETURNING_CLIENT: 'RETURNING_CLIENT'
 };
 
-exports.TASK_IMPORTANCE = exports.$Enums.TASK_IMPORTANCE = {
-  one: 'one',
-  two: 'two',
-  three: 'three'
+exports.IMPORTANCE = exports.$Enums.IMPORTANCE = {
+  ONE: 'ONE',
+  TWO: 'TWO',
+  THREE: 'THREE'
 };
 
-exports.TASK_URGENCY = exports.$Enums.TASK_URGENCY = {
-  one: 'one',
-  two: 'two',
-  three: 'three',
-  four: 'four',
-  five: 'five'
+exports.URGENCY = exports.$Enums.URGENCY = {
+  ONE: 'ONE',
+  TWO: 'TWO',
+  THREE: 'THREE',
+  FOUR: 'FOUR',
+  FIVE: 'FIVE'
 };
 
-exports.TASK_STATUS = exports.$Enums.TASK_STATUS = {
-  notAssigned: 'notAssigned',
-  assignedNotStarted: 'assignedNotStarted',
-  workInProgress: 'workInProgress',
-  blocked: 'blocked',
-  checkMe: 'checkMe',
-  done: 'done',
-  weRefused: 'weRefused',
-  leadRefused: 'leadRefused'
-};
-
-exports.LEGAL_ACTION = exports.$Enums.LEGAL_ACTION = {
-  none: 'none',
-  filing: 'filing',
-  courtParticipation: 'courtParticipation',
-  consultation: 'consultation',
-  appointment: 'appointment',
-  negotiations: 'negotiations',
-  claim: 'claim',
-  lawyerRequest: 'lawyerRequest'
-};
-
-exports.STATUS_IN_COURT = exports.$Enums.STATUS_IN_COURT = {
-  postponed: 'postponed',
-  paused: 'paused',
-  judgeOnVacation: 'judgeOnVacation',
-  reassigned: 'reassigned',
-  negotiations: 'negotiations',
-  returned: 'returned',
-  none: 'none'
+exports.CASE_STATUS = exports.$Enums.CASE_STATUS = {
+  UNASSIGNED: 'UNASSIGNED',
+  PENDING_START: 'PENDING_START',
+  IN_PROGRESS: 'IN_PROGRESS',
+  BLOCKED: 'BLOCKED',
+  PENDING_CHECK: 'PENDING_CHECK',
+  DONE: 'DONE',
+  WE_REFUSED: 'WE_REFUSED',
+  PERSON_REFUSED: 'PERSON_REFUSED'
 };
 
 exports.REFUSAL_REASON = exports.$Enums.REFUSAL_REASON = {
-  none: 'none',
-  choseCompetitor: 'choseCompetitor',
-  irrelevantServices: 'irrelevantServices',
-  tooExpensive: 'tooExpensive',
-  noReasonGiven: 'noReasonGiven'
+  CHOSE_COMPETITOR: 'CHOSE_COMPETITOR',
+  IRRELEVANT_SERVICES: 'IRRELEVANT_SERVICES',
+  TOO_EXPENSIVE: 'TOO_EXPENSIVE'
 };
 
-exports.SOURCE_CATEGORY = exports.$Enums.SOURCE_CATEGORY = {
-  none: 'none',
-  realEstate: 'realEstate',
-  loans: 'loans',
-  other: 'other'
+exports.LEGAL_ACTION = exports.$Enums.LEGAL_ACTION = {
+  CONSULTATION: 'CONSULTATION',
+  FILING: 'FILING',
+  COURT_PARTICIPATION: 'COURT_PARTICIPATION',
+  APPOINTMENT: 'APPOINTMENT',
+  NEGOTIATIONS: 'NEGOTIATIONS',
+  CLAIM: 'CLAIM',
+  LAWYER_REQUEST: 'LAWYER_REQUEST'
+};
+
+exports.STATUS_IN_COURT = exports.$Enums.STATUS_IN_COURT = {
+  POSTPONED: 'POSTPONED',
+  PAUSED: 'PAUSED',
+  JUDGE_ON_VACATION: 'JUDGE_ON_VACATION',
+  REASSIGNED: 'REASSIGNED',
+  NEGOTIATIONS: 'NEGOTIATIONS',
+  RETURNED: 'RETURNED'
+};
+
+exports.CASE_CATEGORY = exports.$Enums.CASE_CATEGORY = {
+  REAL_ESTATE: 'REAL_ESTATE',
+  FOREIGNERS: 'FOREIGNERS',
+  CARS: 'CARS',
+  LOANS: 'LOANS',
+  OTHER: 'OTHER'
 };
 
 exports.Prisma.ModelName = {
-  Manager: 'Manager',
-  User: 'User',
-  Source: 'Source',
+  Employee: 'Employee',
+  Person: 'Person',
+  Case: 'Case',
+  Origin: 'Origin',
   Opponent: 'Opponent',
   Blogger: 'Blogger'
 };

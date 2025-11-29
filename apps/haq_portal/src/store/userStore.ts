@@ -3,7 +3,7 @@
 import { makeAutoObservable } from "mobx";
 
 import { DraftUser } from "@/screens";
-import { prismaSaveUser } from "@shared/lib/actions/users";
+import { prismaCreatePerson } from "@shared/lib/actions/users";
 
 import RootStore from "./rootStore";
 import { SafeManagerData } from "./authStore";
@@ -26,7 +26,7 @@ export default class UserStore {
     else if (!haqBotConstructionSource)
       throw { message: "Ошибка. Сообщите разработчику." };
 
-    const res = await prismaSaveUser({
+    const res = await prismaCreatePerson({
       ...data,
       authorId: this.me.id,
       sourceId: haqBotConstructionSource.id,

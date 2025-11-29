@@ -23,8 +23,8 @@ export const EditOriginScreen = observer(() => {
   return (
     <>
       <div className={clsx(stylesGlobal.header, stylesGlobal.row)}>
-        <h1>{title || "Новый источник"}</h1>
-        <UISep isHorizontal />
+        <h1>{title || translations.headers.newOrigin}</h1>
+        <UISep />
         {canWrite && (
           <UIButton
             iconSize={14}

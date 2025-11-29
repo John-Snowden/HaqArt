@@ -1,88 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
-enum LEAD_STATUS {
-  addedToDB
-  messageSent
-  messageRead
-  replied
-  contactShared
-}
-
-enum TASK_STATUS {
-  notAssigned
-
-  assignedNotStarted
-  workInProgress
-  blocked
-  checkMe
-
-  done
-  weRefused
-  leadRefused
-}
-
-enum TASK_URGENCY {
-  one
-  two
-  three
-  four
-  five
-}
-
-enum TASK_IMPORTANCE {
-  one
-  two
-  three
-}
-
-enum ROLES {
-  dev
-  owner
-  ceo
-  manager
-  bot
-}
-
-enum LEGAL_ACTION {
-  none
-  filing
-  courtParticipation
-  consultation
-  appointment
-  negotiations
-  claim
-  lawyerRequest
-}
-
-enum STATUS_IN_COURT {
-  postponed
-  paused
-  judgeOnVacation
-  reassigned
-  negotiations
-  returned
-  none
-}
-
-enum REFUSAL_REASON {
-  none
-  choseCompetitor
-  irrelevantServices
-  tooExpensive
-  noReasonGiven
-}
-
-enum SOURCE_CATEGORY {
-  none
-  realEstate
-  loans
-  other
-}
-
 generator client {
   provider      = "prisma-client-js"
   output        = "./prisma/client"
@@ -94,101 +9,207 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Manager {
+model Employee {
   id        Int      @id @default(autoincrement())
-  username  String   @unique
-  password  String
-  role      ROLES
   createdAt DateTime @default(now())
 
-  authoredUsers User[]    @relation("UserAuthor")
-  managedUsers  User[]    @relation("UserManager")
-  sources       Source[]
-  bloggers      Blogger[]
+  username String @unique
+  password String
+  roles    ROLE[]
+
+  authoredBloggers Blogger[]
+  authoredOrigins  Origin[]
+  authoredPersons  Person[]
+  authoredCases    Case[]     @relation("authoredCases")
+  managedCases     Case[]     @relation("managedCases")
+  Opponent         Opponent[]
 }
 
-model User {
-  id          Int     @id @default(autoincrement())
-  username    String
-  userLink    String? @unique
+model Person {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+
+  name        String
   phoneNumber String? @unique
+  link        String? @unique
   email       String? @unique
-  homeAddress String
+  homeAddress String?
 
-  leadStatus     LEAD_STATUS     @default(addedToDB)
-  taskImportance TASK_IMPORTANCE @default(two)
-  taskUrgency    TASK_URGENCY    @default(three)
-  taskStatus     TASK_STATUS     @default(notAssigned)
-  legalAction    LEGAL_ACTION
+  authorId Int
+  originId Int
 
-  problemShort String
-  problemFull  String
+  leadStatus LEAD_STATUS @default(ADDED_TO_DB)
 
-  nearestTask         String    @default("")
+  cases  Case[]
+  author Employee @relation(fields: [authorId], references: [id])
+  origin Origin   @relation(fields: [originId], references: [id])
+}
+
+model Case {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+
+  caseImportance IMPORTANCE      @default(TWO)
+  caseUrgency    URGENCY         @default(THREE)
+  caseStatus     CASE_STATUS     @default(UNASSIGNED)
+  categories     CASE_CATEGORY[]
+
+  problemShort        String?
+  problemFull         String?
+  nearestTask         String?
+  courtInfo           String?
   nearestTaskDeadline DateTime?
   timeOfPerformance   DateTime?
-
-  priceSOM BigInt?
-  priceUSD BigInt?
-
-  courtInfo     String          @default("")
-  statusInCourt STATUS_IN_COURT @default(none)
+  assignmentTime      DateTime?
 
   refusalReason REFUSAL_REASON?
+  legalAction   LEGAL_ACTION?
+  statusInCourt STATUS_IN_COURT?
+  priceSOM      BigInt?
+  priceUSD      BigInt?
 
-  createdAt      DateTime  @default(now())
-  assignmentTime DateTime?
-
-  authorId Int
-  author   Manager @relation("UserAuthor", fields: [authorId], references: [id])
-
-  sourceId Int
-  source   Source @relation(fields: [sourceId], references: [id])
-
+  personId   Int
+  authorId   Int
   opponentId Int?
-  opponent   Opponent? @relation(fields: [opponentId], references: [id])
+  managerId  Int?
 
-  managerId Int?
-  manager   Manager? @relation("UserManager", fields: [managerId], references: [id])
+  author   Employee  @relation("authoredCases", fields: [authorId], references: [id])
+  manager  Employee? @relation("managedCases", fields: [managerId], references: [id])
+  opponent Opponent? @relation(fields: [opponentId], references: [id])
+  person   Person    @relation(fields: [personId], references: [id])
 }
 
-model Source {
-  id         Int             @id @default(autoincrement())
-  title      String          @unique
-  sourceLink String?         @unique
-  category   SOURCE_CATEGORY
-
+model Origin {
+  id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
 
-  authorId Int
-  author   Manager @relation(fields: [authorId], references: [id])
+  title      String          @unique
+  link       String?         @unique
+  categories CASE_CATEGORY[]
 
-  users User[]
+  authorId Int
+
+  author  Employee @relation(fields: [authorId], references: [id])
+  persons Person[]
 }
 
 model Opponent {
   id        Int      @id @default(autoincrement())
-  name      String   @unique
-  link      String?  @unique
-  info      String   @default("")
   createdAt DateTime @default(now())
 
-  users User[]
+  name String  @unique
+  link String? @unique
+  info String?
+
+  authorId Int
+
+  cases  Case[]
+  author Employee @relation(fields: [authorId], references: [id])
 }
 
 model Blogger {
-  id               Int               @id @default(autoincrement())
-  name             String            @unique
-  link             String            @unique
-  subscribersCount Int
-  info             String            @default("")
-  priceSOM         Int?
-  priceUSD         Int?
-  phoneNumber      String?           @unique
-  email            String?           @unique
-  categories       SOURCE_CATEGORY[]
-  createdAt        DateTime          @default(now())
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+
+  name             String  @unique
+  link             String  @unique
+  phoneNumber      String? @unique
+  email            String? @unique
+  info             String?
+  subscribersCount BigInt
+
+  priceSOM BigInt?
+  priceUSD BigInt?
 
   authorId Int
-  author   Manager @relation(fields: [authorId], references: [id])
+
+  categories CASE_CATEGORY[]
+  author     Employee        @relation(fields: [authorId], references: [id])
+}
+
+model Call{
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now())
+
+  personId Int
+  authorId Int
+
+  author Employee @relation(fields: [authorId], references: [id])
+  person Person @relation(fields: [personId], references: [id])
+}
+
+enum LEAD_STATUS {
+  ADDED_TO_DB
+  CONTACT_SHARED
+  CLIENT
+  RETURNING_CLIENT
+}
+
+enum CASE_STATUS {
+  UNASSIGNED
+  PENDING_START
+  IN_PROGRESS
+  BLOCKED
+  PENDING_CHECK
+  DONE
+  WE_REFUSED
+  PERSON_REFUSED
+}
+
+enum URGENCY {
+  ONE
+  TWO
+  THREE
+  FOUR
+  FIVE
+}
+
+enum IMPORTANCE {
+  ONE
+  TWO
+  THREE
+}
+
+enum ROLE {
+  DEV
+  OWNER
+  CEO
+  SMM_MANAGER
+  SALES_MANAGER
+  ACCOUNT_MANAGER
+  LAWYER
+  BOT
+}
+
+enum LEGAL_ACTION {
+  CONSULTATION
+  FILING
+  COURT_PARTICIPATION
+  APPOINTMENT
+  NEGOTIATIONS
+  CLAIM
+  LAWYER_REQUEST
+}
+
+enum STATUS_IN_COURT {
+  POSTPONED
+  PAUSED
+  JUDGE_ON_VACATION
+  REASSIGNED
+  NEGOTIATIONS
+  RETURNED
+}
+
+enum REFUSAL_REASON {
+  CHOSE_COMPETITOR
+  IRRELEVANT_SERVICES
+  TOO_EXPENSIVE
+}
+
+enum CASE_CATEGORY {
+  REAL_ESTATE
+  FOREIGNERS
+  CARS
+  LOANS
+  OTHER
 }

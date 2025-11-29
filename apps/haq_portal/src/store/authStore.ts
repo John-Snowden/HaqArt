@@ -3,7 +3,7 @@
 import { makeAutoObservable, runInAction } from "mobx";
 
 import { Manager } from "@shared/prisma/prisma/client";
-import { prismaGetHaqBotManager } from "@shared/lib/actions/manager";
+import { prismaGetHaqBotEmployee } from "@shared/lib/actions/manager";
 
 import RootStore from "./rootStore";
 import { toast } from "sonner";
@@ -26,7 +26,7 @@ export default class AuthStore {
 
   getHaqBotAsManager = async () => {
     try {
-      const res = await prismaGetHaqBotManager();
+      const res = await prismaGetHaqBotEmployee();
       if ("error" in res) {
         toast.error("Произошла ошибка, пожалуйста сообщите разработчику");
       } else runInAction(() => (this.me = res));

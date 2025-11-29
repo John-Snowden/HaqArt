@@ -2,14 +2,14 @@
 
 import prisma from "@shared/prisma";
 
-export const prismaGetSources = async () => {
+export const prismaGetOrigins = async () => {
   try {
     return await prisma.source.findMany();
   } catch (e) {
     return { error: "Источники не получены:\n" + e };
   }
 };
-export const prismaSaveSource = async (
+export const prismaCreateOrigin = async (
   title,
   sourceLink,
   category,
@@ -23,7 +23,7 @@ export const prismaSaveSource = async (
     return { error: "Источник не создан:\n" + e };
   }
 };
-export const prismaDeleteSource = async (id) => {
+export const prismaDeleteOrigin = async (id) => {
   try {
     return await prisma.source.delete({ where: { id } });
   } catch (e) {

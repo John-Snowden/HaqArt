@@ -104,6 +104,8 @@ export const translations: {
     allBloggers: "Все блогеры",
     myCases: "Мои суды",
     opponent: "Оппонент",
+    newOrigin: "Новый источник",
+    newPerson: "Новый пользователь",
     newOpponent: "Новый оппонент",
     newBlogger: "Новый блогер",
   },

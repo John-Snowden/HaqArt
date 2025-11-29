@@ -3,7 +3,7 @@
 import { makeAutoObservable, runInAction } from "mobx";
 
 import { Source } from "@shared/prisma/prisma/client";
-import { prismaGetSourcesByAuthorId } from "@shared/lib/actions/sources";
+import { prismaGetOriginsByAuthorId } from "@shared/lib/actions/sources";
 
 import { toast } from "sonner";
 import RootStore from "./rootStore";
@@ -31,7 +31,7 @@ export default class SourcesStore {
         );
         return;
       }
-      const res = await prismaGetSourcesByAuthorId(this.me.id);
+      const res = await prismaGetOriginsByAuthorId(this.me.id);
       if ("error" in res)
         toast.error(
           "Ошибка, необходимые данные не загружены. Сообщите, пожалуйста, разработчику.",

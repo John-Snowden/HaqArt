@@ -2,7 +2,7 @@
 import { format } from "date-fns";
 import { ru } from "date-fns/locale";
 import prisma from "@shared/prisma";
-export const prismaGetManagers = async () => {
+export const prismaGetEmployees = async () => {
   try {
     const res = await prisma.manager.findMany({
       select: {
@@ -17,7 +17,7 @@ export const prismaGetManagers = async () => {
     return { error: "Менеджеры не получены " + e };
   }
 };
-export const prismaGetManagerStats = async (managerId) => {
+export const prismaGetEmployeeStats = async (managerId) => {
   try {
     // return await getTotalCount(managerId);
     const lastRecordDate = await getLastRecordDate(managerId);

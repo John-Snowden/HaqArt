@@ -92,74 +92,83 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
-exports.Prisma.ManagerScalarFieldEnum = {
+exports.Prisma.EmployeeScalarFieldEnum = {
   id: 'id',
+  createdAt: 'createdAt',
   username: 'username',
   password: 'password',
-  role: 'role',
-  createdAt: 'createdAt'
+  roles: 'roles'
 };
 
-exports.Prisma.UserScalarFieldEnum = {
+exports.Prisma.PersonScalarFieldEnum = {
   id: 'id',
-  username: 'username',
-  userLink: 'userLink',
+  createdAt: 'createdAt',
+  name: 'name',
   phoneNumber: 'phoneNumber',
+  link: 'link',
   email: 'email',
   homeAddress: 'homeAddress',
-  leadStatus: 'leadStatus',
-  taskImportance: 'taskImportance',
-  taskUrgency: 'taskUrgency',
-  taskStatus: 'taskStatus',
-  legalAction: 'legalAction',
+  authorId: 'authorId',
+  originId: 'originId',
+  leadStatus: 'leadStatus'
+};
+
+exports.Prisma.CaseScalarFieldEnum = {
+  id: 'id',
+  createdAt: 'createdAt',
+  caseImportance: 'caseImportance',
+  caseUrgency: 'caseUrgency',
+  caseStatus: 'caseStatus',
+  categories: 'categories',
   problemShort: 'problemShort',
   problemFull: 'problemFull',
   nearestTask: 'nearestTask',
+  courtInfo: 'courtInfo',
   nearestTaskDeadline: 'nearestTaskDeadline',
   timeOfPerformance: 'timeOfPerformance',
+  assignmentTime: 'assignmentTime',
+  refusalReason: 'refusalReason',
+  legalAction: 'legalAction',
+  statusInCourt: 'statusInCourt',
   priceSOM: 'priceSOM',
   priceUSD: 'priceUSD',
-  courtInfo: 'courtInfo',
-  statusInCourt: 'statusInCourt',
-  refusalReason: 'refusalReason',
-  createdAt: 'createdAt',
-  assignmentTime: 'assignmentTime',
+  personId: 'personId',
   authorId: 'authorId',
-  sourceId: 'sourceId',
   opponentId: 'opponentId',
   managerId: 'managerId'
 };
 
-exports.Prisma.SourceScalarFieldEnum = {
+exports.Prisma.OriginScalarFieldEnum = {
   id: 'id',
-  title: 'title',
-  sourceLink: 'sourceLink',
-  category: 'category',
   createdAt: 'createdAt',
+  title: 'title',
+  link: 'link',
+  categories: 'categories',
   authorId: 'authorId'
 };
 
 exports.Prisma.OpponentScalarFieldEnum = {
   id: 'id',
+  createdAt: 'createdAt',
   name: 'name',
   link: 'link',
   info: 'info',
-  createdAt: 'createdAt'
+  authorId: 'authorId'
 };
 
 exports.Prisma.BloggerScalarFieldEnum = {
   id: 'id',
+  createdAt: 'createdAt',
   name: 'name',
   link: 'link',
-  subscribersCount: 'subscribersCount',
-  info: 'info',
-  priceSOM: 'priceSOM',
-  priceUSD: 'priceUSD',
   phoneNumber: 'phoneNumber',
   email: 'email',
-  categories: 'categories',
-  createdAt: 'createdAt',
-  authorId: 'authorId'
+  info: 'info',
+  subscribersCount: 'subscribersCount',
+  priceSOM: 'priceSOM',
+  priceUSD: 'priceUSD',
+  authorId: 'authorId',
+  categories: 'categories'
 };
 
 exports.Prisma.SortOrder = {
@@ -177,86 +186,86 @@ exports.Prisma.NullsOrder = {
   last: 'last'
 };
 exports.LEAD_STATUS = exports.$Enums.LEAD_STATUS = {
-  addedToDB: 'addedToDB',
-  messageSent: 'messageSent',
-  messageRead: 'messageRead',
-  replied: 'replied',
-  contactShared: 'contactShared'
+  ADDED_TO_DB: 'ADDED_TO_DB',
+  CONTACT_SHARED: 'CONTACT_SHARED',
+  CLIENT: 'CLIENT',
+  RETURNING_CLIENT: 'RETURNING_CLIENT'
 };
 
-exports.TASK_STATUS = exports.$Enums.TASK_STATUS = {
-  notAssigned: 'notAssigned',
-  assignedNotStarted: 'assignedNotStarted',
-  workInProgress: 'workInProgress',
-  blocked: 'blocked',
-  checkMe: 'checkMe',
-  done: 'done',
-  weRefused: 'weRefused',
-  leadRefused: 'leadRefused'
+exports.CASE_STATUS = exports.$Enums.CASE_STATUS = {
+  UNASSIGNED: 'UNASSIGNED',
+  PENDING_START: 'PENDING_START',
+  IN_PROGRESS: 'IN_PROGRESS',
+  BLOCKED: 'BLOCKED',
+  PENDING_CHECK: 'PENDING_CHECK',
+  DONE: 'DONE',
+  WE_REFUSED: 'WE_REFUSED',
+  PERSON_REFUSED: 'PERSON_REFUSED'
 };
 
-exports.TASK_URGENCY = exports.$Enums.TASK_URGENCY = {
-  one: 'one',
-  two: 'two',
-  three: 'three',
-  four: 'four',
-  five: 'five'
+exports.URGENCY = exports.$Enums.URGENCY = {
+  ONE: 'ONE',
+  TWO: 'TWO',
+  THREE: 'THREE',
+  FOUR: 'FOUR',
+  FIVE: 'FIVE'
 };
 
-exports.TASK_IMPORTANCE = exports.$Enums.TASK_IMPORTANCE = {
-  one: 'one',
-  two: 'two',
-  three: 'three'
+exports.IMPORTANCE = exports.$Enums.IMPORTANCE = {
+  ONE: 'ONE',
+  TWO: 'TWO',
+  THREE: 'THREE'
 };
 
-exports.ROLES = exports.$Enums.ROLES = {
-  dev: 'dev',
-  owner: 'owner',
-  ceo: 'ceo',
-  manager: 'manager',
-  bot: 'bot'
+exports.ROLE = exports.$Enums.ROLE = {
+  DEV: 'DEV',
+  OWNER: 'OWNER',
+  CEO: 'CEO',
+  SMM_MANAGER: 'SMM_MANAGER',
+  SALES_MANAGER: 'SALES_MANAGER',
+  ACCOUNT_MANAGER: 'ACCOUNT_MANAGER',
+  LAWYER: 'LAWYER',
+  BOT: 'BOT'
 };
 
 exports.LEGAL_ACTION = exports.$Enums.LEGAL_ACTION = {
-  none: 'none',
-  filing: 'filing',
-  courtParticipation: 'courtParticipation',
-  consultation: 'consultation',
-  appointment: 'appointment',
-  negotiations: 'negotiations',
-  claim: 'claim',
-  lawyerRequest: 'lawyerRequest'
+  CONSULTATION: 'CONSULTATION',
+  FILING: 'FILING',
+  COURT_PARTICIPATION: 'COURT_PARTICIPATION',
+  APPOINTMENT: 'APPOINTMENT',
+  NEGOTIATIONS: 'NEGOTIATIONS',
+  CLAIM: 'CLAIM',
+  LAWYER_REQUEST: 'LAWYER_REQUEST'
 };
 
 exports.STATUS_IN_COURT = exports.$Enums.STATUS_IN_COURT = {
-  postponed: 'postponed',
-  paused: 'paused',
-  judgeOnVacation: 'judgeOnVacation',
-  reassigned: 'reassigned',
-  negotiations: 'negotiations',
-  returned: 'returned',
-  none: 'none'
+  POSTPONED: 'POSTPONED',
+  PAUSED: 'PAUSED',
+  JUDGE_ON_VACATION: 'JUDGE_ON_VACATION',
+  REASSIGNED: 'REASSIGNED',
+  NEGOTIATIONS: 'NEGOTIATIONS',
+  RETURNED: 'RETURNED'
 };
 
 exports.REFUSAL_REASON = exports.$Enums.REFUSAL_REASON = {
-  none: 'none',
-  choseCompetitor: 'choseCompetitor',
-  irrelevantServices: 'irrelevantServices',
-  tooExpensive: 'tooExpensive',
-  noReasonGiven: 'noReasonGiven'
+  CHOSE_COMPETITOR: 'CHOSE_COMPETITOR',
+  IRRELEVANT_SERVICES: 'IRRELEVANT_SERVICES',
+  TOO_EXPENSIVE: 'TOO_EXPENSIVE'
 };
 
-exports.SOURCE_CATEGORY = exports.$Enums.SOURCE_CATEGORY = {
-  none: 'none',
-  realEstate: 'realEstate',
-  loans: 'loans',
-  other: 'other'
+exports.CASE_CATEGORY = exports.$Enums.CASE_CATEGORY = {
+  REAL_ESTATE: 'REAL_ESTATE',
+  FOREIGNERS: 'FOREIGNERS',
+  CARS: 'CARS',
+  LOANS: 'LOANS',
+  OTHER: 'OTHER'
 };
 
 exports.Prisma.ModelName = {
-  Manager: 'Manager',
-  User: 'User',
-  Source: 'Source',
+  Employee: 'Employee',
+  Person: 'Person',
+  Case: 'Case',
+  Origin: 'Origin',
   Opponent: 'Opponent',
   Blogger: 'Blogger'
 };
@@ -315,13 +324,13 @@ const config = {
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\nenum LEAD_STATUS {\n  addedToDB\n  messageSent\n  messageRead\n  replied\n  contactShared\n}\n\nenum TASK_STATUS {\n  notAssigned\n\n  assignedNotStarted\n  workInProgress\n  blocked\n  checkMe\n\n  done\n  weRefused\n  leadRefused\n}\n\nenum TASK_URGENCY {\n  one\n  two\n  three\n  four\n  five\n}\n\nenum TASK_IMPORTANCE {\n  one\n  two\n  three\n}\n\nenum ROLES {\n  dev\n  owner\n  ceo\n  manager\n  bot\n}\n\nenum LEGAL_ACTION {\n  none\n  filing\n  courtParticipation\n  consultation\n  appointment\n  negotiations\n  claim\n  lawyerRequest\n}\n\nenum STATUS_IN_COURT {\n  postponed\n  paused\n  judgeOnVacation\n  reassigned\n  negotiations\n  returned\n  none\n}\n\nenum REFUSAL_REASON {\n  none\n  choseCompetitor\n  irrelevantServices\n  tooExpensive\n  noReasonGiven\n}\n\nenum SOURCE_CATEGORY {\n  none\n  realEstate\n  loans\n  other\n}\n\ngenerator client {\n  provider      = \"prisma-client-js\"\n  output        = \"./prisma/client\"\n  binaryTargets = [\"native\", \"darwin-arm64\", \"debian-openssl-3.0.x\"]\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Manager {\n  id        Int      @id @default(autoincrement())\n  username  String   @unique\n  password  String\n  role      ROLES\n  createdAt DateTime @default(now())\n\n  authoredUsers User[]    @relation(\"UserAuthor\")\n  managedUsers  User[]    @relation(\"UserManager\")\n  sources       Source[]\n  bloggers      Blogger[]\n}\n\nmodel User {\n  id          Int     @id @default(autoincrement())\n  username    String\n  userLink    String? @unique\n  phoneNumber String? @unique\n  email       String? @unique\n  homeAddress String\n\n  leadStatus     LEAD_STATUS     @default(addedToDB)\n  taskImportance TASK_IMPORTANCE @default(two)\n  taskUrgency    TASK_URGENCY    @default(three)\n  taskStatus     TASK_STATUS     @default(notAssigned)\n  legalAction    LEGAL_ACTION\n\n  problemShort String\n  problemFull  String\n\n  nearestTask         String    @default(\"\")\n  nearestTaskDeadline DateTime?\n  timeOfPerformance   DateTime?\n\n  priceSOM BigInt?\n  priceUSD BigInt?\n\n  courtInfo     String          @default(\"\")\n  statusInCourt STATUS_IN_COURT @default(none)\n\n  refusalReason REFUSAL_REASON?\n\n  createdAt      DateTime  @default(now())\n  assignmentTime DateTime?\n\n  authorId Int\n  author   Manager @relation(\"UserAuthor\", fields: [authorId], references: [id])\n\n  sourceId Int\n  source   Source @relation(fields: [sourceId], references: [id])\n\n  opponentId Int?\n  opponent   Opponent? @relation(fields: [opponentId], references: [id])\n\n  managerId Int?\n  manager   Manager? @relation(\"UserManager\", fields: [managerId], references: [id])\n}\n\nmodel Source {\n  id         Int             @id @default(autoincrement())\n  title      String          @unique\n  sourceLink String?         @unique\n  category   SOURCE_CATEGORY\n\n  createdAt DateTime @default(now())\n\n  authorId Int\n  author   Manager @relation(fields: [authorId], references: [id])\n\n  users User[]\n}\n\nmodel Opponent {\n  id        Int      @id @default(autoincrement())\n  name      String   @unique\n  link      String?  @unique\n  info      String   @default(\"\")\n  createdAt DateTime @default(now())\n\n  users User[]\n}\n\nmodel Blogger {\n  id               Int               @id @default(autoincrement())\n  name             String            @unique\n  link             String            @unique\n  subscribersCount Int\n  info             String            @default(\"\")\n  priceSOM         Int?\n  priceUSD         Int?\n  phoneNumber      String?           @unique\n  email            String?           @unique\n  categories       SOURCE_CATEGORY[]\n  createdAt        DateTime          @default(now())\n\n  authorId Int\n  author   Manager @relation(fields: [authorId], references: [id])\n}\n",
-  "inlineSchemaHash": "a988c7b1bb167aae47bafa4bf1cf2c19590c72531016a70daa7e65330be97d70",
+  "inlineSchema": "generator client {\n  provider      = \"prisma-client-js\"\n  output        = \"./prisma/client\"\n  binaryTargets = [\"native\", \"darwin-arm64\", \"debian-openssl-3.0.x\"]\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Employee {\n  id        Int      @id @default(autoincrement())\n  createdAt DateTime @default(now())\n\n  username String @unique\n  password String\n  roles    ROLE[]\n\n  authoredBloggers Blogger[]\n  authoredOrigins  Origin[]\n  authoredPersons  Person[]\n  authoredCases    Case[]     @relation(\"authoredCases\")\n  managedCases     Case[]     @relation(\"managedCases\")\n  Opponent         Opponent[]\n}\n\nmodel Person {\n  id        Int      @id @default(autoincrement())\n  createdAt DateTime @default(now())\n\n  name        String\n  phoneNumber String? @unique\n  link        String? @unique\n  email       String? @unique\n  homeAddress String?\n\n  authorId Int\n  originId Int\n\n  leadStatus LEAD_STATUS @default(ADDED_TO_DB)\n\n  cases  Case[]\n  author Employee @relation(fields: [authorId], references: [id])\n  origin Origin   @relation(fields: [originId], references: [id])\n}\n\nmodel Case {\n  id        Int      @id @default(autoincrement())\n  createdAt DateTime @default(now())\n\n  caseImportance IMPORTANCE      @default(TWO)\n  caseUrgency    URGENCY         @default(THREE)\n  caseStatus     CASE_STATUS     @default(UNASSIGNED)\n  categories     CASE_CATEGORY[]\n\n  problemShort        String?\n  problemFull         String?\n  nearestTask         String?\n  courtInfo           String?\n  nearestTaskDeadline DateTime?\n  timeOfPerformance   DateTime?\n  assignmentTime      DateTime?\n\n  refusalReason REFUSAL_REASON?\n  legalAction   LEGAL_ACTION?\n  statusInCourt STATUS_IN_COURT?\n  priceSOM      BigInt?\n  priceUSD      BigInt?\n\n  personId   Int\n  authorId   Int\n  opponentId Int?\n  managerId  Int?\n\n  author   Employee  @relation(\"authoredCases\", fields: [authorId], references: [id])\n  manager  Employee? @relation(\"managedCases\", fields: [managerId], references: [id])\n  opponent Opponent? @relation(fields: [opponentId], references: [id])\n  person   Person    @relation(fields: [personId], references: [id])\n}\n\nmodel Origin {\n  id        Int      @id @default(autoincrement())\n  createdAt DateTime @default(now())\n\n  title      String          @unique\n  link       String?         @unique\n  categories CASE_CATEGORY[]\n\n  authorId Int\n\n  author  Employee @relation(fields: [authorId], references: [id])\n  persons Person[]\n}\n\nmodel Opponent {\n  id        Int      @id @default(autoincrement())\n  createdAt DateTime @default(now())\n\n  name String  @unique\n  link String? @unique\n  info String?\n\n  authorId Int\n\n  cases  Case[]\n  author Employee @relation(fields: [authorId], references: [id])\n}\n\nmodel Blogger {\n  id        Int      @id @default(autoincrement())\n  createdAt DateTime @default(now())\n\n  name             String  @unique\n  link             String  @unique\n  phoneNumber      String? @unique\n  email            String? @unique\n  info             String?\n  subscribersCount BigInt\n\n  priceSOM BigInt?\n  priceUSD BigInt?\n\n  authorId Int\n\n  categories CASE_CATEGORY[]\n  author     Employee        @relation(fields: [authorId], references: [id])\n}\n\nenum LEAD_STATUS {\n  ADDED_TO_DB\n  CONTACT_SHARED\n  CLIENT\n  RETURNING_CLIENT\n}\n\nenum CASE_STATUS {\n  UNASSIGNED\n  PENDING_START\n  IN_PROGRESS\n  BLOCKED\n  PENDING_CHECK\n  DONE\n  WE_REFUSED\n  PERSON_REFUSED\n}\n\nenum URGENCY {\n  ONE\n  TWO\n  THREE\n  FOUR\n  FIVE\n}\n\nenum IMPORTANCE {\n  ONE\n  TWO\n  THREE\n}\n\nenum ROLE {\n  DEV\n  OWNER\n  CEO\n  SMM_MANAGER\n  SALES_MANAGER\n  ACCOUNT_MANAGER\n  LAWYER\n  BOT\n}\n\nenum LEGAL_ACTION {\n  CONSULTATION\n  FILING\n  COURT_PARTICIPATION\n  APPOINTMENT\n  NEGOTIATIONS\n  CLAIM\n  LAWYER_REQUEST\n}\n\nenum STATUS_IN_COURT {\n  POSTPONED\n  PAUSED\n  JUDGE_ON_VACATION\n  REASSIGNED\n  NEGOTIATIONS\n  RETURNED\n}\n\nenum REFUSAL_REASON {\n  CHOSE_COMPETITOR\n  IRRELEVANT_SERVICES\n  TOO_EXPENSIVE\n}\n\nenum CASE_CATEGORY {\n  REAL_ESTATE\n  FOREIGNERS\n  CARS\n  LOANS\n  OTHER\n}\n",
+  "inlineSchemaHash": "c6664c0f2f3b5c11e00f9f7db60d8e40343df8914cf94baf4f777959d9a13f29",
   "copyEngine": true
 }
 config.dirname = '/'
 
-config.runtimeDataModel = JSON.parse("{\"models\":{\"Manager\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"username\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"password\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"role\",\"kind\":\"enum\",\"type\":\"ROLES\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"authoredUsers\",\"kind\":\"object\",\"type\":\"User\",\"relationName\":\"UserAuthor\"},{\"name\":\"managedUsers\",\"kind\":\"object\",\"type\":\"User\",\"relationName\":\"UserManager\"},{\"name\":\"sources\",\"kind\":\"object\",\"type\":\"Source\",\"relationName\":\"ManagerToSource\"},{\"name\":\"bloggers\",\"kind\":\"object\",\"type\":\"Blogger\",\"relationName\":\"BloggerToManager\"}],\"dbName\":null},\"User\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"username\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"userLink\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"phoneNumber\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"email\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"homeAddress\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"leadStatus\",\"kind\":\"enum\",\"type\":\"LEAD_STATUS\"},{\"name\":\"taskImportance\",\"kind\":\"enum\",\"type\":\"TASK_IMPORTANCE\"},{\"name\":\"taskUrgency\",\"kind\":\"enum\",\"type\":\"TASK_URGENCY\"},{\"name\":\"taskStatus\",\"kind\":\"enum\",\"type\":\"TASK_STATUS\"},{\"name\":\"legalAction\",\"kind\":\"enum\",\"type\":\"LEGAL_ACTION\"},{\"name\":\"problemShort\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"problemFull\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"nearestTask\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"nearestTaskDeadline\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"timeOfPerformance\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"priceSOM\",\"kind\":\"scalar\",\"type\":\"BigInt\"},{\"name\":\"priceUSD\",\"kind\":\"scalar\",\"type\":\"BigInt\"},{\"name\":\"courtInfo\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"statusInCourt\",\"kind\":\"enum\",\"type\":\"STATUS_IN_COURT\"},{\"name\":\"refusalReason\",\"kind\":\"enum\",\"type\":\"REFUSAL_REASON\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"assignmentTime\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"authorId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"author\",\"kind\":\"object\",\"type\":\"Manager\",\"relationName\":\"UserAuthor\"},{\"name\":\"sourceId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"source\",\"kind\":\"object\",\"type\":\"Source\",\"relationName\":\"SourceToUser\"},{\"name\":\"opponentId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"opponent\",\"kind\":\"object\",\"type\":\"Opponent\",\"relationName\":\"OpponentToUser\"},{\"name\":\"managerId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"manager\",\"kind\":\"object\",\"type\":\"Manager\",\"relationName\":\"UserManager\"}],\"dbName\":null},\"Source\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"title\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"sourceLink\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"category\",\"kind\":\"enum\",\"type\":\"SOURCE_CATEGORY\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"authorId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"author\",\"kind\":\"object\",\"type\":\"Manager\",\"relationName\":\"ManagerToSource\"},{\"name\":\"users\",\"kind\":\"object\",\"type\":\"User\",\"relationName\":\"SourceToUser\"}],\"dbName\":null},\"Opponent\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"link\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"info\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"users\",\"kind\":\"object\",\"type\":\"User\",\"relationName\":\"OpponentToUser\"}],\"dbName\":null},\"Blogger\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"link\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"subscribersCount\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"info\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"priceSOM\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"priceUSD\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"phoneNumber\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"email\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"categories\",\"kind\":\"enum\",\"type\":\"SOURCE_CATEGORY\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"authorId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"author\",\"kind\":\"object\",\"type\":\"Manager\",\"relationName\":\"BloggerToManager\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
+config.runtimeDataModel = JSON.parse("{\"models\":{\"Employee\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"username\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"password\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"roles\",\"kind\":\"enum\",\"type\":\"ROLE\"},{\"name\":\"authoredBloggers\",\"kind\":\"object\",\"type\":\"Blogger\",\"relationName\":\"BloggerToEmployee\"},{\"name\":\"authoredOrigins\",\"kind\":\"object\",\"type\":\"Origin\",\"relationName\":\"EmployeeToOrigin\"},{\"name\":\"authoredPersons\",\"kind\":\"object\",\"type\":\"Person\",\"relationName\":\"EmployeeToPerson\"},{\"name\":\"authoredCases\",\"kind\":\"object\",\"type\":\"Case\",\"relationName\":\"authoredCases\"},{\"name\":\"managedCases\",\"kind\":\"object\",\"type\":\"Case\",\"relationName\":\"managedCases\"},{\"name\":\"Opponent\",\"kind\":\"object\",\"type\":\"Opponent\",\"relationName\":\"EmployeeToOpponent\"}],\"dbName\":null},\"Person\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"phoneNumber\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"link\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"email\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"homeAddress\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"authorId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"originId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"leadStatus\",\"kind\":\"enum\",\"type\":\"LEAD_STATUS\"},{\"name\":\"cases\",\"kind\":\"object\",\"type\":\"Case\",\"relationName\":\"CaseToPerson\"},{\"name\":\"author\",\"kind\":\"object\",\"type\":\"Employee\",\"relationName\":\"EmployeeToPerson\"},{\"name\":\"origin\",\"kind\":\"object\",\"type\":\"Origin\",\"relationName\":\"OriginToPerson\"}],\"dbName\":null},\"Case\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"caseImportance\",\"kind\":\"enum\",\"type\":\"IMPORTANCE\"},{\"name\":\"caseUrgency\",\"kind\":\"enum\",\"type\":\"URGENCY\"},{\"name\":\"caseStatus\",\"kind\":\"enum\",\"type\":\"CASE_STATUS\"},{\"name\":\"categories\",\"kind\":\"enum\",\"type\":\"CASE_CATEGORY\"},{\"name\":\"problemShort\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"problemFull\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"nearestTask\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"courtInfo\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"nearestTaskDeadline\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"timeOfPerformance\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"assignmentTime\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"refusalReason\",\"kind\":\"enum\",\"type\":\"REFUSAL_REASON\"},{\"name\":\"legalAction\",\"kind\":\"enum\",\"type\":\"LEGAL_ACTION\"},{\"name\":\"statusInCourt\",\"kind\":\"enum\",\"type\":\"STATUS_IN_COURT\"},{\"name\":\"priceSOM\",\"kind\":\"scalar\",\"type\":\"BigInt\"},{\"name\":\"priceUSD\",\"kind\":\"scalar\",\"type\":\"BigInt\"},{\"name\":\"personId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"authorId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"opponentId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"managerId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"author\",\"kind\":\"object\",\"type\":\"Employee\",\"relationName\":\"authoredCases\"},{\"name\":\"manager\",\"kind\":\"object\",\"type\":\"Employee\",\"relationName\":\"managedCases\"},{\"name\":\"opponent\",\"kind\":\"object\",\"type\":\"Opponent\",\"relationName\":\"CaseToOpponent\"},{\"name\":\"person\",\"kind\":\"object\",\"type\":\"Person\",\"relationName\":\"CaseToPerson\"}],\"dbName\":null},\"Origin\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"title\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"link\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"categories\",\"kind\":\"enum\",\"type\":\"CASE_CATEGORY\"},{\"name\":\"authorId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"author\",\"kind\":\"object\",\"type\":\"Employee\",\"relationName\":\"EmployeeToOrigin\"},{\"name\":\"persons\",\"kind\":\"object\",\"type\":\"Person\",\"relationName\":\"OriginToPerson\"}],\"dbName\":null},\"Opponent\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"link\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"info\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"authorId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"cases\",\"kind\":\"object\",\"type\":\"Case\",\"relationName\":\"CaseToOpponent\"},{\"name\":\"author\",\"kind\":\"object\",\"type\":\"Employee\",\"relationName\":\"EmployeeToOpponent\"}],\"dbName\":null},\"Blogger\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"link\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"phoneNumber\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"email\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"info\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"subscribersCount\",\"kind\":\"scalar\",\"type\":\"BigInt\"},{\"name\":\"priceSOM\",\"kind\":\"scalar\",\"type\":\"BigInt\"},{\"name\":\"priceUSD\",\"kind\":\"scalar\",\"type\":\"BigInt\"},{\"name\":\"authorId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"categories\",\"kind\":\"enum\",\"type\":\"CASE_CATEGORY\"},{\"name\":\"author\",\"kind\":\"object\",\"type\":\"Employee\",\"relationName\":\"BloggerToEmployee\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
 defineDmmfProperty(exports.Prisma, config.runtimeDataModel)
 config.engineWasm = {
   getRuntime: async () => require('./query_engine_bg.js'),

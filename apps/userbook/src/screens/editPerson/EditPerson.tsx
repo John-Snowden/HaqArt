@@ -33,8 +33,8 @@ export const EditPersonScreen = observer(() => {
   return (
     <>
       <div className={stylesGlobal.header}>
-        <h1>{name || "Новый пользователь"}</h1>
-        <UISep isHorizontal />
+        <h1>{name || translations.headers.newPerson}</h1>
+        <UISep />
         <UIButton
           iconSize={14}
           icon="/svg/add.svg"

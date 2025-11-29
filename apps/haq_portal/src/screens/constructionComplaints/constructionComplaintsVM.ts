@@ -5,13 +5,13 @@ import { makeAutoObservable } from "mobx";
 
 import RootStore from "@/store/rootStore";
 import {
+  User,
   TASK_STATUS,
   LEAD_STATUS,
   LEGAL_ACTION,
   TASK_URGENCY,
   STATUS_IN_COURT,
   TASK_IMPORTANCE,
-  User,
 } from "@shared/prisma/prisma/client";
 import { translations } from "@/localize";
 
@@ -88,7 +88,7 @@ export default class ConstructionComplaintsVM implements WritableUserFields {
       success: () => complaints.successMessage[this.lang],
       error: (e) => {
         const isPhoneNumberAlreadyRegistered = e.error?.includes(
-          "Unique constraint failed on the fields: (`phoneNumber`)",
+          "Unique constraint failed on the fields: (`phoneNumber`)"
         );
         if (isPhoneNumberAlreadyRegistered) {
           // TODO if user has already been inserted into the DB by other means/sources
@@ -123,11 +123,17 @@ export default class ConstructionComplaintsVM implements WritableUserFields {
   get problemFullCompiled(): string {
     let result = "";
     if (this.downPayment)
-      result = `Лид указал сумму первичного взноса: ${this.downPayment || "-"}\n`;
+      result = `Лид указал сумму первичного взноса: ${
+        this.downPayment || "-"
+      }\n`;
     if (this.constructionCompanyName)
-      result += `Лид указал застройщика: ${this.constructionCompanyName || "-"}\n`;
+      result += `Лид указал застройщика: ${
+        this.constructionCompanyName || "-"
+      }\n`;
     if (this.appartmentBlockName)
-      result += `Лид указал название своей новостройки: ${this.appartmentBlockName || "-"}\n`;
+      result += `Лид указал название своей новостройки: ${
+        this.appartmentBlockName || "-"
+      }\n`;
     if (this.problemFull) result += this.problemFull;
 
     return result;
