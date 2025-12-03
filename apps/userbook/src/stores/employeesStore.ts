@@ -23,4 +23,6 @@ export default class EmployeesStore {
     const res = await prismaGetEmployees();
     runInAction(() => (this.employees = res));
   };
+
+  clear = () => (this.employees = []);
 }

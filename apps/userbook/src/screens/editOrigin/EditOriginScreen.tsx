@@ -21,7 +21,7 @@ export const EditOriginScreen = observer(() => {
   } = useEditOriginVM();
 
   return (
-    <>
+    <div>
       <div className={clsx(stylesGlobal.header, stylesGlobal.row)}>
         <h1>{title || translations.headers.newOrigin}</h1>
         <UISep />
@@ -47,6 +47,6 @@ export const EditOriginScreen = observer(() => {
           onClick={() => routerStore.push(ROUTES.PERSONS_LIST)}
         />
       )}
-    </>
+    </div>
   );
 });

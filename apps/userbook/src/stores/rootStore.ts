@@ -12,7 +12,7 @@ import AlertStore from "./alertStore";
 import CasesStore from "./casesStore";
 import RouterStore from "./routerStore";
 import OriginsStore from "./originsStore";
-import CookiesStore from "./cookiesStire";
+import CookiesStore from "./cookiesStore";
 import PersonsStore from "./personsStore";
 import BloggersStore from "./bloggersStore";
 import OpponentsStore from "./opponentsStore";
@@ -69,11 +69,13 @@ export default class RootStore {
 
   clear = () => {
     this.alertStore.clear();
+    this.callsStore.clear();
     this.casesStore.clear();
     this.routerStore.clear();
     this.personsStore.clear();
     this.originsStore.clear();
     this.bloggersStore.clear();
+    this.employeesStore.clear();
     this.opponentsStore.clear();
   };
 }

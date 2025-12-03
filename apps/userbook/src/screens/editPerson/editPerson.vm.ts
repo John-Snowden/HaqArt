@@ -117,6 +117,11 @@ export default class EditPersonVM {
     }
   };
 
+  clearRelatedData = () => {
+    this.root.casesStore.clear();
+    this.root.callsStore.clear();
+  };
+
   setSelectedCaseId = (id: number) => {
     this.root.casesStore.selectedCaseId = id;
   };

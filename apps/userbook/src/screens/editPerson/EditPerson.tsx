@@ -25,6 +25,7 @@ export const EditPersonScreen = observer(() => {
     upsertPerson,
     deletePerson,
     getRelatedData,
+    clearRelatedData,
     root: {
       routerStore,
       authStore: { isDev },
@@ -33,8 +34,9 @@ export const EditPersonScreen = observer(() => {
   } = useEditPersonVM();
 
   useEffect(() => {
-    getRelatedData();
-  }, [getRelatedData]);
+    if (isUpdateMode) getRelatedData();
+    return clearRelatedData;
+  }, [isUpdateMode, getRelatedData, clearRelatedData]);
 
   return (
     <div className={stylesGlobal.row}>

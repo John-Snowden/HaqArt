@@ -41,6 +41,7 @@ export const translations: {
   headers: Record<string, string>;
   bttns: Record<string, string>;
   misc: Record<string, string>;
+  filters: Record<string, string>;
 } = {
   employee: {
     username: "Имя",
@@ -155,6 +156,8 @@ export const translations: {
     noManager: "Без исполнителя",
     byNameOrLink: "по имени или ссылке",
     redial: "Перезвонить",
+    onlyWith: "только с",
+    onlyWithout: "только без",
   },
   toastMessages: {
     success: "Выполнено",
@@ -175,6 +178,7 @@ export const translations: {
     caseIdMissing: "Не указано дело",
     redialDatePast: "Дата повторного звонка уже прошла",
   },
+  filters: { calls: "Звонки" },
   alertMessages: {
     error: "Ошибка. ",
   },

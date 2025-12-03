@@ -1,0 +1,38 @@
+.personFiltersWrapper {
+    display: flex;
+    flex: 1;
+    justify-content: end;
+}
+
+.filterHeader {
+    padding-right: 24px;
+}
+
+.sepVerticalFilter {
+    height: 30px;
+    width: 1px;
+    background-color: #ccc;
+}
+
+.filterWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 240px;
+    align-items: stretch;
+    margin-left: 12px;
+}
+
+.filterWrapperTop {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    padding: 0 22px;
+}
+
+.searchFilterTitle {
+    width: 100%;
+    margin-right: 24px;
+    white-space: nowrap; /* prevent wrapping */
+    overflow: hidden; /* hide overflowing text */
+    text-overflow: ellipsis; /* show "…" at the end */
+}

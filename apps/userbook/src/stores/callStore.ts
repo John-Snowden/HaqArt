@@ -30,6 +30,11 @@ class CallsStore {
     await prismaUpsertCall(call, this.selectedCallId);
   };
 
+  clear = () => {
+    this.calls = [];
+    this.selectedCallId = undefined;
+  };
+
   get selectedCall(): CallFull | null {
     return this.calls.find((c) => c.id === this.selectedCallId) ?? null;
   }

@@ -5,7 +5,8 @@ import { observer } from "mobx-react-lite";
 import { translations } from "@/localize";
 import { usePersonsListVM } from "@/context";
 
-import { PersonsList } from "./components/PersonsList";
+import styles from "./styles.module.css";
+import { Filters, PersonsList } from "./components";
 import stylesGlobal from "../../stylesGlobal.module.css";
 
 export const PersonsListScreen = observer(() => {
@@ -13,7 +14,14 @@ export const PersonsListScreen = observer(() => {
 
   return (
     <>
-      <h1 className={stylesGlobal.header}>{personsOriginTitle}</h1>
+      <div className={stylesGlobal.header}>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <h1>{personsOriginTitle || translations.headers.allPersons}</h1>
+        </div>
+        <div className={styles.filtersWrapper}>
+          <Filters />
+        </div>
+      </div>
       <div className={stylesGlobal.tableHeader}>
         <h4 className={stylesGlobal.tableColumn}>{translations.person.name}</h4>
         <h4 className={stylesGlobal.tableColumn}>
@@ -26,7 +34,6 @@ export const PersonsListScreen = observer(() => {
           {translations.misc.createdAt}
         </h4>
       </div>
-
       <PersonsList />
     </>
   );
