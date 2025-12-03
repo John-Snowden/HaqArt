@@ -20,9 +20,11 @@ model Employee {
   authoredBloggers Blogger[]
   authoredOrigins  Origin[]
   authoredPersons  Person[]
-  authoredCases    Case[]     @relation("authoredCases")
-  managedCases     Case[]     @relation("managedCases")
-  Opponent         Opponent[]
+  authoredCases    Case[]        @relation("authoredCases")
+  managedCases     Case[]        @relation("managedCases")
+  authoredOpponents         Opponent[]
+  authoredCalls             Call[]
+  authoredAppointments      Appointment[]
 }
 
 model Person {
@@ -40,9 +42,11 @@ model Person {
 
   leadStatus LEAD_STATUS @default(ADDED_TO_DB)
 
-  cases  Case[]
-  author Employee @relation(fields: [authorId], references: [id])
-  origin Origin   @relation(fields: [originId], references: [id])
+  author      Employee      @relation(fields: [authorId], references: [id])
+  origin      Origin        @relation(fields: [originId], references: [id])
+  cases       Case[]
+  calls        Call[]
+  appointments Appointment[]
 }
 
 model Case {
@@ -73,10 +77,12 @@ model Case {
   opponentId Int?
   managerId  Int?
 
-  author   Employee  @relation("authoredCases", fields: [authorId], references: [id])
-  manager  Employee? @relation("managedCases", fields: [managerId], references: [id])
-  opponent Opponent? @relation(fields: [opponentId], references: [id])
-  person   Person    @relation(fields: [personId], references: [id])
+  author       Employee      @relation("authoredCases", fields: [authorId], references: [id])
+  manager      Employee?     @relation("managedCases", fields: [managerId], references: [id])
+  opponent     Opponent?     @relation(fields: [opponentId], references: [id])
+  person       Person        @relation(fields: [personId], references: [id])
+  appointments Appointment[]
+  calls        Call[]
 }
 
 model Origin {
@@ -127,15 +133,47 @@ model Blogger {
   author     Employee        @relation(fields: [authorId], references: [id])
 }
 
-model Call{
-  id Int @id @default(autoincrement())
+model Call {
+  id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
 
+  callStatus CALL_STATUS
+  info       String?
+  redialDate DateTime?
+
+  caseId   Int
   personId Int
   authorId Int
 
+  case   Case     @relation(fields: [caseId], references: [id])
   author Employee @relation(fields: [authorId], references: [id])
-  person Person @relation(fields: [personId], references: [id])
+  person Person   @relation(fields: [personId], references: [id])
+}
+
+model Appointment {
+  id       Int      @id @default(autoincrement())
+  createAt DateTime @default(now())
+
+  date              DateTime
+  appointmentStatus APPOINTMENT_STATUS
+
+  caseId   Int
+  personId Int
+  authorId Int
+
+  person Person   @relation(fields: [personId], references: [id])
+  author Employee @relation(fields: [authorId], references: [id])
+  case   Case     @relation(fields: [caseId], references: [id])
+}
+
+enum APPOINTMENT_STATUS {
+  DONE
+  MISSED
+}
+
+enum CALL_STATUS {
+  DONE
+  MISSED
 }
 
 enum LEAD_STATUS {

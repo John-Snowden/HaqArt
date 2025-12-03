@@ -4,11 +4,12 @@ import { makeAutoObservable, runInAction } from "mobx";
 
 import {
   PersonFull,
+  prismaGetPersons,
   prismaDeletePerson,
   prismaUpsertPerson,
   EditablePersonFields,
-  prismaGetPersonsByOrigin,
 } from "@shared/lib/actions/persons";
+import { Prisma } from "@shared/prisma/prisma/client";
 
 import RootStore from "./rootStore";
 
@@ -23,10 +24,8 @@ export default class PersonsStore {
     makeAutoObservable(this);
   }
 
-  getPersonsByOrigin = async () => {
-    const sourceOriginId = this.root.originsStore.selectedOriginId;
-    if (!sourceOriginId) throw new Error("selected source id missing");
-    const res = await prismaGetPersonsByOrigin(sourceOriginId);
+  getPersons = async (where: Prisma.PersonWhereInput) => {
+    const res = await prismaGetPersons(where);
     runInAction(() => (this.persons = res));
   };
 

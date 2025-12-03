@@ -20,7 +20,11 @@ export enum ROUTES {
 
   PROFILE = "/profile",
 
-  // task manager
+  // cases
   CASES_LIST = "/cases_list",
   EDIT_CASE = "/edit_case",
+
+  // calls
+  CALLS_LIST = "/calls_list",
+  EDIT_CALL = "/edit_call",
 }

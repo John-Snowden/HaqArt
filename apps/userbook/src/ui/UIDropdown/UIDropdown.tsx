@@ -17,7 +17,7 @@ interface IProps {
   onClick(option: string | undefined): void;
 }
 
-export const Dropdown: FC<IProps> = ({
+export const UIDropdown: FC<IProps> = ({
   label,
   value,
   emptyValue,

@@ -3,19 +3,18 @@
 import { makeAutoObservable, reaction, runInAction } from "mobx";
 
 import {
+  ROLE,
   Prisma,
   URGENCY,
   IMPORTANCE,
   CASE_STATUS,
-  ROLE,
 } from "@shared/prisma/prisma/client";
 import { ROUTES } from "@/constants";
 import { translations } from "@/localize";
 import RootStore from "@/stores/rootStore";
+import { CaseFull } from "@shared/lib/actions";
 import { capitalizeName } from "@shared/utils";
 import { CaseFilteres, DropdownOption } from "@/stores/constants";
-import { CaseFull } from "@shared/lib/actions";
-import { th } from "node_modules/date-fns/locale/th.cjs";
 
 export default class CasesListVM {
   root: RootStore;
@@ -31,6 +30,7 @@ export default class CasesListVM {
 
   constructor(root: RootStore) {
     this.root = root;
+
     makeAutoObservable(this);
 
     reaction(
@@ -50,7 +50,7 @@ export default class CasesListVM {
   getCases = async () => {
     try {
       runInAction(() => (this.isLoading = true));
-      const where = this.isSearchMode ? this.searchWhere : this.activeWhere;
+      const where = this.isSearchMode ? this.searchWhere : this.filteredWhere;
       await this.root.casesStore.getCases(where);
     } catch (e) {
       this.root.alertStore.toggleAlert(translations.alertMessages.error + e);
@@ -115,7 +115,7 @@ export default class CasesListVM {
     };
   }
 
-  get activeWhere(): Prisma.CaseWhereInput {
+  get filteredWhere(): Prisma.CaseWhereInput {
     const where: Prisma.CaseWhereInput = {
       caseStatus: {
         notIn: [
@@ -126,23 +126,23 @@ export default class CasesListVM {
       },
     };
 
-    const managerId = this.root.authStore.isSuperRole
-      ? undefined
-      : this.root.authStore.me?.id;
-    if (managerId !== undefined) where.managerId = managerId;
+    const filters = Object.keys(this.caseFilters) as Array<keyof CaseFilteres>;
+    filters.forEach((f) => {
+      if (this.caseFilters[f] !== undefined) where[f] = this.caseFilters[f];
+    });
+
+    if (!this.root.authStore.isSuperRole) {
+      const myId = this.root.authStore.me?.id;
+      if (!myId) throw new Error("me id missing");
+      where.managerId = myId;
+    }
     return where;
   }
 
-  get filteredCases(): CaseFull[] {
-    const { cases } = this.root.casesStore;
-    const filterKeys = Object.keys(this.caseFilters) as Array<
-      keyof typeof this.caseFilters
-    >;
-    return cases.filter((c) =>
-      filterKeys.every(
-        (k) =>
-          this.caseFilters[k] === undefined || this.caseFilters[k] === c[k],
-      ),
-    );
+  get sortedCases(): CaseFull[] {
+    const order = { ONE: 1, TWO: 2, THREE: 3, FOUR: 4, FIVE: 5 };
+    return this.root.casesStore.cases
+      .slice()
+      .sort((a, b) => order[a.caseUrgency] - order[b.caseUrgency]);
   }
 }

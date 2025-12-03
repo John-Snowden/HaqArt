@@ -8,7 +8,6 @@ import { formatAmountToStr } from "@shared/utils";
 import { translations } from "@/localize/translations";
 import { UIIcon, UIInput, UISep, UICategories, UITextarea } from "@/ui";
 
-import styles from "../styles.module.css";
 import stylesGlobal from "../../../stylesGlobal.module.css";
 
 export const EditBloggerForm = observer(() => {
@@ -35,12 +34,10 @@ export const EditBloggerForm = observer(() => {
 
   return (
     <>
-      <UISep />
       <div className={stylesGlobal.row}>
-        <div style={{ width: "40%" }}>
+        <div style={{ width: "25%" }}>
           <UIInput
             value={name}
-            style={styles.input}
             label={translations.blogger.name}
             onChange={setName}
           />
@@ -50,17 +47,15 @@ export const EditBloggerForm = observer(() => {
           <UIInput
             label={translations.blogger.subscribersCount}
             value={formatAmountToStr(subscribersCount, " ")}
-            style={styles.input}
             onChange={setSubscribersCount}
           />
         </div>
       </div>
 
       <div className={stylesGlobal.row}>
-        <div style={{ width: "40%" }}>
+        <div style={{ width: "45%" }}>
           <UIInput
             value={link}
-            style={styles.input}
             placeholder={"https://..."}
             label={translations.blogger.link}
             onChange={setLink}
@@ -82,7 +77,6 @@ export const EditBloggerForm = observer(() => {
       <div style={{ width: "40%" }}>
         <UIInput
           value={phoneNumber}
-          style={styles.input}
           label={translations.misc.tel}
           onChange={setPhoneNumber}
         />
@@ -90,7 +84,6 @@ export const EditBloggerForm = observer(() => {
       <div style={{ width: "40%" }}>
         <UIInput
           value={email}
-          style={styles.input}
           placeholder={"example@email.com"}
           label={translations.blogger.email}
           onChange={setEmail}
@@ -100,7 +93,6 @@ export const EditBloggerForm = observer(() => {
       <UISep />
       <div style={{ width: "25%" }}>
         <UIInput
-          style={styles.input}
           label={translations.legalCase.priceSOM}
           value={formatAmountToStr(priceSOM, " ")}
           onChange={(value) => setPrice("som", value)}
@@ -108,14 +100,13 @@ export const EditBloggerForm = observer(() => {
       </div>
       <div style={{ width: "25%" }}>
         <UIInput
-          style={styles.input}
           label={translations.legalCase.priceUSD}
           value={formatAmountToStr(priceUSD, " ")}
           onChange={(value) => setPrice("usd", value)}
         />
       </div>
 
-      <UISep times={0.5} />
+      <UISep />
       <UICategories
         canWrite={canWrite}
         selectedCategories={categories}

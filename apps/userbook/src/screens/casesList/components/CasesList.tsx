@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect } from "react";
 import { ru } from "date-fns/locale";
 import { observer } from "mobx-react-lite";
@@ -16,10 +15,10 @@ import stylesGlobal from "../../../stylesGlobal.module.css";
 
 export const CasesList = observer(() => {
   const {
+    sortedCases,
     isLoading,
     selectCase,
     getCases,
-    filteredCases,
     root: {
       authStore: { me },
     },
@@ -30,12 +29,12 @@ export const CasesList = observer(() => {
   }, [me, getCases]);
 
   const renderItems = () => {
-    return filteredCases
+    return sortedCases
       .slice()
       .reverse()
-      .map((filteredCase) => {
-        const assignmentTime = filteredCase.assignmentTime
-          ? formatDistanceToNowStrict(filteredCase.assignmentTime, {
+      .map((c) => {
+        const assignmentTime = c.assignmentTime
+          ? formatDistanceToNowStrict(c.assignmentTime, {
               addSuffix: true,
               locale: ru,
             })
@@ -43,33 +42,31 @@ export const CasesList = observer(() => {
 
         return (
           <div
-            key={filteredCase.id}
+            key={c.id}
             className={stylesGlobal.itemWrapper}
             role="button"
-            onClick={() => selectCase(filteredCase.id)}
+            onClick={() => selectCase(c.id)}
           >
             <div className={stylesGlobal.iconWrapper}>
               <UIIcon source={"/svg/case.svg"} size={20} />
             </div>
+            <div className={`${stylesGlobal.tableColumn}`}>{c.person.name}</div>
             <div className={`${stylesGlobal.tableColumn}`}>
-              {filteredCase.person.name}
+              {c.problemShort || "-"}
             </div>
             <div className={`${stylesGlobal.tableColumn}`}>
-              {filteredCase.problemShort || "-"}
+              {c.nearestTask || "-"}
             </div>
             <div className={`${stylesGlobal.tableColumn}`}>
-              {filteredCase.nearestTask || "-"}
-            </div>
-            <div className={`${stylesGlobal.tableColumn}`}>
-              {filteredCase.nearestTaskDeadline
-                ? format(filteredCase.nearestTaskDeadline, "d MMM HH:mm", {
+              {c.nearestTaskDeadline
+                ? format(c.nearestTaskDeadline, "d MMM HH:mm", {
                     locale: ru,
                   })
                 : "-"}
             </div>
             <div className={`${stylesGlobal.tableColumn}`}>
-              {translations.urgency[filteredCase.caseUrgency]}
-              {filteredCase.caseUrgency === URGENCY.FIVE && (
+              {translations.urgency[c.caseUrgency]}
+              {c.caseUrgency === URGENCY.FIVE && (
                 <div
                   style={{
                     marginLeft: 24,
@@ -82,16 +79,14 @@ export const CasesList = observer(() => {
               )}
             </div>
             <div className={`${stylesGlobal.tableColumn}`}>
-              {filteredCase.manager?.username
-                ? capitalizeName(filteredCase.manager?.username)
-                : "-"}
+              {c.manager?.username ? capitalizeName(c.manager?.username) : "-"}
             </div>
             <div className={`${stylesGlobal.tableColumn}`}>
-              {filteredCase.opponent?.name || "-"}
+              {c.opponent?.name || "-"}
             </div>
             <div className={stylesGlobal.tableColumn}>{assignmentTime}</div>
             <div className={`${stylesGlobal.tableColumn}`}>
-              {translations.caseStatuses[filteredCase.caseStatus]}
+              {translations.caseStatuses[c.caseStatus]}
             </div>
 
             <div className={stylesGlobal.iconWrapper}>
@@ -103,7 +98,7 @@ export const CasesList = observer(() => {
   };
 
   return (
-    <UIListWrapper isLoading={isLoading} hasItems={filteredCases.length !== 0}>
+    <UIListWrapper isLoading={isLoading} hasItems={sortedCases.length !== 0}>
       {renderItems()}
     </UIListWrapper>
   );

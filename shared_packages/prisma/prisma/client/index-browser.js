@@ -199,6 +199,27 @@ exports.Prisma.BloggerScalarFieldEnum = {
   categories: 'categories'
 };
 
+exports.Prisma.CallScalarFieldEnum = {
+  id: 'id',
+  createdAt: 'createdAt',
+  callStatus: 'callStatus',
+  info: 'info',
+  redialDate: 'redialDate',
+  caseId: 'caseId',
+  personId: 'personId',
+  authorId: 'authorId'
+};
+
+exports.Prisma.AppointmentScalarFieldEnum = {
+  id: 'id',
+  createAt: 'createAt',
+  date: 'date',
+  appointmentStatus: 'appointmentStatus',
+  caseId: 'caseId',
+  personId: 'personId',
+  authorId: 'authorId'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -289,13 +310,25 @@ exports.CASE_CATEGORY = exports.$Enums.CASE_CATEGORY = {
   OTHER: 'OTHER'
 };
 
+exports.CALL_STATUS = exports.$Enums.CALL_STATUS = {
+  DONE: 'DONE',
+  MISSED: 'MISSED'
+};
+
+exports.APPOINTMENT_STATUS = exports.$Enums.APPOINTMENT_STATUS = {
+  DONE: 'DONE',
+  MISSED: 'MISSED'
+};
+
 exports.Prisma.ModelName = {
   Employee: 'Employee',
   Person: 'Person',
   Case: 'Case',
   Origin: 'Origin',
   Opponent: 'Opponent',
-  Blogger: 'Blogger'
+  Blogger: 'Blogger',
+  Call: 'Call',
+  Appointment: 'Appointment'
 };
 
 /**

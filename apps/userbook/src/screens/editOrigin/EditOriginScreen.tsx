@@ -27,8 +27,6 @@ export const EditOriginScreen = observer(() => {
         <UISep />
         {canWrite && (
           <UIButton
-            iconSize={14}
-            icon="/svg/add.svg"
             title={translations.bttns.save}
             onClick={() => {
               if (canWrite) upsertOrigin();

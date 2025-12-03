@@ -273,8 +273,8 @@ export default class EditCaseVM {
   }
 
   get authorId(): number {
-    const selectedCaseAuthorId = this.root.casesStore.selectedCase?.author.id;
     const myId = this.root.authStore.me?.id;
+    const selectedCaseAuthorId = this.root.casesStore.selectedCase?.author.id;
 
     if (this.isUpdateMode) {
       if (!selectedCaseAuthorId) {

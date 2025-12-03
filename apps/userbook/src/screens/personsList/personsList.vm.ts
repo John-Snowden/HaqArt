@@ -16,10 +16,13 @@ export default class PersonsListVM {
     makeAutoObservable(this);
   }
 
-  getPersonsByOrigin = async () => {
+  getPersons = async () => {
     try {
       runInAction(() => (this.isLoading = true));
-      await this.root.personsStore.getPersonsByOrigin();
+      let where = {};
+      const originId = this.root.originsStore.selectedOriginId;
+      if (originId) where = { originId };
+      await this.root.personsStore.getPersons(where);
     } catch (e) {
       this.root.alertStore.toggleAlert(translations.alertMessages.error + e);
     } finally {

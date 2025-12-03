@@ -9,6 +9,6 @@ export const ProblemFull = observer(() => {
   const { problemFull, setProblemFull } = useEditCaseVM();
 
   return (
-    <UITextarea rowsCount={16} value={problemFull} onChange={setProblemFull} />
+    <UITextarea rowsCount={12} value={problemFull} onChange={setProblemFull} />
   );
 });

@@ -6,25 +6,40 @@
 
 .input {
     margin-top: 4px;
-    margin-right: 60px;
     padding: 0 12px;
+}
+
+.cardBG {
+    display: flex;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    background-color: lightgray;
+    opacity: 0.2;
+    z-index: -1;
 }
 
 .caseCard {
     display: flex;
+    position: relative;
     flex-direction: column;
     width: 180px;
     height: 180px;
-    padding: 12px 12px;
+    box-sizing: border-box;
+    padding: 12px;
     margin-right: 24px;
     border-radius: 4px;
     border: 1px solid white;
-    background-color: rgba(166, 255, 0, 0.119);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
     cursor: pointer;
 }
 
 .caseCard:hover {
-    background-color: lightgray;
+    background-color: #ccc;
 }
 
 .caseCard:active {
@@ -33,10 +48,12 @@
 
 .cardElementTop {
     align-self: flex-start;
+    margin-left: 4px;
 }
 
 .cardElementCenter {
     display: flex;
+    flex-direction: column;
     flex: 1;
     width: "100%";
     justify-content: center;
@@ -45,10 +62,6 @@
 
 .cardElementFooter {
     align-self: flex-end;
-}
-
-.phoneWrapper {
-    width: 35vw;
 }
 
 .searchWrapper {
@@ -84,6 +97,13 @@
     margin: 28px 0;
 }
 
+.sepHorizontalCard {
+    height: 1px;
+    width: 50%;
+    margin: 6px;
+    background-color: whitesmoke;
+}
+
 .suggestionsWrapper {
     display: flex;
     flex-direction: column;
@@ -105,4 +125,59 @@
 .halfSep {
     height: 1;
     margin: 24px 0;
+}
+
+.sepVertical {
+    display: flex;
+    align-self: stretch;
+    width: 1px;
+    margin: 12px 40px;
+    background-color: lightgray;
+}
+
+.sepHorizontal {
+    height: 1px;
+    align-self: stretch;
+    background-color: lightgray;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-self: stretch;
+}
+
+.callCard {
+    display: flex;
+    position: relative;
+    height: 48px;
+    /*width: fit-content;*/
+    width: 150px;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 12px;
+    margin-right: 24px;
+    border-radius: 4px;
+    border: 1px solid white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    cursor: pointer;
+}
+
+.callCard:hover {
+    background-color: #ccc;
+}
+
+.callCard:active {
+    scale: 0.98;
+}
+
+.scrollX {
+    display: flex;
+    flex-direction: row;
+    min-width: 0;
+    overflow-y: hidden;
+    overflow-x: scroll;
 }

@@ -7,7 +7,7 @@ import {
   IMPORTANCE_OPTIONS,
   ALL_CASE_STATUS_OPTIONS,
 } from "@/stores/constants";
-import { Dropdown, UIIcon } from "@/ui";
+import { UIDropdown, UIIcon } from "@/ui";
 import { translations } from "@/localize";
 import { useCasesListVM } from "@/context";
 import { capitalizeName } from "@shared/utils";
@@ -48,11 +48,11 @@ export const Filters = observer(() => {
             <h4 className={styles.searchFilterTitle}>
               {translations.legalCase.managerId}
             </h4>
-            <div style={{ position: "absolute", top: 0, right: "24px" }}>
+            <div style={{ position: "absolute", top: 0, right: "22px" }}>
               <UIIcon size={18} source={"/svg/manager.svg"} />
             </div>
           </div>
-          <Dropdown
+          <UIDropdown
             options={managerOptions}
             emptyValue={translations.misc.all}
             value={
@@ -76,7 +76,7 @@ export const Filters = observer(() => {
             <UIIcon size={14} source={"/svg/pen.svg"} />
           </div>
         </div>
-        <Dropdown
+        <UIDropdown
           value={filterCaseStatus}
           options={ALL_CASE_STATUS_OPTIONS}
           emptyValue={translations.misc.all}
@@ -91,11 +91,11 @@ export const Filters = observer(() => {
           <h4 className={styles.searchFilterTitle}>
             {translations.legalCase.caseUrgency}
           </h4>
-          <div style={{ position: "absolute", top: 0, right: "24px" }}>
+          <div style={{ position: "absolute", top: 0, right: "18px" }}>
             <UIIcon size={24} source={"/svg/caseUrgency.svg"} />
           </div>
         </div>
-        <Dropdown
+        <UIDropdown
           value={filterCaseUrgency}
           options={URGENCY_OPTIONS}
           emptyValue={translations.misc.all}
@@ -110,11 +110,11 @@ export const Filters = observer(() => {
           <h4 className={styles.searchFilterTitle}>
             {translations.legalCase.caseImportance}
           </h4>
-          <div style={{ position: "absolute", top: 0, right: "24px" }}>
+          <div style={{ position: "absolute", top: 0, right: "20px" }}>
             <UIIcon size={20} source={"/svg/dollar.svg"} />
           </div>
         </div>
-        <Dropdown
+        <UIDropdown
           value={filterCaseImportance}
           options={IMPORTANCE_OPTIONS}
           emptyValue={translations.misc.all}

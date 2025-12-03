@@ -27,13 +27,16 @@ export const UIHeader = observer(() => {
   const isShowCases = [ROLE.DEV, ROLE.OWNER, ROLE.CEO, ROLE.LAWYER].find((r) =>
     me?.roles.includes(r),
   );
-  const isShowLeads = [
+  const isShowOrigins = [
     ROLE.DEV,
     ROLE.OWNER,
     ROLE.CEO,
     ROLE.SALES_MANAGER,
     ROLE.ACCOUNT_MANAGER,
   ].find((r) => me?.roles.includes(r));
+  const isShowLeads = [ROLE.DEV, ROLE.OWNER, ROLE.CEO, ROLE.SALES_MANAGER].find(
+    (r) => me?.roles.includes(r),
+  );
 
   const isShowOpponents = [ROLE.DEV, ROLE.OWNER, ROLE.CEO, ROLE.LAWYER].find(
     (r) => me?.roles.includes(r),
@@ -71,9 +74,18 @@ export const UIHeader = observer(() => {
         )}
 
         {isShowLeads && (
+          <Link href={ROUTES.PERSONS_LIST} className={styles.buttonWrapper}>
+            <h3 className={styles.margRight}>
+              {translations.headers.allPersons}
+            </h3>
+            <UIIcon size={21} source={"/svg/person.svg"} />
+          </Link>
+        )}
+
+        {isShowOrigins && (
           <Link href={ROUTES.ORIGINS_LIST} className={styles.buttonWrapper}>
             <h3 className={styles.margRight}>
-              {translations.headers.allLeads}
+              {translations.headers.allOrigins}
             </h3>
             <UIIcon size={22} source={"/svg/origins.svg"} />
           </Link>

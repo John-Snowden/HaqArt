@@ -1,6 +1,7 @@
 .bg {
     display: flex;
     position: fixed;
+    box-sizing: border-box;
     top: 0;
     left: 0;
     right: 0;

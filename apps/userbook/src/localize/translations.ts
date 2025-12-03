@@ -8,6 +8,8 @@ import {
   CASE_CATEGORY,
   REFUSAL_REASON,
   STATUS_IN_COURT,
+  CALL_STATUS,
+  APPOINTMENT_STATUS,
 } from "@shared/prisma/prisma/client";
 import {
   EditableCaseFields,
@@ -29,6 +31,8 @@ export const translations: {
   alertMessages: Record<string, string>;
   leadStatuses: Record<LEAD_STATUS, string>;
   caseStatuses: Record<CASE_STATUS, string>;
+  callStatuses: Record<CALL_STATUS, string>;
+  appointmentStatuses: Record<APPOINTMENT_STATUS, string>;
   importance: Record<IMPORTANCE, string>;
   urgency: Record<URGENCY, string>;
   legalActions: Record<LEGAL_ACTION, string>;
@@ -100,14 +104,21 @@ export const translations: {
   },
   headers: {
     allLeads: "Все лиды",
+    allOrigins: "Все источники",
+    allPersons: "Все лиды",
     allOpponents: "Все оппоненты",
     allBloggers: "Все блогеры",
+    cases: "Суды",
     myCases: "Мои суды",
     opponent: "Оппонент",
     newOrigin: "Новый источник",
     newPerson: "Новый пользователь",
     newOpponent: "Новый оппонент",
     newBlogger: "Новый блогер",
+    newCall: "Новый звонок",
+    calls: "Звонки",
+    appointments: "Консультации",
+    callStatus: "Статус звонка",
   },
   categories: {
     [CASE_CATEGORY.REAL_ESTATE]: "строительство",
@@ -143,6 +154,7 @@ export const translations: {
     all: "все",
     noManager: "Без исполнителя",
     byNameOrLink: "по имени или ссылке",
+    redial: "Перезвонить",
   },
   toastMessages: {
     success: "Выполнено",
@@ -159,6 +171,9 @@ export const translations: {
     opponentMissing: "Оппонент не указан",
     loginMissing: "Не заполнен логин",
     passwordMissing: "Не заполнен пароль",
+    callStatusMissing: "Не указан статус звонка",
+    caseIdMissing: "Не указано дело",
+    redialDatePast: "Дата повторного звонка уже прошла",
   },
   alertMessages: {
     error: "Ошибка. ",
@@ -178,6 +193,14 @@ export const translations: {
     [CASE_STATUS.DONE]: "выполнена",
     [CASE_STATUS.PERSON_REFUSED]: "клиент отказался",
     [CASE_STATUS.WE_REFUSED]: "мы отказались",
+  },
+  callStatuses: {
+    [CALL_STATUS.DONE]: "звонок состоялся",
+    [CALL_STATUS.MISSED]: "недозвон",
+  },
+  appointmentStatuses: {
+    [APPOINTMENT_STATUS.DONE]: "состоялась ",
+    [APPOINTMENT_STATUS.MISSED]: "не состоялась",
   },
   importance: {
     [IMPORTANCE.ONE]: "низкая",

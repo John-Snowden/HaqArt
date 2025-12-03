@@ -3,10 +3,10 @@
 import { observer } from "mobx-react-lite";
 
 import { UIInput } from "@/ui";
+import { translations } from "@/localize";
 import { useEditPersonVM } from "@/context";
 
-import styles from "../styles.module.css";
-import { translations } from "@/localize";
+import stylesGlobal from "../../../stylesGlobal.module.css";
 
 export const Contacts = observer(() => {
   const {
@@ -19,34 +19,29 @@ export const Contacts = observer(() => {
   } = useEditPersonVM();
 
   return (
-    <>
-      <div className={styles.inputGroup}>
-        <div className={styles.phoneWrapper}>
-          <UIInput
-            value={phoneNumber}
-            style={styles.input}
-            label={translations.misc.tel}
-            onChange={setPhoneNumber}
-          />
-        </div>
-        <div style={{ width: "40vw" }}>
-          <UIInput
-            value={email}
-            style={styles.input}
-            placeholder={"example@email.com"}
-            label={translations.person.email}
-            onChange={setEmail}
-          />
-        </div>
+    <div className={stylesGlobal.flexAllVertical}>
+      <div style={{ width: "60%" }}>
+        <UIInput
+          value={phoneNumber}
+          label={translations.misc.tel}
+          onChange={setPhoneNumber}
+        />
       </div>
-      <div style={{ width: "50vw" }}>
+      <div style={{ width: "60%" }}>
+        <UIInput
+          value={email}
+          placeholder={"example@email.com"}
+          label={translations.person.email}
+          onChange={setEmail}
+        />
+      </div>
+      <div style={{ width: "90%" }}>
         <UIInput
           value={homeAddress}
-          style={styles.input}
           label={translations.person.homeAddress}
           onChange={setHomeAddress}
         />
       </div>
-    </>
+    </div>
   );
 });

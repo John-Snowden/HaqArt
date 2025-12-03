@@ -41,12 +41,6 @@
     flex-direction: column;
 }
 
-.input {
-    margin-top: 4px;
-    margin-right: 60px;
-    padding: 0 12px;
-}
-
 .caseCard {
     display: flex;
     width: 200px;

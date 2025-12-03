@@ -22,14 +22,12 @@ export const PriceSection = observer(() => {
   return (
     <div>
       <UIInput
-        style={styles.input}
         disabled={!isSuperRole}
         label={translations.legalCase.priceSOM}
         value={formatAmountToStr(priceSOM, " ")}
         onChange={(v) => setPrice("som", v)}
       />
       <UIInput
-        style={styles.input}
         disabled={!isSuperRole}
         label={translations.legalCase.priceUSD}
         value={formatAmountToStr(priceUSD, " ")}

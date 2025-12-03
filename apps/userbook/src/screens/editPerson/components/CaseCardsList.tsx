@@ -5,7 +5,7 @@ import { ru } from "date-fns/locale";
 import { observer } from "mobx-react-lite";
 
 import { ROUTES } from "@/constants";
-import { UIButton, UISep } from "@/ui";
+import { UIButton, UIIcon, UISep } from "@/ui";
 import { translations } from "@/localize";
 import { useEditPersonVM } from "@/context";
 
@@ -33,12 +33,23 @@ export const CaseCardsList = observer(() => {
           routerStore.push(ROUTES.EDIT_CASE);
         }}
       >
-        <h2 className={styles.cardElementTop}>{c.opponent?.name}</h2>
-        <div className={styles.cardElementCenter}>
-          {c.categories.map((k) => translations.categories[k]).join(", ")}
+        <div className={styles.cardBG} />
+
+        <div style={{ display: "flex" }}>
+          <UIIcon size={20} source="./svg/case.svg" />
+          <h3 className={styles.cardElementTop}>{c.opponent?.name}</h3>
         </div>
+
+        <div className={styles.cardElementCenter}>
+          <div>
+            {c.categories.map((k) => translations.categories[k]).join(", ")}
+          </div>
+          <div className={styles.sepHorizontalCard} />
+          <div>{translations.caseStatuses[c.caseStatus]}</div>
+        </div>
+
         <h4 className={styles.cardElementFooter}>
-          {format(c.createdAt, "d MMMM HH:mm", { locale: ru })}
+          {format(c.createdAt, "d MMM yyyy", { locale: ru })}
         </h4>
       </div>
     ));
@@ -46,13 +57,16 @@ export const CaseCardsList = observer(() => {
 
   return (
     <div>
-      <h4>{translations.headers.cases}</h4>
-      <UISep times={0.5} />
-      <div className={stylesGlobal.row}>{renderCasesCards()}</div>
       <UISep />
+      {cases.length !== 0 && (
+        <>
+          <h1>{translations.headers.cases}</h1>
+          <UISep times={0.5} />
+          <div className={stylesGlobal.row}>{renderCasesCards()}</div>
+          <UISep />
+        </>
+      )}
       <UIButton
-        iconSize={14}
-        icon="/svg/add.svg"
         title={translations.bttns.addCase}
         onClick={() => {
           resetSelectedCaseId();

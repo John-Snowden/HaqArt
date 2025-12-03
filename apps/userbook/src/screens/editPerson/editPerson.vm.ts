@@ -1,5 +1,6 @@
 "use client";
 
+import { toast } from "sonner";
 import { makeAutoObservable, runInAction } from "mobx";
 
 import {
@@ -9,15 +10,20 @@ import {
   checkPhoneNumber,
   formatPhoneNumber,
 } from "@shared/utils";
-import { toast } from "sonner";
 import { ROUTES } from "@/constants";
 import { translations } from "@/localize";
 import RootStore from "@/stores/rootStore";
-import { LEAD_STATUS, ROLE } from "@shared/prisma/prisma/client";
+import { LEAD_STATUS } from "@shared/prisma/prisma/client";
+
+import { CallsModule } from "./module/calls";
+import { CasesModule } from "./module/cases";
 
 export default class EditPersonVM {
   root: RootStore;
   isLoading: boolean = true;
+
+  casesModule: CasesModule;
+  callsModule: CallsModule;
 
   name: string | undefined = undefined;
   link: string | undefined = undefined;
@@ -27,6 +33,8 @@ export default class EditPersonVM {
 
   constructor(root: RootStore) {
     this.root = root;
+    this.casesModule = new CasesModule(root);
+    this.callsModule = new CallsModule(root);
 
     const { selectedPerson } = this.root.personsStore;
     if (selectedPerson) {
@@ -82,19 +90,6 @@ export default class EditPersonVM {
     }
   };
 
-  getPersonalCases = async () => {
-    try {
-      runInAction(() => (this.isLoading = true));
-      await this.root.casesStore.getCases({
-        personId: this.root.personsStore.selectedPerson?.id,
-      });
-    } catch (e) {
-      this.root.alertStore.toggleAlert(translations.alertMessages.error + e);
-    } finally {
-      runInAction(() => (this.isLoading = false));
-    }
-  };
-
   validate = (): boolean => {
     let isValid = false;
     if (!this.name) toast.warning(translations.toastMessages.nameMissing);
@@ -106,6 +101,20 @@ export default class EditPersonVM {
       toast.warning(translations.toastMessages.phoneNumberNotNineDigits);
     } else isValid = true;
     return isValid;
+  };
+
+  getRelatedData = async () => {
+    try {
+      runInAction(() => (this.isLoading = true));
+      await Promise.all([
+        this.casesModule.getCasesByPerson(),
+        this.callsModule.getCallsByPerson(),
+      ]);
+    } catch (e) {
+      this.root.alertStore.toggleAlert(translations.alertMessages.error + e);
+    } finally {
+      runInAction(() => (this.isLoading = false));
+    }
   };
 
   setSelectedCaseId = (id: number) => {
@@ -129,14 +138,6 @@ export default class EditPersonVM {
     return this.hasContact
       ? LEAD_STATUS.CONTACT_SHARED
       : LEAD_STATUS.ADDED_TO_DB;
-  }
-
-  get isShowCases(): boolean {
-    const allowedRoles = [ROLE.DEV, ROLE.OWNER, ROLE.CEO, ROLE.LAWYER];
-    const allowedRole = allowedRoles.find((role) =>
-      this.root.authStore.me?.roles.includes(role),
-    );
-    return Boolean(allowedRole) && this.isUpdateMode;
   }
 
   get authorId(): number {

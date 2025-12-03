@@ -1,14 +1,12 @@
 import { FC } from "react";
 import { observer } from "mobx-react-lite";
 
-import { Dropdown } from "@/ui";
+import { UIDropdown } from "@/ui";
 import { useEditCaseVM } from "@/context";
 import { capitalizeName } from "@shared/utils";
 import { translations } from "@/localize/translations";
 import { IMPORTANCE, URGENCY } from "@shared/prisma/prisma/client";
 import { IMPORTANCE_OPTIONS, URGENCY_OPTIONS } from "@/stores/constants";
-
-import { PriceSection } from "./PriceSection";
 
 export const SupervisorDropdowns: FC = observer(() => {
   const {
@@ -32,7 +30,7 @@ export const SupervisorDropdowns: FC = observer(() => {
 
   return (
     <div>
-      <Dropdown
+      <UIDropdown
         disabled={!isSuperRole}
         options={managerOptions}
         value={capitalizeName(managerName)}
@@ -41,7 +39,7 @@ export const SupervisorDropdowns: FC = observer(() => {
           setManagerId(value);
         }}
       />
-      <Dropdown
+      <UIDropdown
         isValueRequired
         disabled={!isSuperRole}
         value={caseImportanceTitle}
@@ -49,7 +47,7 @@ export const SupervisorDropdowns: FC = observer(() => {
         options={IMPORTANCE_OPTIONS}
         onClick={(value: string) => setImportance(value as IMPORTANCE)}
       />
-      <Dropdown
+      <UIDropdown
         isValueRequired
         disabled={!isSuperRole}
         value={caseUrgencyTitle}
@@ -57,7 +55,6 @@ export const SupervisorDropdowns: FC = observer(() => {
         options={URGENCY_OPTIONS}
         onClick={(value: string) => setCaseUrgency(value as URGENCY)}
       />
-      <PriceSection />
     </div>
   );
 });

@@ -18,14 +18,14 @@ export const PersonsList = observer(() => {
     canWrite,
     isLoading,
     selectPerson,
-    getPersonsByOrigin,
+    getPersons,
     resetSelectedPersonId,
     root: { routerStore },
   } = usePersonsListVM();
 
   useEffect(() => {
-    getPersonsByOrigin();
-  }, [getPersonsByOrigin]);
+    getPersons();
+  }, [getPersons]);
 
   const renderItems = () => {
     return persons

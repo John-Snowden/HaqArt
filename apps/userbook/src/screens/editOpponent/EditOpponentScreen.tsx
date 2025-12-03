@@ -17,12 +17,7 @@ export const EditOpponentScreen = () => {
       <div className={clsx(stylesGlobal.header, stylesGlobal.row)}>
         <h1>{name || translations.headers.newOpponent}</h1>
         <UISep />
-        <UIButton
-          iconSize={14}
-          icon={"/svg/add.svg"}
-          title={translations.bttns.save}
-          onClick={upsertOpponent}
-        />
+        <UIButton title={translations.bttns.save} onClick={upsertOpponent} />
       </div>
 
       <UISep />

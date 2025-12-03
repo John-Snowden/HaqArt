@@ -22,7 +22,6 @@ export const NearestTaskSection = observer(() => {
       <div style={{ flex: 1 }}>
         <UIInput
           value={nearestTask}
-          style={styles.input}
           key={translations.legalCase.nearestTask}
           label={translations.legalCase.nearestTask}
           onChange={setNearestTask}

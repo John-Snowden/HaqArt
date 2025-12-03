@@ -1,4 +1,6 @@
 import {
+  APPOINTMENT_STATUS,
+  CALL_STATUS,
   CASE_STATUS,
   IMPORTANCE,
   LEGAL_ACTION,
@@ -14,6 +16,8 @@ export type StatusOption = DropdownOption<CASE_STATUS>;
 export type RefusalOption = DropdownOption<REFUSAL_REASON>;
 export type LegalActionOption = DropdownOption<LEGAL_ACTION>;
 export type StatusInCourtOption = DropdownOption<STATUS_IN_COURT>;
+export type CallOption = DropdownOption<CALL_STATUS>;
+export type AppointmentOption = DropdownOption<APPOINTMENT_STATUS>;
 
 export const MANAGER_CASE_STATUSES: CASE_STATUS[] = [
   CASE_STATUS.PENDING_START,
@@ -82,3 +86,11 @@ export type CaseFilteres = {
   caseUrgency: URGENCY | undefined;
   caseImportance: IMPORTANCE | undefined;
 };
+
+export const CALL_OPTIONS: CallOption[] = Object.values(CALL_STATUS).map(
+  (s) => ({ option: s, value: translations.callStatuses[s] }),
+);
+
+export const APPOINTMENT_OPTIONS: AppointmentOption[] = Object.values(
+  APPOINTMENT_STATUS,
+).map((s) => ({ option: s, value: translations.appointmentStatuses[s] }));

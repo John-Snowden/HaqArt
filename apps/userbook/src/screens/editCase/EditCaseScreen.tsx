@@ -14,9 +14,10 @@ import {
   Dropdowns,
   ProblemFull,
   ProblemShort,
+  OpponentSection,
   NearestTaskSection,
   SupervisorDropdowns,
-  OpponentSection,
+  PriceSection,
 } from "./components";
 import styles from "./styles.module.css";
 import stylesGlobal from "../../stylesGlobal.module.css";
@@ -30,36 +31,28 @@ export const EditCaseScreen = observer(() => {
     setCategories,
     root: {
       casesStore: { selectedCase },
+      personsStore: { selectedPerson },
     },
   } = useEditCaseVM();
 
-  const headerTitle = `${selectedCase?.person.name} ${
-    selectedCase?.person.phoneNumber
-      ? ", +(998) " + selectedCase?.person.phoneNumber
-      : ""
-  }`;
-
+  const headerTitle = selectedCase?.person.name || selectedPerson?.name;
   const date = selectedCase?.createdAt || new Date();
   const subheaderTitle = `${translations.misc.case} ${translations.misc.asOf} ${format(date, "dd MMM yyyy", { locale: ru })}`;
 
   return (
-    <>
+    <div>
       <div className={clsx(stylesGlobal.header, stylesGlobal.row)}>
         <div>
           <h1>{headerTitle}</h1>
-          <h4 style={{ marginTop: "6px" }}>{subheaderTitle}</h4>
+          <h4>{subheaderTitle}</h4>
         </div>
         <UISep />
-        <div style={{ marginBottom: "6px" }}>
-          <UIButton
-            iconSize={14}
-            icon="/svg/add.svg"
-            title={translations.bttns.save}
-            onClick={() => {
-              if (canWrite) upsertCase();
-            }}
-          />
-        </div>
+        <UIButton
+          title={translations.bttns.save}
+          onClick={() => {
+            if (canWrite) upsertCase();
+          }}
+        />
       </div>
 
       <UISep />
@@ -93,6 +86,7 @@ export const EditCaseScreen = observer(() => {
             Шаг 2: Заполняется руководителем
           </div>
           <SupervisorDropdowns />
+          <PriceSection />
 
           <UISep times={4} />
           {managerId !== undefined && (
@@ -105,6 +99,6 @@ export const EditCaseScreen = observer(() => {
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 });

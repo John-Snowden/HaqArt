@@ -14,7 +14,7 @@ import {
   REFUSAL_REASON,
   STATUS_IN_COURT,
 } from "@shared/prisma/prisma/client";
-import { Dropdown } from "@/ui";
+import { UIDropdown } from "@/ui";
 import { translations } from "@/localize";
 import { useEditCaseVM } from "@/context";
 
@@ -43,7 +43,7 @@ export const Dropdowns: FC = observer(() => {
 
   return (
     <div>
-      <Dropdown
+      <UIDropdown
         value={legalActionTitle}
         options={LEGAL_ACTION_OPTIONS}
         label={translations.legalCase.legalAction}
@@ -53,7 +53,7 @@ export const Dropdowns: FC = observer(() => {
           );
         }}
       />
-      <Dropdown
+      <UIDropdown
         value={statusInCourtTitle}
         options={STATUS_IN_COURT_OPTIONS}
         label={translations.legalCase.statusInCourt}
@@ -63,7 +63,7 @@ export const Dropdowns: FC = observer(() => {
           );
         }}
       />
-      <Dropdown
+      <UIDropdown
         isValueRequired
         value={caseStatusTitle}
         options={permittedCaseStatuses}
@@ -72,7 +72,7 @@ export const Dropdowns: FC = observer(() => {
       />
       <div>
         {caseStatus === CASE_STATUS.PERSON_REFUSED && (
-          <Dropdown
+          <UIDropdown
             value={refusalReason}
             options={REFUSAL_OPTIONS}
             label={translations.legalCase.refusalReason}

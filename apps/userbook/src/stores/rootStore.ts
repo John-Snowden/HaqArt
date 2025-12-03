@@ -7,6 +7,7 @@ import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.share
 import { ROUTES } from "@/constants/routes";
 
 import AuthStore from "./authStore";
+import CallsStore from "./callStore";
 import AlertStore from "./alertStore";
 import CasesStore from "./casesStore";
 import RouterStore from "./routerStore";
@@ -20,6 +21,7 @@ import { MAIN_ROUTE_BY_ROLE } from "./constants/router";
 
 export default class RootStore {
   authStore: AuthStore;
+  callsStore: CallsStore;
   casesStore: CasesStore;
   alertStore: AlertStore;
   routerStore: RouterStore;
@@ -34,6 +36,7 @@ export default class RootStore {
     this.routerStore = new RouterStore(this, router);
 
     this.authStore = new AuthStore(this);
+    this.callsStore = new CallsStore(this);
     this.casesStore = new CasesStore(this);
     this.alertStore = new AlertStore(this);
     this.cookieStore = new CookiesStore(this);

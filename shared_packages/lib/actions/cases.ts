@@ -1,7 +1,7 @@
 "use server";
 
 import prisma from "@shared/prisma";
-import { Case, CASE_CATEGORY, Prisma } from "@shared/prisma/prisma/client";
+import { Case, Prisma } from "@shared/prisma/prisma/client";
 
 const include = {
   person: {

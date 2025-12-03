@@ -39,12 +39,7 @@ export const UIListWrapper: FC<IProps> = ({
         <UISep />
         {onAdd && canWrite && (
           <div className={stylesGlobal.footer}>
-            <UIButton
-              iconSize={14}
-              icon="/svg/add.svg"
-              title={bttnTitle}
-              onClick={onAdd}
-            />
+            <UIButton title={bttnTitle} onClick={onAdd} />
           </div>
         )}
       </div>

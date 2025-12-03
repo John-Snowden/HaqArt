@@ -18,7 +18,6 @@ export const CourtInfo = observer(() => {
       <div style={{ flex: 1 }}>
         <UIInput
           value={courtInfo}
-          style={styles.input}
           label={translations.legalCase.courtInfo}
           onChange={setCourtInfo}
         />

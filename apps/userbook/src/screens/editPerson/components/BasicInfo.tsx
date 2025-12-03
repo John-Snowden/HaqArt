@@ -8,32 +8,26 @@ import { useEditPersonVM } from "@/context";
 import { translations } from "@/localize/translations";
 
 import styles from "../styles.module.css";
+import stylesGlobal from "../../../stylesGlobal.module.css";
 
 export const BasicInfo = observer(() => {
   const { name, link, setName, setLink } = useEditPersonVM();
 
   return (
-    <div className={styles.inputGroup}>
-      <div style={{ width: "35vw" }}>
-        <UIInput
-          value={name}
-          style={styles.input}
-          label={translations.person.name}
-          onChange={setName}
-        />
+    <div className={stylesGlobal.flexAllVertical}>
+      <div style={{ display: "flex", width: "50%" }}>
+        <div style={{ flex: 1 }}>
+          <UIInput
+            value={name}
+            label={translations.person.name}
+            onChange={setName}
+          />
+        </div>
       </div>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          width: "40vw",
-          alignItems: "center",
-        }}
-      >
+      <div style={{ display: "flex", width: "80%" }}>
         <div style={{ flex: 1 }}>
           <UIInput
             value={link}
-            style={styles.input}
             placeholder={"https://..."}
             label={translations.person.link}
             onChange={setLink}
