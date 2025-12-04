@@ -30,20 +30,13 @@ export const CallsList = observer(() => {
         ${format(c.createdAt, "d MMM yyyy", { locale: ru })}, ${c.opponent?.name}:`;
 
       return (
-        <div
-          key={c.id}
-          style={{
-            display: "flex",
-            alignSelf: "stretch",
-            flexDirection: "column",
-          }}
-        >
+        <div key={c.id} className={stylesGlobal.flexAllVertical}>
           <h3>{callGroupTitle}</h3>
           <UISep times={0.5} />
-          <div style={{ display: "flex", flexDirection: "row" }}>
+          <div className={stylesGlobal.row}>
             <div style={{ marginRight: "12px" }}>
               <UIButton
-                title={translations.bttns.add}
+                title={translations.bttns.newCall}
                 onClick={() => {
                   resetSelectedCallId();
                   setSelectedCaseId(c.id);
@@ -51,8 +44,14 @@ export const CallsList = observer(() => {
                 }}
               />
             </div>
-            <div>
-              <div className={styles.scrollX}>{renderCalls(c.id) || "-"}</div>
+            <div className={styles.scrollX}>{renderCalls(c.id) || "-"}</div>
+            <div className={styles.nextDialWrapper}>
+              <div>{translations.misc.nextDialDate}</div>
+              <div>
+                {c.nextDialDate
+                  ? format(c.nextDialDate, "dd MMM yyyy, HH:mm", { locale: ru })
+                  : "none"}
+              </div>
             </div>
           </div>
           <UISep />
@@ -86,7 +85,7 @@ export const CallsList = observer(() => {
                 }
               />
             </div>
-            <div> {format(call.createdAt, "d MMM HH:mm", { locale: ru })}</div>
+            {format(call.createdAt, "d MMM yyyy, HH:mm", { locale: ru })}
             <div className={styles.cardBG} />
           </div>
         );

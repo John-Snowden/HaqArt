@@ -59,6 +59,7 @@ export default class RootStore {
       await Promise.all([
         this.employeesStore.getEmployees(),
         this.opponentsStore.getOpponents(),
+        this.originsStore.getOrigins(),
       ]);
       // TODO delete?
       // this.routerStore.hydrate();

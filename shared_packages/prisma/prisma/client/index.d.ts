@@ -1671,9 +1671,9 @@ export namespace Prisma {
     authoredPersons: number
     authoredCases: number
     managedCases: number
-    Opponent: number
-    Call: number
-    Appointment: number
+    authoredOpponents: number
+    authoredCalls: number
+    authoredAppointments: number
   }
 
   export type EmployeeCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -1682,9 +1682,9 @@ export namespace Prisma {
     authoredPersons?: boolean | EmployeeCountOutputTypeCountAuthoredPersonsArgs
     authoredCases?: boolean | EmployeeCountOutputTypeCountAuthoredCasesArgs
     managedCases?: boolean | EmployeeCountOutputTypeCountManagedCasesArgs
-    Opponent?: boolean | EmployeeCountOutputTypeCountOpponentArgs
-    Call?: boolean | EmployeeCountOutputTypeCountCallArgs
-    Appointment?: boolean | EmployeeCountOutputTypeCountAppointmentArgs
+    authoredOpponents?: boolean | EmployeeCountOutputTypeCountAuthoredOpponentsArgs
+    authoredCalls?: boolean | EmployeeCountOutputTypeCountAuthoredCallsArgs
+    authoredAppointments?: boolean | EmployeeCountOutputTypeCountAuthoredAppointmentsArgs
   }
 
   // Custom InputTypes
@@ -1736,21 +1736,21 @@ export namespace Prisma {
   /**
    * EmployeeCountOutputType without action
    */
-  export type EmployeeCountOutputTypeCountOpponentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EmployeeCountOutputTypeCountAuthoredOpponentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: OpponentWhereInput
   }
 
   /**
    * EmployeeCountOutputType without action
    */
-  export type EmployeeCountOutputTypeCountCallArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EmployeeCountOutputTypeCountAuthoredCallsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: CallWhereInput
   }
 
   /**
    * EmployeeCountOutputType without action
    */
-  export type EmployeeCountOutputTypeCountAppointmentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EmployeeCountOutputTypeCountAuthoredAppointmentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: AppointmentWhereInput
   }
 
@@ -1761,14 +1761,14 @@ export namespace Prisma {
 
   export type PersonCountOutputType = {
     cases: number
-    Call: number
-    Appointment: number
+    calls: number
+    appointments: number
   }
 
   export type PersonCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     cases?: boolean | PersonCountOutputTypeCountCasesArgs
-    Call?: boolean | PersonCountOutputTypeCountCallArgs
-    Appointment?: boolean | PersonCountOutputTypeCountAppointmentArgs
+    calls?: boolean | PersonCountOutputTypeCountCallsArgs
+    appointments?: boolean | PersonCountOutputTypeCountAppointmentsArgs
   }
 
   // Custom InputTypes
@@ -1792,14 +1792,14 @@ export namespace Prisma {
   /**
    * PersonCountOutputType without action
    */
-  export type PersonCountOutputTypeCountCallArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PersonCountOutputTypeCountCallsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: CallWhereInput
   }
 
   /**
    * PersonCountOutputType without action
    */
-  export type PersonCountOutputTypeCountAppointmentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PersonCountOutputTypeCountAppointmentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: AppointmentWhereInput
   }
 
@@ -2109,9 +2109,9 @@ export namespace Prisma {
     authoredPersons?: boolean | Employee$authoredPersonsArgs<ExtArgs>
     authoredCases?: boolean | Employee$authoredCasesArgs<ExtArgs>
     managedCases?: boolean | Employee$managedCasesArgs<ExtArgs>
-    Opponent?: boolean | Employee$OpponentArgs<ExtArgs>
-    Call?: boolean | Employee$CallArgs<ExtArgs>
-    Appointment?: boolean | Employee$AppointmentArgs<ExtArgs>
+    authoredOpponents?: boolean | Employee$authoredOpponentsArgs<ExtArgs>
+    authoredCalls?: boolean | Employee$authoredCallsArgs<ExtArgs>
+    authoredAppointments?: boolean | Employee$authoredAppointmentsArgs<ExtArgs>
     _count?: boolean | EmployeeCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["employee"]>
 
@@ -2146,9 +2146,9 @@ export namespace Prisma {
     authoredPersons?: boolean | Employee$authoredPersonsArgs<ExtArgs>
     authoredCases?: boolean | Employee$authoredCasesArgs<ExtArgs>
     managedCases?: boolean | Employee$managedCasesArgs<ExtArgs>
-    Opponent?: boolean | Employee$OpponentArgs<ExtArgs>
-    Call?: boolean | Employee$CallArgs<ExtArgs>
-    Appointment?: boolean | Employee$AppointmentArgs<ExtArgs>
+    authoredOpponents?: boolean | Employee$authoredOpponentsArgs<ExtArgs>
+    authoredCalls?: boolean | Employee$authoredCallsArgs<ExtArgs>
+    authoredAppointments?: boolean | Employee$authoredAppointmentsArgs<ExtArgs>
     _count?: boolean | EmployeeCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type EmployeeIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -2162,9 +2162,9 @@ export namespace Prisma {
       authoredPersons: Prisma.$PersonPayload<ExtArgs>[]
       authoredCases: Prisma.$CasePayload<ExtArgs>[]
       managedCases: Prisma.$CasePayload<ExtArgs>[]
-      Opponent: Prisma.$OpponentPayload<ExtArgs>[]
-      Call: Prisma.$CallPayload<ExtArgs>[]
-      Appointment: Prisma.$AppointmentPayload<ExtArgs>[]
+      authoredOpponents: Prisma.$OpponentPayload<ExtArgs>[]
+      authoredCalls: Prisma.$CallPayload<ExtArgs>[]
+      authoredAppointments: Prisma.$AppointmentPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -2571,9 +2571,9 @@ export namespace Prisma {
     authoredPersons<T extends Employee$authoredPersonsArgs<ExtArgs> = {}>(args?: Subset<T, Employee$authoredPersonsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PersonPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     authoredCases<T extends Employee$authoredCasesArgs<ExtArgs> = {}>(args?: Subset<T, Employee$authoredCasesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CasePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     managedCases<T extends Employee$managedCasesArgs<ExtArgs> = {}>(args?: Subset<T, Employee$managedCasesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CasePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    Opponent<T extends Employee$OpponentArgs<ExtArgs> = {}>(args?: Subset<T, Employee$OpponentArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OpponentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    Call<T extends Employee$CallArgs<ExtArgs> = {}>(args?: Subset<T, Employee$CallArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CallPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    Appointment<T extends Employee$AppointmentArgs<ExtArgs> = {}>(args?: Subset<T, Employee$AppointmentArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AppointmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    authoredOpponents<T extends Employee$authoredOpponentsArgs<ExtArgs> = {}>(args?: Subset<T, Employee$authoredOpponentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OpponentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    authoredCalls<T extends Employee$authoredCallsArgs<ExtArgs> = {}>(args?: Subset<T, Employee$authoredCallsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CallPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    authoredAppointments<T extends Employee$authoredAppointmentsArgs<ExtArgs> = {}>(args?: Subset<T, Employee$authoredAppointmentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AppointmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3116,9 +3116,9 @@ export namespace Prisma {
   }
 
   /**
-   * Employee.Opponent
+   * Employee.authoredOpponents
    */
-  export type Employee$OpponentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Employee$authoredOpponentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Opponent
      */
@@ -3140,9 +3140,9 @@ export namespace Prisma {
   }
 
   /**
-   * Employee.Call
+   * Employee.authoredCalls
    */
-  export type Employee$CallArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Employee$authoredCallsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Call
      */
@@ -3164,9 +3164,9 @@ export namespace Prisma {
   }
 
   /**
-   * Employee.Appointment
+   * Employee.authoredAppointments
    */
-  export type Employee$AppointmentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Employee$authoredAppointmentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Appointment
      */
@@ -3452,11 +3452,11 @@ export namespace Prisma {
     authorId?: boolean
     originId?: boolean
     leadStatus?: boolean
-    cases?: boolean | Person$casesArgs<ExtArgs>
     author?: boolean | EmployeeDefaultArgs<ExtArgs>
     origin?: boolean | OriginDefaultArgs<ExtArgs>
-    Call?: boolean | Person$CallArgs<ExtArgs>
-    Appointment?: boolean | Person$AppointmentArgs<ExtArgs>
+    cases?: boolean | Person$casesArgs<ExtArgs>
+    calls?: boolean | Person$callsArgs<ExtArgs>
+    appointments?: boolean | Person$appointmentsArgs<ExtArgs>
     _count?: boolean | PersonCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["person"]>
 
@@ -3505,11 +3505,11 @@ export namespace Prisma {
 
   export type PersonOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "name" | "phoneNumber" | "link" | "email" | "homeAddress" | "authorId" | "originId" | "leadStatus", ExtArgs["result"]["person"]>
   export type PersonInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    cases?: boolean | Person$casesArgs<ExtArgs>
     author?: boolean | EmployeeDefaultArgs<ExtArgs>
     origin?: boolean | OriginDefaultArgs<ExtArgs>
-    Call?: boolean | Person$CallArgs<ExtArgs>
-    Appointment?: boolean | Person$AppointmentArgs<ExtArgs>
+    cases?: boolean | Person$casesArgs<ExtArgs>
+    calls?: boolean | Person$callsArgs<ExtArgs>
+    appointments?: boolean | Person$appointmentsArgs<ExtArgs>
     _count?: boolean | PersonCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type PersonIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3524,11 +3524,11 @@ export namespace Prisma {
   export type $PersonPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Person"
     objects: {
-      cases: Prisma.$CasePayload<ExtArgs>[]
       author: Prisma.$EmployeePayload<ExtArgs>
       origin: Prisma.$OriginPayload<ExtArgs>
-      Call: Prisma.$CallPayload<ExtArgs>[]
-      Appointment: Prisma.$AppointmentPayload<ExtArgs>[]
+      cases: Prisma.$CasePayload<ExtArgs>[]
+      calls: Prisma.$CallPayload<ExtArgs>[]
+      appointments: Prisma.$AppointmentPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -3935,11 +3935,11 @@ export namespace Prisma {
    */
   export interface Prisma__PersonClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    cases<T extends Person$casesArgs<ExtArgs> = {}>(args?: Subset<T, Person$casesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CasePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     author<T extends EmployeeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, EmployeeDefaultArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     origin<T extends OriginDefaultArgs<ExtArgs> = {}>(args?: Subset<T, OriginDefaultArgs<ExtArgs>>): Prisma__OriginClient<$Result.GetResult<Prisma.$OriginPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    Call<T extends Person$CallArgs<ExtArgs> = {}>(args?: Subset<T, Person$CallArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CallPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    Appointment<T extends Person$AppointmentArgs<ExtArgs> = {}>(args?: Subset<T, Person$AppointmentArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AppointmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    cases<T extends Person$casesArgs<ExtArgs> = {}>(args?: Subset<T, Person$casesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CasePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    calls<T extends Person$callsArgs<ExtArgs> = {}>(args?: Subset<T, Person$callsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CallPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    appointments<T extends Person$appointmentsArgs<ExtArgs> = {}>(args?: Subset<T, Person$appointmentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AppointmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4399,9 +4399,9 @@ export namespace Prisma {
   }
 
   /**
-   * Person.Call
+   * Person.calls
    */
-  export type Person$CallArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Person$callsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Call
      */
@@ -4423,9 +4423,9 @@ export namespace Prisma {
   }
 
   /**
-   * Person.Appointment
+   * Person.appointments
    */
-  export type Person$AppointmentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Person$appointmentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Appointment
      */
@@ -4510,6 +4510,7 @@ export namespace Prisma {
     nearestTaskDeadline: Date | null
     timeOfPerformance: Date | null
     assignmentTime: Date | null
+    nextDialDate: Date | null
     refusalReason: $Enums.REFUSAL_REASON | null
     legalAction: $Enums.LEGAL_ACTION | null
     statusInCourt: $Enums.STATUS_IN_COURT | null
@@ -4534,6 +4535,7 @@ export namespace Prisma {
     nearestTaskDeadline: Date | null
     timeOfPerformance: Date | null
     assignmentTime: Date | null
+    nextDialDate: Date | null
     refusalReason: $Enums.REFUSAL_REASON | null
     legalAction: $Enums.LEGAL_ACTION | null
     statusInCourt: $Enums.STATUS_IN_COURT | null
@@ -4559,6 +4561,7 @@ export namespace Prisma {
     nearestTaskDeadline: number
     timeOfPerformance: number
     assignmentTime: number
+    nextDialDate: number
     refusalReason: number
     legalAction: number
     statusInCourt: number
@@ -4605,6 +4608,7 @@ export namespace Prisma {
     nearestTaskDeadline?: true
     timeOfPerformance?: true
     assignmentTime?: true
+    nextDialDate?: true
     refusalReason?: true
     legalAction?: true
     statusInCourt?: true
@@ -4629,6 +4633,7 @@ export namespace Prisma {
     nearestTaskDeadline?: true
     timeOfPerformance?: true
     assignmentTime?: true
+    nextDialDate?: true
     refusalReason?: true
     legalAction?: true
     statusInCourt?: true
@@ -4654,6 +4659,7 @@ export namespace Prisma {
     nearestTaskDeadline?: true
     timeOfPerformance?: true
     assignmentTime?: true
+    nextDialDate?: true
     refusalReason?: true
     legalAction?: true
     statusInCourt?: true
@@ -4766,6 +4772,7 @@ export namespace Prisma {
     nearestTaskDeadline: Date | null
     timeOfPerformance: Date | null
     assignmentTime: Date | null
+    nextDialDate: Date | null
     refusalReason: $Enums.REFUSAL_REASON | null
     legalAction: $Enums.LEGAL_ACTION | null
     statusInCourt: $Enums.STATUS_IN_COURT | null
@@ -4810,6 +4817,7 @@ export namespace Prisma {
     nearestTaskDeadline?: boolean
     timeOfPerformance?: boolean
     assignmentTime?: boolean
+    nextDialDate?: boolean
     refusalReason?: boolean
     legalAction?: boolean
     statusInCourt?: boolean
@@ -4842,6 +4850,7 @@ export namespace Prisma {
     nearestTaskDeadline?: boolean
     timeOfPerformance?: boolean
     assignmentTime?: boolean
+    nextDialDate?: boolean
     refusalReason?: boolean
     legalAction?: boolean
     statusInCourt?: boolean
@@ -4871,6 +4880,7 @@ export namespace Prisma {
     nearestTaskDeadline?: boolean
     timeOfPerformance?: boolean
     assignmentTime?: boolean
+    nextDialDate?: boolean
     refusalReason?: boolean
     legalAction?: boolean
     statusInCourt?: boolean
@@ -4900,6 +4910,7 @@ export namespace Prisma {
     nearestTaskDeadline?: boolean
     timeOfPerformance?: boolean
     assignmentTime?: boolean
+    nextDialDate?: boolean
     refusalReason?: boolean
     legalAction?: boolean
     statusInCourt?: boolean
@@ -4911,7 +4922,7 @@ export namespace Prisma {
     managerId?: boolean
   }
 
-  export type CaseOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "caseImportance" | "caseUrgency" | "caseStatus" | "categories" | "problemShort" | "problemFull" | "nearestTask" | "courtInfo" | "nearestTaskDeadline" | "timeOfPerformance" | "assignmentTime" | "refusalReason" | "legalAction" | "statusInCourt" | "priceSOM" | "priceUSD" | "personId" | "authorId" | "opponentId" | "managerId", ExtArgs["result"]["case"]>
+  export type CaseOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "caseImportance" | "caseUrgency" | "caseStatus" | "categories" | "problemShort" | "problemFull" | "nearestTask" | "courtInfo" | "nearestTaskDeadline" | "timeOfPerformance" | "assignmentTime" | "nextDialDate" | "refusalReason" | "legalAction" | "statusInCourt" | "priceSOM" | "priceUSD" | "personId" | "authorId" | "opponentId" | "managerId", ExtArgs["result"]["case"]>
   export type CaseInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     author?: boolean | EmployeeDefaultArgs<ExtArgs>
     manager?: boolean | Case$managerArgs<ExtArgs>
@@ -4958,6 +4969,7 @@ export namespace Prisma {
       nearestTaskDeadline: Date | null
       timeOfPerformance: Date | null
       assignmentTime: Date | null
+      nextDialDate: Date | null
       refusalReason: $Enums.REFUSAL_REASON | null
       legalAction: $Enums.LEGAL_ACTION | null
       statusInCourt: $Enums.STATUS_IN_COURT | null
@@ -5409,6 +5421,7 @@ export namespace Prisma {
     readonly nearestTaskDeadline: FieldRef<"Case", 'DateTime'>
     readonly timeOfPerformance: FieldRef<"Case", 'DateTime'>
     readonly assignmentTime: FieldRef<"Case", 'DateTime'>
+    readonly nextDialDate: FieldRef<"Case", 'DateTime'>
     readonly refusalReason: FieldRef<"Case", 'REFUSAL_REASON'>
     readonly legalAction: FieldRef<"Case", 'LEGAL_ACTION'>
     readonly statusInCourt: FieldRef<"Case", 'STATUS_IN_COURT'>
@@ -9418,7 +9431,6 @@ export namespace Prisma {
     createdAt: Date | null
     callStatus: $Enums.CALL_STATUS | null
     info: string | null
-    redialDate: Date | null
     caseId: number | null
     personId: number | null
     authorId: number | null
@@ -9429,7 +9441,6 @@ export namespace Prisma {
     createdAt: Date | null
     callStatus: $Enums.CALL_STATUS | null
     info: string | null
-    redialDate: Date | null
     caseId: number | null
     personId: number | null
     authorId: number | null
@@ -9440,7 +9451,6 @@ export namespace Prisma {
     createdAt: number
     callStatus: number
     info: number
-    redialDate: number
     caseId: number
     personId: number
     authorId: number
@@ -9467,7 +9477,6 @@ export namespace Prisma {
     createdAt?: true
     callStatus?: true
     info?: true
-    redialDate?: true
     caseId?: true
     personId?: true
     authorId?: true
@@ -9478,7 +9487,6 @@ export namespace Prisma {
     createdAt?: true
     callStatus?: true
     info?: true
-    redialDate?: true
     caseId?: true
     personId?: true
     authorId?: true
@@ -9489,7 +9497,6 @@ export namespace Prisma {
     createdAt?: true
     callStatus?: true
     info?: true
-    redialDate?: true
     caseId?: true
     personId?: true
     authorId?: true
@@ -9587,7 +9594,6 @@ export namespace Prisma {
     createdAt: Date
     callStatus: $Enums.CALL_STATUS
     info: string | null
-    redialDate: Date | null
     caseId: number
     personId: number
     authorId: number
@@ -9617,7 +9623,6 @@ export namespace Prisma {
     createdAt?: boolean
     callStatus?: boolean
     info?: boolean
-    redialDate?: boolean
     caseId?: boolean
     personId?: boolean
     authorId?: boolean
@@ -9631,7 +9636,6 @@ export namespace Prisma {
     createdAt?: boolean
     callStatus?: boolean
     info?: boolean
-    redialDate?: boolean
     caseId?: boolean
     personId?: boolean
     authorId?: boolean
@@ -9645,7 +9649,6 @@ export namespace Prisma {
     createdAt?: boolean
     callStatus?: boolean
     info?: boolean
-    redialDate?: boolean
     caseId?: boolean
     personId?: boolean
     authorId?: boolean
@@ -9659,13 +9662,12 @@ export namespace Prisma {
     createdAt?: boolean
     callStatus?: boolean
     info?: boolean
-    redialDate?: boolean
     caseId?: boolean
     personId?: boolean
     authorId?: boolean
   }
 
-  export type CallOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "callStatus" | "info" | "redialDate" | "caseId" | "personId" | "authorId", ExtArgs["result"]["call"]>
+  export type CallOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "callStatus" | "info" | "caseId" | "personId" | "authorId", ExtArgs["result"]["call"]>
   export type CallInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     case?: boolean | CaseDefaultArgs<ExtArgs>
     author?: boolean | EmployeeDefaultArgs<ExtArgs>
@@ -9694,7 +9696,6 @@ export namespace Prisma {
       createdAt: Date
       callStatus: $Enums.CALL_STATUS
       info: string | null
-      redialDate: Date | null
       caseId: number
       personId: number
       authorId: number
@@ -10128,7 +10129,6 @@ export namespace Prisma {
     readonly createdAt: FieldRef<"Call", 'DateTime'>
     readonly callStatus: FieldRef<"Call", 'CALL_STATUS'>
     readonly info: FieldRef<"Call", 'String'>
-    readonly redialDate: FieldRef<"Call", 'DateTime'>
     readonly caseId: FieldRef<"Call", 'Int'>
     readonly personId: FieldRef<"Call", 'Int'>
     readonly authorId: FieldRef<"Call", 'Int'>
@@ -11747,6 +11747,7 @@ export namespace Prisma {
     nearestTaskDeadline: 'nearestTaskDeadline',
     timeOfPerformance: 'timeOfPerformance',
     assignmentTime: 'assignmentTime',
+    nextDialDate: 'nextDialDate',
     refusalReason: 'refusalReason',
     legalAction: 'legalAction',
     statusInCourt: 'statusInCourt',
@@ -11808,7 +11809,6 @@ export namespace Prisma {
     createdAt: 'createdAt',
     callStatus: 'callStatus',
     info: 'info',
-    redialDate: 'redialDate',
     caseId: 'caseId',
     personId: 'personId',
     authorId: 'authorId'
@@ -12100,9 +12100,9 @@ export namespace Prisma {
     authoredPersons?: PersonListRelationFilter
     authoredCases?: CaseListRelationFilter
     managedCases?: CaseListRelationFilter
-    Opponent?: OpponentListRelationFilter
-    Call?: CallListRelationFilter
-    Appointment?: AppointmentListRelationFilter
+    authoredOpponents?: OpponentListRelationFilter
+    authoredCalls?: CallListRelationFilter
+    authoredAppointments?: AppointmentListRelationFilter
   }
 
   export type EmployeeOrderByWithRelationInput = {
@@ -12116,9 +12116,9 @@ export namespace Prisma {
     authoredPersons?: PersonOrderByRelationAggregateInput
     authoredCases?: CaseOrderByRelationAggregateInput
     managedCases?: CaseOrderByRelationAggregateInput
-    Opponent?: OpponentOrderByRelationAggregateInput
-    Call?: CallOrderByRelationAggregateInput
-    Appointment?: AppointmentOrderByRelationAggregateInput
+    authoredOpponents?: OpponentOrderByRelationAggregateInput
+    authoredCalls?: CallOrderByRelationAggregateInput
+    authoredAppointments?: AppointmentOrderByRelationAggregateInput
   }
 
   export type EmployeeWhereUniqueInput = Prisma.AtLeast<{
@@ -12135,9 +12135,9 @@ export namespace Prisma {
     authoredPersons?: PersonListRelationFilter
     authoredCases?: CaseListRelationFilter
     managedCases?: CaseListRelationFilter
-    Opponent?: OpponentListRelationFilter
-    Call?: CallListRelationFilter
-    Appointment?: AppointmentListRelationFilter
+    authoredOpponents?: OpponentListRelationFilter
+    authoredCalls?: CallListRelationFilter
+    authoredAppointments?: AppointmentListRelationFilter
   }, "id" | "username">
 
   export type EmployeeOrderByWithAggregationInput = {
@@ -12178,11 +12178,11 @@ export namespace Prisma {
     authorId?: IntFilter<"Person"> | number
     originId?: IntFilter<"Person"> | number
     leadStatus?: EnumLEAD_STATUSFilter<"Person"> | $Enums.LEAD_STATUS
-    cases?: CaseListRelationFilter
     author?: XOR<EmployeeScalarRelationFilter, EmployeeWhereInput>
     origin?: XOR<OriginScalarRelationFilter, OriginWhereInput>
-    Call?: CallListRelationFilter
-    Appointment?: AppointmentListRelationFilter
+    cases?: CaseListRelationFilter
+    calls?: CallListRelationFilter
+    appointments?: AppointmentListRelationFilter
   }
 
   export type PersonOrderByWithRelationInput = {
@@ -12196,11 +12196,11 @@ export namespace Prisma {
     authorId?: SortOrder
     originId?: SortOrder
     leadStatus?: SortOrder
-    cases?: CaseOrderByRelationAggregateInput
     author?: EmployeeOrderByWithRelationInput
     origin?: OriginOrderByWithRelationInput
-    Call?: CallOrderByRelationAggregateInput
-    Appointment?: AppointmentOrderByRelationAggregateInput
+    cases?: CaseOrderByRelationAggregateInput
+    calls?: CallOrderByRelationAggregateInput
+    appointments?: AppointmentOrderByRelationAggregateInput
   }
 
   export type PersonWhereUniqueInput = Prisma.AtLeast<{
@@ -12217,11 +12217,11 @@ export namespace Prisma {
     authorId?: IntFilter<"Person"> | number
     originId?: IntFilter<"Person"> | number
     leadStatus?: EnumLEAD_STATUSFilter<"Person"> | $Enums.LEAD_STATUS
-    cases?: CaseListRelationFilter
     author?: XOR<EmployeeScalarRelationFilter, EmployeeWhereInput>
     origin?: XOR<OriginScalarRelationFilter, OriginWhereInput>
-    Call?: CallListRelationFilter
-    Appointment?: AppointmentListRelationFilter
+    cases?: CaseListRelationFilter
+    calls?: CallListRelationFilter
+    appointments?: AppointmentListRelationFilter
   }, "id" | "phoneNumber" | "link" | "email">
 
   export type PersonOrderByWithAggregationInput = {
@@ -12275,6 +12275,7 @@ export namespace Prisma {
     nearestTaskDeadline?: DateTimeNullableFilter<"Case"> | Date | string | null
     timeOfPerformance?: DateTimeNullableFilter<"Case"> | Date | string | null
     assignmentTime?: DateTimeNullableFilter<"Case"> | Date | string | null
+    nextDialDate?: DateTimeNullableFilter<"Case"> | Date | string | null
     refusalReason?: EnumREFUSAL_REASONNullableFilter<"Case"> | $Enums.REFUSAL_REASON | null
     legalAction?: EnumLEGAL_ACTIONNullableFilter<"Case"> | $Enums.LEGAL_ACTION | null
     statusInCourt?: EnumSTATUS_IN_COURTNullableFilter<"Case"> | $Enums.STATUS_IN_COURT | null
@@ -12306,6 +12307,7 @@ export namespace Prisma {
     nearestTaskDeadline?: SortOrderInput | SortOrder
     timeOfPerformance?: SortOrderInput | SortOrder
     assignmentTime?: SortOrderInput | SortOrder
+    nextDialDate?: SortOrderInput | SortOrder
     refusalReason?: SortOrderInput | SortOrder
     legalAction?: SortOrderInput | SortOrder
     statusInCourt?: SortOrderInput | SortOrder
@@ -12340,6 +12342,7 @@ export namespace Prisma {
     nearestTaskDeadline?: DateTimeNullableFilter<"Case"> | Date | string | null
     timeOfPerformance?: DateTimeNullableFilter<"Case"> | Date | string | null
     assignmentTime?: DateTimeNullableFilter<"Case"> | Date | string | null
+    nextDialDate?: DateTimeNullableFilter<"Case"> | Date | string | null
     refusalReason?: EnumREFUSAL_REASONNullableFilter<"Case"> | $Enums.REFUSAL_REASON | null
     legalAction?: EnumLEGAL_ACTIONNullableFilter<"Case"> | $Enums.LEGAL_ACTION | null
     statusInCourt?: EnumSTATUS_IN_COURTNullableFilter<"Case"> | $Enums.STATUS_IN_COURT | null
@@ -12371,6 +12374,7 @@ export namespace Prisma {
     nearestTaskDeadline?: SortOrderInput | SortOrder
     timeOfPerformance?: SortOrderInput | SortOrder
     assignmentTime?: SortOrderInput | SortOrder
+    nextDialDate?: SortOrderInput | SortOrder
     refusalReason?: SortOrderInput | SortOrder
     legalAction?: SortOrderInput | SortOrder
     statusInCourt?: SortOrderInput | SortOrder
@@ -12404,6 +12408,7 @@ export namespace Prisma {
     nearestTaskDeadline?: DateTimeNullableWithAggregatesFilter<"Case"> | Date | string | null
     timeOfPerformance?: DateTimeNullableWithAggregatesFilter<"Case"> | Date | string | null
     assignmentTime?: DateTimeNullableWithAggregatesFilter<"Case"> | Date | string | null
+    nextDialDate?: DateTimeNullableWithAggregatesFilter<"Case"> | Date | string | null
     refusalReason?: EnumREFUSAL_REASONNullableWithAggregatesFilter<"Case"> | $Enums.REFUSAL_REASON | null
     legalAction?: EnumLEGAL_ACTIONNullableWithAggregatesFilter<"Case"> | $Enums.LEGAL_ACTION | null
     statusInCourt?: EnumSTATUS_IN_COURTNullableWithAggregatesFilter<"Case"> | $Enums.STATUS_IN_COURT | null
@@ -12645,7 +12650,6 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Call"> | Date | string
     callStatus?: EnumCALL_STATUSFilter<"Call"> | $Enums.CALL_STATUS
     info?: StringNullableFilter<"Call"> | string | null
-    redialDate?: DateTimeNullableFilter<"Call"> | Date | string | null
     caseId?: IntFilter<"Call"> | number
     personId?: IntFilter<"Call"> | number
     authorId?: IntFilter<"Call"> | number
@@ -12659,7 +12663,6 @@ export namespace Prisma {
     createdAt?: SortOrder
     callStatus?: SortOrder
     info?: SortOrderInput | SortOrder
-    redialDate?: SortOrderInput | SortOrder
     caseId?: SortOrder
     personId?: SortOrder
     authorId?: SortOrder
@@ -12676,7 +12679,6 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Call"> | Date | string
     callStatus?: EnumCALL_STATUSFilter<"Call"> | $Enums.CALL_STATUS
     info?: StringNullableFilter<"Call"> | string | null
-    redialDate?: DateTimeNullableFilter<"Call"> | Date | string | null
     caseId?: IntFilter<"Call"> | number
     personId?: IntFilter<"Call"> | number
     authorId?: IntFilter<"Call"> | number
@@ -12690,7 +12692,6 @@ export namespace Prisma {
     createdAt?: SortOrder
     callStatus?: SortOrder
     info?: SortOrderInput | SortOrder
-    redialDate?: SortOrderInput | SortOrder
     caseId?: SortOrder
     personId?: SortOrder
     authorId?: SortOrder
@@ -12709,7 +12710,6 @@ export namespace Prisma {
     createdAt?: DateTimeWithAggregatesFilter<"Call"> | Date | string
     callStatus?: EnumCALL_STATUSWithAggregatesFilter<"Call"> | $Enums.CALL_STATUS
     info?: StringNullableWithAggregatesFilter<"Call"> | string | null
-    redialDate?: DateTimeNullableWithAggregatesFilter<"Call"> | Date | string | null
     caseId?: IntWithAggregatesFilter<"Call"> | number
     personId?: IntWithAggregatesFilter<"Call"> | number
     authorId?: IntWithAggregatesFilter<"Call"> | number
@@ -12798,9 +12798,9 @@ export namespace Prisma {
     authoredPersons?: PersonCreateNestedManyWithoutAuthorInput
     authoredCases?: CaseCreateNestedManyWithoutAuthorInput
     managedCases?: CaseCreateNestedManyWithoutManagerInput
-    Opponent?: OpponentCreateNestedManyWithoutAuthorInput
-    Call?: CallCreateNestedManyWithoutAuthorInput
-    Appointment?: AppointmentCreateNestedManyWithoutAuthorInput
+    authoredOpponents?: OpponentCreateNestedManyWithoutAuthorInput
+    authoredCalls?: CallCreateNestedManyWithoutAuthorInput
+    authoredAppointments?: AppointmentCreateNestedManyWithoutAuthorInput
   }
 
   export type EmployeeUncheckedCreateInput = {
@@ -12814,9 +12814,9 @@ export namespace Prisma {
     authoredPersons?: PersonUncheckedCreateNestedManyWithoutAuthorInput
     authoredCases?: CaseUncheckedCreateNestedManyWithoutAuthorInput
     managedCases?: CaseUncheckedCreateNestedManyWithoutManagerInput
-    Opponent?: OpponentUncheckedCreateNestedManyWithoutAuthorInput
-    Call?: CallUncheckedCreateNestedManyWithoutAuthorInput
-    Appointment?: AppointmentUncheckedCreateNestedManyWithoutAuthorInput
+    authoredOpponents?: OpponentUncheckedCreateNestedManyWithoutAuthorInput
+    authoredCalls?: CallUncheckedCreateNestedManyWithoutAuthorInput
+    authoredAppointments?: AppointmentUncheckedCreateNestedManyWithoutAuthorInput
   }
 
   export type EmployeeUpdateInput = {
@@ -12829,9 +12829,9 @@ export namespace Prisma {
     authoredPersons?: PersonUpdateManyWithoutAuthorNestedInput
     authoredCases?: CaseUpdateManyWithoutAuthorNestedInput
     managedCases?: CaseUpdateManyWithoutManagerNestedInput
-    Opponent?: OpponentUpdateManyWithoutAuthorNestedInput
-    Call?: CallUpdateManyWithoutAuthorNestedInput
-    Appointment?: AppointmentUpdateManyWithoutAuthorNestedInput
+    authoredOpponents?: OpponentUpdateManyWithoutAuthorNestedInput
+    authoredCalls?: CallUpdateManyWithoutAuthorNestedInput
+    authoredAppointments?: AppointmentUpdateManyWithoutAuthorNestedInput
   }
 
   export type EmployeeUncheckedUpdateInput = {
@@ -12845,9 +12845,9 @@ export namespace Prisma {
     authoredPersons?: PersonUncheckedUpdateManyWithoutAuthorNestedInput
     authoredCases?: CaseUncheckedUpdateManyWithoutAuthorNestedInput
     managedCases?: CaseUncheckedUpdateManyWithoutManagerNestedInput
-    Opponent?: OpponentUncheckedUpdateManyWithoutAuthorNestedInput
-    Call?: CallUncheckedUpdateManyWithoutAuthorNestedInput
-    Appointment?: AppointmentUncheckedUpdateManyWithoutAuthorNestedInput
+    authoredOpponents?: OpponentUncheckedUpdateManyWithoutAuthorNestedInput
+    authoredCalls?: CallUncheckedUpdateManyWithoutAuthorNestedInput
+    authoredAppointments?: AppointmentUncheckedUpdateManyWithoutAuthorNestedInput
   }
 
   export type EmployeeCreateManyInput = {
@@ -12881,11 +12881,11 @@ export namespace Prisma {
     email?: string | null
     homeAddress?: string | null
     leadStatus?: $Enums.LEAD_STATUS
-    cases?: CaseCreateNestedManyWithoutPersonInput
     author: EmployeeCreateNestedOneWithoutAuthoredPersonsInput
     origin: OriginCreateNestedOneWithoutPersonsInput
-    Call?: CallCreateNestedManyWithoutPersonInput
-    Appointment?: AppointmentCreateNestedManyWithoutPersonInput
+    cases?: CaseCreateNestedManyWithoutPersonInput
+    calls?: CallCreateNestedManyWithoutPersonInput
+    appointments?: AppointmentCreateNestedManyWithoutPersonInput
   }
 
   export type PersonUncheckedCreateInput = {
@@ -12900,8 +12900,8 @@ export namespace Prisma {
     originId: number
     leadStatus?: $Enums.LEAD_STATUS
     cases?: CaseUncheckedCreateNestedManyWithoutPersonInput
-    Call?: CallUncheckedCreateNestedManyWithoutPersonInput
-    Appointment?: AppointmentUncheckedCreateNestedManyWithoutPersonInput
+    calls?: CallUncheckedCreateNestedManyWithoutPersonInput
+    appointments?: AppointmentUncheckedCreateNestedManyWithoutPersonInput
   }
 
   export type PersonUpdateInput = {
@@ -12912,11 +12912,11 @@ export namespace Prisma {
     email?: NullableStringFieldUpdateOperationsInput | string | null
     homeAddress?: NullableStringFieldUpdateOperationsInput | string | null
     leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
-    cases?: CaseUpdateManyWithoutPersonNestedInput
     author?: EmployeeUpdateOneRequiredWithoutAuthoredPersonsNestedInput
     origin?: OriginUpdateOneRequiredWithoutPersonsNestedInput
-    Call?: CallUpdateManyWithoutPersonNestedInput
-    Appointment?: AppointmentUpdateManyWithoutPersonNestedInput
+    cases?: CaseUpdateManyWithoutPersonNestedInput
+    calls?: CallUpdateManyWithoutPersonNestedInput
+    appointments?: AppointmentUpdateManyWithoutPersonNestedInput
   }
 
   export type PersonUncheckedUpdateInput = {
@@ -12931,8 +12931,8 @@ export namespace Prisma {
     originId?: IntFieldUpdateOperationsInput | number
     leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
     cases?: CaseUncheckedUpdateManyWithoutPersonNestedInput
-    Call?: CallUncheckedUpdateManyWithoutPersonNestedInput
-    Appointment?: AppointmentUncheckedUpdateManyWithoutPersonNestedInput
+    calls?: CallUncheckedUpdateManyWithoutPersonNestedInput
+    appointments?: AppointmentUncheckedUpdateManyWithoutPersonNestedInput
   }
 
   export type PersonCreateManyInput = {
@@ -12984,6 +12984,7 @@ export namespace Prisma {
     nearestTaskDeadline?: Date | string | null
     timeOfPerformance?: Date | string | null
     assignmentTime?: Date | string | null
+    nextDialDate?: Date | string | null
     refusalReason?: $Enums.REFUSAL_REASON | null
     legalAction?: $Enums.LEGAL_ACTION | null
     statusInCourt?: $Enums.STATUS_IN_COURT | null
@@ -13011,6 +13012,7 @@ export namespace Prisma {
     nearestTaskDeadline?: Date | string | null
     timeOfPerformance?: Date | string | null
     assignmentTime?: Date | string | null
+    nextDialDate?: Date | string | null
     refusalReason?: $Enums.REFUSAL_REASON | null
     legalAction?: $Enums.LEGAL_ACTION | null
     statusInCourt?: $Enums.STATUS_IN_COURT | null
@@ -13037,6 +13039,7 @@ export namespace Prisma {
     nearestTaskDeadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
     statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
@@ -13064,6 +13067,7 @@ export namespace Prisma {
     nearestTaskDeadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
     statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
@@ -13091,6 +13095,7 @@ export namespace Prisma {
     nearestTaskDeadline?: Date | string | null
     timeOfPerformance?: Date | string | null
     assignmentTime?: Date | string | null
+    nextDialDate?: Date | string | null
     refusalReason?: $Enums.REFUSAL_REASON | null
     legalAction?: $Enums.LEGAL_ACTION | null
     statusInCourt?: $Enums.STATUS_IN_COURT | null
@@ -13115,6 +13120,7 @@ export namespace Prisma {
     nearestTaskDeadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
     statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
@@ -13136,6 +13142,7 @@ export namespace Prisma {
     nearestTaskDeadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
     statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
@@ -13216,7 +13223,7 @@ export namespace Prisma {
     link?: string | null
     info?: string | null
     cases?: CaseCreateNestedManyWithoutOpponentInput
-    author: EmployeeCreateNestedOneWithoutOpponentInput
+    author: EmployeeCreateNestedOneWithoutAuthoredOpponentsInput
   }
 
   export type OpponentUncheckedCreateInput = {
@@ -13235,7 +13242,7 @@ export namespace Prisma {
     link?: NullableStringFieldUpdateOperationsInput | string | null
     info?: NullableStringFieldUpdateOperationsInput | string | null
     cases?: CaseUpdateManyWithoutOpponentNestedInput
-    author?: EmployeeUpdateOneRequiredWithoutOpponentNestedInput
+    author?: EmployeeUpdateOneRequiredWithoutAuthoredOpponentsNestedInput
   }
 
   export type OpponentUncheckedUpdateInput = {
@@ -13378,10 +13385,9 @@ export namespace Prisma {
     createdAt?: Date | string
     callStatus: $Enums.CALL_STATUS
     info?: string | null
-    redialDate?: Date | string | null
     case: CaseCreateNestedOneWithoutCallsInput
-    author: EmployeeCreateNestedOneWithoutCallInput
-    person: PersonCreateNestedOneWithoutCallInput
+    author: EmployeeCreateNestedOneWithoutAuthoredCallsInput
+    person: PersonCreateNestedOneWithoutCallsInput
   }
 
   export type CallUncheckedCreateInput = {
@@ -13389,7 +13395,6 @@ export namespace Prisma {
     createdAt?: Date | string
     callStatus: $Enums.CALL_STATUS
     info?: string | null
-    redialDate?: Date | string | null
     caseId: number
     personId: number
     authorId: number
@@ -13399,10 +13404,9 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     callStatus?: EnumCALL_STATUSFieldUpdateOperationsInput | $Enums.CALL_STATUS
     info?: NullableStringFieldUpdateOperationsInput | string | null
-    redialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     case?: CaseUpdateOneRequiredWithoutCallsNestedInput
-    author?: EmployeeUpdateOneRequiredWithoutCallNestedInput
-    person?: PersonUpdateOneRequiredWithoutCallNestedInput
+    author?: EmployeeUpdateOneRequiredWithoutAuthoredCallsNestedInput
+    person?: PersonUpdateOneRequiredWithoutCallsNestedInput
   }
 
   export type CallUncheckedUpdateInput = {
@@ -13410,7 +13414,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     callStatus?: EnumCALL_STATUSFieldUpdateOperationsInput | $Enums.CALL_STATUS
     info?: NullableStringFieldUpdateOperationsInput | string | null
-    redialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     caseId?: IntFieldUpdateOperationsInput | number
     personId?: IntFieldUpdateOperationsInput | number
     authorId?: IntFieldUpdateOperationsInput | number
@@ -13421,7 +13424,6 @@ export namespace Prisma {
     createdAt?: Date | string
     callStatus: $Enums.CALL_STATUS
     info?: string | null
-    redialDate?: Date | string | null
     caseId: number
     personId: number
     authorId: number
@@ -13431,7 +13433,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     callStatus?: EnumCALL_STATUSFieldUpdateOperationsInput | $Enums.CALL_STATUS
     info?: NullableStringFieldUpdateOperationsInput | string | null
-    redialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type CallUncheckedUpdateManyInput = {
@@ -13439,7 +13440,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     callStatus?: EnumCALL_STATUSFieldUpdateOperationsInput | $Enums.CALL_STATUS
     info?: NullableStringFieldUpdateOperationsInput | string | null
-    redialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     caseId?: IntFieldUpdateOperationsInput | number
     personId?: IntFieldUpdateOperationsInput | number
     authorId?: IntFieldUpdateOperationsInput | number
@@ -13449,8 +13449,8 @@ export namespace Prisma {
     createAt?: Date | string
     date: Date | string
     appointmentStatus: $Enums.APPOINTMENT_STATUS
-    person: PersonCreateNestedOneWithoutAppointmentInput
-    author: EmployeeCreateNestedOneWithoutAppointmentInput
+    person: PersonCreateNestedOneWithoutAppointmentsInput
+    author: EmployeeCreateNestedOneWithoutAuthoredAppointmentsInput
     case: CaseCreateNestedOneWithoutAppointmentsInput
   }
 
@@ -13468,8 +13468,8 @@ export namespace Prisma {
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     appointmentStatus?: EnumAPPOINTMENT_STATUSFieldUpdateOperationsInput | $Enums.APPOINTMENT_STATUS
-    person?: PersonUpdateOneRequiredWithoutAppointmentNestedInput
-    author?: EmployeeUpdateOneRequiredWithoutAppointmentNestedInput
+    person?: PersonUpdateOneRequiredWithoutAppointmentsNestedInput
+    author?: EmployeeUpdateOneRequiredWithoutAuthoredAppointmentsNestedInput
     case?: CaseUpdateOneRequiredWithoutAppointmentsNestedInput
   }
 
@@ -13930,6 +13930,7 @@ export namespace Prisma {
     nearestTaskDeadline?: SortOrder
     timeOfPerformance?: SortOrder
     assignmentTime?: SortOrder
+    nextDialDate?: SortOrder
     refusalReason?: SortOrder
     legalAction?: SortOrder
     statusInCourt?: SortOrder
@@ -13964,6 +13965,7 @@ export namespace Prisma {
     nearestTaskDeadline?: SortOrder
     timeOfPerformance?: SortOrder
     assignmentTime?: SortOrder
+    nextDialDate?: SortOrder
     refusalReason?: SortOrder
     legalAction?: SortOrder
     statusInCourt?: SortOrder
@@ -13988,6 +13990,7 @@ export namespace Prisma {
     nearestTaskDeadline?: SortOrder
     timeOfPerformance?: SortOrder
     assignmentTime?: SortOrder
+    nextDialDate?: SortOrder
     refusalReason?: SortOrder
     legalAction?: SortOrder
     statusInCourt?: SortOrder
@@ -14290,7 +14293,6 @@ export namespace Prisma {
     createdAt?: SortOrder
     callStatus?: SortOrder
     info?: SortOrder
-    redialDate?: SortOrder
     caseId?: SortOrder
     personId?: SortOrder
     authorId?: SortOrder
@@ -14308,7 +14310,6 @@ export namespace Prisma {
     createdAt?: SortOrder
     callStatus?: SortOrder
     info?: SortOrder
-    redialDate?: SortOrder
     caseId?: SortOrder
     personId?: SortOrder
     authorId?: SortOrder
@@ -14319,7 +14320,6 @@ export namespace Prisma {
     createdAt?: SortOrder
     callStatus?: SortOrder
     info?: SortOrder
-    redialDate?: SortOrder
     caseId?: SortOrder
     personId?: SortOrder
     authorId?: SortOrder
@@ -14764,13 +14764,6 @@ export namespace Prisma {
     deleteMany?: AppointmentScalarWhereInput | AppointmentScalarWhereInput[]
   }
 
-  export type CaseCreateNestedManyWithoutPersonInput = {
-    create?: XOR<CaseCreateWithoutPersonInput, CaseUncheckedCreateWithoutPersonInput> | CaseCreateWithoutPersonInput[] | CaseUncheckedCreateWithoutPersonInput[]
-    connectOrCreate?: CaseCreateOrConnectWithoutPersonInput | CaseCreateOrConnectWithoutPersonInput[]
-    createMany?: CaseCreateManyPersonInputEnvelope
-    connect?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
-  }
-
   export type EmployeeCreateNestedOneWithoutAuthoredPersonsInput = {
     create?: XOR<EmployeeCreateWithoutAuthoredPersonsInput, EmployeeUncheckedCreateWithoutAuthoredPersonsInput>
     connectOrCreate?: EmployeeCreateOrConnectWithoutAuthoredPersonsInput
@@ -14781,6 +14774,13 @@ export namespace Prisma {
     create?: XOR<OriginCreateWithoutPersonsInput, OriginUncheckedCreateWithoutPersonsInput>
     connectOrCreate?: OriginCreateOrConnectWithoutPersonsInput
     connect?: OriginWhereUniqueInput
+  }
+
+  export type CaseCreateNestedManyWithoutPersonInput = {
+    create?: XOR<CaseCreateWithoutPersonInput, CaseUncheckedCreateWithoutPersonInput> | CaseCreateWithoutPersonInput[] | CaseUncheckedCreateWithoutPersonInput[]
+    connectOrCreate?: CaseCreateOrConnectWithoutPersonInput | CaseCreateOrConnectWithoutPersonInput[]
+    createMany?: CaseCreateManyPersonInputEnvelope
+    connect?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
   }
 
   export type CallCreateNestedManyWithoutPersonInput = {
@@ -14826,20 +14826,6 @@ export namespace Prisma {
     set?: $Enums.LEAD_STATUS
   }
 
-  export type CaseUpdateManyWithoutPersonNestedInput = {
-    create?: XOR<CaseCreateWithoutPersonInput, CaseUncheckedCreateWithoutPersonInput> | CaseCreateWithoutPersonInput[] | CaseUncheckedCreateWithoutPersonInput[]
-    connectOrCreate?: CaseCreateOrConnectWithoutPersonInput | CaseCreateOrConnectWithoutPersonInput[]
-    upsert?: CaseUpsertWithWhereUniqueWithoutPersonInput | CaseUpsertWithWhereUniqueWithoutPersonInput[]
-    createMany?: CaseCreateManyPersonInputEnvelope
-    set?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
-    disconnect?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
-    delete?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
-    connect?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
-    update?: CaseUpdateWithWhereUniqueWithoutPersonInput | CaseUpdateWithWhereUniqueWithoutPersonInput[]
-    updateMany?: CaseUpdateManyWithWhereWithoutPersonInput | CaseUpdateManyWithWhereWithoutPersonInput[]
-    deleteMany?: CaseScalarWhereInput | CaseScalarWhereInput[]
-  }
-
   export type EmployeeUpdateOneRequiredWithoutAuthoredPersonsNestedInput = {
     create?: XOR<EmployeeCreateWithoutAuthoredPersonsInput, EmployeeUncheckedCreateWithoutAuthoredPersonsInput>
     connectOrCreate?: EmployeeCreateOrConnectWithoutAuthoredPersonsInput
@@ -14854,6 +14840,20 @@ export namespace Prisma {
     upsert?: OriginUpsertWithoutPersonsInput
     connect?: OriginWhereUniqueInput
     update?: XOR<XOR<OriginUpdateToOneWithWhereWithoutPersonsInput, OriginUpdateWithoutPersonsInput>, OriginUncheckedUpdateWithoutPersonsInput>
+  }
+
+  export type CaseUpdateManyWithoutPersonNestedInput = {
+    create?: XOR<CaseCreateWithoutPersonInput, CaseUncheckedCreateWithoutPersonInput> | CaseCreateWithoutPersonInput[] | CaseUncheckedCreateWithoutPersonInput[]
+    connectOrCreate?: CaseCreateOrConnectWithoutPersonInput | CaseCreateOrConnectWithoutPersonInput[]
+    upsert?: CaseUpsertWithWhereUniqueWithoutPersonInput | CaseUpsertWithWhereUniqueWithoutPersonInput[]
+    createMany?: CaseCreateManyPersonInputEnvelope
+    set?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
+    disconnect?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
+    delete?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
+    connect?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
+    update?: CaseUpdateWithWhereUniqueWithoutPersonInput | CaseUpdateWithWhereUniqueWithoutPersonInput[]
+    updateMany?: CaseUpdateManyWithWhereWithoutPersonInput | CaseUpdateManyWithWhereWithoutPersonInput[]
+    deleteMany?: CaseScalarWhereInput | CaseScalarWhereInput[]
   }
 
   export type CallUpdateManyWithoutPersonNestedInput = {
@@ -15195,9 +15195,9 @@ export namespace Prisma {
     connect?: CaseWhereUniqueInput | CaseWhereUniqueInput[]
   }
 
-  export type EmployeeCreateNestedOneWithoutOpponentInput = {
-    create?: XOR<EmployeeCreateWithoutOpponentInput, EmployeeUncheckedCreateWithoutOpponentInput>
-    connectOrCreate?: EmployeeCreateOrConnectWithoutOpponentInput
+  export type EmployeeCreateNestedOneWithoutAuthoredOpponentsInput = {
+    create?: XOR<EmployeeCreateWithoutAuthoredOpponentsInput, EmployeeUncheckedCreateWithoutAuthoredOpponentsInput>
+    connectOrCreate?: EmployeeCreateOrConnectWithoutAuthoredOpponentsInput
     connect?: EmployeeWhereUniqueInput
   }
 
@@ -15222,12 +15222,12 @@ export namespace Prisma {
     deleteMany?: CaseScalarWhereInput | CaseScalarWhereInput[]
   }
 
-  export type EmployeeUpdateOneRequiredWithoutOpponentNestedInput = {
-    create?: XOR<EmployeeCreateWithoutOpponentInput, EmployeeUncheckedCreateWithoutOpponentInput>
-    connectOrCreate?: EmployeeCreateOrConnectWithoutOpponentInput
-    upsert?: EmployeeUpsertWithoutOpponentInput
+  export type EmployeeUpdateOneRequiredWithoutAuthoredOpponentsNestedInput = {
+    create?: XOR<EmployeeCreateWithoutAuthoredOpponentsInput, EmployeeUncheckedCreateWithoutAuthoredOpponentsInput>
+    connectOrCreate?: EmployeeCreateOrConnectWithoutAuthoredOpponentsInput
+    upsert?: EmployeeUpsertWithoutAuthoredOpponentsInput
     connect?: EmployeeWhereUniqueInput
-    update?: XOR<XOR<EmployeeUpdateToOneWithWhereWithoutOpponentInput, EmployeeUpdateWithoutOpponentInput>, EmployeeUncheckedUpdateWithoutOpponentInput>
+    update?: XOR<XOR<EmployeeUpdateToOneWithWhereWithoutAuthoredOpponentsInput, EmployeeUpdateWithoutAuthoredOpponentsInput>, EmployeeUncheckedUpdateWithoutAuthoredOpponentsInput>
   }
 
   export type CaseUncheckedUpdateManyWithoutOpponentNestedInput = {
@@ -15281,15 +15281,15 @@ export namespace Prisma {
     connect?: CaseWhereUniqueInput
   }
 
-  export type EmployeeCreateNestedOneWithoutCallInput = {
-    create?: XOR<EmployeeCreateWithoutCallInput, EmployeeUncheckedCreateWithoutCallInput>
-    connectOrCreate?: EmployeeCreateOrConnectWithoutCallInput
+  export type EmployeeCreateNestedOneWithoutAuthoredCallsInput = {
+    create?: XOR<EmployeeCreateWithoutAuthoredCallsInput, EmployeeUncheckedCreateWithoutAuthoredCallsInput>
+    connectOrCreate?: EmployeeCreateOrConnectWithoutAuthoredCallsInput
     connect?: EmployeeWhereUniqueInput
   }
 
-  export type PersonCreateNestedOneWithoutCallInput = {
-    create?: XOR<PersonCreateWithoutCallInput, PersonUncheckedCreateWithoutCallInput>
-    connectOrCreate?: PersonCreateOrConnectWithoutCallInput
+  export type PersonCreateNestedOneWithoutCallsInput = {
+    create?: XOR<PersonCreateWithoutCallsInput, PersonUncheckedCreateWithoutCallsInput>
+    connectOrCreate?: PersonCreateOrConnectWithoutCallsInput
     connect?: PersonWhereUniqueInput
   }
 
@@ -15305,31 +15305,31 @@ export namespace Prisma {
     update?: XOR<XOR<CaseUpdateToOneWithWhereWithoutCallsInput, CaseUpdateWithoutCallsInput>, CaseUncheckedUpdateWithoutCallsInput>
   }
 
-  export type EmployeeUpdateOneRequiredWithoutCallNestedInput = {
-    create?: XOR<EmployeeCreateWithoutCallInput, EmployeeUncheckedCreateWithoutCallInput>
-    connectOrCreate?: EmployeeCreateOrConnectWithoutCallInput
-    upsert?: EmployeeUpsertWithoutCallInput
+  export type EmployeeUpdateOneRequiredWithoutAuthoredCallsNestedInput = {
+    create?: XOR<EmployeeCreateWithoutAuthoredCallsInput, EmployeeUncheckedCreateWithoutAuthoredCallsInput>
+    connectOrCreate?: EmployeeCreateOrConnectWithoutAuthoredCallsInput
+    upsert?: EmployeeUpsertWithoutAuthoredCallsInput
     connect?: EmployeeWhereUniqueInput
-    update?: XOR<XOR<EmployeeUpdateToOneWithWhereWithoutCallInput, EmployeeUpdateWithoutCallInput>, EmployeeUncheckedUpdateWithoutCallInput>
+    update?: XOR<XOR<EmployeeUpdateToOneWithWhereWithoutAuthoredCallsInput, EmployeeUpdateWithoutAuthoredCallsInput>, EmployeeUncheckedUpdateWithoutAuthoredCallsInput>
   }
 
-  export type PersonUpdateOneRequiredWithoutCallNestedInput = {
-    create?: XOR<PersonCreateWithoutCallInput, PersonUncheckedCreateWithoutCallInput>
-    connectOrCreate?: PersonCreateOrConnectWithoutCallInput
-    upsert?: PersonUpsertWithoutCallInput
+  export type PersonUpdateOneRequiredWithoutCallsNestedInput = {
+    create?: XOR<PersonCreateWithoutCallsInput, PersonUncheckedCreateWithoutCallsInput>
+    connectOrCreate?: PersonCreateOrConnectWithoutCallsInput
+    upsert?: PersonUpsertWithoutCallsInput
     connect?: PersonWhereUniqueInput
-    update?: XOR<XOR<PersonUpdateToOneWithWhereWithoutCallInput, PersonUpdateWithoutCallInput>, PersonUncheckedUpdateWithoutCallInput>
+    update?: XOR<XOR<PersonUpdateToOneWithWhereWithoutCallsInput, PersonUpdateWithoutCallsInput>, PersonUncheckedUpdateWithoutCallsInput>
   }
 
-  export type PersonCreateNestedOneWithoutAppointmentInput = {
-    create?: XOR<PersonCreateWithoutAppointmentInput, PersonUncheckedCreateWithoutAppointmentInput>
-    connectOrCreate?: PersonCreateOrConnectWithoutAppointmentInput
+  export type PersonCreateNestedOneWithoutAppointmentsInput = {
+    create?: XOR<PersonCreateWithoutAppointmentsInput, PersonUncheckedCreateWithoutAppointmentsInput>
+    connectOrCreate?: PersonCreateOrConnectWithoutAppointmentsInput
     connect?: PersonWhereUniqueInput
   }
 
-  export type EmployeeCreateNestedOneWithoutAppointmentInput = {
-    create?: XOR<EmployeeCreateWithoutAppointmentInput, EmployeeUncheckedCreateWithoutAppointmentInput>
-    connectOrCreate?: EmployeeCreateOrConnectWithoutAppointmentInput
+  export type EmployeeCreateNestedOneWithoutAuthoredAppointmentsInput = {
+    create?: XOR<EmployeeCreateWithoutAuthoredAppointmentsInput, EmployeeUncheckedCreateWithoutAuthoredAppointmentsInput>
+    connectOrCreate?: EmployeeCreateOrConnectWithoutAuthoredAppointmentsInput
     connect?: EmployeeWhereUniqueInput
   }
 
@@ -15343,20 +15343,20 @@ export namespace Prisma {
     set?: $Enums.APPOINTMENT_STATUS
   }
 
-  export type PersonUpdateOneRequiredWithoutAppointmentNestedInput = {
-    create?: XOR<PersonCreateWithoutAppointmentInput, PersonUncheckedCreateWithoutAppointmentInput>
-    connectOrCreate?: PersonCreateOrConnectWithoutAppointmentInput
-    upsert?: PersonUpsertWithoutAppointmentInput
+  export type PersonUpdateOneRequiredWithoutAppointmentsNestedInput = {
+    create?: XOR<PersonCreateWithoutAppointmentsInput, PersonUncheckedCreateWithoutAppointmentsInput>
+    connectOrCreate?: PersonCreateOrConnectWithoutAppointmentsInput
+    upsert?: PersonUpsertWithoutAppointmentsInput
     connect?: PersonWhereUniqueInput
-    update?: XOR<XOR<PersonUpdateToOneWithWhereWithoutAppointmentInput, PersonUpdateWithoutAppointmentInput>, PersonUncheckedUpdateWithoutAppointmentInput>
+    update?: XOR<XOR<PersonUpdateToOneWithWhereWithoutAppointmentsInput, PersonUpdateWithoutAppointmentsInput>, PersonUncheckedUpdateWithoutAppointmentsInput>
   }
 
-  export type EmployeeUpdateOneRequiredWithoutAppointmentNestedInput = {
-    create?: XOR<EmployeeCreateWithoutAppointmentInput, EmployeeUncheckedCreateWithoutAppointmentInput>
-    connectOrCreate?: EmployeeCreateOrConnectWithoutAppointmentInput
-    upsert?: EmployeeUpsertWithoutAppointmentInput
+  export type EmployeeUpdateOneRequiredWithoutAuthoredAppointmentsNestedInput = {
+    create?: XOR<EmployeeCreateWithoutAuthoredAppointmentsInput, EmployeeUncheckedCreateWithoutAuthoredAppointmentsInput>
+    connectOrCreate?: EmployeeCreateOrConnectWithoutAuthoredAppointmentsInput
+    upsert?: EmployeeUpsertWithoutAuthoredAppointmentsInput
     connect?: EmployeeWhereUniqueInput
-    update?: XOR<XOR<EmployeeUpdateToOneWithWhereWithoutAppointmentInput, EmployeeUpdateWithoutAppointmentInput>, EmployeeUncheckedUpdateWithoutAppointmentInput>
+    update?: XOR<XOR<EmployeeUpdateToOneWithWhereWithoutAuthoredAppointmentsInput, EmployeeUpdateWithoutAuthoredAppointmentsInput>, EmployeeUncheckedUpdateWithoutAuthoredAppointmentsInput>
   }
 
   export type CaseUpdateOneRequiredWithoutAppointmentsNestedInput = {
@@ -15834,10 +15834,10 @@ export namespace Prisma {
     email?: string | null
     homeAddress?: string | null
     leadStatus?: $Enums.LEAD_STATUS
-    cases?: CaseCreateNestedManyWithoutPersonInput
     origin: OriginCreateNestedOneWithoutPersonsInput
-    Call?: CallCreateNestedManyWithoutPersonInput
-    Appointment?: AppointmentCreateNestedManyWithoutPersonInput
+    cases?: CaseCreateNestedManyWithoutPersonInput
+    calls?: CallCreateNestedManyWithoutPersonInput
+    appointments?: AppointmentCreateNestedManyWithoutPersonInput
   }
 
   export type PersonUncheckedCreateWithoutAuthorInput = {
@@ -15851,8 +15851,8 @@ export namespace Prisma {
     originId: number
     leadStatus?: $Enums.LEAD_STATUS
     cases?: CaseUncheckedCreateNestedManyWithoutPersonInput
-    Call?: CallUncheckedCreateNestedManyWithoutPersonInput
-    Appointment?: AppointmentUncheckedCreateNestedManyWithoutPersonInput
+    calls?: CallUncheckedCreateNestedManyWithoutPersonInput
+    appointments?: AppointmentUncheckedCreateNestedManyWithoutPersonInput
   }
 
   export type PersonCreateOrConnectWithoutAuthorInput = {
@@ -15878,6 +15878,7 @@ export namespace Prisma {
     nearestTaskDeadline?: Date | string | null
     timeOfPerformance?: Date | string | null
     assignmentTime?: Date | string | null
+    nextDialDate?: Date | string | null
     refusalReason?: $Enums.REFUSAL_REASON | null
     legalAction?: $Enums.LEGAL_ACTION | null
     statusInCourt?: $Enums.STATUS_IN_COURT | null
@@ -15904,6 +15905,7 @@ export namespace Prisma {
     nearestTaskDeadline?: Date | string | null
     timeOfPerformance?: Date | string | null
     assignmentTime?: Date | string | null
+    nextDialDate?: Date | string | null
     refusalReason?: $Enums.REFUSAL_REASON | null
     legalAction?: $Enums.LEGAL_ACTION | null
     statusInCourt?: $Enums.STATUS_IN_COURT | null
@@ -15939,6 +15941,7 @@ export namespace Prisma {
     nearestTaskDeadline?: Date | string | null
     timeOfPerformance?: Date | string | null
     assignmentTime?: Date | string | null
+    nextDialDate?: Date | string | null
     refusalReason?: $Enums.REFUSAL_REASON | null
     legalAction?: $Enums.LEGAL_ACTION | null
     statusInCourt?: $Enums.STATUS_IN_COURT | null
@@ -15965,6 +15968,7 @@ export namespace Prisma {
     nearestTaskDeadline?: Date | string | null
     timeOfPerformance?: Date | string | null
     assignmentTime?: Date | string | null
+    nextDialDate?: Date | string | null
     refusalReason?: $Enums.REFUSAL_REASON | null
     legalAction?: $Enums.LEGAL_ACTION | null
     statusInCourt?: $Enums.STATUS_IN_COURT | null
@@ -16018,9 +16022,8 @@ export namespace Prisma {
     createdAt?: Date | string
     callStatus: $Enums.CALL_STATUS
     info?: string | null
-    redialDate?: Date | string | null
     case: CaseCreateNestedOneWithoutCallsInput
-    person: PersonCreateNestedOneWithoutCallInput
+    person: PersonCreateNestedOneWithoutCallsInput
   }
 
   export type CallUncheckedCreateWithoutAuthorInput = {
@@ -16028,7 +16031,6 @@ export namespace Prisma {
     createdAt?: Date | string
     callStatus: $Enums.CALL_STATUS
     info?: string | null
-    redialDate?: Date | string | null
     caseId: number
     personId: number
   }
@@ -16047,7 +16049,7 @@ export namespace Prisma {
     createAt?: Date | string
     date: Date | string
     appointmentStatus: $Enums.APPOINTMENT_STATUS
-    person: PersonCreateNestedOneWithoutAppointmentInput
+    person: PersonCreateNestedOneWithoutAppointmentsInput
     case: CaseCreateNestedOneWithoutAppointmentsInput
   }
 
@@ -16197,6 +16199,7 @@ export namespace Prisma {
     nearestTaskDeadline?: DateTimeNullableFilter<"Case"> | Date | string | null
     timeOfPerformance?: DateTimeNullableFilter<"Case"> | Date | string | null
     assignmentTime?: DateTimeNullableFilter<"Case"> | Date | string | null
+    nextDialDate?: DateTimeNullableFilter<"Case"> | Date | string | null
     refusalReason?: EnumREFUSAL_REASONNullableFilter<"Case"> | $Enums.REFUSAL_REASON | null
     legalAction?: EnumLEGAL_ACTIONNullableFilter<"Case"> | $Enums.LEGAL_ACTION | null
     statusInCourt?: EnumSTATUS_IN_COURTNullableFilter<"Case"> | $Enums.STATUS_IN_COURT | null
@@ -16276,7 +16279,6 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Call"> | Date | string
     callStatus?: EnumCALL_STATUSFilter<"Call"> | $Enums.CALL_STATUS
     info?: StringNullableFilter<"Call"> | string | null
-    redialDate?: DateTimeNullableFilter<"Call"> | Date | string | null
     caseId?: IntFilter<"Call"> | number
     personId?: IntFilter<"Call"> | number
     authorId?: IntFilter<"Call"> | number
@@ -16311,67 +16313,6 @@ export namespace Prisma {
     authorId?: IntFilter<"Appointment"> | number
   }
 
-  export type CaseCreateWithoutPersonInput = {
-    createdAt?: Date | string
-    caseImportance?: $Enums.IMPORTANCE
-    caseUrgency?: $Enums.URGENCY
-    caseStatus?: $Enums.CASE_STATUS
-    categories?: CaseCreatecategoriesInput | $Enums.CASE_CATEGORY[]
-    problemShort?: string | null
-    problemFull?: string | null
-    nearestTask?: string | null
-    courtInfo?: string | null
-    nearestTaskDeadline?: Date | string | null
-    timeOfPerformance?: Date | string | null
-    assignmentTime?: Date | string | null
-    refusalReason?: $Enums.REFUSAL_REASON | null
-    legalAction?: $Enums.LEGAL_ACTION | null
-    statusInCourt?: $Enums.STATUS_IN_COURT | null
-    priceSOM?: bigint | number | null
-    priceUSD?: bigint | number | null
-    author: EmployeeCreateNestedOneWithoutAuthoredCasesInput
-    manager?: EmployeeCreateNestedOneWithoutManagedCasesInput
-    opponent?: OpponentCreateNestedOneWithoutCasesInput
-    appointments?: AppointmentCreateNestedManyWithoutCaseInput
-    calls?: CallCreateNestedManyWithoutCaseInput
-  }
-
-  export type CaseUncheckedCreateWithoutPersonInput = {
-    id?: number
-    createdAt?: Date | string
-    caseImportance?: $Enums.IMPORTANCE
-    caseUrgency?: $Enums.URGENCY
-    caseStatus?: $Enums.CASE_STATUS
-    categories?: CaseCreatecategoriesInput | $Enums.CASE_CATEGORY[]
-    problemShort?: string | null
-    problemFull?: string | null
-    nearestTask?: string | null
-    courtInfo?: string | null
-    nearestTaskDeadline?: Date | string | null
-    timeOfPerformance?: Date | string | null
-    assignmentTime?: Date | string | null
-    refusalReason?: $Enums.REFUSAL_REASON | null
-    legalAction?: $Enums.LEGAL_ACTION | null
-    statusInCourt?: $Enums.STATUS_IN_COURT | null
-    priceSOM?: bigint | number | null
-    priceUSD?: bigint | number | null
-    authorId: number
-    opponentId?: number | null
-    managerId?: number | null
-    appointments?: AppointmentUncheckedCreateNestedManyWithoutCaseInput
-    calls?: CallUncheckedCreateNestedManyWithoutCaseInput
-  }
-
-  export type CaseCreateOrConnectWithoutPersonInput = {
-    where: CaseWhereUniqueInput
-    create: XOR<CaseCreateWithoutPersonInput, CaseUncheckedCreateWithoutPersonInput>
-  }
-
-  export type CaseCreateManyPersonInputEnvelope = {
-    data: CaseCreateManyPersonInput | CaseCreateManyPersonInput[]
-    skipDuplicates?: boolean
-  }
-
   export type EmployeeCreateWithoutAuthoredPersonsInput = {
     createdAt?: Date | string
     username: string
@@ -16381,9 +16322,9 @@ export namespace Prisma {
     authoredOrigins?: OriginCreateNestedManyWithoutAuthorInput
     authoredCases?: CaseCreateNestedManyWithoutAuthorInput
     managedCases?: CaseCreateNestedManyWithoutManagerInput
-    Opponent?: OpponentCreateNestedManyWithoutAuthorInput
-    Call?: CallCreateNestedManyWithoutAuthorInput
-    Appointment?: AppointmentCreateNestedManyWithoutAuthorInput
+    authoredOpponents?: OpponentCreateNestedManyWithoutAuthorInput
+    authoredCalls?: CallCreateNestedManyWithoutAuthorInput
+    authoredAppointments?: AppointmentCreateNestedManyWithoutAuthorInput
   }
 
   export type EmployeeUncheckedCreateWithoutAuthoredPersonsInput = {
@@ -16396,9 +16337,9 @@ export namespace Prisma {
     authoredOrigins?: OriginUncheckedCreateNestedManyWithoutAuthorInput
     authoredCases?: CaseUncheckedCreateNestedManyWithoutAuthorInput
     managedCases?: CaseUncheckedCreateNestedManyWithoutManagerInput
-    Opponent?: OpponentUncheckedCreateNestedManyWithoutAuthorInput
-    Call?: CallUncheckedCreateNestedManyWithoutAuthorInput
-    Appointment?: AppointmentUncheckedCreateNestedManyWithoutAuthorInput
+    authoredOpponents?: OpponentUncheckedCreateNestedManyWithoutAuthorInput
+    authoredCalls?: CallUncheckedCreateNestedManyWithoutAuthorInput
+    authoredAppointments?: AppointmentUncheckedCreateNestedManyWithoutAuthorInput
   }
 
   export type EmployeeCreateOrConnectWithoutAuthoredPersonsInput = {
@@ -16428,13 +16369,75 @@ export namespace Prisma {
     create: XOR<OriginCreateWithoutPersonsInput, OriginUncheckedCreateWithoutPersonsInput>
   }
 
+  export type CaseCreateWithoutPersonInput = {
+    createdAt?: Date | string
+    caseImportance?: $Enums.IMPORTANCE
+    caseUrgency?: $Enums.URGENCY
+    caseStatus?: $Enums.CASE_STATUS
+    categories?: CaseCreatecategoriesInput | $Enums.CASE_CATEGORY[]
+    problemShort?: string | null
+    problemFull?: string | null
+    nearestTask?: string | null
+    courtInfo?: string | null
+    nearestTaskDeadline?: Date | string | null
+    timeOfPerformance?: Date | string | null
+    assignmentTime?: Date | string | null
+    nextDialDate?: Date | string | null
+    refusalReason?: $Enums.REFUSAL_REASON | null
+    legalAction?: $Enums.LEGAL_ACTION | null
+    statusInCourt?: $Enums.STATUS_IN_COURT | null
+    priceSOM?: bigint | number | null
+    priceUSD?: bigint | number | null
+    author: EmployeeCreateNestedOneWithoutAuthoredCasesInput
+    manager?: EmployeeCreateNestedOneWithoutManagedCasesInput
+    opponent?: OpponentCreateNestedOneWithoutCasesInput
+    appointments?: AppointmentCreateNestedManyWithoutCaseInput
+    calls?: CallCreateNestedManyWithoutCaseInput
+  }
+
+  export type CaseUncheckedCreateWithoutPersonInput = {
+    id?: number
+    createdAt?: Date | string
+    caseImportance?: $Enums.IMPORTANCE
+    caseUrgency?: $Enums.URGENCY
+    caseStatus?: $Enums.CASE_STATUS
+    categories?: CaseCreatecategoriesInput | $Enums.CASE_CATEGORY[]
+    problemShort?: string | null
+    problemFull?: string | null
+    nearestTask?: string | null
+    courtInfo?: string | null
+    nearestTaskDeadline?: Date | string | null
+    timeOfPerformance?: Date | string | null
+    assignmentTime?: Date | string | null
+    nextDialDate?: Date | string | null
+    refusalReason?: $Enums.REFUSAL_REASON | null
+    legalAction?: $Enums.LEGAL_ACTION | null
+    statusInCourt?: $Enums.STATUS_IN_COURT | null
+    priceSOM?: bigint | number | null
+    priceUSD?: bigint | number | null
+    authorId: number
+    opponentId?: number | null
+    managerId?: number | null
+    appointments?: AppointmentUncheckedCreateNestedManyWithoutCaseInput
+    calls?: CallUncheckedCreateNestedManyWithoutCaseInput
+  }
+
+  export type CaseCreateOrConnectWithoutPersonInput = {
+    where: CaseWhereUniqueInput
+    create: XOR<CaseCreateWithoutPersonInput, CaseUncheckedCreateWithoutPersonInput>
+  }
+
+  export type CaseCreateManyPersonInputEnvelope = {
+    data: CaseCreateManyPersonInput | CaseCreateManyPersonInput[]
+    skipDuplicates?: boolean
+  }
+
   export type CallCreateWithoutPersonInput = {
     createdAt?: Date | string
     callStatus: $Enums.CALL_STATUS
     info?: string | null
-    redialDate?: Date | string | null
     case: CaseCreateNestedOneWithoutCallsInput
-    author: EmployeeCreateNestedOneWithoutCallInput
+    author: EmployeeCreateNestedOneWithoutAuthoredCallsInput
   }
 
   export type CallUncheckedCreateWithoutPersonInput = {
@@ -16442,7 +16445,6 @@ export namespace Prisma {
     createdAt?: Date | string
     callStatus: $Enums.CALL_STATUS
     info?: string | null
-    redialDate?: Date | string | null
     caseId: number
     authorId: number
   }
@@ -16461,7 +16463,7 @@ export namespace Prisma {
     createAt?: Date | string
     date: Date | string
     appointmentStatus: $Enums.APPOINTMENT_STATUS
-    author: EmployeeCreateNestedOneWithoutAppointmentInput
+    author: EmployeeCreateNestedOneWithoutAuthoredAppointmentsInput
     case: CaseCreateNestedOneWithoutAppointmentsInput
   }
 
@@ -16484,22 +16486,6 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type CaseUpsertWithWhereUniqueWithoutPersonInput = {
-    where: CaseWhereUniqueInput
-    update: XOR<CaseUpdateWithoutPersonInput, CaseUncheckedUpdateWithoutPersonInput>
-    create: XOR<CaseCreateWithoutPersonInput, CaseUncheckedCreateWithoutPersonInput>
-  }
-
-  export type CaseUpdateWithWhereUniqueWithoutPersonInput = {
-    where: CaseWhereUniqueInput
-    data: XOR<CaseUpdateWithoutPersonInput, CaseUncheckedUpdateWithoutPersonInput>
-  }
-
-  export type CaseUpdateManyWithWhereWithoutPersonInput = {
-    where: CaseScalarWhereInput
-    data: XOR<CaseUpdateManyMutationInput, CaseUncheckedUpdateManyWithoutPersonInput>
-  }
-
   export type EmployeeUpsertWithoutAuthoredPersonsInput = {
     update: XOR<EmployeeUpdateWithoutAuthoredPersonsInput, EmployeeUncheckedUpdateWithoutAuthoredPersonsInput>
     create: XOR<EmployeeCreateWithoutAuthoredPersonsInput, EmployeeUncheckedCreateWithoutAuthoredPersonsInput>
@@ -16520,9 +16506,9 @@ export namespace Prisma {
     authoredOrigins?: OriginUpdateManyWithoutAuthorNestedInput
     authoredCases?: CaseUpdateManyWithoutAuthorNestedInput
     managedCases?: CaseUpdateManyWithoutManagerNestedInput
-    Opponent?: OpponentUpdateManyWithoutAuthorNestedInput
-    Call?: CallUpdateManyWithoutAuthorNestedInput
-    Appointment?: AppointmentUpdateManyWithoutAuthorNestedInput
+    authoredOpponents?: OpponentUpdateManyWithoutAuthorNestedInput
+    authoredCalls?: CallUpdateManyWithoutAuthorNestedInput
+    authoredAppointments?: AppointmentUpdateManyWithoutAuthorNestedInput
   }
 
   export type EmployeeUncheckedUpdateWithoutAuthoredPersonsInput = {
@@ -16535,9 +16521,9 @@ export namespace Prisma {
     authoredOrigins?: OriginUncheckedUpdateManyWithoutAuthorNestedInput
     authoredCases?: CaseUncheckedUpdateManyWithoutAuthorNestedInput
     managedCases?: CaseUncheckedUpdateManyWithoutManagerNestedInput
-    Opponent?: OpponentUncheckedUpdateManyWithoutAuthorNestedInput
-    Call?: CallUncheckedUpdateManyWithoutAuthorNestedInput
-    Appointment?: AppointmentUncheckedUpdateManyWithoutAuthorNestedInput
+    authoredOpponents?: OpponentUncheckedUpdateManyWithoutAuthorNestedInput
+    authoredCalls?: CallUncheckedUpdateManyWithoutAuthorNestedInput
+    authoredAppointments?: AppointmentUncheckedUpdateManyWithoutAuthorNestedInput
   }
 
   export type OriginUpsertWithoutPersonsInput = {
@@ -16566,6 +16552,22 @@ export namespace Prisma {
     link?: NullableStringFieldUpdateOperationsInput | string | null
     categories?: OriginUpdatecategoriesInput | $Enums.CASE_CATEGORY[]
     authorId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type CaseUpsertWithWhereUniqueWithoutPersonInput = {
+    where: CaseWhereUniqueInput
+    update: XOR<CaseUpdateWithoutPersonInput, CaseUncheckedUpdateWithoutPersonInput>
+    create: XOR<CaseCreateWithoutPersonInput, CaseUncheckedCreateWithoutPersonInput>
+  }
+
+  export type CaseUpdateWithWhereUniqueWithoutPersonInput = {
+    where: CaseWhereUniqueInput
+    data: XOR<CaseUpdateWithoutPersonInput, CaseUncheckedUpdateWithoutPersonInput>
+  }
+
+  export type CaseUpdateManyWithWhereWithoutPersonInput = {
+    where: CaseScalarWhereInput
+    data: XOR<CaseUpdateManyMutationInput, CaseUncheckedUpdateManyWithoutPersonInput>
   }
 
   export type CallUpsertWithWhereUniqueWithoutPersonInput = {
@@ -16609,9 +16611,9 @@ export namespace Prisma {
     authoredOrigins?: OriginCreateNestedManyWithoutAuthorInput
     authoredPersons?: PersonCreateNestedManyWithoutAuthorInput
     managedCases?: CaseCreateNestedManyWithoutManagerInput
-    Opponent?: OpponentCreateNestedManyWithoutAuthorInput
-    Call?: CallCreateNestedManyWithoutAuthorInput
-    Appointment?: AppointmentCreateNestedManyWithoutAuthorInput
+    authoredOpponents?: OpponentCreateNestedManyWithoutAuthorInput
+    authoredCalls?: CallCreateNestedManyWithoutAuthorInput
+    authoredAppointments?: AppointmentCreateNestedManyWithoutAuthorInput
   }
 
   export type EmployeeUncheckedCreateWithoutAuthoredCasesInput = {
@@ -16624,9 +16626,9 @@ export namespace Prisma {
     authoredOrigins?: OriginUncheckedCreateNestedManyWithoutAuthorInput
     authoredPersons?: PersonUncheckedCreateNestedManyWithoutAuthorInput
     managedCases?: CaseUncheckedCreateNestedManyWithoutManagerInput
-    Opponent?: OpponentUncheckedCreateNestedManyWithoutAuthorInput
-    Call?: CallUncheckedCreateNestedManyWithoutAuthorInput
-    Appointment?: AppointmentUncheckedCreateNestedManyWithoutAuthorInput
+    authoredOpponents?: OpponentUncheckedCreateNestedManyWithoutAuthorInput
+    authoredCalls?: CallUncheckedCreateNestedManyWithoutAuthorInput
+    authoredAppointments?: AppointmentUncheckedCreateNestedManyWithoutAuthorInput
   }
 
   export type EmployeeCreateOrConnectWithoutAuthoredCasesInput = {
@@ -16643,9 +16645,9 @@ export namespace Prisma {
     authoredOrigins?: OriginCreateNestedManyWithoutAuthorInput
     authoredPersons?: PersonCreateNestedManyWithoutAuthorInput
     authoredCases?: CaseCreateNestedManyWithoutAuthorInput
-    Opponent?: OpponentCreateNestedManyWithoutAuthorInput
-    Call?: CallCreateNestedManyWithoutAuthorInput
-    Appointment?: AppointmentCreateNestedManyWithoutAuthorInput
+    authoredOpponents?: OpponentCreateNestedManyWithoutAuthorInput
+    authoredCalls?: CallCreateNestedManyWithoutAuthorInput
+    authoredAppointments?: AppointmentCreateNestedManyWithoutAuthorInput
   }
 
   export type EmployeeUncheckedCreateWithoutManagedCasesInput = {
@@ -16658,9 +16660,9 @@ export namespace Prisma {
     authoredOrigins?: OriginUncheckedCreateNestedManyWithoutAuthorInput
     authoredPersons?: PersonUncheckedCreateNestedManyWithoutAuthorInput
     authoredCases?: CaseUncheckedCreateNestedManyWithoutAuthorInput
-    Opponent?: OpponentUncheckedCreateNestedManyWithoutAuthorInput
-    Call?: CallUncheckedCreateNestedManyWithoutAuthorInput
-    Appointment?: AppointmentUncheckedCreateNestedManyWithoutAuthorInput
+    authoredOpponents?: OpponentUncheckedCreateNestedManyWithoutAuthorInput
+    authoredCalls?: CallUncheckedCreateNestedManyWithoutAuthorInput
+    authoredAppointments?: AppointmentUncheckedCreateNestedManyWithoutAuthorInput
   }
 
   export type EmployeeCreateOrConnectWithoutManagedCasesInput = {
@@ -16673,7 +16675,7 @@ export namespace Prisma {
     name: string
     link?: string | null
     info?: string | null
-    author: EmployeeCreateNestedOneWithoutOpponentInput
+    author: EmployeeCreateNestedOneWithoutAuthoredOpponentsInput
   }
 
   export type OpponentUncheckedCreateWithoutCasesInput = {
@@ -16700,8 +16702,8 @@ export namespace Prisma {
     leadStatus?: $Enums.LEAD_STATUS
     author: EmployeeCreateNestedOneWithoutAuthoredPersonsInput
     origin: OriginCreateNestedOneWithoutPersonsInput
-    Call?: CallCreateNestedManyWithoutPersonInput
-    Appointment?: AppointmentCreateNestedManyWithoutPersonInput
+    calls?: CallCreateNestedManyWithoutPersonInput
+    appointments?: AppointmentCreateNestedManyWithoutPersonInput
   }
 
   export type PersonUncheckedCreateWithoutCasesInput = {
@@ -16715,8 +16717,8 @@ export namespace Prisma {
     authorId: number
     originId: number
     leadStatus?: $Enums.LEAD_STATUS
-    Call?: CallUncheckedCreateNestedManyWithoutPersonInput
-    Appointment?: AppointmentUncheckedCreateNestedManyWithoutPersonInput
+    calls?: CallUncheckedCreateNestedManyWithoutPersonInput
+    appointments?: AppointmentUncheckedCreateNestedManyWithoutPersonInput
   }
 
   export type PersonCreateOrConnectWithoutCasesInput = {
@@ -16728,8 +16730,8 @@ export namespace Prisma {
     createAt?: Date | string
     date: Date | string
     appointmentStatus: $Enums.APPOINTMENT_STATUS
-    person: PersonCreateNestedOneWithoutAppointmentInput
-    author: EmployeeCreateNestedOneWithoutAppointmentInput
+    person: PersonCreateNestedOneWithoutAppointmentsInput
+    author: EmployeeCreateNestedOneWithoutAuthoredAppointmentsInput
   }
 
   export type AppointmentUncheckedCreateWithoutCaseInput = {
@@ -16755,9 +16757,8 @@ export namespace Prisma {
     createdAt?: Date | string
     callStatus: $Enums.CALL_STATUS
     info?: string | null
-    redialDate?: Date | string | null
-    author: EmployeeCreateNestedOneWithoutCallInput
-    person: PersonCreateNestedOneWithoutCallInput
+    author: EmployeeCreateNestedOneWithoutAuthoredCallsInput
+    person: PersonCreateNestedOneWithoutCallsInput
   }
 
   export type CallUncheckedCreateWithoutCaseInput = {
@@ -16765,7 +16766,6 @@ export namespace Prisma {
     createdAt?: Date | string
     callStatus: $Enums.CALL_STATUS
     info?: string | null
-    redialDate?: Date | string | null
     personId: number
     authorId: number
   }
@@ -16800,9 +16800,9 @@ export namespace Prisma {
     authoredOrigins?: OriginUpdateManyWithoutAuthorNestedInput
     authoredPersons?: PersonUpdateManyWithoutAuthorNestedInput
     managedCases?: CaseUpdateManyWithoutManagerNestedInput
-    Opponent?: OpponentUpdateManyWithoutAuthorNestedInput
-    Call?: CallUpdateManyWithoutAuthorNestedInput
-    Appointment?: AppointmentUpdateManyWithoutAuthorNestedInput
+    authoredOpponents?: OpponentUpdateManyWithoutAuthorNestedInput
+    authoredCalls?: CallUpdateManyWithoutAuthorNestedInput
+    authoredAppointments?: AppointmentUpdateManyWithoutAuthorNestedInput
   }
 
   export type EmployeeUncheckedUpdateWithoutAuthoredCasesInput = {
@@ -16815,9 +16815,9 @@ export namespace Prisma {
     authoredOrigins?: OriginUncheckedUpdateManyWithoutAuthorNestedInput
     authoredPersons?: PersonUncheckedUpdateManyWithoutAuthorNestedInput
     managedCases?: CaseUncheckedUpdateManyWithoutManagerNestedInput
-    Opponent?: OpponentUncheckedUpdateManyWithoutAuthorNestedInput
-    Call?: CallUncheckedUpdateManyWithoutAuthorNestedInput
-    Appointment?: AppointmentUncheckedUpdateManyWithoutAuthorNestedInput
+    authoredOpponents?: OpponentUncheckedUpdateManyWithoutAuthorNestedInput
+    authoredCalls?: CallUncheckedUpdateManyWithoutAuthorNestedInput
+    authoredAppointments?: AppointmentUncheckedUpdateManyWithoutAuthorNestedInput
   }
 
   export type EmployeeUpsertWithoutManagedCasesInput = {
@@ -16840,9 +16840,9 @@ export namespace Prisma {
     authoredOrigins?: OriginUpdateManyWithoutAuthorNestedInput
     authoredPersons?: PersonUpdateManyWithoutAuthorNestedInput
     authoredCases?: CaseUpdateManyWithoutAuthorNestedInput
-    Opponent?: OpponentUpdateManyWithoutAuthorNestedInput
-    Call?: CallUpdateManyWithoutAuthorNestedInput
-    Appointment?: AppointmentUpdateManyWithoutAuthorNestedInput
+    authoredOpponents?: OpponentUpdateManyWithoutAuthorNestedInput
+    authoredCalls?: CallUpdateManyWithoutAuthorNestedInput
+    authoredAppointments?: AppointmentUpdateManyWithoutAuthorNestedInput
   }
 
   export type EmployeeUncheckedUpdateWithoutManagedCasesInput = {
@@ -16855,9 +16855,9 @@ export namespace Prisma {
     authoredOrigins?: OriginUncheckedUpdateManyWithoutAuthorNestedInput
     authoredPersons?: PersonUncheckedUpdateManyWithoutAuthorNestedInput
     authoredCases?: CaseUncheckedUpdateManyWithoutAuthorNestedInput
-    Opponent?: OpponentUncheckedUpdateManyWithoutAuthorNestedInput
-    Call?: CallUncheckedUpdateManyWithoutAuthorNestedInput
-    Appointment?: AppointmentUncheckedUpdateManyWithoutAuthorNestedInput
+    authoredOpponents?: OpponentUncheckedUpdateManyWithoutAuthorNestedInput
+    authoredCalls?: CallUncheckedUpdateManyWithoutAuthorNestedInput
+    authoredAppointments?: AppointmentUncheckedUpdateManyWithoutAuthorNestedInput
   }
 
   export type OpponentUpsertWithoutCasesInput = {
@@ -16876,7 +16876,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     link?: NullableStringFieldUpdateOperationsInput | string | null
     info?: NullableStringFieldUpdateOperationsInput | string | null
-    author?: EmployeeUpdateOneRequiredWithoutOpponentNestedInput
+    author?: EmployeeUpdateOneRequiredWithoutAuthoredOpponentsNestedInput
   }
 
   export type OpponentUncheckedUpdateWithoutCasesInput = {
@@ -16909,8 +16909,8 @@ export namespace Prisma {
     leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
     author?: EmployeeUpdateOneRequiredWithoutAuthoredPersonsNestedInput
     origin?: OriginUpdateOneRequiredWithoutPersonsNestedInput
-    Call?: CallUpdateManyWithoutPersonNestedInput
-    Appointment?: AppointmentUpdateManyWithoutPersonNestedInput
+    calls?: CallUpdateManyWithoutPersonNestedInput
+    appointments?: AppointmentUpdateManyWithoutPersonNestedInput
   }
 
   export type PersonUncheckedUpdateWithoutCasesInput = {
@@ -16924,8 +16924,8 @@ export namespace Prisma {
     authorId?: IntFieldUpdateOperationsInput | number
     originId?: IntFieldUpdateOperationsInput | number
     leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
-    Call?: CallUncheckedUpdateManyWithoutPersonNestedInput
-    Appointment?: AppointmentUncheckedUpdateManyWithoutPersonNestedInput
+    calls?: CallUncheckedUpdateManyWithoutPersonNestedInput
+    appointments?: AppointmentUncheckedUpdateManyWithoutPersonNestedInput
   }
 
   export type AppointmentUpsertWithWhereUniqueWithoutCaseInput = {
@@ -16969,9 +16969,9 @@ export namespace Prisma {
     authoredPersons?: PersonCreateNestedManyWithoutAuthorInput
     authoredCases?: CaseCreateNestedManyWithoutAuthorInput
     managedCases?: CaseCreateNestedManyWithoutManagerInput
-    Opponent?: OpponentCreateNestedManyWithoutAuthorInput
-    Call?: CallCreateNestedManyWithoutAuthorInput
-    Appointment?: AppointmentCreateNestedManyWithoutAuthorInput
+    authoredOpponents?: OpponentCreateNestedManyWithoutAuthorInput
+    authoredCalls?: CallCreateNestedManyWithoutAuthorInput
+    authoredAppointments?: AppointmentCreateNestedManyWithoutAuthorInput
   }
 
   export type EmployeeUncheckedCreateWithoutAuthoredOriginsInput = {
@@ -16984,9 +16984,9 @@ export namespace Prisma {
     authoredPersons?: PersonUncheckedCreateNestedManyWithoutAuthorInput
     authoredCases?: CaseUncheckedCreateNestedManyWithoutAuthorInput
     managedCases?: CaseUncheckedCreateNestedManyWithoutManagerInput
-    Opponent?: OpponentUncheckedCreateNestedManyWithoutAuthorInput
-    Call?: CallUncheckedCreateNestedManyWithoutAuthorInput
-    Appointment?: AppointmentUncheckedCreateNestedManyWithoutAuthorInput
+    authoredOpponents?: OpponentUncheckedCreateNestedManyWithoutAuthorInput
+    authoredCalls?: CallUncheckedCreateNestedManyWithoutAuthorInput
+    authoredAppointments?: AppointmentUncheckedCreateNestedManyWithoutAuthorInput
   }
 
   export type EmployeeCreateOrConnectWithoutAuthoredOriginsInput = {
@@ -17002,10 +17002,10 @@ export namespace Prisma {
     email?: string | null
     homeAddress?: string | null
     leadStatus?: $Enums.LEAD_STATUS
-    cases?: CaseCreateNestedManyWithoutPersonInput
     author: EmployeeCreateNestedOneWithoutAuthoredPersonsInput
-    Call?: CallCreateNestedManyWithoutPersonInput
-    Appointment?: AppointmentCreateNestedManyWithoutPersonInput
+    cases?: CaseCreateNestedManyWithoutPersonInput
+    calls?: CallCreateNestedManyWithoutPersonInput
+    appointments?: AppointmentCreateNestedManyWithoutPersonInput
   }
 
   export type PersonUncheckedCreateWithoutOriginInput = {
@@ -17019,8 +17019,8 @@ export namespace Prisma {
     authorId: number
     leadStatus?: $Enums.LEAD_STATUS
     cases?: CaseUncheckedCreateNestedManyWithoutPersonInput
-    Call?: CallUncheckedCreateNestedManyWithoutPersonInput
-    Appointment?: AppointmentUncheckedCreateNestedManyWithoutPersonInput
+    calls?: CallUncheckedCreateNestedManyWithoutPersonInput
+    appointments?: AppointmentUncheckedCreateNestedManyWithoutPersonInput
   }
 
   export type PersonCreateOrConnectWithoutOriginInput = {
@@ -17053,9 +17053,9 @@ export namespace Prisma {
     authoredPersons?: PersonUpdateManyWithoutAuthorNestedInput
     authoredCases?: CaseUpdateManyWithoutAuthorNestedInput
     managedCases?: CaseUpdateManyWithoutManagerNestedInput
-    Opponent?: OpponentUpdateManyWithoutAuthorNestedInput
-    Call?: CallUpdateManyWithoutAuthorNestedInput
-    Appointment?: AppointmentUpdateManyWithoutAuthorNestedInput
+    authoredOpponents?: OpponentUpdateManyWithoutAuthorNestedInput
+    authoredCalls?: CallUpdateManyWithoutAuthorNestedInput
+    authoredAppointments?: AppointmentUpdateManyWithoutAuthorNestedInput
   }
 
   export type EmployeeUncheckedUpdateWithoutAuthoredOriginsInput = {
@@ -17068,9 +17068,9 @@ export namespace Prisma {
     authoredPersons?: PersonUncheckedUpdateManyWithoutAuthorNestedInput
     authoredCases?: CaseUncheckedUpdateManyWithoutAuthorNestedInput
     managedCases?: CaseUncheckedUpdateManyWithoutManagerNestedInput
-    Opponent?: OpponentUncheckedUpdateManyWithoutAuthorNestedInput
-    Call?: CallUncheckedUpdateManyWithoutAuthorNestedInput
-    Appointment?: AppointmentUncheckedUpdateManyWithoutAuthorNestedInput
+    authoredOpponents?: OpponentUncheckedUpdateManyWithoutAuthorNestedInput
+    authoredCalls?: CallUncheckedUpdateManyWithoutAuthorNestedInput
+    authoredAppointments?: AppointmentUncheckedUpdateManyWithoutAuthorNestedInput
   }
 
   export type PersonUpsertWithWhereUniqueWithoutOriginInput = {
@@ -17102,6 +17102,7 @@ export namespace Prisma {
     nearestTaskDeadline?: Date | string | null
     timeOfPerformance?: Date | string | null
     assignmentTime?: Date | string | null
+    nextDialDate?: Date | string | null
     refusalReason?: $Enums.REFUSAL_REASON | null
     legalAction?: $Enums.LEGAL_ACTION | null
     statusInCourt?: $Enums.STATUS_IN_COURT | null
@@ -17128,6 +17129,7 @@ export namespace Prisma {
     nearestTaskDeadline?: Date | string | null
     timeOfPerformance?: Date | string | null
     assignmentTime?: Date | string | null
+    nextDialDate?: Date | string | null
     refusalReason?: $Enums.REFUSAL_REASON | null
     legalAction?: $Enums.LEGAL_ACTION | null
     statusInCourt?: $Enums.STATUS_IN_COURT | null
@@ -17150,7 +17152,7 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type EmployeeCreateWithoutOpponentInput = {
+  export type EmployeeCreateWithoutAuthoredOpponentsInput = {
     createdAt?: Date | string
     username: string
     password: string
@@ -17160,11 +17162,11 @@ export namespace Prisma {
     authoredPersons?: PersonCreateNestedManyWithoutAuthorInput
     authoredCases?: CaseCreateNestedManyWithoutAuthorInput
     managedCases?: CaseCreateNestedManyWithoutManagerInput
-    Call?: CallCreateNestedManyWithoutAuthorInput
-    Appointment?: AppointmentCreateNestedManyWithoutAuthorInput
+    authoredCalls?: CallCreateNestedManyWithoutAuthorInput
+    authoredAppointments?: AppointmentCreateNestedManyWithoutAuthorInput
   }
 
-  export type EmployeeUncheckedCreateWithoutOpponentInput = {
+  export type EmployeeUncheckedCreateWithoutAuthoredOpponentsInput = {
     id?: number
     createdAt?: Date | string
     username: string
@@ -17175,13 +17177,13 @@ export namespace Prisma {
     authoredPersons?: PersonUncheckedCreateNestedManyWithoutAuthorInput
     authoredCases?: CaseUncheckedCreateNestedManyWithoutAuthorInput
     managedCases?: CaseUncheckedCreateNestedManyWithoutManagerInput
-    Call?: CallUncheckedCreateNestedManyWithoutAuthorInput
-    Appointment?: AppointmentUncheckedCreateNestedManyWithoutAuthorInput
+    authoredCalls?: CallUncheckedCreateNestedManyWithoutAuthorInput
+    authoredAppointments?: AppointmentUncheckedCreateNestedManyWithoutAuthorInput
   }
 
-  export type EmployeeCreateOrConnectWithoutOpponentInput = {
+  export type EmployeeCreateOrConnectWithoutAuthoredOpponentsInput = {
     where: EmployeeWhereUniqueInput
-    create: XOR<EmployeeCreateWithoutOpponentInput, EmployeeUncheckedCreateWithoutOpponentInput>
+    create: XOR<EmployeeCreateWithoutAuthoredOpponentsInput, EmployeeUncheckedCreateWithoutAuthoredOpponentsInput>
   }
 
   export type CaseUpsertWithWhereUniqueWithoutOpponentInput = {
@@ -17200,18 +17202,18 @@ export namespace Prisma {
     data: XOR<CaseUpdateManyMutationInput, CaseUncheckedUpdateManyWithoutOpponentInput>
   }
 
-  export type EmployeeUpsertWithoutOpponentInput = {
-    update: XOR<EmployeeUpdateWithoutOpponentInput, EmployeeUncheckedUpdateWithoutOpponentInput>
-    create: XOR<EmployeeCreateWithoutOpponentInput, EmployeeUncheckedCreateWithoutOpponentInput>
+  export type EmployeeUpsertWithoutAuthoredOpponentsInput = {
+    update: XOR<EmployeeUpdateWithoutAuthoredOpponentsInput, EmployeeUncheckedUpdateWithoutAuthoredOpponentsInput>
+    create: XOR<EmployeeCreateWithoutAuthoredOpponentsInput, EmployeeUncheckedCreateWithoutAuthoredOpponentsInput>
     where?: EmployeeWhereInput
   }
 
-  export type EmployeeUpdateToOneWithWhereWithoutOpponentInput = {
+  export type EmployeeUpdateToOneWithWhereWithoutAuthoredOpponentsInput = {
     where?: EmployeeWhereInput
-    data: XOR<EmployeeUpdateWithoutOpponentInput, EmployeeUncheckedUpdateWithoutOpponentInput>
+    data: XOR<EmployeeUpdateWithoutAuthoredOpponentsInput, EmployeeUncheckedUpdateWithoutAuthoredOpponentsInput>
   }
 
-  export type EmployeeUpdateWithoutOpponentInput = {
+  export type EmployeeUpdateWithoutAuthoredOpponentsInput = {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
@@ -17221,11 +17223,11 @@ export namespace Prisma {
     authoredPersons?: PersonUpdateManyWithoutAuthorNestedInput
     authoredCases?: CaseUpdateManyWithoutAuthorNestedInput
     managedCases?: CaseUpdateManyWithoutManagerNestedInput
-    Call?: CallUpdateManyWithoutAuthorNestedInput
-    Appointment?: AppointmentUpdateManyWithoutAuthorNestedInput
+    authoredCalls?: CallUpdateManyWithoutAuthorNestedInput
+    authoredAppointments?: AppointmentUpdateManyWithoutAuthorNestedInput
   }
 
-  export type EmployeeUncheckedUpdateWithoutOpponentInput = {
+  export type EmployeeUncheckedUpdateWithoutAuthoredOpponentsInput = {
     id?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     username?: StringFieldUpdateOperationsInput | string
@@ -17236,8 +17238,8 @@ export namespace Prisma {
     authoredPersons?: PersonUncheckedUpdateManyWithoutAuthorNestedInput
     authoredCases?: CaseUncheckedUpdateManyWithoutAuthorNestedInput
     managedCases?: CaseUncheckedUpdateManyWithoutManagerNestedInput
-    Call?: CallUncheckedUpdateManyWithoutAuthorNestedInput
-    Appointment?: AppointmentUncheckedUpdateManyWithoutAuthorNestedInput
+    authoredCalls?: CallUncheckedUpdateManyWithoutAuthorNestedInput
+    authoredAppointments?: AppointmentUncheckedUpdateManyWithoutAuthorNestedInput
   }
 
   export type EmployeeCreateWithoutAuthoredBloggersInput = {
@@ -17249,9 +17251,9 @@ export namespace Prisma {
     authoredPersons?: PersonCreateNestedManyWithoutAuthorInput
     authoredCases?: CaseCreateNestedManyWithoutAuthorInput
     managedCases?: CaseCreateNestedManyWithoutManagerInput
-    Opponent?: OpponentCreateNestedManyWithoutAuthorInput
-    Call?: CallCreateNestedManyWithoutAuthorInput
-    Appointment?: AppointmentCreateNestedManyWithoutAuthorInput
+    authoredOpponents?: OpponentCreateNestedManyWithoutAuthorInput
+    authoredCalls?: CallCreateNestedManyWithoutAuthorInput
+    authoredAppointments?: AppointmentCreateNestedManyWithoutAuthorInput
   }
 
   export type EmployeeUncheckedCreateWithoutAuthoredBloggersInput = {
@@ -17264,9 +17266,9 @@ export namespace Prisma {
     authoredPersons?: PersonUncheckedCreateNestedManyWithoutAuthorInput
     authoredCases?: CaseUncheckedCreateNestedManyWithoutAuthorInput
     managedCases?: CaseUncheckedCreateNestedManyWithoutManagerInput
-    Opponent?: OpponentUncheckedCreateNestedManyWithoutAuthorInput
-    Call?: CallUncheckedCreateNestedManyWithoutAuthorInput
-    Appointment?: AppointmentUncheckedCreateNestedManyWithoutAuthorInput
+    authoredOpponents?: OpponentUncheckedCreateNestedManyWithoutAuthorInput
+    authoredCalls?: CallUncheckedCreateNestedManyWithoutAuthorInput
+    authoredAppointments?: AppointmentUncheckedCreateNestedManyWithoutAuthorInput
   }
 
   export type EmployeeCreateOrConnectWithoutAuthoredBloggersInput = {
@@ -17294,9 +17296,9 @@ export namespace Prisma {
     authoredPersons?: PersonUpdateManyWithoutAuthorNestedInput
     authoredCases?: CaseUpdateManyWithoutAuthorNestedInput
     managedCases?: CaseUpdateManyWithoutManagerNestedInput
-    Opponent?: OpponentUpdateManyWithoutAuthorNestedInput
-    Call?: CallUpdateManyWithoutAuthorNestedInput
-    Appointment?: AppointmentUpdateManyWithoutAuthorNestedInput
+    authoredOpponents?: OpponentUpdateManyWithoutAuthorNestedInput
+    authoredCalls?: CallUpdateManyWithoutAuthorNestedInput
+    authoredAppointments?: AppointmentUpdateManyWithoutAuthorNestedInput
   }
 
   export type EmployeeUncheckedUpdateWithoutAuthoredBloggersInput = {
@@ -17309,9 +17311,9 @@ export namespace Prisma {
     authoredPersons?: PersonUncheckedUpdateManyWithoutAuthorNestedInput
     authoredCases?: CaseUncheckedUpdateManyWithoutAuthorNestedInput
     managedCases?: CaseUncheckedUpdateManyWithoutManagerNestedInput
-    Opponent?: OpponentUncheckedUpdateManyWithoutAuthorNestedInput
-    Call?: CallUncheckedUpdateManyWithoutAuthorNestedInput
-    Appointment?: AppointmentUncheckedUpdateManyWithoutAuthorNestedInput
+    authoredOpponents?: OpponentUncheckedUpdateManyWithoutAuthorNestedInput
+    authoredCalls?: CallUncheckedUpdateManyWithoutAuthorNestedInput
+    authoredAppointments?: AppointmentUncheckedUpdateManyWithoutAuthorNestedInput
   }
 
   export type CaseCreateWithoutCallsInput = {
@@ -17327,6 +17329,7 @@ export namespace Prisma {
     nearestTaskDeadline?: Date | string | null
     timeOfPerformance?: Date | string | null
     assignmentTime?: Date | string | null
+    nextDialDate?: Date | string | null
     refusalReason?: $Enums.REFUSAL_REASON | null
     legalAction?: $Enums.LEGAL_ACTION | null
     statusInCourt?: $Enums.STATUS_IN_COURT | null
@@ -17353,6 +17356,7 @@ export namespace Prisma {
     nearestTaskDeadline?: Date | string | null
     timeOfPerformance?: Date | string | null
     assignmentTime?: Date | string | null
+    nextDialDate?: Date | string | null
     refusalReason?: $Enums.REFUSAL_REASON | null
     legalAction?: $Enums.LEGAL_ACTION | null
     statusInCourt?: $Enums.STATUS_IN_COURT | null
@@ -17370,7 +17374,7 @@ export namespace Prisma {
     create: XOR<CaseCreateWithoutCallsInput, CaseUncheckedCreateWithoutCallsInput>
   }
 
-  export type EmployeeCreateWithoutCallInput = {
+  export type EmployeeCreateWithoutAuthoredCallsInput = {
     createdAt?: Date | string
     username: string
     password: string
@@ -17380,11 +17384,11 @@ export namespace Prisma {
     authoredPersons?: PersonCreateNestedManyWithoutAuthorInput
     authoredCases?: CaseCreateNestedManyWithoutAuthorInput
     managedCases?: CaseCreateNestedManyWithoutManagerInput
-    Opponent?: OpponentCreateNestedManyWithoutAuthorInput
-    Appointment?: AppointmentCreateNestedManyWithoutAuthorInput
+    authoredOpponents?: OpponentCreateNestedManyWithoutAuthorInput
+    authoredAppointments?: AppointmentCreateNestedManyWithoutAuthorInput
   }
 
-  export type EmployeeUncheckedCreateWithoutCallInput = {
+  export type EmployeeUncheckedCreateWithoutAuthoredCallsInput = {
     id?: number
     createdAt?: Date | string
     username: string
@@ -17395,16 +17399,16 @@ export namespace Prisma {
     authoredPersons?: PersonUncheckedCreateNestedManyWithoutAuthorInput
     authoredCases?: CaseUncheckedCreateNestedManyWithoutAuthorInput
     managedCases?: CaseUncheckedCreateNestedManyWithoutManagerInput
-    Opponent?: OpponentUncheckedCreateNestedManyWithoutAuthorInput
-    Appointment?: AppointmentUncheckedCreateNestedManyWithoutAuthorInput
+    authoredOpponents?: OpponentUncheckedCreateNestedManyWithoutAuthorInput
+    authoredAppointments?: AppointmentUncheckedCreateNestedManyWithoutAuthorInput
   }
 
-  export type EmployeeCreateOrConnectWithoutCallInput = {
+  export type EmployeeCreateOrConnectWithoutAuthoredCallsInput = {
     where: EmployeeWhereUniqueInput
-    create: XOR<EmployeeCreateWithoutCallInput, EmployeeUncheckedCreateWithoutCallInput>
+    create: XOR<EmployeeCreateWithoutAuthoredCallsInput, EmployeeUncheckedCreateWithoutAuthoredCallsInput>
   }
 
-  export type PersonCreateWithoutCallInput = {
+  export type PersonCreateWithoutCallsInput = {
     createdAt?: Date | string
     name: string
     phoneNumber?: string | null
@@ -17412,13 +17416,13 @@ export namespace Prisma {
     email?: string | null
     homeAddress?: string | null
     leadStatus?: $Enums.LEAD_STATUS
-    cases?: CaseCreateNestedManyWithoutPersonInput
     author: EmployeeCreateNestedOneWithoutAuthoredPersonsInput
     origin: OriginCreateNestedOneWithoutPersonsInput
-    Appointment?: AppointmentCreateNestedManyWithoutPersonInput
+    cases?: CaseCreateNestedManyWithoutPersonInput
+    appointments?: AppointmentCreateNestedManyWithoutPersonInput
   }
 
-  export type PersonUncheckedCreateWithoutCallInput = {
+  export type PersonUncheckedCreateWithoutCallsInput = {
     id?: number
     createdAt?: Date | string
     name: string
@@ -17430,12 +17434,12 @@ export namespace Prisma {
     originId: number
     leadStatus?: $Enums.LEAD_STATUS
     cases?: CaseUncheckedCreateNestedManyWithoutPersonInput
-    Appointment?: AppointmentUncheckedCreateNestedManyWithoutPersonInput
+    appointments?: AppointmentUncheckedCreateNestedManyWithoutPersonInput
   }
 
-  export type PersonCreateOrConnectWithoutCallInput = {
+  export type PersonCreateOrConnectWithoutCallsInput = {
     where: PersonWhereUniqueInput
-    create: XOR<PersonCreateWithoutCallInput, PersonUncheckedCreateWithoutCallInput>
+    create: XOR<PersonCreateWithoutCallsInput, PersonUncheckedCreateWithoutCallsInput>
   }
 
   export type CaseUpsertWithoutCallsInput = {
@@ -17462,6 +17466,7 @@ export namespace Prisma {
     nearestTaskDeadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
     statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
@@ -17488,6 +17493,7 @@ export namespace Prisma {
     nearestTaskDeadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
     statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
@@ -17500,18 +17506,18 @@ export namespace Prisma {
     appointments?: AppointmentUncheckedUpdateManyWithoutCaseNestedInput
   }
 
-  export type EmployeeUpsertWithoutCallInput = {
-    update: XOR<EmployeeUpdateWithoutCallInput, EmployeeUncheckedUpdateWithoutCallInput>
-    create: XOR<EmployeeCreateWithoutCallInput, EmployeeUncheckedCreateWithoutCallInput>
+  export type EmployeeUpsertWithoutAuthoredCallsInput = {
+    update: XOR<EmployeeUpdateWithoutAuthoredCallsInput, EmployeeUncheckedUpdateWithoutAuthoredCallsInput>
+    create: XOR<EmployeeCreateWithoutAuthoredCallsInput, EmployeeUncheckedCreateWithoutAuthoredCallsInput>
     where?: EmployeeWhereInput
   }
 
-  export type EmployeeUpdateToOneWithWhereWithoutCallInput = {
+  export type EmployeeUpdateToOneWithWhereWithoutAuthoredCallsInput = {
     where?: EmployeeWhereInput
-    data: XOR<EmployeeUpdateWithoutCallInput, EmployeeUncheckedUpdateWithoutCallInput>
+    data: XOR<EmployeeUpdateWithoutAuthoredCallsInput, EmployeeUncheckedUpdateWithoutAuthoredCallsInput>
   }
 
-  export type EmployeeUpdateWithoutCallInput = {
+  export type EmployeeUpdateWithoutAuthoredCallsInput = {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
@@ -17521,11 +17527,11 @@ export namespace Prisma {
     authoredPersons?: PersonUpdateManyWithoutAuthorNestedInput
     authoredCases?: CaseUpdateManyWithoutAuthorNestedInput
     managedCases?: CaseUpdateManyWithoutManagerNestedInput
-    Opponent?: OpponentUpdateManyWithoutAuthorNestedInput
-    Appointment?: AppointmentUpdateManyWithoutAuthorNestedInput
+    authoredOpponents?: OpponentUpdateManyWithoutAuthorNestedInput
+    authoredAppointments?: AppointmentUpdateManyWithoutAuthorNestedInput
   }
 
-  export type EmployeeUncheckedUpdateWithoutCallInput = {
+  export type EmployeeUncheckedUpdateWithoutAuthoredCallsInput = {
     id?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     username?: StringFieldUpdateOperationsInput | string
@@ -17536,22 +17542,22 @@ export namespace Prisma {
     authoredPersons?: PersonUncheckedUpdateManyWithoutAuthorNestedInput
     authoredCases?: CaseUncheckedUpdateManyWithoutAuthorNestedInput
     managedCases?: CaseUncheckedUpdateManyWithoutManagerNestedInput
-    Opponent?: OpponentUncheckedUpdateManyWithoutAuthorNestedInput
-    Appointment?: AppointmentUncheckedUpdateManyWithoutAuthorNestedInput
+    authoredOpponents?: OpponentUncheckedUpdateManyWithoutAuthorNestedInput
+    authoredAppointments?: AppointmentUncheckedUpdateManyWithoutAuthorNestedInput
   }
 
-  export type PersonUpsertWithoutCallInput = {
-    update: XOR<PersonUpdateWithoutCallInput, PersonUncheckedUpdateWithoutCallInput>
-    create: XOR<PersonCreateWithoutCallInput, PersonUncheckedCreateWithoutCallInput>
+  export type PersonUpsertWithoutCallsInput = {
+    update: XOR<PersonUpdateWithoutCallsInput, PersonUncheckedUpdateWithoutCallsInput>
+    create: XOR<PersonCreateWithoutCallsInput, PersonUncheckedCreateWithoutCallsInput>
     where?: PersonWhereInput
   }
 
-  export type PersonUpdateToOneWithWhereWithoutCallInput = {
+  export type PersonUpdateToOneWithWhereWithoutCallsInput = {
     where?: PersonWhereInput
-    data: XOR<PersonUpdateWithoutCallInput, PersonUncheckedUpdateWithoutCallInput>
+    data: XOR<PersonUpdateWithoutCallsInput, PersonUncheckedUpdateWithoutCallsInput>
   }
 
-  export type PersonUpdateWithoutCallInput = {
+  export type PersonUpdateWithoutCallsInput = {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     name?: StringFieldUpdateOperationsInput | string
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
@@ -17559,13 +17565,13 @@ export namespace Prisma {
     email?: NullableStringFieldUpdateOperationsInput | string | null
     homeAddress?: NullableStringFieldUpdateOperationsInput | string | null
     leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
-    cases?: CaseUpdateManyWithoutPersonNestedInput
     author?: EmployeeUpdateOneRequiredWithoutAuthoredPersonsNestedInput
     origin?: OriginUpdateOneRequiredWithoutPersonsNestedInput
-    Appointment?: AppointmentUpdateManyWithoutPersonNestedInput
+    cases?: CaseUpdateManyWithoutPersonNestedInput
+    appointments?: AppointmentUpdateManyWithoutPersonNestedInput
   }
 
-  export type PersonUncheckedUpdateWithoutCallInput = {
+  export type PersonUncheckedUpdateWithoutCallsInput = {
     id?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     name?: StringFieldUpdateOperationsInput | string
@@ -17577,10 +17583,10 @@ export namespace Prisma {
     originId?: IntFieldUpdateOperationsInput | number
     leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
     cases?: CaseUncheckedUpdateManyWithoutPersonNestedInput
-    Appointment?: AppointmentUncheckedUpdateManyWithoutPersonNestedInput
+    appointments?: AppointmentUncheckedUpdateManyWithoutPersonNestedInput
   }
 
-  export type PersonCreateWithoutAppointmentInput = {
+  export type PersonCreateWithoutAppointmentsInput = {
     createdAt?: Date | string
     name: string
     phoneNumber?: string | null
@@ -17588,13 +17594,13 @@ export namespace Prisma {
     email?: string | null
     homeAddress?: string | null
     leadStatus?: $Enums.LEAD_STATUS
-    cases?: CaseCreateNestedManyWithoutPersonInput
     author: EmployeeCreateNestedOneWithoutAuthoredPersonsInput
     origin: OriginCreateNestedOneWithoutPersonsInput
-    Call?: CallCreateNestedManyWithoutPersonInput
+    cases?: CaseCreateNestedManyWithoutPersonInput
+    calls?: CallCreateNestedManyWithoutPersonInput
   }
 
-  export type PersonUncheckedCreateWithoutAppointmentInput = {
+  export type PersonUncheckedCreateWithoutAppointmentsInput = {
     id?: number
     createdAt?: Date | string
     name: string
@@ -17606,15 +17612,15 @@ export namespace Prisma {
     originId: number
     leadStatus?: $Enums.LEAD_STATUS
     cases?: CaseUncheckedCreateNestedManyWithoutPersonInput
-    Call?: CallUncheckedCreateNestedManyWithoutPersonInput
+    calls?: CallUncheckedCreateNestedManyWithoutPersonInput
   }
 
-  export type PersonCreateOrConnectWithoutAppointmentInput = {
+  export type PersonCreateOrConnectWithoutAppointmentsInput = {
     where: PersonWhereUniqueInput
-    create: XOR<PersonCreateWithoutAppointmentInput, PersonUncheckedCreateWithoutAppointmentInput>
+    create: XOR<PersonCreateWithoutAppointmentsInput, PersonUncheckedCreateWithoutAppointmentsInput>
   }
 
-  export type EmployeeCreateWithoutAppointmentInput = {
+  export type EmployeeCreateWithoutAuthoredAppointmentsInput = {
     createdAt?: Date | string
     username: string
     password: string
@@ -17624,11 +17630,11 @@ export namespace Prisma {
     authoredPersons?: PersonCreateNestedManyWithoutAuthorInput
     authoredCases?: CaseCreateNestedManyWithoutAuthorInput
     managedCases?: CaseCreateNestedManyWithoutManagerInput
-    Opponent?: OpponentCreateNestedManyWithoutAuthorInput
-    Call?: CallCreateNestedManyWithoutAuthorInput
+    authoredOpponents?: OpponentCreateNestedManyWithoutAuthorInput
+    authoredCalls?: CallCreateNestedManyWithoutAuthorInput
   }
 
-  export type EmployeeUncheckedCreateWithoutAppointmentInput = {
+  export type EmployeeUncheckedCreateWithoutAuthoredAppointmentsInput = {
     id?: number
     createdAt?: Date | string
     username: string
@@ -17639,13 +17645,13 @@ export namespace Prisma {
     authoredPersons?: PersonUncheckedCreateNestedManyWithoutAuthorInput
     authoredCases?: CaseUncheckedCreateNestedManyWithoutAuthorInput
     managedCases?: CaseUncheckedCreateNestedManyWithoutManagerInput
-    Opponent?: OpponentUncheckedCreateNestedManyWithoutAuthorInput
-    Call?: CallUncheckedCreateNestedManyWithoutAuthorInput
+    authoredOpponents?: OpponentUncheckedCreateNestedManyWithoutAuthorInput
+    authoredCalls?: CallUncheckedCreateNestedManyWithoutAuthorInput
   }
 
-  export type EmployeeCreateOrConnectWithoutAppointmentInput = {
+  export type EmployeeCreateOrConnectWithoutAuthoredAppointmentsInput = {
     where: EmployeeWhereUniqueInput
-    create: XOR<EmployeeCreateWithoutAppointmentInput, EmployeeUncheckedCreateWithoutAppointmentInput>
+    create: XOR<EmployeeCreateWithoutAuthoredAppointmentsInput, EmployeeUncheckedCreateWithoutAuthoredAppointmentsInput>
   }
 
   export type CaseCreateWithoutAppointmentsInput = {
@@ -17661,6 +17667,7 @@ export namespace Prisma {
     nearestTaskDeadline?: Date | string | null
     timeOfPerformance?: Date | string | null
     assignmentTime?: Date | string | null
+    nextDialDate?: Date | string | null
     refusalReason?: $Enums.REFUSAL_REASON | null
     legalAction?: $Enums.LEGAL_ACTION | null
     statusInCourt?: $Enums.STATUS_IN_COURT | null
@@ -17687,6 +17694,7 @@ export namespace Prisma {
     nearestTaskDeadline?: Date | string | null
     timeOfPerformance?: Date | string | null
     assignmentTime?: Date | string | null
+    nextDialDate?: Date | string | null
     refusalReason?: $Enums.REFUSAL_REASON | null
     legalAction?: $Enums.LEGAL_ACTION | null
     statusInCourt?: $Enums.STATUS_IN_COURT | null
@@ -17704,18 +17712,18 @@ export namespace Prisma {
     create: XOR<CaseCreateWithoutAppointmentsInput, CaseUncheckedCreateWithoutAppointmentsInput>
   }
 
-  export type PersonUpsertWithoutAppointmentInput = {
-    update: XOR<PersonUpdateWithoutAppointmentInput, PersonUncheckedUpdateWithoutAppointmentInput>
-    create: XOR<PersonCreateWithoutAppointmentInput, PersonUncheckedCreateWithoutAppointmentInput>
+  export type PersonUpsertWithoutAppointmentsInput = {
+    update: XOR<PersonUpdateWithoutAppointmentsInput, PersonUncheckedUpdateWithoutAppointmentsInput>
+    create: XOR<PersonCreateWithoutAppointmentsInput, PersonUncheckedCreateWithoutAppointmentsInput>
     where?: PersonWhereInput
   }
 
-  export type PersonUpdateToOneWithWhereWithoutAppointmentInput = {
+  export type PersonUpdateToOneWithWhereWithoutAppointmentsInput = {
     where?: PersonWhereInput
-    data: XOR<PersonUpdateWithoutAppointmentInput, PersonUncheckedUpdateWithoutAppointmentInput>
+    data: XOR<PersonUpdateWithoutAppointmentsInput, PersonUncheckedUpdateWithoutAppointmentsInput>
   }
 
-  export type PersonUpdateWithoutAppointmentInput = {
+  export type PersonUpdateWithoutAppointmentsInput = {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     name?: StringFieldUpdateOperationsInput | string
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
@@ -17723,13 +17731,13 @@ export namespace Prisma {
     email?: NullableStringFieldUpdateOperationsInput | string | null
     homeAddress?: NullableStringFieldUpdateOperationsInput | string | null
     leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
-    cases?: CaseUpdateManyWithoutPersonNestedInput
     author?: EmployeeUpdateOneRequiredWithoutAuthoredPersonsNestedInput
     origin?: OriginUpdateOneRequiredWithoutPersonsNestedInput
-    Call?: CallUpdateManyWithoutPersonNestedInput
+    cases?: CaseUpdateManyWithoutPersonNestedInput
+    calls?: CallUpdateManyWithoutPersonNestedInput
   }
 
-  export type PersonUncheckedUpdateWithoutAppointmentInput = {
+  export type PersonUncheckedUpdateWithoutAppointmentsInput = {
     id?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     name?: StringFieldUpdateOperationsInput | string
@@ -17741,21 +17749,21 @@ export namespace Prisma {
     originId?: IntFieldUpdateOperationsInput | number
     leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
     cases?: CaseUncheckedUpdateManyWithoutPersonNestedInput
-    Call?: CallUncheckedUpdateManyWithoutPersonNestedInput
+    calls?: CallUncheckedUpdateManyWithoutPersonNestedInput
   }
 
-  export type EmployeeUpsertWithoutAppointmentInput = {
-    update: XOR<EmployeeUpdateWithoutAppointmentInput, EmployeeUncheckedUpdateWithoutAppointmentInput>
-    create: XOR<EmployeeCreateWithoutAppointmentInput, EmployeeUncheckedCreateWithoutAppointmentInput>
+  export type EmployeeUpsertWithoutAuthoredAppointmentsInput = {
+    update: XOR<EmployeeUpdateWithoutAuthoredAppointmentsInput, EmployeeUncheckedUpdateWithoutAuthoredAppointmentsInput>
+    create: XOR<EmployeeCreateWithoutAuthoredAppointmentsInput, EmployeeUncheckedCreateWithoutAuthoredAppointmentsInput>
     where?: EmployeeWhereInput
   }
 
-  export type EmployeeUpdateToOneWithWhereWithoutAppointmentInput = {
+  export type EmployeeUpdateToOneWithWhereWithoutAuthoredAppointmentsInput = {
     where?: EmployeeWhereInput
-    data: XOR<EmployeeUpdateWithoutAppointmentInput, EmployeeUncheckedUpdateWithoutAppointmentInput>
+    data: XOR<EmployeeUpdateWithoutAuthoredAppointmentsInput, EmployeeUncheckedUpdateWithoutAuthoredAppointmentsInput>
   }
 
-  export type EmployeeUpdateWithoutAppointmentInput = {
+  export type EmployeeUpdateWithoutAuthoredAppointmentsInput = {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
@@ -17765,11 +17773,11 @@ export namespace Prisma {
     authoredPersons?: PersonUpdateManyWithoutAuthorNestedInput
     authoredCases?: CaseUpdateManyWithoutAuthorNestedInput
     managedCases?: CaseUpdateManyWithoutManagerNestedInput
-    Opponent?: OpponentUpdateManyWithoutAuthorNestedInput
-    Call?: CallUpdateManyWithoutAuthorNestedInput
+    authoredOpponents?: OpponentUpdateManyWithoutAuthorNestedInput
+    authoredCalls?: CallUpdateManyWithoutAuthorNestedInput
   }
 
-  export type EmployeeUncheckedUpdateWithoutAppointmentInput = {
+  export type EmployeeUncheckedUpdateWithoutAuthoredAppointmentsInput = {
     id?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     username?: StringFieldUpdateOperationsInput | string
@@ -17780,8 +17788,8 @@ export namespace Prisma {
     authoredPersons?: PersonUncheckedUpdateManyWithoutAuthorNestedInput
     authoredCases?: CaseUncheckedUpdateManyWithoutAuthorNestedInput
     managedCases?: CaseUncheckedUpdateManyWithoutManagerNestedInput
-    Opponent?: OpponentUncheckedUpdateManyWithoutAuthorNestedInput
-    Call?: CallUncheckedUpdateManyWithoutAuthorNestedInput
+    authoredOpponents?: OpponentUncheckedUpdateManyWithoutAuthorNestedInput
+    authoredCalls?: CallUncheckedUpdateManyWithoutAuthorNestedInput
   }
 
   export type CaseUpsertWithoutAppointmentsInput = {
@@ -17808,6 +17816,7 @@ export namespace Prisma {
     nearestTaskDeadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
     statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
@@ -17834,6 +17843,7 @@ export namespace Prisma {
     nearestTaskDeadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
     statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
@@ -17894,6 +17904,7 @@ export namespace Prisma {
     nearestTaskDeadline?: Date | string | null
     timeOfPerformance?: Date | string | null
     assignmentTime?: Date | string | null
+    nextDialDate?: Date | string | null
     refusalReason?: $Enums.REFUSAL_REASON | null
     legalAction?: $Enums.LEGAL_ACTION | null
     statusInCourt?: $Enums.STATUS_IN_COURT | null
@@ -17918,6 +17929,7 @@ export namespace Prisma {
     nearestTaskDeadline?: Date | string | null
     timeOfPerformance?: Date | string | null
     assignmentTime?: Date | string | null
+    nextDialDate?: Date | string | null
     refusalReason?: $Enums.REFUSAL_REASON | null
     legalAction?: $Enums.LEGAL_ACTION | null
     statusInCourt?: $Enums.STATUS_IN_COURT | null
@@ -17941,7 +17953,6 @@ export namespace Prisma {
     createdAt?: Date | string
     callStatus: $Enums.CALL_STATUS
     info?: string | null
-    redialDate?: Date | string | null
     caseId: number
     personId: number
   }
@@ -18029,10 +18040,10 @@ export namespace Prisma {
     email?: NullableStringFieldUpdateOperationsInput | string | null
     homeAddress?: NullableStringFieldUpdateOperationsInput | string | null
     leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
-    cases?: CaseUpdateManyWithoutPersonNestedInput
     origin?: OriginUpdateOneRequiredWithoutPersonsNestedInput
-    Call?: CallUpdateManyWithoutPersonNestedInput
-    Appointment?: AppointmentUpdateManyWithoutPersonNestedInput
+    cases?: CaseUpdateManyWithoutPersonNestedInput
+    calls?: CallUpdateManyWithoutPersonNestedInput
+    appointments?: AppointmentUpdateManyWithoutPersonNestedInput
   }
 
   export type PersonUncheckedUpdateWithoutAuthorInput = {
@@ -18046,8 +18057,8 @@ export namespace Prisma {
     originId?: IntFieldUpdateOperationsInput | number
     leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
     cases?: CaseUncheckedUpdateManyWithoutPersonNestedInput
-    Call?: CallUncheckedUpdateManyWithoutPersonNestedInput
-    Appointment?: AppointmentUncheckedUpdateManyWithoutPersonNestedInput
+    calls?: CallUncheckedUpdateManyWithoutPersonNestedInput
+    appointments?: AppointmentUncheckedUpdateManyWithoutPersonNestedInput
   }
 
   export type PersonUncheckedUpdateManyWithoutAuthorInput = {
@@ -18075,6 +18086,7 @@ export namespace Prisma {
     nearestTaskDeadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
     statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
@@ -18101,6 +18113,7 @@ export namespace Prisma {
     nearestTaskDeadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
     statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
@@ -18127,6 +18140,7 @@ export namespace Prisma {
     nearestTaskDeadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
     statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
@@ -18150,6 +18164,7 @@ export namespace Prisma {
     nearestTaskDeadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
     statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
@@ -18176,6 +18191,7 @@ export namespace Prisma {
     nearestTaskDeadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
     statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
@@ -18202,6 +18218,7 @@ export namespace Prisma {
     nearestTaskDeadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
     statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
@@ -18241,9 +18258,8 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     callStatus?: EnumCALL_STATUSFieldUpdateOperationsInput | $Enums.CALL_STATUS
     info?: NullableStringFieldUpdateOperationsInput | string | null
-    redialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     case?: CaseUpdateOneRequiredWithoutCallsNestedInput
-    person?: PersonUpdateOneRequiredWithoutCallNestedInput
+    person?: PersonUpdateOneRequiredWithoutCallsNestedInput
   }
 
   export type CallUncheckedUpdateWithoutAuthorInput = {
@@ -18251,7 +18267,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     callStatus?: EnumCALL_STATUSFieldUpdateOperationsInput | $Enums.CALL_STATUS
     info?: NullableStringFieldUpdateOperationsInput | string | null
-    redialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     caseId?: IntFieldUpdateOperationsInput | number
     personId?: IntFieldUpdateOperationsInput | number
   }
@@ -18261,7 +18276,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     callStatus?: EnumCALL_STATUSFieldUpdateOperationsInput | $Enums.CALL_STATUS
     info?: NullableStringFieldUpdateOperationsInput | string | null
-    redialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     caseId?: IntFieldUpdateOperationsInput | number
     personId?: IntFieldUpdateOperationsInput | number
   }
@@ -18270,7 +18284,7 @@ export namespace Prisma {
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     appointmentStatus?: EnumAPPOINTMENT_STATUSFieldUpdateOperationsInput | $Enums.APPOINTMENT_STATUS
-    person?: PersonUpdateOneRequiredWithoutAppointmentNestedInput
+    person?: PersonUpdateOneRequiredWithoutAppointmentsNestedInput
     case?: CaseUpdateOneRequiredWithoutAppointmentsNestedInput
   }
 
@@ -18306,6 +18320,7 @@ export namespace Prisma {
     nearestTaskDeadline?: Date | string | null
     timeOfPerformance?: Date | string | null
     assignmentTime?: Date | string | null
+    nextDialDate?: Date | string | null
     refusalReason?: $Enums.REFUSAL_REASON | null
     legalAction?: $Enums.LEGAL_ACTION | null
     statusInCourt?: $Enums.STATUS_IN_COURT | null
@@ -18321,7 +18336,6 @@ export namespace Prisma {
     createdAt?: Date | string
     callStatus: $Enums.CALL_STATUS
     info?: string | null
-    redialDate?: Date | string | null
     caseId: number
     authorId: number
   }
@@ -18348,6 +18362,7 @@ export namespace Prisma {
     nearestTaskDeadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
     statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
@@ -18374,6 +18389,7 @@ export namespace Prisma {
     nearestTaskDeadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
     statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
@@ -18400,6 +18416,7 @@ export namespace Prisma {
     nearestTaskDeadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
     statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
@@ -18414,9 +18431,8 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     callStatus?: EnumCALL_STATUSFieldUpdateOperationsInput | $Enums.CALL_STATUS
     info?: NullableStringFieldUpdateOperationsInput | string | null
-    redialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     case?: CaseUpdateOneRequiredWithoutCallsNestedInput
-    author?: EmployeeUpdateOneRequiredWithoutCallNestedInput
+    author?: EmployeeUpdateOneRequiredWithoutAuthoredCallsNestedInput
   }
 
   export type CallUncheckedUpdateWithoutPersonInput = {
@@ -18424,7 +18440,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     callStatus?: EnumCALL_STATUSFieldUpdateOperationsInput | $Enums.CALL_STATUS
     info?: NullableStringFieldUpdateOperationsInput | string | null
-    redialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     caseId?: IntFieldUpdateOperationsInput | number
     authorId?: IntFieldUpdateOperationsInput | number
   }
@@ -18434,7 +18449,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     callStatus?: EnumCALL_STATUSFieldUpdateOperationsInput | $Enums.CALL_STATUS
     info?: NullableStringFieldUpdateOperationsInput | string | null
-    redialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     caseId?: IntFieldUpdateOperationsInput | number
     authorId?: IntFieldUpdateOperationsInput | number
   }
@@ -18443,7 +18457,7 @@ export namespace Prisma {
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     appointmentStatus?: EnumAPPOINTMENT_STATUSFieldUpdateOperationsInput | $Enums.APPOINTMENT_STATUS
-    author?: EmployeeUpdateOneRequiredWithoutAppointmentNestedInput
+    author?: EmployeeUpdateOneRequiredWithoutAuthoredAppointmentsNestedInput
     case?: CaseUpdateOneRequiredWithoutAppointmentsNestedInput
   }
 
@@ -18479,7 +18493,6 @@ export namespace Prisma {
     createdAt?: Date | string
     callStatus: $Enums.CALL_STATUS
     info?: string | null
-    redialDate?: Date | string | null
     personId: number
     authorId: number
   }
@@ -18488,8 +18501,8 @@ export namespace Prisma {
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     appointmentStatus?: EnumAPPOINTMENT_STATUSFieldUpdateOperationsInput | $Enums.APPOINTMENT_STATUS
-    person?: PersonUpdateOneRequiredWithoutAppointmentNestedInput
-    author?: EmployeeUpdateOneRequiredWithoutAppointmentNestedInput
+    person?: PersonUpdateOneRequiredWithoutAppointmentsNestedInput
+    author?: EmployeeUpdateOneRequiredWithoutAuthoredAppointmentsNestedInput
   }
 
   export type AppointmentUncheckedUpdateWithoutCaseInput = {
@@ -18514,9 +18527,8 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     callStatus?: EnumCALL_STATUSFieldUpdateOperationsInput | $Enums.CALL_STATUS
     info?: NullableStringFieldUpdateOperationsInput | string | null
-    redialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    author?: EmployeeUpdateOneRequiredWithoutCallNestedInput
-    person?: PersonUpdateOneRequiredWithoutCallNestedInput
+    author?: EmployeeUpdateOneRequiredWithoutAuthoredCallsNestedInput
+    person?: PersonUpdateOneRequiredWithoutCallsNestedInput
   }
 
   export type CallUncheckedUpdateWithoutCaseInput = {
@@ -18524,7 +18536,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     callStatus?: EnumCALL_STATUSFieldUpdateOperationsInput | $Enums.CALL_STATUS
     info?: NullableStringFieldUpdateOperationsInput | string | null
-    redialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     personId?: IntFieldUpdateOperationsInput | number
     authorId?: IntFieldUpdateOperationsInput | number
   }
@@ -18534,7 +18545,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     callStatus?: EnumCALL_STATUSFieldUpdateOperationsInput | $Enums.CALL_STATUS
     info?: NullableStringFieldUpdateOperationsInput | string | null
-    redialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     personId?: IntFieldUpdateOperationsInput | number
     authorId?: IntFieldUpdateOperationsInput | number
   }
@@ -18559,10 +18569,10 @@ export namespace Prisma {
     email?: NullableStringFieldUpdateOperationsInput | string | null
     homeAddress?: NullableStringFieldUpdateOperationsInput | string | null
     leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
-    cases?: CaseUpdateManyWithoutPersonNestedInput
     author?: EmployeeUpdateOneRequiredWithoutAuthoredPersonsNestedInput
-    Call?: CallUpdateManyWithoutPersonNestedInput
-    Appointment?: AppointmentUpdateManyWithoutPersonNestedInput
+    cases?: CaseUpdateManyWithoutPersonNestedInput
+    calls?: CallUpdateManyWithoutPersonNestedInput
+    appointments?: AppointmentUpdateManyWithoutPersonNestedInput
   }
 
   export type PersonUncheckedUpdateWithoutOriginInput = {
@@ -18576,8 +18586,8 @@ export namespace Prisma {
     authorId?: IntFieldUpdateOperationsInput | number
     leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
     cases?: CaseUncheckedUpdateManyWithoutPersonNestedInput
-    Call?: CallUncheckedUpdateManyWithoutPersonNestedInput
-    Appointment?: AppointmentUncheckedUpdateManyWithoutPersonNestedInput
+    calls?: CallUncheckedUpdateManyWithoutPersonNestedInput
+    appointments?: AppointmentUncheckedUpdateManyWithoutPersonNestedInput
   }
 
   export type PersonUncheckedUpdateManyWithoutOriginInput = {
@@ -18606,6 +18616,7 @@ export namespace Prisma {
     nearestTaskDeadline?: Date | string | null
     timeOfPerformance?: Date | string | null
     assignmentTime?: Date | string | null
+    nextDialDate?: Date | string | null
     refusalReason?: $Enums.REFUSAL_REASON | null
     legalAction?: $Enums.LEGAL_ACTION | null
     statusInCourt?: $Enums.STATUS_IN_COURT | null
@@ -18629,6 +18640,7 @@ export namespace Prisma {
     nearestTaskDeadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
     statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
@@ -18655,6 +18667,7 @@ export namespace Prisma {
     nearestTaskDeadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
     statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
@@ -18681,6 +18694,7 @@ export namespace Prisma {
     nearestTaskDeadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
     statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null

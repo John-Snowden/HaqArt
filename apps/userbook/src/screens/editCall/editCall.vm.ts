@@ -4,14 +4,14 @@ import { makeAutoObservable } from "mobx";
 import { translations } from "@/localize";
 import RootStore from "@/stores/rootStore";
 import { CALL_STATUS } from "@shared/prisma/prisma/client";
+import { EditableCaseFields, prismaUpsertCase } from "@shared/lib/actions";
 
 export class EditCallVM {
   root: RootStore;
 
   callStatus: CALL_STATUS | undefined = undefined;
   info: string | undefined = undefined;
-  redialDate: Date | null = null;
-  caseId: number | undefined = undefined;
+  nextDialDate: Date | null = null;
 
   constructor(root: RootStore) {
     this.root = root;
@@ -20,37 +20,42 @@ export class EditCallVM {
     if (selectedCall) {
       this.callStatus = selectedCall.callStatus;
       this.info = selectedCall.info ?? undefined;
-      this.redialDate = selectedCall.redialDate;
     }
     const { selectedCase } = this.root.casesStore;
     if (!selectedCase) throw new Error("case id missing");
-    this.caseId = selectedCase.id;
+    this.nextDialDate = selectedCase.nextDialDate;
     makeAutoObservable(this);
   }
 
   setCallStatus = (v: CALL_STATUS | undefined) => (this.callStatus = v);
   setInfo = (v: string | undefined) => (this.info = v);
-  setRedialDate = (v: Date | null) => (this.redialDate = v);
-  setCaseId = (v: string | undefined) => {
-    this.caseId = v ? Number(v) : undefined;
-  };
+  setNextDialDate = (v: Date | null) => (this.nextDialDate = v);
 
   upsertCall = async () => {
     if (!this.validate()) return;
-    if (this.callStatus === undefined) {
+
+    const { selectedCase } = this.root.casesStore;
+    if (selectedCase?.id === undefined) {
+      throw new Error("case id missing");
+    } else if (this.callStatus === undefined) {
       throw new Error("call status is missing");
-    } else if (this.caseId === undefined) throw new Error("case id missing");
+    }
 
     try {
       await this.root.callsStore.upsertCall({
         callStatus: this.callStatus,
         info: this.info ?? null,
-        redialDate: this.redialDate,
 
-        caseId: this.caseId,
+        caseId: selectedCase.id,
         authorId: this.authorId,
         personId: this.personId,
       });
+
+      await prismaUpsertCase(
+        { nextDialDate: this.nextDialDate } as EditableCaseFields, // TODO type pzts
+        selectedCase.id,
+      );
+
       toast.success(translations.toastMessages.success);
     } catch (e) {
       this.root.alertStore.toggleAlert(translations.alertMessages.error + e);
@@ -61,9 +66,7 @@ export class EditCallVM {
     let isValid = false;
     if (this.callStatus === undefined) {
       toast.warning(translations.toastMessages.callStatusMissing);
-    } else if (this.caseId === undefined) {
-      toast.warning(translations.toastMessages.caseIdMissing);
-    } else if (this.redialDate && this.redialDate <= new Date()) {
+    } else if (this.nextDialDate && this.nextDialDate <= new Date()) {
       toast.warning(translations.toastMessages.redialDatePast);
     } else isValid = true;
     return isValid;

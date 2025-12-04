@@ -1,10 +1,10 @@
 "use client";
 
 import { FC } from "react";
-import Image from "next/image";
 import { format } from "date-fns";
 
 import styles from "./styles.module.css";
+import { UIIcon } from "../UIIcon/UIIcon";
 
 interface IProps {
   label: string;
@@ -32,13 +32,7 @@ export const UIDateTimeInput: FC<IProps> = ({ label, value, onChange }) => {
         }}
       >
         {!value && <div className={styles.dash}>---</div>}
-        <Image
-          src={"/svg/calendar.svg"}
-          alt="icon"
-          width={20}
-          height={20}
-          priority={false}
-        />
+        <UIIcon size={20} source={"/svg/calendar.svg"} />
       </div>
     </div>
   );

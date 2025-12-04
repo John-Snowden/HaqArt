@@ -1,7 +1,7 @@
 "use client";
 
 import { toast } from "sonner";
-import { makeAutoObservable, runInAction } from "mobx";
+import { makeAutoObservable, reaction, runInAction } from "mobx";
 
 import {
   checkLink,
@@ -45,6 +45,14 @@ export default class EditPersonVM {
       this.homeAddress = selectedPerson.homeAddress ?? undefined;
     }
     makeAutoObservable(this);
+
+    reaction(
+      () => this.root.personsStore.selectedPersonId,
+      () => {
+        this.root.casesStore.cases = [];
+        this.root.callsStore.calls = [];
+      },
+    );
   }
 
   setName = (v: string) => (this.name = v ? v : undefined);
@@ -115,11 +123,6 @@ export default class EditPersonVM {
     } finally {
       runInAction(() => (this.isLoading = false));
     }
-  };
-
-  clearRelatedData = () => {
-    this.root.casesStore.clear();
-    this.root.callsStore.clear();
   };
 
   setSelectedCaseId = (id: number) => {

@@ -6,6 +6,7 @@ import { observer } from "mobx-react-lite";
 import { format, formatDistanceToNowStrict } from "date-fns";
 
 import { translations } from "@/localize";
+import { redFilter } from "@/theme/Colors";
 import { useCasesListVM } from "@/context";
 import { UIListWrapper, UIIcon } from "@/ui";
 import { capitalizeName } from "@shared/utils";
@@ -70,8 +71,7 @@ export const CasesList = observer(() => {
                 <div
                   style={{
                     marginLeft: 24,
-                    filter:
-                      "invert(33%) sepia(97%) saturate(7200%) hue-rotate(0deg)",
+                    filter: redFilter,
                   }}
                 >
                   <UIIcon source="/svg/lightBulb.svg" size={18} />

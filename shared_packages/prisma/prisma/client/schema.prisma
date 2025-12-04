@@ -17,14 +17,14 @@ model Employee {
   password String
   roles    ROLE[]
 
-  authoredBloggers Blogger[]
-  authoredOrigins  Origin[]
-  authoredPersons  Person[]
-  authoredCases    Case[]        @relation("authoredCases")
-  managedCases     Case[]        @relation("managedCases")
-  Opponent         Opponent[]
-  Call             Call[]
-  Appointment      Appointment[]
+  authoredBloggers     Blogger[]
+  authoredOrigins      Origin[]
+  authoredPersons      Person[]
+  authoredCases        Case[]        @relation("authoredCases")
+  managedCases         Case[]        @relation("managedCases")
+  authoredOpponents    Opponent[]
+  authoredCalls        Call[]
+  authoredAppointments Appointment[]
 }
 
 model Person {
@@ -42,11 +42,11 @@ model Person {
 
   leadStatus LEAD_STATUS @default(ADDED_TO_DB)
 
-  cases       Case[]
-  author      Employee      @relation(fields: [authorId], references: [id])
-  origin      Origin        @relation(fields: [originId], references: [id])
-  Call        Call[]
-  Appointment Appointment[]
+  author       Employee      @relation(fields: [authorId], references: [id])
+  origin       Origin        @relation(fields: [originId], references: [id])
+  cases        Case[]
+  calls        Call[]
+  appointments Appointment[]
 }
 
 model Case {
@@ -65,6 +65,8 @@ model Case {
   nearestTaskDeadline DateTime?
   timeOfPerformance   DateTime?
   assignmentTime      DateTime?
+
+  nextDialDate DateTime?
 
   refusalReason REFUSAL_REASON?
   legalAction   LEGAL_ACTION?
@@ -139,7 +141,6 @@ model Call {
 
   callStatus CALL_STATUS
   info       String?
-  redialDate DateTime?
 
   caseId   Int
   personId Int

@@ -87,7 +87,7 @@ export const UIHeader = observer(() => {
             <h3 className={styles.margRight}>
               {translations.headers.allOrigins}
             </h3>
-            <UIIcon size={22} source={"/svg/origins.svg"} />
+            <UIIcon size={22} source={"/svg/origin.svg"} />
           </Link>
         )}
 

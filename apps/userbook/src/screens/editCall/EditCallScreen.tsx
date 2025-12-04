@@ -13,15 +13,14 @@ export const EditCallScreen = observer(() => {
   const {
     info,
     callStatus,
-    redialDate,
+    nextDialDate,
     setInfo,
     upsertCall,
     setCallStatus,
-    setRedialDate,
+    setNextDialDate,
     root: {
       callsStore: { selectedCall },
     },
-    // selectedOption,
   } = useEditCallVM();
 
   const callTitle = selectedCall
@@ -32,8 +31,6 @@ export const EditCallScreen = observer(() => {
   const callStatusTitle = callStatus
     ? translations.callStatuses[callStatus]
     : "-";
-
-  // const selectedCaseOption = selectedOption?.value || "-";
 
   return (
     <div>
@@ -48,20 +45,12 @@ export const EditCallScreen = observer(() => {
           onClick={setCallStatus}
         />
       </div>
-      {/*<div style={{ width: "50%" }}>
-        <UIDropdown
-          options={casesOptions}
-          value={selectedCaseOption}
-          label={translations.misc.case}
-          onClick={setCaseId}
-        />
-      </div>*/}
 
       <UISep />
       <UIDateTimeInput
-        value={redialDate}
+        value={nextDialDate}
         label={translations.misc.redial}
-        onChange={setRedialDate}
+        onChange={setNextDialDate}
       />
 
       <UISep />
@@ -70,7 +59,7 @@ export const EditCallScreen = observer(() => {
       </div>
 
       <UISep />
-      <UIButton title={translations.bttns.add} onClick={upsertCall} />
+      <UIButton title={translations.bttns.save} onClick={upsertCall} />
     </div>
   );
 });

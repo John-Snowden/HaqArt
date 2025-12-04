@@ -50,6 +50,8 @@ export default class EditCaseVM {
   timeOfPerformance: Date | null = null;
   nearestTaskDeadline: Date | null = null;
 
+  nextDialDate: Date | null = null;
+
   opponentId: number | undefined = undefined;
   managerId: number | undefined = undefined;
 
@@ -80,6 +82,8 @@ export default class EditCaseVM {
       this.assignmentTime = selectedCase.assignmentTime;
       this.timeOfPerformance = selectedCase.timeOfPerformance;
       this.nearestTaskDeadline = selectedCase.nearestTaskDeadline;
+
+      this.nextDialDate = selectedCase.nextDialDate;
 
       this.opponentId = selectedCase.opponentId ?? undefined;
       this.managerId = selectedCase.managerId ?? undefined;
@@ -206,6 +210,8 @@ export default class EditCaseVM {
         assignmentTime: this.assignmentTime,
         timeOfPerformance: this.timeOfPerformance,
         nearestTaskDeadline: this.nearestTaskDeadline,
+
+        nextDialDate: this.nextDialDate,
 
         opponentId: this.opponentId ?? null,
         managerId: this.managerId ?? null,

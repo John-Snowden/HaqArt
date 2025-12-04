@@ -11,6 +11,14 @@ const include = {
       username: true,
     },
   },
+  calls: {
+    take: 1,
+    orderBy: { createdAt: "desc" },
+  },
+  cases: {
+    select: { nextDialDate: true },
+    orderBy: { nextDialDate: "asc" },
+  },
 } satisfies Prisma.PersonInclude;
 
 export type PersonFull = Prisma.PersonGetPayload<{
@@ -30,7 +38,7 @@ export const prismaGetPersons = async (where: Prisma.PersonWhereInput) => {
 
 export const prismaUpsertPerson = async (
   person: EditablePersonFields,
-  personId?: number
+  personId?: number,
 ) => {
   return personId === undefined
     ? await prisma.person.create({ data: person })

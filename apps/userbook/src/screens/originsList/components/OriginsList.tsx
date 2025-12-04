@@ -45,7 +45,7 @@ export const OriginsList = observer(() => {
           }}
         >
           <div className={stylesGlobal.iconWrapper}>
-            <UIIcon size={20} source={"/svg/origins.svg"} />
+            <UIIcon size={20} source={"/svg/origin.svg"} />
           </div>
           <div className={stylesGlobal.tableColumn}>{origin.title}</div>
           <div className={stylesGlobal.tableColumn}>{labels}</div>

@@ -1,14 +1,16 @@
 "use client";
 
-import { format } from "date-fns";
 import { useEffect } from "react";
 import { ru } from "date-fns/locale";
 import { observer } from "mobx-react-lite";
+import { format, isBefore, isToday, endOfDay } from "date-fns";
 
 import { translations } from "@/localize";
-import { UIListWrapper, UIIcon } from "@/ui";
 import { ROUTES } from "@/constants/routes";
 import { usePersonsListVM } from "@/context";
+import { UIListWrapper, UIIcon } from "@/ui";
+import { greenFilter, redFilter } from "@/theme/Colors";
+import { Call, CALL_STATUS } from "@shared/prisma/prisma/client";
 
 import stylesGlobal from "../../../stylesGlobal.module.css";
 
@@ -32,8 +34,25 @@ export const PersonsList = observer(() => {
       .slice()
       .reverse()
       .map((person) => {
-        const { id, name, phoneNumber, createdAt, author } = person;
-        const date = format(createdAt, "d MMMM HH:mm", { locale: ru });
+        const { id, name, phoneNumber, calls, cases } = person;
+        const lastCall = calls[0] as Call | undefined;
+        const lastCallDate = lastCall?.createdAt;
+        const lastCalled = lastCallDate
+          ? format(lastCallDate, "d MMM yyyy, HH:mm", { locale: ru })
+          : "-";
+
+        const nextDialDates = cases
+          .map((c) => c.nextDialDate)
+          .filter((d) => d !== null)
+          .sort((a, b) => a.getTime() - b.getTime());
+        const earliestDialDate = nextDialDates[0];
+        const nextCall = earliestDialDate
+          ? format(earliestDialDate, "d MMM yyyy, HH:mm", { locale: ru })
+          : "-";
+        const isBeforeTomorrow = isBefore(
+          earliestDialDate,
+          endOfDay(new Date()),
+        );
 
         return (
           <div
@@ -49,13 +68,30 @@ export const PersonsList = observer(() => {
               <UIIcon size={20} source={"/svg/person.svg"} />
             </div>
             <div className={`${stylesGlobal.tableColumn}`}>{name}</div>
+            <div
+              className={`${stylesGlobal.tableColumn}`}
+            >{`${lastCalled}${lastCall?.callStatus === CALL_STATUS.MISSED ? ", " + translations.callStatuses.MISSED : ""}`}</div>
+            <div className={`${stylesGlobal.tableColumn}`}>
+              {nextCall}
+              {isBeforeTomorrow && (
+                <div
+                  style={{
+                    marginLeft: 24,
+                    filter: isToday(earliestDialDate) ? greenFilter : redFilter,
+                  }}
+                >
+                  <UIIcon source="./svg/lightbulb.svg" size={18} />
+                </div>
+              )}
+            </div>
             <div className={`${stylesGlobal.tableColumn}`}>
               {phoneNumber || "-"}
             </div>
-            <div className={`${stylesGlobal.tableColumn}`}>
+            {/*TODO delete?*/}
+            {/*<div className={`${stylesGlobal.tableColumn}`}>
               {author.username}
             </div>
-            <div className={stylesGlobal.tableColumn}>{date}</div>
+            <div className={stylesGlobal.tableColumn}>{date}</div>*/}
             <div className={stylesGlobal.iconWrapper}>
               <UIIcon size={12} source={"/svg/chevronRight.svg"} />
             </div>

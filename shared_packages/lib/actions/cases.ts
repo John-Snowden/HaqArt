@@ -32,7 +32,7 @@ export const prismaGetCases = async (where: Prisma.CaseWhereInput) => {
 
 export const prismaUpsertCase = async (
   personCase: EditableCaseFields,
-  caseId?: number
+  caseId?: number,
 ) => {
   return caseId === undefined
     ? await prisma.case.create({
