@@ -156,6 +156,7 @@ exports.Prisma.CaseScalarFieldEnum = {
   timeOfPerformance: 'timeOfPerformance',
   assignmentTime: 'assignmentTime',
   nextDialDate: 'nextDialDate',
+  lastDialDate: 'lastDialDate',
   refusalReason: 'refusalReason',
   legalAction: 'legalAction',
   statusInCourt: 'statusInCourt',

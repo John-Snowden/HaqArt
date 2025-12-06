@@ -4511,6 +4511,7 @@ export namespace Prisma {
     timeOfPerformance: Date | null
     assignmentTime: Date | null
     nextDialDate: Date | null
+    lastDialDate: Date | null
     refusalReason: $Enums.REFUSAL_REASON | null
     legalAction: $Enums.LEGAL_ACTION | null
     statusInCourt: $Enums.STATUS_IN_COURT | null
@@ -4536,6 +4537,7 @@ export namespace Prisma {
     timeOfPerformance: Date | null
     assignmentTime: Date | null
     nextDialDate: Date | null
+    lastDialDate: Date | null
     refusalReason: $Enums.REFUSAL_REASON | null
     legalAction: $Enums.LEGAL_ACTION | null
     statusInCourt: $Enums.STATUS_IN_COURT | null
@@ -4562,6 +4564,7 @@ export namespace Prisma {
     timeOfPerformance: number
     assignmentTime: number
     nextDialDate: number
+    lastDialDate: number
     refusalReason: number
     legalAction: number
     statusInCourt: number
@@ -4609,6 +4612,7 @@ export namespace Prisma {
     timeOfPerformance?: true
     assignmentTime?: true
     nextDialDate?: true
+    lastDialDate?: true
     refusalReason?: true
     legalAction?: true
     statusInCourt?: true
@@ -4634,6 +4638,7 @@ export namespace Prisma {
     timeOfPerformance?: true
     assignmentTime?: true
     nextDialDate?: true
+    lastDialDate?: true
     refusalReason?: true
     legalAction?: true
     statusInCourt?: true
@@ -4660,6 +4665,7 @@ export namespace Prisma {
     timeOfPerformance?: true
     assignmentTime?: true
     nextDialDate?: true
+    lastDialDate?: true
     refusalReason?: true
     legalAction?: true
     statusInCourt?: true
@@ -4773,6 +4779,7 @@ export namespace Prisma {
     timeOfPerformance: Date | null
     assignmentTime: Date | null
     nextDialDate: Date | null
+    lastDialDate: Date | null
     refusalReason: $Enums.REFUSAL_REASON | null
     legalAction: $Enums.LEGAL_ACTION | null
     statusInCourt: $Enums.STATUS_IN_COURT | null
@@ -4818,6 +4825,7 @@ export namespace Prisma {
     timeOfPerformance?: boolean
     assignmentTime?: boolean
     nextDialDate?: boolean
+    lastDialDate?: boolean
     refusalReason?: boolean
     legalAction?: boolean
     statusInCourt?: boolean
@@ -4851,6 +4859,7 @@ export namespace Prisma {
     timeOfPerformance?: boolean
     assignmentTime?: boolean
     nextDialDate?: boolean
+    lastDialDate?: boolean
     refusalReason?: boolean
     legalAction?: boolean
     statusInCourt?: boolean
@@ -4881,6 +4890,7 @@ export namespace Prisma {
     timeOfPerformance?: boolean
     assignmentTime?: boolean
     nextDialDate?: boolean
+    lastDialDate?: boolean
     refusalReason?: boolean
     legalAction?: boolean
     statusInCourt?: boolean
@@ -4911,6 +4921,7 @@ export namespace Prisma {
     timeOfPerformance?: boolean
     assignmentTime?: boolean
     nextDialDate?: boolean
+    lastDialDate?: boolean
     refusalReason?: boolean
     legalAction?: boolean
     statusInCourt?: boolean
@@ -4922,7 +4933,7 @@ export namespace Prisma {
     managerId?: boolean
   }
 
-  export type CaseOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "caseImportance" | "caseUrgency" | "caseStatus" | "categories" | "problemShort" | "problemFull" | "nearestTask" | "courtInfo" | "nearestTaskDeadline" | "timeOfPerformance" | "assignmentTime" | "nextDialDate" | "refusalReason" | "legalAction" | "statusInCourt" | "priceSOM" | "priceUSD" | "personId" | "authorId" | "opponentId" | "managerId", ExtArgs["result"]["case"]>
+  export type CaseOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "caseImportance" | "caseUrgency" | "caseStatus" | "categories" | "problemShort" | "problemFull" | "nearestTask" | "courtInfo" | "nearestTaskDeadline" | "timeOfPerformance" | "assignmentTime" | "nextDialDate" | "lastDialDate" | "refusalReason" | "legalAction" | "statusInCourt" | "priceSOM" | "priceUSD" | "personId" | "authorId" | "opponentId" | "managerId", ExtArgs["result"]["case"]>
   export type CaseInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     author?: boolean | EmployeeDefaultArgs<ExtArgs>
     manager?: boolean | Case$managerArgs<ExtArgs>
@@ -4970,6 +4981,7 @@ export namespace Prisma {
       timeOfPerformance: Date | null
       assignmentTime: Date | null
       nextDialDate: Date | null
+      lastDialDate: Date | null
       refusalReason: $Enums.REFUSAL_REASON | null
       legalAction: $Enums.LEGAL_ACTION | null
       statusInCourt: $Enums.STATUS_IN_COURT | null
@@ -5422,6 +5434,7 @@ export namespace Prisma {
     readonly timeOfPerformance: FieldRef<"Case", 'DateTime'>
     readonly assignmentTime: FieldRef<"Case", 'DateTime'>
     readonly nextDialDate: FieldRef<"Case", 'DateTime'>
+    readonly lastDialDate: FieldRef<"Case", 'DateTime'>
     readonly refusalReason: FieldRef<"Case", 'REFUSAL_REASON'>
     readonly legalAction: FieldRef<"Case", 'LEGAL_ACTION'>
     readonly statusInCourt: FieldRef<"Case", 'STATUS_IN_COURT'>
@@ -11748,6 +11761,7 @@ export namespace Prisma {
     timeOfPerformance: 'timeOfPerformance',
     assignmentTime: 'assignmentTime',
     nextDialDate: 'nextDialDate',
+    lastDialDate: 'lastDialDate',
     refusalReason: 'refusalReason',
     legalAction: 'legalAction',
     statusInCourt: 'statusInCourt',
@@ -12276,6 +12290,7 @@ export namespace Prisma {
     timeOfPerformance?: DateTimeNullableFilter<"Case"> | Date | string | null
     assignmentTime?: DateTimeNullableFilter<"Case"> | Date | string | null
     nextDialDate?: DateTimeNullableFilter<"Case"> | Date | string | null
+    lastDialDate?: DateTimeNullableFilter<"Case"> | Date | string | null
     refusalReason?: EnumREFUSAL_REASONNullableFilter<"Case"> | $Enums.REFUSAL_REASON | null
     legalAction?: EnumLEGAL_ACTIONNullableFilter<"Case"> | $Enums.LEGAL_ACTION | null
     statusInCourt?: EnumSTATUS_IN_COURTNullableFilter<"Case"> | $Enums.STATUS_IN_COURT | null
@@ -12308,6 +12323,7 @@ export namespace Prisma {
     timeOfPerformance?: SortOrderInput | SortOrder
     assignmentTime?: SortOrderInput | SortOrder
     nextDialDate?: SortOrderInput | SortOrder
+    lastDialDate?: SortOrderInput | SortOrder
     refusalReason?: SortOrderInput | SortOrder
     legalAction?: SortOrderInput | SortOrder
     statusInCourt?: SortOrderInput | SortOrder
@@ -12343,6 +12359,7 @@ export namespace Prisma {
     timeOfPerformance?: DateTimeNullableFilter<"Case"> | Date | string | null
     assignmentTime?: DateTimeNullableFilter<"Case"> | Date | string | null
     nextDialDate?: DateTimeNullableFilter<"Case"> | Date | string | null
+    lastDialDate?: DateTimeNullableFilter<"Case"> | Date | string | null
     refusalReason?: EnumREFUSAL_REASONNullableFilter<"Case"> | $Enums.REFUSAL_REASON | null
     legalAction?: EnumLEGAL_ACTIONNullableFilter<"Case"> | $Enums.LEGAL_ACTION | null
     statusInCourt?: EnumSTATUS_IN_COURTNullableFilter<"Case"> | $Enums.STATUS_IN_COURT | null
@@ -12375,6 +12392,7 @@ export namespace Prisma {
     timeOfPerformance?: SortOrderInput | SortOrder
     assignmentTime?: SortOrderInput | SortOrder
     nextDialDate?: SortOrderInput | SortOrder
+    lastDialDate?: SortOrderInput | SortOrder
     refusalReason?: SortOrderInput | SortOrder
     legalAction?: SortOrderInput | SortOrder
     statusInCourt?: SortOrderInput | SortOrder
@@ -12409,6 +12427,7 @@ export namespace Prisma {
     timeOfPerformance?: DateTimeNullableWithAggregatesFilter<"Case"> | Date | string | null
     assignmentTime?: DateTimeNullableWithAggregatesFilter<"Case"> | Date | string | null
     nextDialDate?: DateTimeNullableWithAggregatesFilter<"Case"> | Date | string | null
+    lastDialDate?: DateTimeNullableWithAggregatesFilter<"Case"> | Date | string | null
     refusalReason?: EnumREFUSAL_REASONNullableWithAggregatesFilter<"Case"> | $Enums.REFUSAL_REASON | null
     legalAction?: EnumLEGAL_ACTIONNullableWithAggregatesFilter<"Case"> | $Enums.LEGAL_ACTION | null
     statusInCourt?: EnumSTATUS_IN_COURTNullableWithAggregatesFilter<"Case"> | $Enums.STATUS_IN_COURT | null
@@ -12985,6 +13004,7 @@ export namespace Prisma {
     timeOfPerformance?: Date | string | null
     assignmentTime?: Date | string | null
     nextDialDate?: Date | string | null
+    lastDialDate?: Date | string | null
     refusalReason?: $Enums.REFUSAL_REASON | null
     legalAction?: $Enums.LEGAL_ACTION | null
     statusInCourt?: $Enums.STATUS_IN_COURT | null
@@ -13013,6 +13033,7 @@ export namespace Prisma {
     timeOfPerformance?: Date | string | null
     assignmentTime?: Date | string | null
     nextDialDate?: Date | string | null
+    lastDialDate?: Date | string | null
     refusalReason?: $Enums.REFUSAL_REASON | null
     legalAction?: $Enums.LEGAL_ACTION | null
     statusInCourt?: $Enums.STATUS_IN_COURT | null
@@ -13040,6 +13061,7 @@ export namespace Prisma {
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
     statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
@@ -13068,6 +13090,7 @@ export namespace Prisma {
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
     statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
@@ -13096,6 +13119,7 @@ export namespace Prisma {
     timeOfPerformance?: Date | string | null
     assignmentTime?: Date | string | null
     nextDialDate?: Date | string | null
+    lastDialDate?: Date | string | null
     refusalReason?: $Enums.REFUSAL_REASON | null
     legalAction?: $Enums.LEGAL_ACTION | null
     statusInCourt?: $Enums.STATUS_IN_COURT | null
@@ -13121,6 +13145,7 @@ export namespace Prisma {
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
     statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
@@ -13143,6 +13168,7 @@ export namespace Prisma {
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
     statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
@@ -13931,6 +13957,7 @@ export namespace Prisma {
     timeOfPerformance?: SortOrder
     assignmentTime?: SortOrder
     nextDialDate?: SortOrder
+    lastDialDate?: SortOrder
     refusalReason?: SortOrder
     legalAction?: SortOrder
     statusInCourt?: SortOrder
@@ -13966,6 +13993,7 @@ export namespace Prisma {
     timeOfPerformance?: SortOrder
     assignmentTime?: SortOrder
     nextDialDate?: SortOrder
+    lastDialDate?: SortOrder
     refusalReason?: SortOrder
     legalAction?: SortOrder
     statusInCourt?: SortOrder
@@ -13991,6 +14019,7 @@ export namespace Prisma {
     timeOfPerformance?: SortOrder
     assignmentTime?: SortOrder
     nextDialDate?: SortOrder
+    lastDialDate?: SortOrder
     refusalReason?: SortOrder
     legalAction?: SortOrder
     statusInCourt?: SortOrder
@@ -15879,6 +15908,7 @@ export namespace Prisma {
     timeOfPerformance?: Date | string | null
     assignmentTime?: Date | string | null
     nextDialDate?: Date | string | null
+    lastDialDate?: Date | string | null
     refusalReason?: $Enums.REFUSAL_REASON | null
     legalAction?: $Enums.LEGAL_ACTION | null
     statusInCourt?: $Enums.STATUS_IN_COURT | null
@@ -15906,6 +15936,7 @@ export namespace Prisma {
     timeOfPerformance?: Date | string | null
     assignmentTime?: Date | string | null
     nextDialDate?: Date | string | null
+    lastDialDate?: Date | string | null
     refusalReason?: $Enums.REFUSAL_REASON | null
     legalAction?: $Enums.LEGAL_ACTION | null
     statusInCourt?: $Enums.STATUS_IN_COURT | null
@@ -15942,6 +15973,7 @@ export namespace Prisma {
     timeOfPerformance?: Date | string | null
     assignmentTime?: Date | string | null
     nextDialDate?: Date | string | null
+    lastDialDate?: Date | string | null
     refusalReason?: $Enums.REFUSAL_REASON | null
     legalAction?: $Enums.LEGAL_ACTION | null
     statusInCourt?: $Enums.STATUS_IN_COURT | null
@@ -15969,6 +16001,7 @@ export namespace Prisma {
     timeOfPerformance?: Date | string | null
     assignmentTime?: Date | string | null
     nextDialDate?: Date | string | null
+    lastDialDate?: Date | string | null
     refusalReason?: $Enums.REFUSAL_REASON | null
     legalAction?: $Enums.LEGAL_ACTION | null
     statusInCourt?: $Enums.STATUS_IN_COURT | null
@@ -16200,6 +16233,7 @@ export namespace Prisma {
     timeOfPerformance?: DateTimeNullableFilter<"Case"> | Date | string | null
     assignmentTime?: DateTimeNullableFilter<"Case"> | Date | string | null
     nextDialDate?: DateTimeNullableFilter<"Case"> | Date | string | null
+    lastDialDate?: DateTimeNullableFilter<"Case"> | Date | string | null
     refusalReason?: EnumREFUSAL_REASONNullableFilter<"Case"> | $Enums.REFUSAL_REASON | null
     legalAction?: EnumLEGAL_ACTIONNullableFilter<"Case"> | $Enums.LEGAL_ACTION | null
     statusInCourt?: EnumSTATUS_IN_COURTNullableFilter<"Case"> | $Enums.STATUS_IN_COURT | null
@@ -16383,6 +16417,7 @@ export namespace Prisma {
     timeOfPerformance?: Date | string | null
     assignmentTime?: Date | string | null
     nextDialDate?: Date | string | null
+    lastDialDate?: Date | string | null
     refusalReason?: $Enums.REFUSAL_REASON | null
     legalAction?: $Enums.LEGAL_ACTION | null
     statusInCourt?: $Enums.STATUS_IN_COURT | null
@@ -16410,6 +16445,7 @@ export namespace Prisma {
     timeOfPerformance?: Date | string | null
     assignmentTime?: Date | string | null
     nextDialDate?: Date | string | null
+    lastDialDate?: Date | string | null
     refusalReason?: $Enums.REFUSAL_REASON | null
     legalAction?: $Enums.LEGAL_ACTION | null
     statusInCourt?: $Enums.STATUS_IN_COURT | null
@@ -17103,6 +17139,7 @@ export namespace Prisma {
     timeOfPerformance?: Date | string | null
     assignmentTime?: Date | string | null
     nextDialDate?: Date | string | null
+    lastDialDate?: Date | string | null
     refusalReason?: $Enums.REFUSAL_REASON | null
     legalAction?: $Enums.LEGAL_ACTION | null
     statusInCourt?: $Enums.STATUS_IN_COURT | null
@@ -17130,6 +17167,7 @@ export namespace Prisma {
     timeOfPerformance?: Date | string | null
     assignmentTime?: Date | string | null
     nextDialDate?: Date | string | null
+    lastDialDate?: Date | string | null
     refusalReason?: $Enums.REFUSAL_REASON | null
     legalAction?: $Enums.LEGAL_ACTION | null
     statusInCourt?: $Enums.STATUS_IN_COURT | null
@@ -17330,6 +17368,7 @@ export namespace Prisma {
     timeOfPerformance?: Date | string | null
     assignmentTime?: Date | string | null
     nextDialDate?: Date | string | null
+    lastDialDate?: Date | string | null
     refusalReason?: $Enums.REFUSAL_REASON | null
     legalAction?: $Enums.LEGAL_ACTION | null
     statusInCourt?: $Enums.STATUS_IN_COURT | null
@@ -17357,6 +17396,7 @@ export namespace Prisma {
     timeOfPerformance?: Date | string | null
     assignmentTime?: Date | string | null
     nextDialDate?: Date | string | null
+    lastDialDate?: Date | string | null
     refusalReason?: $Enums.REFUSAL_REASON | null
     legalAction?: $Enums.LEGAL_ACTION | null
     statusInCourt?: $Enums.STATUS_IN_COURT | null
@@ -17467,6 +17507,7 @@ export namespace Prisma {
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
     statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
@@ -17494,6 +17535,7 @@ export namespace Prisma {
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
     statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
@@ -17668,6 +17710,7 @@ export namespace Prisma {
     timeOfPerformance?: Date | string | null
     assignmentTime?: Date | string | null
     nextDialDate?: Date | string | null
+    lastDialDate?: Date | string | null
     refusalReason?: $Enums.REFUSAL_REASON | null
     legalAction?: $Enums.LEGAL_ACTION | null
     statusInCourt?: $Enums.STATUS_IN_COURT | null
@@ -17695,6 +17738,7 @@ export namespace Prisma {
     timeOfPerformance?: Date | string | null
     assignmentTime?: Date | string | null
     nextDialDate?: Date | string | null
+    lastDialDate?: Date | string | null
     refusalReason?: $Enums.REFUSAL_REASON | null
     legalAction?: $Enums.LEGAL_ACTION | null
     statusInCourt?: $Enums.STATUS_IN_COURT | null
@@ -17817,6 +17861,7 @@ export namespace Prisma {
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
     statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
@@ -17844,6 +17889,7 @@ export namespace Prisma {
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
     statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
@@ -17905,6 +17951,7 @@ export namespace Prisma {
     timeOfPerformance?: Date | string | null
     assignmentTime?: Date | string | null
     nextDialDate?: Date | string | null
+    lastDialDate?: Date | string | null
     refusalReason?: $Enums.REFUSAL_REASON | null
     legalAction?: $Enums.LEGAL_ACTION | null
     statusInCourt?: $Enums.STATUS_IN_COURT | null
@@ -17930,6 +17977,7 @@ export namespace Prisma {
     timeOfPerformance?: Date | string | null
     assignmentTime?: Date | string | null
     nextDialDate?: Date | string | null
+    lastDialDate?: Date | string | null
     refusalReason?: $Enums.REFUSAL_REASON | null
     legalAction?: $Enums.LEGAL_ACTION | null
     statusInCourt?: $Enums.STATUS_IN_COURT | null
@@ -18087,6 +18135,7 @@ export namespace Prisma {
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
     statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
@@ -18114,6 +18163,7 @@ export namespace Prisma {
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
     statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
@@ -18141,6 +18191,7 @@ export namespace Prisma {
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
     statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
@@ -18165,6 +18216,7 @@ export namespace Prisma {
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
     statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
@@ -18192,6 +18244,7 @@ export namespace Prisma {
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
     statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
@@ -18219,6 +18272,7 @@ export namespace Prisma {
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
     statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
@@ -18321,6 +18375,7 @@ export namespace Prisma {
     timeOfPerformance?: Date | string | null
     assignmentTime?: Date | string | null
     nextDialDate?: Date | string | null
+    lastDialDate?: Date | string | null
     refusalReason?: $Enums.REFUSAL_REASON | null
     legalAction?: $Enums.LEGAL_ACTION | null
     statusInCourt?: $Enums.STATUS_IN_COURT | null
@@ -18363,6 +18418,7 @@ export namespace Prisma {
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
     statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
@@ -18390,6 +18446,7 @@ export namespace Prisma {
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
     statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
@@ -18417,6 +18474,7 @@ export namespace Prisma {
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
     statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
@@ -18617,6 +18675,7 @@ export namespace Prisma {
     timeOfPerformance?: Date | string | null
     assignmentTime?: Date | string | null
     nextDialDate?: Date | string | null
+    lastDialDate?: Date | string | null
     refusalReason?: $Enums.REFUSAL_REASON | null
     legalAction?: $Enums.LEGAL_ACTION | null
     statusInCourt?: $Enums.STATUS_IN_COURT | null
@@ -18641,6 +18700,7 @@ export namespace Prisma {
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
     statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
@@ -18668,6 +18728,7 @@ export namespace Prisma {
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
     statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null
@@ -18695,6 +18756,7 @@ export namespace Prisma {
     timeOfPerformance?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     assignmentTime?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     refusalReason?: NullableEnumREFUSAL_REASONFieldUpdateOperationsInput | $Enums.REFUSAL_REASON | null
     legalAction?: NullableEnumLEGAL_ACTIONFieldUpdateOperationsInput | $Enums.LEGAL_ACTION | null
     statusInCourt?: NullableEnumSTATUS_IN_COURTFieldUpdateOperationsInput | $Enums.STATUS_IN_COURT | null

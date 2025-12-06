@@ -8,6 +8,7 @@ import { Call, Prisma } from "@shared/prisma/prisma/client";
 import { PersonFull } from "@shared/lib/actions/persons";
 import { CAN_EDIT_PERSON_ROLES } from "@/stores/constants";
 
+import { CasesFilterModule } from "./modules/cases";
 import { CallsFilterModule } from "./modules/calls";
 import { OriginFilterModule } from "./modules/origins";
 
@@ -15,11 +16,13 @@ export default class PersonsListVM {
   root: RootStore;
   isLoading: boolean = true;
 
+  casesFilterModule: CasesFilterModule;
   callsFilterModule: CallsFilterModule;
   originsFilterModule: OriginFilterModule;
 
   constructor(root: RootStore) {
     this.root = root;
+    this.casesFilterModule = new CasesFilterModule(root);
     this.callsFilterModule = new CallsFilterModule(root);
     this.originsFilterModule = new OriginFilterModule(root);
 
@@ -28,6 +31,8 @@ export default class PersonsListVM {
     reaction(
       () => [
         this.callsFilterModule.callsFilter,
+        this.casesFilterModule.lastDialedFrom,
+        this.casesFilterModule.lastDialedThrough,
         this.originsFilterModule.originIdFilter,
       ],
       () => this.getPersons(),
@@ -39,6 +44,7 @@ export default class PersonsListVM {
       runInAction(() => (this.isLoading = true));
       const where: Prisma.PersonWhereInput = {};
 
+      where.cases = this.casesFilterModule.caseWhere;
       where.calls = this.callsFilterModule.callWhere;
       where.originId = this.originsFilterModule.originIdFilter;
 
@@ -59,11 +65,13 @@ export default class PersonsListVM {
   };
 
   get persons(): PersonFull[] {
-    return this.root.personsStore.persons.slice().sort((a, b) => {
+    const persons = this.root.personsStore.persons.slice();
+    persons.sort((a, b) => {
       const callA = (a.calls[0] as Call | undefined)?.createdAt || new Date();
       const callB = (b.calls[0] as Call | undefined)?.createdAt || new Date();
       return callA.getTime() - callB.getTime();
     });
+    return persons;
   }
 
   get canWrite(): boolean {

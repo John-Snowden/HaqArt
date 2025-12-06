@@ -18,7 +18,7 @@ export const UIDateTimeInput: FC<IProps> = ({ label, value, onChange }) => {
       <h4 className={styles.label}>{label}</h4>
       {value && (
         <input
-          type="datetime-local"
+          type={"datetime-local"}
           value={format(new Date(value), "yyyy-MM-dd'T'HH:mm")}
           onChange={(e) => onChange(new Date(e.target.value))}
           className={styles.calendar}
@@ -26,7 +26,6 @@ export const UIDateTimeInput: FC<IProps> = ({ label, value, onChange }) => {
       )}
       <div
         className={styles.calendarIcon}
-        role="button"
         onClick={() => {
           onChange(value ? null : new Date());
         }}

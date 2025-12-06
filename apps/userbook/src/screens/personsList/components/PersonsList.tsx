@@ -9,8 +9,9 @@ import { translations } from "@/localize";
 import { ROUTES } from "@/constants/routes";
 import { usePersonsListVM } from "@/context";
 import { UIListWrapper, UIIcon } from "@/ui";
+import { getLastCall } from "@/utils/calls/utils";
 import { greenFilter, redFilter } from "@/theme/Colors";
-import { Call, CALL_STATUS } from "@shared/prisma/prisma/client";
+import { CALL_STATUS } from "@shared/prisma/prisma/client";
 
 import stylesGlobal from "../../../stylesGlobal.module.css";
 
@@ -35,24 +36,24 @@ export const PersonsList = observer(() => {
       .reverse()
       .map((person) => {
         const { id, name, phoneNumber, calls, cases } = person;
-        const lastCall = calls[0] as Call | undefined;
-        const lastCallDate = lastCall?.createdAt;
-        const lastCalled = lastCallDate
-          ? format(lastCallDate, "d MMM yyyy, HH:mm", { locale: ru })
+        const lastCall = getLastCall(calls);
+        const lastCalled = lastCall
+          ? format(lastCall.createdAt, "d MMM yyyy, HH:mm", { locale: ru })
           : "-";
 
         const nextDialDates = cases
           .map((c) => c.nextDialDate)
-          .filter((d) => d !== null)
-          .sort((a, b) => a.getTime() - b.getTime());
-        const earliestDialDate = nextDialDates[0];
+          .filter((d) => d !== null);
+        const sorted = [...nextDialDates].sort(
+          (a, b) => a.getTime() - b.getTime(),
+        );
+        const earliestDialDate = sorted[0];
         const nextCall = earliestDialDate
           ? format(earliestDialDate, "d MMM yyyy, HH:mm", { locale: ru })
           : "-";
-        const isBeforeTomorrow = isBefore(
-          earliestDialDate,
-          endOfDay(new Date()),
-        );
+        const isBeforeTomorrow =
+          Boolean(earliestDialDate) &&
+          isBefore(earliestDialDate, endOfDay(new Date()));
 
         return (
           <div
@@ -73,7 +74,7 @@ export const PersonsList = observer(() => {
             >{`${lastCalled}${lastCall?.callStatus === CALL_STATUS.MISSED ? ", " + translations.callStatuses.MISSED : ""}`}</div>
             <div className={`${stylesGlobal.tableColumn}`}>
               {nextCall}
-              {isBeforeTomorrow && (
+              {isBeforeTomorrow && earliestDialDate && (
                 <div
                   style={{
                     marginLeft: 24,

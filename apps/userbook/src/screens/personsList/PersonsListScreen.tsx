@@ -5,6 +5,7 @@ import { translations } from "@/localize";
 import styles from "./styles.module.css";
 import { Filters, PersonsList } from "./components";
 import stylesGlobal from "../../stylesGlobal.module.css";
+import { CalendarFilter } from "./components/CalendarFilter/CalendarFilter";
 
 export const PersonsListScreen = () => {
   return (
@@ -15,6 +16,7 @@ export const PersonsListScreen = () => {
         </div>
         <div className={styles.filtersWrapper}>
           <Filters />
+          <CalendarFilter />
         </div>
       </div>
 

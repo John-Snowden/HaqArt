@@ -162,6 +162,8 @@ export const translations: {
     onlyWithoutCalls: "не звонили вообще",
     lastContacted: "Последний звонок",
     nextDialDate: "Следующий звонок",
+    lastDialedFrom: "Последний звонок с",
+    lastDialedThrough: "Последний звонок до",
   },
   toastMessages: {
     success: "Выполнено",
@@ -180,7 +182,7 @@ export const translations: {
     passwordMissing: "Не заполнен пароль",
     callStatusMissing: "Не указан статус звонка",
     caseIdMissing: "Не указано дело",
-    redialDatePast: "Дата повторного звонка уже прошла",
+    redialDateAlreadyPast: "Дата повторного звонка уже прошла",
   },
   filters: {
     calls: "Звонки",

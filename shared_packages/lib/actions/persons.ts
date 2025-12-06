@@ -16,7 +16,7 @@ const include = {
     orderBy: { createdAt: "desc" },
   },
   cases: {
-    select: { nextDialDate: true },
+    select: { nextDialDate: true, lastDialDate: true },
     orderBy: { nextDialDate: "asc" },
   },
 } satisfies Prisma.PersonInclude;
@@ -30,7 +30,7 @@ export const prismaGetPersons = async (where: Prisma.PersonWhereInput) => {
   return await prisma.person.findMany({
     where,
     include,
-    orderBy: { id: "desc" },
+    orderBy: { createdAt: "asc" },
     // TODO
     // take: 3,
   });
@@ -38,7 +38,7 @@ export const prismaGetPersons = async (where: Prisma.PersonWhereInput) => {
 
 export const prismaUpsertPerson = async (
   person: EditablePersonFields,
-  personId?: number,
+  personId?: number
 ) => {
   return personId === undefined
     ? await prisma.person.create({ data: person })

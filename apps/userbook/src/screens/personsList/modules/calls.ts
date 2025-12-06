@@ -21,14 +21,17 @@ export class CallsFilterModule {
   };
 
   get callWhere(): Prisma.PersonWhereInput["calls"] {
+    let where: Prisma.PersonWhereInput["calls"] = {};
+
     if (this.callsFilter === "withCalls") {
-      return { some: { callStatus: CALL_STATUS.DONE } };
+      where = { some: { callStatus: CALL_STATUS.DONE } };
     } else if (this.callsFilter === "allMissed") {
-      return {
+      where = {
         some: {},
         every: { callStatus: CALL_STATUS.MISSED },
       };
-    } else if (this.callsFilter === "withoutCalls") return { none: {} };
-    else return undefined;
+    } else if (this.callsFilter === "withoutCalls") where = { none: {} };
+
+    return where;
   }
 }

@@ -3,8 +3,9 @@ import { makeAutoObservable } from "mobx";
 
 import { translations } from "@/localize";
 import RootStore from "@/stores/rootStore";
+import { getLastCall } from "@/utils/calls/utils";
+import { EditableCaseFields } from "@shared/lib/actions";
 import { CALL_STATUS } from "@shared/prisma/prisma/client";
-import { EditableCaseFields, prismaUpsertCase } from "@shared/lib/actions";
 
 export class EditCallVM {
   root: RootStore;
@@ -51,9 +52,11 @@ export class EditCallVM {
         personId: this.personId,
       });
 
-      await prismaUpsertCase(
-        { nextDialDate: this.nextDialDate } as EditableCaseFields, // TODO type pzts
-        selectedCase.id,
+      await this.root.casesStore.upsertCase(
+        {
+          nextDialDate: this.nextDialDate,
+          lastDialDate: this.lastDialDate,
+        } as EditableCaseFields, // TODO type pzts
       );
 
       toast.success(translations.toastMessages.success);
@@ -67,7 +70,7 @@ export class EditCallVM {
     if (this.callStatus === undefined) {
       toast.warning(translations.toastMessages.callStatusMissing);
     } else if (this.nextDialDate && this.nextDialDate <= new Date()) {
-      toast.warning(translations.toastMessages.redialDatePast);
+      toast.warning(translations.toastMessages.redialDateAlreadyPast);
     } else isValid = true;
     return isValid;
   };
@@ -99,5 +102,10 @@ export class EditCallVM {
       if (!selectedPerson) throw new Error("selected person missing");
       return selectedPerson.id;
     }
+  }
+
+  get lastDialDate(): Date | null {
+    const { calls } = this.root.callsStore;
+    return getLastCall(calls.slice())?.createdAt ?? null;
   }
 }

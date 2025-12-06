@@ -67,6 +67,7 @@ model Case {
   assignmentTime      DateTime?
 
   nextDialDate DateTime?
+  lastDialDate DateTime?
 
   refusalReason REFUSAL_REASON?
   legalAction   LEGAL_ACTION?
