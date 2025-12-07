@@ -164,6 +164,8 @@ export const translations: {
     nextDialDate: "Следующий звонок",
     lastDialedFrom: "Последний звонок с",
     lastDialedThrough: "Последний звонок до",
+    nextDialFrom: "Следующий звонок с",
+    nextDialThrough: "Следующий звонок до",
   },
   toastMessages: {
     success: "Выполнено",

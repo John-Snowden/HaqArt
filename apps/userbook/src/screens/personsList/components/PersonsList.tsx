@@ -9,7 +9,7 @@ import { translations } from "@/localize";
 import { ROUTES } from "@/constants/routes";
 import { usePersonsListVM } from "@/context";
 import { UIListWrapper, UIIcon } from "@/ui";
-import { getLastCall } from "@/utils/calls/utils";
+import { getLatestCall } from "@/utils/calls/utils";
 import { greenFilter, redFilter } from "@/theme/Colors";
 import { CALL_STATUS } from "@shared/prisma/prisma/client";
 
@@ -36,7 +36,7 @@ export const PersonsList = observer(() => {
       .reverse()
       .map((person) => {
         const { id, name, phoneNumber, calls, cases } = person;
-        const lastCall = getLastCall(calls);
+        const lastCall = getLatestCall(calls);
         const lastCalled = lastCall
           ? format(lastCall.createdAt, "d MMM yyyy, HH:mm", { locale: ru })
           : "-";

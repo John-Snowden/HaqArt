@@ -27,7 +27,7 @@ class CallsStore {
   };
 
   upsertCall = async (call: EditableCallFields) => {
-    await prismaUpsertCall(call, this.selectedCallId);
+    return await prismaUpsertCall(call, this.selectedCallId);
   };
 
   clear = () => {

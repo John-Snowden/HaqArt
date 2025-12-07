@@ -2,10 +2,13 @@
 
 import { observer } from "mobx-react-lite";
 
+import {
+  PERSON_CALL_OPTIONS,
+  PERSON_CATEGORY_OPTIONS,
+} from "@/stores/constants";
 import { translations } from "@/localize";
 import { UIDropdown, UIIcon } from "@/ui";
 import { usePersonsListVM } from "@/context";
-import { PERSON_CALL_OPTIONS } from "@/stores/constants";
 
 import styles from "./styles.module.css";
 
@@ -17,6 +20,7 @@ export const Filters = observer(() => {
       setOriginFilter,
     },
     callsFilterModule: { callsFilter, setCallsFilter },
+    casesFilterModule: { categoryFilter, setCategoryFilter },
   } = usePersonsListVM();
 
   const callsFilterTitle =
@@ -26,6 +30,10 @@ export const Filters = observer(() => {
   const originsFilterTitle =
     personOriginOptions.find((o) => o.option === String(originIdFilter))
       ?.value || translations.misc.all;
+
+  const categoryFilterTitle = categoryFilter
+    ? translations.categories[categoryFilter]
+    : translations.misc.all;
 
   return (
     <div className={styles.personFiltersWrapper}>
@@ -77,10 +85,10 @@ export const Filters = observer(() => {
           </div>
         </div>
         <UIDropdown
-          value={originsFilterTitle}
-          options={personOriginOptions}
+          value={categoryFilterTitle}
+          options={PERSON_CATEGORY_OPTIONS}
           emptyValue={translations.misc.all}
-          onClick={setOriginFilter}
+          onClick={setCategoryFilter}
         />
       </div>
       <div className={styles.sepVerticalFilter} />

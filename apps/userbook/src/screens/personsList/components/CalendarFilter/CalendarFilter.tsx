@@ -14,23 +14,42 @@ export const CalendarFilter = observer(() => {
     casesFilterModule: {
       lastDialedFrom,
       lastDialedThrough,
+      nextDialFrom,
+      nextDialThrough,
       setLastDialedFrom,
-      setlastDialedThrough,
+      setLastDialedThrough,
+      setNextDialFrom,
+      setNextDialThrough,
     },
   } = usePersonsListVM();
 
   return (
-    <div className={styles.calendarFiltersWrapper}>
-      <UIDateTimeInput
-        label={translations.misc.lastDialedFrom}
-        value={lastDialedFrom ? startOfDay(lastDialedFrom) : null}
-        onChange={setLastDialedFrom}
-      />
-      <UIDateTimeInput
-        label={translations.misc.lastDialedThrough}
-        value={lastDialedThrough ? endOfDay(lastDialedThrough) : null}
-        onChange={setlastDialedThrough}
-      />
+    <div className={styles.mainFiltersWrapper}>
+      <div className={styles.filterWrapper}>
+        <UIDateTimeInput
+          label={translations.misc.lastDialedFrom}
+          value={lastDialedFrom ? startOfDay(lastDialedFrom) : null}
+          onChange={setLastDialedFrom}
+        />
+        <UIDateTimeInput
+          label={translations.misc.lastDialedThrough}
+          value={lastDialedThrough ? endOfDay(lastDialedThrough) : null}
+          onChange={setLastDialedThrough}
+        />
+      </div>
+      <div className={styles.sepVerticalFilter} />
+      <div className={styles.filterWrapper}>
+        <UIDateTimeInput
+          label={translations.misc.nextDialFrom}
+          value={nextDialFrom ? startOfDay(nextDialFrom) : null}
+          onChange={setNextDialFrom}
+        />
+        <UIDateTimeInput
+          label={translations.misc.nextDialThrough}
+          value={nextDialThrough ? endOfDay(nextDialThrough) : null}
+          onChange={setNextDialThrough}
+        />
+      </div>
     </div>
   );
 });

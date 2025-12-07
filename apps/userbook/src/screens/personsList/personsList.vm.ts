@@ -31,8 +31,11 @@ export default class PersonsListVM {
     reaction(
       () => [
         this.callsFilterModule.callsFilter,
+        this.casesFilterModule.categoryFilter,
         this.casesFilterModule.lastDialedFrom,
         this.casesFilterModule.lastDialedThrough,
+        this.casesFilterModule.nextDialFrom,
+        this.casesFilterModule.nextDialThrough,
         this.originsFilterModule.originIdFilter,
       ],
       () => this.getPersons(),

@@ -136,6 +136,8 @@ exports.Prisma.PersonScalarFieldEnum = {
   link: 'link',
   email: 'email',
   homeAddress: 'homeAddress',
+  nextDialDate: 'nextDialDate',
+  lastDialDate: 'lastDialDate',
   authorId: 'authorId',
   originId: 'originId',
   leadStatus: 'leadStatus'

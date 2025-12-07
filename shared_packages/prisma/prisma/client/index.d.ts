@@ -3238,6 +3238,8 @@ export namespace Prisma {
     link: string | null
     email: string | null
     homeAddress: string | null
+    nextDialDate: Date | null
+    lastDialDate: Date | null
     authorId: number | null
     originId: number | null
     leadStatus: $Enums.LEAD_STATUS | null
@@ -3251,6 +3253,8 @@ export namespace Prisma {
     link: string | null
     email: string | null
     homeAddress: string | null
+    nextDialDate: Date | null
+    lastDialDate: Date | null
     authorId: number | null
     originId: number | null
     leadStatus: $Enums.LEAD_STATUS | null
@@ -3264,6 +3268,8 @@ export namespace Prisma {
     link: number
     email: number
     homeAddress: number
+    nextDialDate: number
+    lastDialDate: number
     authorId: number
     originId: number
     leadStatus: number
@@ -3291,6 +3297,8 @@ export namespace Prisma {
     link?: true
     email?: true
     homeAddress?: true
+    nextDialDate?: true
+    lastDialDate?: true
     authorId?: true
     originId?: true
     leadStatus?: true
@@ -3304,6 +3312,8 @@ export namespace Prisma {
     link?: true
     email?: true
     homeAddress?: true
+    nextDialDate?: true
+    lastDialDate?: true
     authorId?: true
     originId?: true
     leadStatus?: true
@@ -3317,6 +3327,8 @@ export namespace Prisma {
     link?: true
     email?: true
     homeAddress?: true
+    nextDialDate?: true
+    lastDialDate?: true
     authorId?: true
     originId?: true
     leadStatus?: true
@@ -3417,6 +3429,8 @@ export namespace Prisma {
     link: string | null
     email: string | null
     homeAddress: string | null
+    nextDialDate: Date | null
+    lastDialDate: Date | null
     authorId: number
     originId: number
     leadStatus: $Enums.LEAD_STATUS
@@ -3449,6 +3463,8 @@ export namespace Prisma {
     link?: boolean
     email?: boolean
     homeAddress?: boolean
+    nextDialDate?: boolean
+    lastDialDate?: boolean
     authorId?: boolean
     originId?: boolean
     leadStatus?: boolean
@@ -3468,6 +3484,8 @@ export namespace Prisma {
     link?: boolean
     email?: boolean
     homeAddress?: boolean
+    nextDialDate?: boolean
+    lastDialDate?: boolean
     authorId?: boolean
     originId?: boolean
     leadStatus?: boolean
@@ -3483,6 +3501,8 @@ export namespace Prisma {
     link?: boolean
     email?: boolean
     homeAddress?: boolean
+    nextDialDate?: boolean
+    lastDialDate?: boolean
     authorId?: boolean
     originId?: boolean
     leadStatus?: boolean
@@ -3498,12 +3518,14 @@ export namespace Prisma {
     link?: boolean
     email?: boolean
     homeAddress?: boolean
+    nextDialDate?: boolean
+    lastDialDate?: boolean
     authorId?: boolean
     originId?: boolean
     leadStatus?: boolean
   }
 
-  export type PersonOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "name" | "phoneNumber" | "link" | "email" | "homeAddress" | "authorId" | "originId" | "leadStatus", ExtArgs["result"]["person"]>
+  export type PersonOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "name" | "phoneNumber" | "link" | "email" | "homeAddress" | "nextDialDate" | "lastDialDate" | "authorId" | "originId" | "leadStatus", ExtArgs["result"]["person"]>
   export type PersonInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     author?: boolean | EmployeeDefaultArgs<ExtArgs>
     origin?: boolean | OriginDefaultArgs<ExtArgs>
@@ -3538,6 +3560,8 @@ export namespace Prisma {
       link: string | null
       email: string | null
       homeAddress: string | null
+      nextDialDate: Date | null
+      lastDialDate: Date | null
       authorId: number
       originId: number
       leadStatus: $Enums.LEAD_STATUS
@@ -3976,6 +4000,8 @@ export namespace Prisma {
     readonly link: FieldRef<"Person", 'String'>
     readonly email: FieldRef<"Person", 'String'>
     readonly homeAddress: FieldRef<"Person", 'String'>
+    readonly nextDialDate: FieldRef<"Person", 'DateTime'>
+    readonly lastDialDate: FieldRef<"Person", 'DateTime'>
     readonly authorId: FieldRef<"Person", 'Int'>
     readonly originId: FieldRef<"Person", 'Int'>
     readonly leadStatus: FieldRef<"Person", 'LEAD_STATUS'>
@@ -11738,6 +11764,8 @@ export namespace Prisma {
     link: 'link',
     email: 'email',
     homeAddress: 'homeAddress',
+    nextDialDate: 'nextDialDate',
+    lastDialDate: 'lastDialDate',
     authorId: 'authorId',
     originId: 'originId',
     leadStatus: 'leadStatus'
@@ -12189,6 +12217,8 @@ export namespace Prisma {
     link?: StringNullableFilter<"Person"> | string | null
     email?: StringNullableFilter<"Person"> | string | null
     homeAddress?: StringNullableFilter<"Person"> | string | null
+    nextDialDate?: DateTimeNullableFilter<"Person"> | Date | string | null
+    lastDialDate?: DateTimeNullableFilter<"Person"> | Date | string | null
     authorId?: IntFilter<"Person"> | number
     originId?: IntFilter<"Person"> | number
     leadStatus?: EnumLEAD_STATUSFilter<"Person"> | $Enums.LEAD_STATUS
@@ -12207,6 +12237,8 @@ export namespace Prisma {
     link?: SortOrderInput | SortOrder
     email?: SortOrderInput | SortOrder
     homeAddress?: SortOrderInput | SortOrder
+    nextDialDate?: SortOrderInput | SortOrder
+    lastDialDate?: SortOrderInput | SortOrder
     authorId?: SortOrder
     originId?: SortOrder
     leadStatus?: SortOrder
@@ -12228,6 +12260,8 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Person"> | Date | string
     name?: StringFilter<"Person"> | string
     homeAddress?: StringNullableFilter<"Person"> | string | null
+    nextDialDate?: DateTimeNullableFilter<"Person"> | Date | string | null
+    lastDialDate?: DateTimeNullableFilter<"Person"> | Date | string | null
     authorId?: IntFilter<"Person"> | number
     originId?: IntFilter<"Person"> | number
     leadStatus?: EnumLEAD_STATUSFilter<"Person"> | $Enums.LEAD_STATUS
@@ -12246,6 +12280,8 @@ export namespace Prisma {
     link?: SortOrderInput | SortOrder
     email?: SortOrderInput | SortOrder
     homeAddress?: SortOrderInput | SortOrder
+    nextDialDate?: SortOrderInput | SortOrder
+    lastDialDate?: SortOrderInput | SortOrder
     authorId?: SortOrder
     originId?: SortOrder
     leadStatus?: SortOrder
@@ -12267,6 +12303,8 @@ export namespace Prisma {
     link?: StringNullableWithAggregatesFilter<"Person"> | string | null
     email?: StringNullableWithAggregatesFilter<"Person"> | string | null
     homeAddress?: StringNullableWithAggregatesFilter<"Person"> | string | null
+    nextDialDate?: DateTimeNullableWithAggregatesFilter<"Person"> | Date | string | null
+    lastDialDate?: DateTimeNullableWithAggregatesFilter<"Person"> | Date | string | null
     authorId?: IntWithAggregatesFilter<"Person"> | number
     originId?: IntWithAggregatesFilter<"Person"> | number
     leadStatus?: EnumLEAD_STATUSWithAggregatesFilter<"Person"> | $Enums.LEAD_STATUS
@@ -12899,6 +12937,8 @@ export namespace Prisma {
     link?: string | null
     email?: string | null
     homeAddress?: string | null
+    nextDialDate?: Date | string | null
+    lastDialDate?: Date | string | null
     leadStatus?: $Enums.LEAD_STATUS
     author: EmployeeCreateNestedOneWithoutAuthoredPersonsInput
     origin: OriginCreateNestedOneWithoutPersonsInput
@@ -12915,6 +12955,8 @@ export namespace Prisma {
     link?: string | null
     email?: string | null
     homeAddress?: string | null
+    nextDialDate?: Date | string | null
+    lastDialDate?: Date | string | null
     authorId: number
     originId: number
     leadStatus?: $Enums.LEAD_STATUS
@@ -12930,6 +12972,8 @@ export namespace Prisma {
     link?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     homeAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
     author?: EmployeeUpdateOneRequiredWithoutAuthoredPersonsNestedInput
     origin?: OriginUpdateOneRequiredWithoutPersonsNestedInput
@@ -12946,6 +12990,8 @@ export namespace Prisma {
     link?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     homeAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     authorId?: IntFieldUpdateOperationsInput | number
     originId?: IntFieldUpdateOperationsInput | number
     leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
@@ -12962,6 +13008,8 @@ export namespace Prisma {
     link?: string | null
     email?: string | null
     homeAddress?: string | null
+    nextDialDate?: Date | string | null
+    lastDialDate?: Date | string | null
     authorId: number
     originId: number
     leadStatus?: $Enums.LEAD_STATUS
@@ -12974,6 +13022,8 @@ export namespace Prisma {
     link?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     homeAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
   }
 
@@ -12985,6 +13035,8 @@ export namespace Prisma {
     link?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     homeAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     authorId?: IntFieldUpdateOperationsInput | number
     originId?: IntFieldUpdateOperationsInput | number
     leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
@@ -13743,6 +13795,17 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
   export type EnumLEAD_STATUSFilter<$PrismaModel = never> = {
     equals?: $Enums.LEAD_STATUS | EnumLEAD_STATUSFieldRefInput<$PrismaModel>
     in?: $Enums.LEAD_STATUS[] | ListEnumLEAD_STATUSFieldRefInput<$PrismaModel>
@@ -13773,6 +13836,8 @@ export namespace Prisma {
     link?: SortOrder
     email?: SortOrder
     homeAddress?: SortOrder
+    nextDialDate?: SortOrder
+    lastDialDate?: SortOrder
     authorId?: SortOrder
     originId?: SortOrder
     leadStatus?: SortOrder
@@ -13792,6 +13857,8 @@ export namespace Prisma {
     link?: SortOrder
     email?: SortOrder
     homeAddress?: SortOrder
+    nextDialDate?: SortOrder
+    lastDialDate?: SortOrder
     authorId?: SortOrder
     originId?: SortOrder
     leadStatus?: SortOrder
@@ -13805,6 +13872,8 @@ export namespace Prisma {
     link?: SortOrder
     email?: SortOrder
     homeAddress?: SortOrder
+    nextDialDate?: SortOrder
+    lastDialDate?: SortOrder
     authorId?: SortOrder
     originId?: SortOrder
     leadStatus?: SortOrder
@@ -13832,6 +13901,20 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedStringNullableFilter<$PrismaModel>
     _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type EnumLEAD_STATUSWithAggregatesFilter<$PrismaModel = never> = {
@@ -13871,17 +13954,6 @@ export namespace Prisma {
     hasEvery?: $Enums.CASE_CATEGORY[] | ListEnumCASE_CATEGORYFieldRefInput<$PrismaModel>
     hasSome?: $Enums.CASE_CATEGORY[] | ListEnumCASE_CATEGORYFieldRefInput<$PrismaModel>
     isEmpty?: boolean
-  }
-
-  export type DateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
   export type EnumREFUSAL_REASONNullableFilter<$PrismaModel = never> = {
@@ -14069,20 +14141,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumCASE_STATUSFilter<$PrismaModel>
     _max?: NestedEnumCASE_STATUSFilter<$PrismaModel>
-  }
-
-  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedDateTimeNullableFilter<$PrismaModel>
-    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type EnumREFUSAL_REASONNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -14851,6 +14909,10 @@ export namespace Prisma {
     set?: string | null
   }
 
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
+  }
+
   export type EnumLEAD_STATUSFieldUpdateOperationsInput = {
     set?: $Enums.LEAD_STATUS
   }
@@ -15026,10 +15088,6 @@ export namespace Prisma {
   export type CaseUpdatecategoriesInput = {
     set?: $Enums.CASE_CATEGORY[]
     push?: $Enums.CASE_CATEGORY | $Enums.CASE_CATEGORY[]
-  }
-
-  export type NullableDateTimeFieldUpdateOperationsInput = {
-    set?: Date | string | null
   }
 
   export type NullableEnumREFUSAL_REASONFieldUpdateOperationsInput = {
@@ -15504,6 +15562,17 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
   export type NestedEnumLEAD_STATUSFilter<$PrismaModel = never> = {
     equals?: $Enums.LEAD_STATUS | EnumLEAD_STATUSFieldRefInput<$PrismaModel>
     in?: $Enums.LEAD_STATUS[] | ListEnumLEAD_STATUSFieldRefInput<$PrismaModel>
@@ -15539,6 +15608,20 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
   export type NestedEnumLEAD_STATUSWithAggregatesFilter<$PrismaModel = never> = {
     equals?: $Enums.LEAD_STATUS | EnumLEAD_STATUSFieldRefInput<$PrismaModel>
     in?: $Enums.LEAD_STATUS[] | ListEnumLEAD_STATUSFieldRefInput<$PrismaModel>
@@ -15568,17 +15651,6 @@ export namespace Prisma {
     in?: $Enums.CASE_STATUS[] | ListEnumCASE_STATUSFieldRefInput<$PrismaModel>
     notIn?: $Enums.CASE_STATUS[] | ListEnumCASE_STATUSFieldRefInput<$PrismaModel>
     not?: NestedEnumCASE_STATUSFilter<$PrismaModel> | $Enums.CASE_STATUS
-  }
-
-  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
   export type NestedEnumREFUSAL_REASONNullableFilter<$PrismaModel = never> = {
@@ -15641,20 +15713,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumCASE_STATUSFilter<$PrismaModel>
     _max?: NestedEnumCASE_STATUSFilter<$PrismaModel>
-  }
-
-  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedDateTimeNullableFilter<$PrismaModel>
-    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type NestedEnumREFUSAL_REASONNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -15862,6 +15920,8 @@ export namespace Prisma {
     link?: string | null
     email?: string | null
     homeAddress?: string | null
+    nextDialDate?: Date | string | null
+    lastDialDate?: Date | string | null
     leadStatus?: $Enums.LEAD_STATUS
     origin: OriginCreateNestedOneWithoutPersonsInput
     cases?: CaseCreateNestedManyWithoutPersonInput
@@ -15877,6 +15937,8 @@ export namespace Prisma {
     link?: string | null
     email?: string | null
     homeAddress?: string | null
+    nextDialDate?: Date | string | null
+    lastDialDate?: Date | string | null
     originId: number
     leadStatus?: $Enums.LEAD_STATUS
     cases?: CaseUncheckedCreateNestedManyWithoutPersonInput
@@ -16194,6 +16256,8 @@ export namespace Prisma {
     link?: StringNullableFilter<"Person"> | string | null
     email?: StringNullableFilter<"Person"> | string | null
     homeAddress?: StringNullableFilter<"Person"> | string | null
+    nextDialDate?: DateTimeNullableFilter<"Person"> | Date | string | null
+    lastDialDate?: DateTimeNullableFilter<"Person"> | Date | string | null
     authorId?: IntFilter<"Person"> | number
     originId?: IntFilter<"Person"> | number
     leadStatus?: EnumLEAD_STATUSFilter<"Person"> | $Enums.LEAD_STATUS
@@ -16735,6 +16799,8 @@ export namespace Prisma {
     link?: string | null
     email?: string | null
     homeAddress?: string | null
+    nextDialDate?: Date | string | null
+    lastDialDate?: Date | string | null
     leadStatus?: $Enums.LEAD_STATUS
     author: EmployeeCreateNestedOneWithoutAuthoredPersonsInput
     origin: OriginCreateNestedOneWithoutPersonsInput
@@ -16750,6 +16816,8 @@ export namespace Prisma {
     link?: string | null
     email?: string | null
     homeAddress?: string | null
+    nextDialDate?: Date | string | null
+    lastDialDate?: Date | string | null
     authorId: number
     originId: number
     leadStatus?: $Enums.LEAD_STATUS
@@ -16942,6 +17010,8 @@ export namespace Prisma {
     link?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     homeAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
     author?: EmployeeUpdateOneRequiredWithoutAuthoredPersonsNestedInput
     origin?: OriginUpdateOneRequiredWithoutPersonsNestedInput
@@ -16957,6 +17027,8 @@ export namespace Prisma {
     link?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     homeAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     authorId?: IntFieldUpdateOperationsInput | number
     originId?: IntFieldUpdateOperationsInput | number
     leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
@@ -17037,6 +17109,8 @@ export namespace Prisma {
     link?: string | null
     email?: string | null
     homeAddress?: string | null
+    nextDialDate?: Date | string | null
+    lastDialDate?: Date | string | null
     leadStatus?: $Enums.LEAD_STATUS
     author: EmployeeCreateNestedOneWithoutAuthoredPersonsInput
     cases?: CaseCreateNestedManyWithoutPersonInput
@@ -17052,6 +17126,8 @@ export namespace Prisma {
     link?: string | null
     email?: string | null
     homeAddress?: string | null
+    nextDialDate?: Date | string | null
+    lastDialDate?: Date | string | null
     authorId: number
     leadStatus?: $Enums.LEAD_STATUS
     cases?: CaseUncheckedCreateNestedManyWithoutPersonInput
@@ -17455,6 +17531,8 @@ export namespace Prisma {
     link?: string | null
     email?: string | null
     homeAddress?: string | null
+    nextDialDate?: Date | string | null
+    lastDialDate?: Date | string | null
     leadStatus?: $Enums.LEAD_STATUS
     author: EmployeeCreateNestedOneWithoutAuthoredPersonsInput
     origin: OriginCreateNestedOneWithoutPersonsInput
@@ -17470,6 +17548,8 @@ export namespace Prisma {
     link?: string | null
     email?: string | null
     homeAddress?: string | null
+    nextDialDate?: Date | string | null
+    lastDialDate?: Date | string | null
     authorId: number
     originId: number
     leadStatus?: $Enums.LEAD_STATUS
@@ -17606,6 +17686,8 @@ export namespace Prisma {
     link?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     homeAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
     author?: EmployeeUpdateOneRequiredWithoutAuthoredPersonsNestedInput
     origin?: OriginUpdateOneRequiredWithoutPersonsNestedInput
@@ -17621,6 +17703,8 @@ export namespace Prisma {
     link?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     homeAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     authorId?: IntFieldUpdateOperationsInput | number
     originId?: IntFieldUpdateOperationsInput | number
     leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
@@ -17635,6 +17719,8 @@ export namespace Prisma {
     link?: string | null
     email?: string | null
     homeAddress?: string | null
+    nextDialDate?: Date | string | null
+    lastDialDate?: Date | string | null
     leadStatus?: $Enums.LEAD_STATUS
     author: EmployeeCreateNestedOneWithoutAuthoredPersonsInput
     origin: OriginCreateNestedOneWithoutPersonsInput
@@ -17650,6 +17736,8 @@ export namespace Prisma {
     link?: string | null
     email?: string | null
     homeAddress?: string | null
+    nextDialDate?: Date | string | null
+    lastDialDate?: Date | string | null
     authorId: number
     originId: number
     leadStatus?: $Enums.LEAD_STATUS
@@ -17774,6 +17862,8 @@ export namespace Prisma {
     link?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     homeAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
     author?: EmployeeUpdateOneRequiredWithoutAuthoredPersonsNestedInput
     origin?: OriginUpdateOneRequiredWithoutPersonsNestedInput
@@ -17789,6 +17879,8 @@ export namespace Prisma {
     link?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     homeAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     authorId?: IntFieldUpdateOperationsInput | number
     originId?: IntFieldUpdateOperationsInput | number
     leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
@@ -17932,6 +18024,8 @@ export namespace Prisma {
     link?: string | null
     email?: string | null
     homeAddress?: string | null
+    nextDialDate?: Date | string | null
+    lastDialDate?: Date | string | null
     originId: number
     leadStatus?: $Enums.LEAD_STATUS
   }
@@ -18087,6 +18181,8 @@ export namespace Prisma {
     link?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     homeAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
     origin?: OriginUpdateOneRequiredWithoutPersonsNestedInput
     cases?: CaseUpdateManyWithoutPersonNestedInput
@@ -18102,6 +18198,8 @@ export namespace Prisma {
     link?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     homeAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     originId?: IntFieldUpdateOperationsInput | number
     leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
     cases?: CaseUncheckedUpdateManyWithoutPersonNestedInput
@@ -18117,6 +18215,8 @@ export namespace Prisma {
     link?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     homeAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     originId?: IntFieldUpdateOperationsInput | number
     leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
   }
@@ -18615,6 +18715,8 @@ export namespace Prisma {
     link?: string | null
     email?: string | null
     homeAddress?: string | null
+    nextDialDate?: Date | string | null
+    lastDialDate?: Date | string | null
     authorId: number
     leadStatus?: $Enums.LEAD_STATUS
   }
@@ -18626,6 +18728,8 @@ export namespace Prisma {
     link?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     homeAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
     author?: EmployeeUpdateOneRequiredWithoutAuthoredPersonsNestedInput
     cases?: CaseUpdateManyWithoutPersonNestedInput
@@ -18641,6 +18745,8 @@ export namespace Prisma {
     link?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     homeAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     authorId?: IntFieldUpdateOperationsInput | number
     leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
     cases?: CaseUncheckedUpdateManyWithoutPersonNestedInput
@@ -18656,6 +18762,8 @@ export namespace Prisma {
     link?: NullableStringFieldUpdateOperationsInput | string | null
     email?: NullableStringFieldUpdateOperationsInput | string | null
     homeAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    nextDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    lastDialDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     authorId?: IntFieldUpdateOperationsInput | number
     leadStatus?: EnumLEAD_STATUSFieldUpdateOperationsInput | $Enums.LEAD_STATUS
   }

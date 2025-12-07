@@ -1,10 +1,11 @@
 import { translations } from "@/localize";
-import { ROLE } from "@shared/prisma/prisma/client";
+import { CASE_CATEGORY, ROLE } from "@shared/prisma/prisma/client";
 
 import { DropdownOption } from "./cases";
 
-export type PersonCallsOptions = DropdownOption<string>;
+export type PersonCallsOption = DropdownOption<string>;
 export type PersonOriginOptions = DropdownOption<string>;
+export type PersonCategoryOption = DropdownOption<CASE_CATEGORY>;
 
 export const CAN_EDIT_PERSON_ROLES = [
   ROLE.DEV,
@@ -13,7 +14,7 @@ export const CAN_EDIT_PERSON_ROLES = [
   ROLE.SALES_MANAGER,
 ];
 
-export const PERSON_CALL_OPTIONS: PersonCallsOptions[] = [
+export const PERSON_CALL_OPTIONS: PersonCallsOption[] = [
   {
     option: "withoutCalls",
     value: translations.misc.onlyWithoutCalls,
@@ -27,3 +28,10 @@ export const PERSON_CALL_OPTIONS: PersonCallsOptions[] = [
     value: translations.misc.onlyWithCalls,
   },
 ];
+
+export const PERSON_CATEGORY_OPTIONS: PersonCategoryOption[] = Object.values(
+  CASE_CATEGORY,
+).map((k) => ({
+  option: k,
+  value: translations.categories[k],
+}));

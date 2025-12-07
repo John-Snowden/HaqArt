@@ -37,6 +37,9 @@ model Person {
   email       String? @unique
   homeAddress String?
 
+  nextDialDate DateTime?
+  lastDialDate DateTime?
+
   authorId Int
   originId Int
 

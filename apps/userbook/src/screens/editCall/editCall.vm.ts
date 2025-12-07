@@ -3,9 +3,10 @@ import { makeAutoObservable } from "mobx";
 
 import { translations } from "@/localize";
 import RootStore from "@/stores/rootStore";
-import { getLastCall } from "@/utils/calls/utils";
+import { getLatestCall } from "@/utils/calls/utils";
 import { EditableCaseFields } from "@shared/lib/actions";
 import { CALL_STATUS } from "@shared/prisma/prisma/client";
+import { getEarliestDate, getLatestDate } from "@/utils/dates";
 
 export class EditCallVM {
   root: RootStore;
@@ -43,7 +44,7 @@ export class EditCallVM {
     }
 
     try {
-      await this.root.callsStore.upsertCall({
+      const upsertedCall = await this.root.callsStore.upsertCall({
         callStatus: this.callStatus,
         info: this.info ?? null,
 
@@ -52,12 +53,39 @@ export class EditCallVM {
         personId: this.personId,
       });
 
-      await this.root.casesStore.upsertCase(
+      const { calls } = this.root.callsStore;
+      const selectedCaseCallDates = calls
+        .filter((c) => c.caseId === this.root.casesStore.selectedCaseId)
+        .map((c) => c.createdAt);
+      const lastDialDateCase = getLatestDate([
+        ...selectedCaseCallDates,
+        upsertedCall.createdAt,
+      ]);
+      const upsertedCase = await this.root.casesStore.upsertCase(
         {
+          lastDialDate: lastDialDateCase,
           nextDialDate: this.nextDialDate,
-          lastDialDate: this.lastDialDate,
         } as EditableCaseFields, // TODO type pzts
       );
+
+      const { selectedPerson } = this.root.personsStore;
+      if (!selectedPerson) throw new Error("selected person missing");
+      const { id_, ...rest } = selectedPerson;
+      const { cases } = selectedPerson;
+      const lastDialDatesPerson = [...cases, upsertedCase]
+        .filter((c) => c.lastDialDate !== null)
+        .map((c) => c.lastDialDate);
+      const lastDialDatePerson = getLatestDate(lastDialDatesPerson);
+      const nextDialDatesPerson = [...cases, upsertedCase]
+        .filter((c) => c.nextDialDate !== null)
+        .map((c) => c.nextDialDate);
+      const nextDialDatePerson = getEarliestDate(nextDialDatesPerson);
+
+      await this.root.personsStore.upsertPerson({
+        ...rest,
+        lastDialDate: lastDialDatePerson,
+        nextDialDate: nextDialDatePerson,
+      });
 
       toast.success(translations.toastMessages.success);
     } catch (e) {
@@ -102,10 +130,5 @@ export class EditCallVM {
       if (!selectedPerson) throw new Error("selected person missing");
       return selectedPerson.id;
     }
-  }
-
-  get lastDialDate(): Date | null {
-    const { calls } = this.root.callsStore;
-    return getLastCall(calls.slice())?.createdAt ?? null;
   }
 }
