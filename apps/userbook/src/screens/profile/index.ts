@@ -1,2 +1,2 @@
-export * from "./proile.vm";
+export * from "./profile.vm";
 export * from "./ProfileScreen";
