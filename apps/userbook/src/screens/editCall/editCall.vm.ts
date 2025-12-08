@@ -56,45 +56,46 @@ export class EditCallVM {
         personId: this.personId,
       });
 
-      const { calls } = this.root.callsStore;
-      const selectedCaseDoneCallDates = calls
-        .filter(
-          (c) =>
-            c.caseId === this.root.casesStore.selectedCaseId &&
-            c.callStatus === CALL_STATUS.DONE,
-        )
-        .map((c) => c.createdAt);
-      const lastDoneCallDate = getLatestDate([
-        ...selectedCaseDoneCallDates,
-        upsertedCall.createdAt,
-      ]);
-      await this.root.casesStore.upsertCase(
-        {
-          lastDialDate: lastDoneCallDate,
-          nextDialDate: this.nextDialDate,
-        } as EditableCaseFields, // TODO type pzts
-      );
+      // TODO refactor
+      // const { calls } = this.root.callsStore;
+      // const selectedCaseDoneCallDates = calls
+      //   .filter(
+      //     (c) =>
+      //       c.caseId === this.root.casesStore.selectedCaseId &&
+      //       c.callStatus === CALL_STATUS.DONE,
+      //   )
+      //   .map((c) => c.createdAt);
+      // const lastDoneCallDate = getLatestDate([
+      //   ...selectedCaseDoneCallDates,
+      //   upsertedCall.createdAt,
+      // ]);
+      // await this.root.casesStore.upsertCase(
+      //   {
+      //     lastDialDate: lastDoneCallDate,
+      //     nextDialDate: this.nextDialDate,
+      //   } as EditableCaseFields, // TODO type pzts
+      // );
 
-      await this.root.casesStore.getCases({ personId: upsertedCall.personId });
-      const { cases } = this.root.casesStore;
-      const lastDoneCallDatesPerson = cases
-        .filter((c) => c.lastDialDate !== null)
-        .map((c) => c.lastDialDate) as Date[];
-      const lastDoneCallDatePerson = getLatestDate(lastDoneCallDatesPerson);
-      const filteredNext = [...cases, upsertedCase].filter(
-        (c) => c.nextDialDate !== null,
-      );
-      const nextDialDatesPerson = filteredNext.map(
-        (c) => c.nextDialDate,
-      ) as Date[];
-      const nextDialDatePerson = getEarliestDate(nextDialDatesPerson);
-      // TODO log
-      console.log("cases", cases);
+      // await this.root.casesStore.getCases({ personId: upsertedCall.personId });
+      // const { cases } = this.root.casesStore;
+      // const lastDoneCallDatesPerson = cases
+      //   .filter((c) => c.lastDialDate !== null)
+      //   .map((c) => c.lastDialDate) as Date[];
+      // const lastDoneCallDatePerson = getLatestDate(lastDoneCallDatesPerson);
+      // const filteredNext = [...cases, upsertedCase].filter(
+      //   (c) => c.nextDialDate !== null,
+      // );
+      // const nextDialDatesPerson = filteredNext.map(
+      //   (c) => c.nextDialDate,
+      // ) as Date[];
+      // const nextDialDatePerson = getEarliestDate(nextDialDatesPerson);
+      // // TODO log
+      // console.log("cases", cases);
 
-      await this.root.personsStore.upsertPerson({
-        lastDialDate: lastDoneCallDatePerson,
-        nextDialDate: nextDialDatePerson,
-      } as EditablePersonFields); // TODO type pzts
+      // await this.root.personsStore.upsertPerson({
+      //   lastDialDate: lastDoneCallDatePerson,
+      //   nextDialDate: nextDialDatePerson,
+      // } as EditablePersonFields); // TODO type pzts
 
       toast.success(translations.toastMessages.success);
     } catch (e) {
