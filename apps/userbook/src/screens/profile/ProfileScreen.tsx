@@ -9,7 +9,9 @@ import styles from "./styles.module.css";
 import { StatsList } from "./components/StatsList";
 
 export const ProfileScreen = observer(() => {
-  const { logout } = useRootStore();
+  const {
+    authStore: { logout },
+  } = useRootStore();
 
   return (
     <>

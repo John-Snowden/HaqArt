@@ -68,7 +68,7 @@ const getTotalCount = async (id: number) => {
 
 const getUsersCountByDate = async (
   managerId: number,
-  date: Date | null
+  date: Date | null,
 ): Promise<number> => {
   // TODO mock
   return 0;
@@ -105,19 +105,21 @@ export const prismaGetEmployeeById = async (id: number) => {
 };
 
 export const prismaGetHaqBotEmployee = async () => {
-  let result;
-  try {
-    console.log("NAME:", HAQ_BOT_NAME);
-    console.log("PASS:", HAQ_BOT_PASS);
+  return null;
+  // TODO refactor
+  // let result;
+  // try {
+  //   console.log("NAME:", HAQ_BOT_NAME);
+  //   console.log("PASS:", HAQ_BOT_PASS);
 
-    const res = await prismaLogin({
-      username: "haq_bot",
-      password: "haq_bot_portal_password123",
-    });
-    if ("error" in res) throw new Error();
-    result = await prismaGetEmployeeById(res.id);
-  } catch (e) {
-    result = { error: "Бот не получен\n" + e };
-  }
-  return result;
+  //   const res = await prismaLogin({
+  //     username: "haq_bot",
+  //     password: "haq_bot_portal_password123",
+  //   });
+  //   if ("error" in res) throw new Error();
+  //   result = await prismaGetEmployeeById(res.id);
+  // } catch (e) {
+  //   result = { error: "Бот не получен\n" + e };
+  // }
+  // return result;
 };

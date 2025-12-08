@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { observer } from "mobx-react-lite";
 
 import { UIListWrapper } from "@/ui";
+import { useProfileVM } from "@/context";
 
 import { ManagerStats } from "../types/types";
 import { StatsListItem } from "./StatsListItem";
