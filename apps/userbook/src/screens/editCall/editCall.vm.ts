@@ -1,11 +1,13 @@
+"use client";
+
 import { toast } from "sonner";
 import { makeAutoObservable } from "mobx";
 
 import { translations } from "@/localize";
 import RootStore from "@/stores/rootStore";
-import { EditableCaseFields, EditablePersonFields } from "@shared/lib/actions";
+// import { EditableCaseFields, EditablePersonFields } from "@shared/lib/actions";
 import { CALL_STATUS } from "@shared/prisma/prisma/client";
-import { getEarliestDate, getLatestDate } from "@/utils/dates";
+// import { getEarliestDate, getLatestDate } from "@/utils/dates";
 
 export class EditCallVM {
   root: RootStore;
@@ -47,7 +49,7 @@ export class EditCallVM {
     // which is an antipattern
     // untangle when appropriate
     try {
-      const upsertedCall = await this.root.callsStore.upsertCall({
+      await this.root.callsStore.upsertCall({
         callStatus: this.callStatus,
         info: this.info ?? null,
 
