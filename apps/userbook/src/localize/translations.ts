@@ -62,6 +62,8 @@ export const translations: {
     authorId: "Добавил",
     originId: "Источник",
     leadStatus: "Статус лида",
+    lastDialDate: "Последний дозвон",
+    nextDialDate: "Следующий звонок",
   },
   opponent: {
     name: "Название",

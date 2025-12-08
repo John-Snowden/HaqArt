@@ -23,10 +23,10 @@ export const PersonsListScreen = () => {
       <div className={stylesGlobal.tableHeader}>
         <h4 className={stylesGlobal.tableColumn}>{translations.person.name}</h4>
         <h4 className={stylesGlobal.tableColumn}>
-          {translations.misc.lastContacted}
+          {translations.person.lastDialDate}
         </h4>
         <h4 className={stylesGlobal.tableColumn}>
-          {translations.misc.nextDialDate}
+          {translations.person.nextDialDate}
         </h4>
         <h4 className={stylesGlobal.tableColumn}>
           {translations.person.phoneNumber}

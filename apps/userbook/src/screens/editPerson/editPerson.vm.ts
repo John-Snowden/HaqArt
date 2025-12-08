@@ -31,6 +31,9 @@ export default class EditPersonVM {
   phoneNumber: string | undefined = undefined;
   homeAddress: string | undefined = undefined;
 
+  lastDialDate: Date | null = null;
+  nextDialDate: Date | null = null;
+
   constructor(root: RootStore) {
     this.root = root;
     this.casesModule = new CasesModule(root);
@@ -43,6 +46,8 @@ export default class EditPersonVM {
       this.email = selectedPerson.email ?? undefined;
       this.phoneNumber = selectedPerson.phoneNumber ?? undefined;
       this.homeAddress = selectedPerson.homeAddress ?? undefined;
+      this.lastDialDate = selectedPerson.lastDialDate;
+      this.nextDialDate = selectedPerson.nextDialDate;
     }
     makeAutoObservable(this);
 
@@ -76,6 +81,10 @@ export default class EditPersonVM {
         email: this.email?.trim() || null,
         homeAddress: this.homeAddress?.trim() ?? null,
         leadStatus: this.leadStatus,
+
+        lastDialDate: this.lastDialDate,
+        nextDialDate: this.nextDialDate,
+
         authorId: this.authorId,
         originId: this.originId,
       });

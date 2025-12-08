@@ -69,6 +69,9 @@ export default class PersonsListVM {
 
   get persons(): PersonFull[] {
     const persons = this.root.personsStore.persons.slice();
+    // TODO log
+    console.log("persons", persons);
+
     persons.sort((a, b) => {
       const callA = (a.calls[0] as Call | undefined)?.createdAt || new Date();
       const callB = (b.calls[0] as Call | undefined)?.createdAt || new Date();

@@ -1,3 +1,5 @@
+// TODO remove
+
 // import { Call } from "@shared/prisma/prisma/client";
 
 // export const getEarliestCall = (calls: Call[]): Call | null => {

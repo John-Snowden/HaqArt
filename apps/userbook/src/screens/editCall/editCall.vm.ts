@@ -3,8 +3,7 @@ import { makeAutoObservable } from "mobx";
 
 import { translations } from "@/localize";
 import RootStore from "@/stores/rootStore";
-import { getLatestCall } from "@/utils/calls/utils";
-import { EditableCaseFields } from "@shared/lib/actions";
+import { EditableCaseFields, EditablePersonFields } from "@shared/lib/actions";
 import { CALL_STATUS } from "@shared/prisma/prisma/client";
 import { getEarliestDate, getLatestDate } from "@/utils/dates";
 
@@ -43,6 +42,10 @@ export class EditCallVM {
       throw new Error("call status is missing");
     }
 
+    // TODO since the project lacks a server
+    // this method had to perform server layer tasks
+    // which is an antipattern
+    // untangle when appropriate
     try {
       const upsertedCall = await this.root.callsStore.upsertCall({
         callStatus: this.callStatus,
@@ -54,38 +57,44 @@ export class EditCallVM {
       });
 
       const { calls } = this.root.callsStore;
-      const selectedCaseCallDates = calls
-        .filter((c) => c.caseId === this.root.casesStore.selectedCaseId)
+      const selectedCaseDoneCallDates = calls
+        .filter(
+          (c) =>
+            c.caseId === this.root.casesStore.selectedCaseId &&
+            c.callStatus === CALL_STATUS.DONE,
+        )
         .map((c) => c.createdAt);
-      const lastDialDateCase = getLatestDate([
-        ...selectedCaseCallDates,
+      const lastDoneCallDate = getLatestDate([
+        ...selectedCaseDoneCallDates,
         upsertedCall.createdAt,
       ]);
-      const upsertedCase = await this.root.casesStore.upsertCase(
+      await this.root.casesStore.upsertCase(
         {
-          lastDialDate: lastDialDateCase,
+          lastDialDate: lastDoneCallDate,
           nextDialDate: this.nextDialDate,
         } as EditableCaseFields, // TODO type pzts
       );
 
-      const { selectedPerson } = this.root.personsStore;
-      if (!selectedPerson) throw new Error("selected person missing");
-      const { id_, ...rest } = selectedPerson;
-      const { cases } = selectedPerson;
-      const lastDialDatesPerson = [...cases, upsertedCase]
+      await this.root.casesStore.getCases({ personId: upsertedCall.personId });
+      const { cases } = this.root.casesStore;
+      const lastDoneCallDatesPerson = cases
         .filter((c) => c.lastDialDate !== null)
-        .map((c) => c.lastDialDate);
-      const lastDialDatePerson = getLatestDate(lastDialDatesPerson);
-      const nextDialDatesPerson = [...cases, upsertedCase]
-        .filter((c) => c.nextDialDate !== null)
-        .map((c) => c.nextDialDate);
+        .map((c) => c.lastDialDate) as Date[];
+      const lastDoneCallDatePerson = getLatestDate(lastDoneCallDatesPerson);
+      const filteredNext = [...cases, upsertedCase].filter(
+        (c) => c.nextDialDate !== null,
+      );
+      const nextDialDatesPerson = filteredNext.map(
+        (c) => c.nextDialDate,
+      ) as Date[];
       const nextDialDatePerson = getEarliestDate(nextDialDatesPerson);
+      // TODO log
+      console.log("cases", cases);
 
       await this.root.personsStore.upsertPerson({
-        ...rest,
-        lastDialDate: lastDialDatePerson,
+        lastDialDate: lastDoneCallDatePerson,
         nextDialDate: nextDialDatePerson,
-      });
+      } as EditablePersonFields); // TODO type pzts
 
       toast.success(translations.toastMessages.success);
     } catch (e) {

@@ -9,9 +9,7 @@ import { translations } from "@/localize";
 import { ROUTES } from "@/constants/routes";
 import { usePersonsListVM } from "@/context";
 import { UIListWrapper, UIIcon } from "@/ui";
-import { getLatestCall } from "@/utils/calls/utils";
 import { greenFilter, redFilter } from "@/theme/Colors";
-import { CALL_STATUS } from "@shared/prisma/prisma/client";
 
 import stylesGlobal from "../../../stylesGlobal.module.css";
 
@@ -35,25 +33,16 @@ export const PersonsList = observer(() => {
       .slice()
       .reverse()
       .map((person) => {
-        const { id, name, phoneNumber, calls, cases } = person;
-        const lastCall = getLatestCall(calls);
-        const lastCalled = lastCall
-          ? format(lastCall.createdAt, "d MMM yyyy, HH:mm", { locale: ru })
+        const { id, name, phoneNumber, lastDialDate, nextDialDate } = person;
+        const lastCalled = lastDialDate
+          ? format(lastDialDate, "d MMM yyyy, HH:mm", { locale: ru })
           : "-";
 
-        const nextDialDates = cases
-          .map((c) => c.nextDialDate)
-          .filter((d) => d !== null);
-        const sorted = [...nextDialDates].sort(
-          (a, b) => a.getTime() - b.getTime(),
-        );
-        const earliestDialDate = sorted[0];
-        const nextCall = earliestDialDate
-          ? format(earliestDialDate, "d MMM yyyy, HH:mm", { locale: ru })
+        const nextCall = nextDialDate
+          ? format(nextDialDate, "d MMM yyyy, HH:mm", { locale: ru })
           : "-";
         const isBeforeTomorrow =
-          Boolean(earliestDialDate) &&
-          isBefore(earliestDialDate, endOfDay(new Date()));
+          nextDialDate && isBefore(nextDialDate, endOfDay(new Date()));
 
         return (
           <div
@@ -70,15 +59,17 @@ export const PersonsList = observer(() => {
             </div>
             <div className={`${stylesGlobal.tableColumn}`}>{name}</div>
             <div
+              // TODO
+              // ${lastCall?.callStatus === CALL_STATUS.MISSED ? ", " + translations.callStatuses.MISSED : ""}
               className={`${stylesGlobal.tableColumn}`}
-            >{`${lastCalled}${lastCall?.callStatus === CALL_STATUS.MISSED ? ", " + translations.callStatuses.MISSED : ""}`}</div>
+            >{`${lastCalled}`}</div>
             <div className={`${stylesGlobal.tableColumn}`}>
               {nextCall}
-              {isBeforeTomorrow && earliestDialDate && (
+              {isBeforeTomorrow && nextDialDate && (
                 <div
                   style={{
                     marginLeft: 24,
-                    filter: isToday(earliestDialDate) ? greenFilter : redFilter,
+                    filter: isToday(nextDialDate) ? greenFilter : redFilter,
                   }}
                 >
                   <UIIcon source="./svg/lightbulb.svg" size={18} />
