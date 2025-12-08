@@ -25,7 +25,7 @@ export const translations: {
   person: Record<keyof EditablePersonFields, string>;
   opponent: Record<keyof EditableOpponentFields, string>;
   blogger: Record<keyof EditableBloggerFields, string>;
-  legalCase: Record<keyof EditableCaseFields, string>;
+  legalCase: Record<string, string>;
   categories: Record<CASE_CATEGORY, string>;
   toastMessages: Record<string, string>;
   alertMessages: Record<string, string>;
