@@ -12,7 +12,6 @@ import {
   APPOINTMENT_STATUS,
 } from "@shared/prisma/prisma/client";
 import {
-  EditableCaseFields,
   EditableOriginFields,
   EditablePersonFields,
   EditableBloggerFields,
